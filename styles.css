@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 ::-webkit-scrollbar-track {
     background: #1a1a1a;
   }
@@ -24,6 +24,41 @@
     justify-content: baseline;
     color: white;
 }
+p, ul, li{
+    font-size: 3vh;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    font-family: "Comfortaa", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+}
+p{
+    grid-area: TXT;
+
+}
+ul{
+    padding-left: 5vh;
+    grid-area: LI;
+
+}
+h1 {
+    font-size: 10vh;
+   
+    grid-area: TIT;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    font-family: "Bagel Fat One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+
+}
+
 option{
     background-color: #15276d;
 }
@@ -37,7 +72,6 @@ option{
         width: 100%;
     }
     .header{
-        animation: show 2s both;
 
         z-index: 100;
         display: grid;
@@ -75,6 +109,8 @@ option{
         color: white;
     }
     .links{
+        animation: show 2s both;
+
         padding-right: 5vh;
         grid-area: LINK;
         display: flex;
@@ -84,7 +120,8 @@ option{
         align-items: center;
     }
     .capa1{
-        background-color: rgba(0, 0, 0, 0.384);
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.603);
         position: absolute;
         backdrop-filter: blur(0.3vh);
         top: 0vh;
@@ -101,7 +138,20 @@ option{
         right: -50vh;
         width: 150vh;
         height: 150vh;
-        mix-blend-mode: lighten; /* Mezcla para aclarar */
+        mix-blend-mode: lighten; 
+        
+    }
+    .circulo{
+        backdrop-filter: blur(0.5vh);
+        z-index: -1;
+        background: radial-gradient(circle, #2443b8, #2443b8);
+        position: absolute;
+        border-radius: 100% 100% 0%  0%;
+        bottom: 0%;
+        left: -10%;
+        width: 120%;
+        height: 85%;
+        mix-blend-mode: lighten; 
     }
     .capa3{
         animation: show 2s both;
@@ -122,7 +172,8 @@ option{
 
     }
     .contendor{
-        border-radius: 0vh 0% 0vh 50% ;
+        overflow: hidden;
+
         width: 100%;
         height: max-content;
         top: 0%;
@@ -130,8 +181,18 @@ option{
         position: absolute;
         display: grid;
         grid-template:
-        "CON"auto/
-        auto;
+        "CON"auto
+        "INFO"max-content/
+        
+        100%;
+    }
+    #links .link:hover{
+        transform: scale(1.1);
+    }
+    button, a{
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
     }
     .contenido{
         height: 100vh;
@@ -140,7 +201,45 @@ option{
         grid-area: CON;
         position: relative;
     }
+    .informacion{
+        min-height: 100vh;
+        overflow: hidden;
+        grid-area: INFO;
+        position: relative;
+        display: grid;
+        grid-template: 
+        ". . ."25vh
+        ". TIT  ."max-content
+        ". TXT  ."max-content
+        ". . ."auto
+        "LEN LEN  LEN"max-content
+        ". . ."auto/
+        auto 60% auto;
+    }
+    .informacion p{
+        border: white 0.05vh solid;
+        padding: 2vh;
+        border-radius: 2vh;
+    }
+    .subtitulo{
+        grid-area: TIT2;
+        font-size: 5vh;
+    }
+    .lenguajes{
+        grid-area: LEN;
+        overflow: hidden;
+        max-height: 10vh;
+        min-height: 10vh;
+        position: relative;    
+        padding-left: 5vh;
+        margin-top: 5vh;
+    }
+    #nosotros{
+        opacity: 0%;
+        pointer-events: none;
+    }
     video{
+        z-index: -2;
         position: absolute;
         top: 0;
         left: 0;
@@ -151,7 +250,34 @@ option{
     
     }
 
+    .hidden{
+         mix-blend-mode: lighten;
+        background-color: #15276d;
+        -webkit-backdrop-filter: blur(5vh);
+        backdrop-filter: blur(5vh);
+    }
+    .visible{
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.397), transparent); ;
+    
+    }
+    .lenguaje{
+        background-position: center;
 
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: -30vh;
+         min-width: 30vh;
+         height: 100%;
+     }
+    @keyframes animarca {
+        0%{
+            left: -30vh;
+        }
+        100%{
+            left: 250vh;
+        }
+    }
 @keyframes show {
     from {
         opacity: 0%;
@@ -164,6 +290,35 @@ option{
     }
 }
 @media (max-width: 100vh) {
+    .informacion{
+        min-height: 100vh;
+        overflow: hidden;
+        grid-area: INFO;
+        position: relative;
+        display: grid;
+        grid-template: 
+        ". . ."30vh
+        ". TIT  ."max-content
+        ". TXT  ."max-content
+        ". . ."auto
+        "LEN LEN  LEN"max-content
+        ". . ."auto/
+        auto 80% auto;
+    }
+    .circulo{
+        
+        background: radial-gradient(circle, #2443b8, #2443b8);
+        position: absolute;
+        border-radius: 100% 100% 0%  0%;
+        bottom: 0%;
+        left: -20%;
+        width: 140%;
+        height: 85%;
+        mix-blend-mode: lighten; 
+    }
+    h1 {
+        font-size: 8vh;
+    }
     .capa2{
         backdrop-filter: blur(0.5vh);
         background-color: 2443b8;

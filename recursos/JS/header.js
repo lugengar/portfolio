@@ -1,29 +1,29 @@
 let bar =false
 
-// window.addEventListener('scroll', function() {
-//     var header = document.getElementById('header');
-//     var nosotros = document.getElementById('nosotros');
-//     var scrollPosition = window.scrollY || window.pageYOffset;
+window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    var nosotros = document.getElementById('nosotros');
+    var scrollPosition = window.scrollY || window.pageYOffset;
 
 
-//     if (scrollPosition >= 100) {
-//         header.classList.add('hidden');
-//         header.classList.remove('visible');
-//     } else {
+    if (scrollPosition >= 100) {
+        header.classList.add('hidden');
+        header.classList.remove('visible');
+    } else {
      
-//         header.classList.add('visible');
-//         header.classList.remove('hidden');
-//     }
-//     if (scrollPosition >= 500) {
-//         nosotros.style.opacity = "100%";
-//         nosotros.style.pointerEvents= "all";
-//         nosotros.style.cursor= "pointer";
-//     } else {
-//         nosotros.style.opacity = "0%";
-//         nosotros.stylepointerEvents= "none";
-//         nosotros.style.cursor= "default";
-//     }
-// });
+        header.classList.add('visible');
+        header.classList.remove('hidden');
+    }
+    if (scrollPosition >= 500) {
+        nosotros.style.opacity = "100%";
+        nosotros.style.pointerEvents= "all";
+        nosotros.style.cursor= "pointer";
+    } else {
+        nosotros.style.opacity = "0%";
+        nosotros.stylepointerEvents= "none";
+        nosotros.style.cursor= "default";
+    }
+});
 
 function sidebar(){
     bar = !bar

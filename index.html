@@ -11,7 +11,7 @@
     <div class="contendor">
         <div id="sidebar">
             <div class="links" >
-                
+                <button onclick="redirigir('contacto')" class="link">INICIO</button>
                 <button onclick="redirigir('contacto')" class="link">SOBRE MÍ</button>
                 <button onclick="redirigir('contacto')" class="link">PROYECTOS</button>
                 <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
@@ -24,11 +24,12 @@
                 
             </div>
         </div>
-        <div class="header">
+        <div class="header" id="header">
             <div class="logo"></div>
             <div class="links" id="links">
                
-                <button onclick="redirigir('contacto')" class="link">SOBRE MÍ</button>
+                <button onclick="redirigir('contenido')" id="nosotros" class="link">INICIO</button>
+                <button onclick="redirigir('informacion')" class="link">SOBRE MÍ</button>
                 <button onclick="redirigir('contacto')" class="link">PROYECTOS</button>
                 <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
               <!--   <select class="link">
@@ -41,15 +42,30 @@
                 <button onclick="sidebar()" id="rayas">&#9776;</button>
             </div>
         </div>
-        <div class="contenido">
+        <div class="contenido" id="contenido">
             <video preload autoplay loop muted>
-                <source src="recursos/MP4/video.mp4" type="video/mp4">
+                <source src="recursos/MP4/video1.mp4" type="video/mp4">
               </video>    
               <div class="capa1"></div>          
               <div class="capa2"></div>          
               <div class="capa3"></div>          
         </div>
+        <div class="informacion" id="informacion">
+            <video preload autoplay loop muted>
+                <source src="recursos/MP4/video2.mp4" type="video/mp4">
+              </video>   
+              <div class="capa1"></div>          
+              <h1>SOBRE MÍ</h1>
+              <p>Soy Luciano, técnico en programación con experiencia en el diseño y desarrollo de interfaces intuitivas, así como en la creación de chatbots e inteligencia artificial. Me especializo en construir soluciones tecnológicas eficientes, optimizadas y orientadas a mejorar la experiencia del usuario. <br><br>
+                Mi enfoque se basa en la combinación de creatividad y funcionalidad, asegurando que cada proyecto no solo sea visualmente atractivo, sino también práctico y fácil de usar. Me interesa especialmente la automatización de procesos, el desarrollo de sistemas inteligentes y la implementación de tecnologías emergentes para mejorar la eficiencia y accesibilidad de las plataformas digitales.
+              <div class="lenguajes" id="lenguajes">
+                <div class="lenguaje"></div>
+              </div>
+            <div class="circulo">
+            </div>
+        </div>
     </div>
 </body>
 </html>
 <script src="recursos/JS/header.js"></script>
+<script src="recursos/JS/lenguajes.js"></script>
