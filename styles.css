@@ -233,6 +233,7 @@ option{
         position: relative;    
         padding-left: 5vh;
         margin-top: 5vh;
+        margin-bottom: 5vh;
     }
     #nosotros{
         opacity: 0%;
@@ -309,11 +310,11 @@ option{
         
         background: radial-gradient(circle, #2443b8, #2443b8);
         position: absolute;
-        border-radius: 100% 100% 0%  0%;
+        border-radius:0%;
         bottom: 0%;
         left: -20%;
         width: 140%;
-        height: 90%;
+        height: 80%;
         mix-blend-mode: lighten; 
     }
     p{
