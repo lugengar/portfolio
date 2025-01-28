@@ -1,0 +1,236 @@
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+  
+  * {
+    scrollbar-color: #5a5a5a #1a1a1a;
+  }
+   select,option{
+    outline: none;
+    border-radius: 0%;
+    padding: 0;
+    margin: 0;
+    resize: none;
+    justify-content: baseline;
+    color: white;
+}
+option{
+    background-color: #15276d;
+}
+  #rayas{
+    display: none;
+}
+    #sidebar{
+    display: none;
+    }
+    #sidebar .link{
+        width: 100%;
+    }
+    .header{
+        animation: show 2s both;
+
+        z-index: 100;
+        display: grid;
+        position: fixed;
+        width: 100%;
+        height: 5vh;
+        left: 0%;
+        top: 0%;
+   
+        padding: 2vh;
+      
+        grid-template:
+        "LOGO . LINK" auto/
+        10vh auto auto ;
+    }
+    .logo{
+        grid-area: LOGO;
+        background-image: url(recursos/SVG/minilogo.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+       
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+    .link{
+        background-color: transparent;
+        border: none;
+        text-decoration: none;
+        margin: 0;
+        font-family: "Comfortaa", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-size: 2vh;
+        display: flex;
+        justify-content: baseline;
+        color: white;
+    }
+    .links{
+        padding-right: 5vh;
+        grid-area: LINK;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5vh;
+        justify-content: right;
+        align-items: center;
+    }
+    .capa1{
+        background-color: rgba(0, 0, 0, 0.384);
+        position: absolute;
+        backdrop-filter: blur(0.3vh);
+        top: 0vh;
+        right: 0vh;
+        width: 100%;
+        height: 100%;
+    }
+    .capa2{
+        background: radial-gradient(circle, #2443b8, #2443b8);
+        /* background-color: #2443b8;  */
+        position: absolute;
+        border-radius: 50%;
+        top: -20vh;
+        right: -50vh;
+        width: 150vh;
+        height: 150vh;
+        mix-blend-mode: lighten; /* Mezcla para aclarar */
+    }
+    .capa3{
+        animation: show 2s both;
+
+        position: absolute;
+        border-radius: 50%;
+        background-image: url(recursos/SVG/logo.svg);
+        background-position: 20vh;
+        background-repeat: no-repeat;
+        background-size: 70vh; 
+        top: -20vh;
+        right: -50vh;
+        width: 150vh;
+        height: 150vh;
+    }
+    body{
+        background-color: #15276d; 
+
+    }
+    .contendor{
+        border-radius: 0vh 0% 0vh 50% ;
+        width: 100%;
+        height: max-content;
+        top: 0%;
+        left: 0%;
+        position: absolute;
+        display: grid;
+        grid-template:
+        "CON"auto/
+        auto;
+    }
+    .contenido{
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        grid-area: CON;
+        position: relative;
+    }
+    video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Asegura que el video cubra toda la pantalla */
+        z-index: -1; /* Lo envía al fondo */
+    
+    }
+
+
+@keyframes show {
+    from {
+        opacity: 0%;
+        transform: translateY(5vh);
+    }
+    to {
+        opacity: 100%;
+
+        transform:  translateY(0);
+    }
+}
+@media (max-width: 100vh) {
+    .capa2{
+        backdrop-filter: blur(0.5vh);
+        background-color: 2443b8;
+        border-radius: 50% 50%  0vh 0vh;
+        position: absolute;
+        top: auto;
+        bottom: 0%;
+        left: -5%;
+        width: 110%;
+        height: 60%;
+        mix-blend-mode: lighten; /* Mezcla para aclarar */
+    }
+    .capa3{
+        position: absolute;
+        border-radius: 0;
+        background-image: url(recursos/SVG/logo.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 80vw; 
+        top: auto;
+        bottom: 0%;
+        left: 0%;
+        width: 100%;
+        height: 60%;
+    }
+    #links .link{
+        display: none;
+    }
+    #sidebar .link{
+        padding: 2vh;
+        width: 100%;
+    }
+    #sidebar{
+    background-color: #2444b89f;
+
+        transition: transform 0.5s ease-in-out;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0%;
+        top: 0%;
+        display: grid;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        /* background-color: black; */
+    -webkit-backdrop-filter: blur(5vh);
+    backdrop-filter: blur(5vh);
+        grid-template:
+        ". " 10vh
+        " LINK "30vh
+        " . "auto/
+         auto  ;
+        transform: translateX(110%);
+    }
+    #rayas{
+        background-color: transparent;
+        border: none;
+        display: grid;
+        margin: 0;
+        font-family: "Chillax";
+        font-weight: 500;
+        font-size: 4vh;
+        grid-area: MIN;
+        display: flex;
+        justify-content: baseline;
+        color: white;
+    }
+}
