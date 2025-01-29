@@ -290,6 +290,12 @@ option{
         transform:  translateY(0);
     }
 }
+.titulo, .texto{
+    opacity: 0;
+}
+.aparece {
+    animation: show 0.6s ease-out forwards;
+}
 @media (max-width: 100vh) {
     .informacion{
         min-height: 100vh;
