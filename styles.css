@@ -85,11 +85,11 @@ option{
       
         grid-template:
         "LOGO . LINK" auto/
-        10vh auto auto ;
+        12vh auto auto ;
     }
     .logo{
         grid-area: LOGO;
-        background-image: url(recursos/SVG/minilogo.svg);
+        background-image: url(recursos/SVG/icono2.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
