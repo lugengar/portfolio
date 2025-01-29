@@ -109,7 +109,6 @@ option{
         color: white;
     }
     .links{
-        animation: show 2s both;
 
         padding-right: 5vh;
         grid-area: LINK;
@@ -156,7 +155,7 @@ option{
         mix-blend-mode: lighten; 
     }
     .capa3{
-        animation: show 2s both;
+        animation: show 0.6s ease-out forwards;
 
         position: absolute;
         border-radius: 50%;

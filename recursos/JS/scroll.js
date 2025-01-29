@@ -1,4 +1,4 @@
-function isElementInViewport(el, offset = 200) { 
+function isElementInViewport(el, offset = 250) { 
     const rect = el.getBoundingClientRect();
     return (
         rect.top >= -offset &&
@@ -11,7 +11,7 @@ function isElementInViewport(el, offset = 200) {
 function handleScroll() {
     const elements = document.querySelectorAll('.titulo, .texto');
     elements.forEach((element) => {
-        if (isElementInViewport(element, 200)) { 
+        if (isElementInViewport(element, 250)) { 
             element.classList.add('aparece');
         }
     });
