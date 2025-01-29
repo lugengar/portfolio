@@ -170,7 +170,7 @@ option{
         height: 150vh;
     }
     body{
-        background-color: #15276d; 
+        background-color: rgb(24, 24, 24);
 
     }
     .contendor{
@@ -197,6 +197,8 @@ option{
         padding: 0;
     }
     .contenido{
+        border-radius: 0vh 0vh 0vh 20vh;
+
         height: 100vh;
         width: 100%;
         overflow: hidden;
@@ -204,6 +206,7 @@ option{
         position: relative;
     }
     .informacion{
+        border-radius: 20vh 0vh 0vh 0vh;
         min-height: 100vh;
         overflow: hidden;
         grid-area: INFO;
@@ -301,6 +304,7 @@ option{
 }
 @media (max-width: 100vh) {
     .informacion{
+        border-radius: 0vh 0vh 0vh 0vh;
         min-height: 100vh;
         overflow: hidden;
         grid-area: INFO;
@@ -309,20 +313,25 @@ option{
         grid-template: 
         ". . ."30vh
         ". TIT  ."max-content
+        ". . ."3vh
         ". TXT  ."max-content
         ". . ."auto
         "LEN LEN  LEN"max-content
         ". . ."auto/
         auto 95% auto;
     }
+    .contenido{
+        border-radius: 0vh 0vh 0vh 0vh;
+
+    }
     .circulo{
         
         background: radial-gradient(circle, #2443b8, #2443b8);
         position: absolute;
-        border-radius:0%;
+        border-radius:  25vh 25vh 0%  0% ;
         bottom: 0%;
-        left: -20%;
-        width: 140%;
+        left:  0%;
+        width: 100%;
         height: 80%;
         mix-blend-mode: lighten; 
     }
@@ -330,19 +339,20 @@ option{
         font-size: 2.5vh;
     }
     h1 {
+        text-align: center;
         font-size: 8vh;
     }
     .capa2{
         -webkit-backdrop-filter: blur(0.5vh);
         backdrop-filter: blur(0.5vh);
         background-color: 2443b8;
-        border-radius: 50% 50%  0vh 0vh;
+        border-radius: 100vh 0%  0% 100vh;
         position: absolute;
-        top: auto;
-        bottom: 0%;
-        left: -5%;
-        width: 110%;
-        height: 60%;
+        top: 15%;
+        left: auto;
+        right: 0%;
+        width: 100%;
+        height: 70%;
         mix-blend-mode: lighten; /* Mezcla para aclarar */
     }
     .capa3{
@@ -352,9 +362,9 @@ option{
         background-position: center;
         background-repeat: no-repeat;
         background-size: 80vw; 
-        top: auto;
-        bottom: 0%;
-        left: 0%;
+        top: 20%;
+        left: auto;
+        right: 0%;
         width: 100%;
         height: 60%;
     }
