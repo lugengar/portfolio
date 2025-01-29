@@ -123,6 +123,7 @@ option{
         z-index: -1;
         background-color: rgba(0, 0, 0, 0.603);
         position: absolute;
+        -webkit-backdrop-filter: blur(0.3vh);
         backdrop-filter: blur(0.3vh);
         top: 0vh;
         right: 0vh;
@@ -142,6 +143,7 @@ option{
         
     }
     .circulo{
+        -webkit-backdrop-filter: blur(0.5vh);
         backdrop-filter: blur(0.5vh);
         z-index: -1;
         background: radial-gradient(circle, #2443b8, #2443b8);
@@ -254,7 +256,7 @@ option{
 
     .hidden{
          mix-blend-mode: lighten;
-        background-color: #15276d;
+     
         -webkit-backdrop-filter: blur(5vh);
         backdrop-filter: blur(5vh);
     }
@@ -311,7 +313,7 @@ option{
         ". . ."auto
         "LEN LEN  LEN"max-content
         ". . ."auto/
-        auto 80% auto;
+        auto 95% auto;
     }
     .circulo{
         
@@ -331,6 +333,7 @@ option{
         font-size: 8vh;
     }
     .capa2{
+        -webkit-backdrop-filter: blur(0.5vh);
         backdrop-filter: blur(0.5vh);
         background-color: 2443b8;
         border-radius: 50% 50%  0vh 0vh;
