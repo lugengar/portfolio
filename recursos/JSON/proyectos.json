@@ -1,0 +1,28 @@
+{
+    "configuracion": 
+    {
+        "ubicacioncarpeta": "recursos/SVG/"
+    },
+    "imagenes": [
+    {
+        "imagen": "web1.png",
+        "posicionimagen": "",
+        "titulo": "ESTUDIAR EN LA REGION 6",
+        "url": "https://estudiarenlaregion6.abc.gob.ar/",
+        "texto": ""
+    },
+    {
+        "imagen": "web2.svg",
+        "posicionimagen": "",
+        "titulo": "BTL SOLUTIONS",
+        "url": "https://btl-solutions.com.ar/",
+        "texto": ""
+    },
+    {
+        "imagen": "web3.svg",
+        "posicionimagen": "",
+        "titulo": "LOU COMIDAS",
+        "url": "https://lugengar.github.io/lou_comidas/",
+        "texto": ""
+    }
+]}

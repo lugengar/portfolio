@@ -44,16 +44,5 @@ function redirigir(href){
         sidebar.style.transform = "translateX(110%)"
     }
 }
-function consultar(consulta,producto){
-    var asunto = document.getElementById('asunto');
-    var mensaje = document.getElementById('mensaje');
-    if(consulta=="COTIZACIÓN PRODUCTOS"){
-        mensaje.textContent = "Hola, quisiera saber la cotización del "+consulta+' '+producto+". Gracias."
-    }else  if(consulta=="COTIZACIÓN SERVICIOS"){
-        mensaje.textContent = "Hola, quisiera saber la cotización del "+producto+". Gracias."
-    }
-    asunto.value = consulta
-    document.querySelector("#contacto").scrollIntoView({ behavior: 'smooth' });
-    
-}
+
 

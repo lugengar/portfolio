@@ -129,6 +129,7 @@ option{
         width: 100%;
         height: 100%;
     }
+    
     .capa2{
         background: radial-gradient(circle, #2443b8, #2443b8);
         /* background-color: #2443b8;  */
@@ -140,6 +141,105 @@ option{
         height: 150vh;
         mix-blend-mode: lighten; 
         
+    }
+    .capa4{
+        background: radial-gradient(circle, #2443b8, #2443b8);
+        /* background-color: #2443b8;  */
+        position: absolute;
+        border-radius: 50%;
+        top: -20vh;
+        left: -50vh;
+        width: 150vh;
+        height: 150vh;
+        mix-blend-mode: lighten; 
+        
+    }
+    .listaproyectos{
+        gap: 3vh;
+        grid-area: SERV;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5vh;
+        padding-top: 1vh;
+    }
+    .proyecto{
+        overflow: hidden;
+        cursor: default;
+        transition: background-size 0.3s ease;
+        position: relative;
+        border-radius: 2vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: grid;
+        width: 50vh;
+        height: 60vh;
+        grid-template: 
+        "TIT2" max-content
+        "TXT" auto
+        "BOT"max-content/
+        auto ;
+    
+    }
+  
+    
+    .proyecto h1{
+        grid-area: TIT2;
+        padding: 1vh;
+        z-index: 2;
+        opacity: 0%;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .blur{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        z-index: 1;
+    
+    }
+    .botonegro{
+        z-index: 3;
+    
+        background-color: #1a1a1a;
+        grid-area: BOT;
+        padding: 1vh;
+        text-align: center;
+        height: 4vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Comfortaa", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-decoration: none;
+        font-size: 2vh;
+        display: flex;
+        justify-content: baseline;
+        color: white;
+    }
+    .proyecto:hover .blur{
+        background-color: rgba(0, 0, 0, 0.705);
+        backdrop-filter: blur(0.5vh);
+        -webkit-backdrop-filter: blur(0.5vh);
+    }
+    .proyecto:hover p{
+        opacity: 100%;
+    }
+    .proyecto:hover h1{
+        opacity: 100%;
+    }
+    .proyecto p{
+        z-index: 2;
+        padding: 1vh;
+        opacity: 0%;
+        transition: opacity 0.2s ease-in-out;
+    
     }
     .circulo{
         -webkit-backdrop-filter: blur(0.5vh);
@@ -168,8 +268,9 @@ option{
         width: 150vh;
         height: 150vh;
     }
+    
     body{
-        background-color: rgb(24, 24, 24);
+        background-color: #2443b8;
 
     }
     .contendor{
@@ -183,9 +284,11 @@ option{
         display: grid;
         grid-template:
         "CON"auto
-        "INFO"max-content/
+        "INFO"max-content
+        "PRO"auto
+        /
         
-        100%;
+        100vw;
     }
     #links .link:hover{
         transform: scale(1.1);
@@ -204,8 +307,23 @@ option{
         grid-area: CON;
         position: relative;
     }
+    .proyectos{
+        border-radius: 0vh 20vh  0vh 0vh ;
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        grid-area: PRO;
+        position: relative;
+        display: grid;
+        grid-template: 
+        ". . . ."15vh
+        ". TIT . ."max-content
+        "SERV SERV SERV SERV"max-content
+        ". . . ." auto/
+        2% max-content auto 2%;
+    }
     .informacion{
-        border-radius: 20vh 0vh 0vh 0vh;
+        border-radius: 20vh 0vh 20vh  0vh;
         min-height: 100vh;
         overflow: hidden;
         grid-area: INFO;
@@ -302,6 +420,18 @@ option{
     animation: show 0.6s ease-out forwards;
 }
 @media (max-width: 100vh) {
+    .proyectos{
+        border-radius: 0vh 0vh 0vh 0vh;
+        grid-template: 
+        ". . . ."15vh
+        ". TIT TIT ."max-content
+        "SERV SERV SERV SERV"max-content
+        ". . . ." auto/
+        2% auto auto 2%;
+    }
+    .proyectos h1{
+        align-items: center;
+    }
     .informacion{
         border-radius: 0vh 0vh 0vh 0vh;
         min-height: 100vh;
@@ -354,6 +484,18 @@ option{
         height: 100%;
         mix-blend-mode: lighten; /* Mezcla para aclarar */
     }
+    .capa4{
+        -webkit-backdrop-filter: blur(0.5vh);
+        backdrop-filter: blur(0.5vh);
+        background-color: 2443b8;
+        border-radius: 0vh 100vh  100vh 0vh;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100vh;
+        mix-blend-mode: lighten; /* Mezcla para aclarar */
+    }
     .capa3{
         position: absolute;
         border-radius: 0;
@@ -367,6 +509,7 @@ option{
         width: 100%;
         height: 60%;
     }
+    
     #links .link{
         display: none;
     }
