@@ -311,7 +311,7 @@ option{
         position: relative;
         display: grid;
         grid-template: 
-        ". . ."30vh
+        ". . ."35vh
         ". TIT  ."max-content
         ". . ."3vh
         ". TXT  ."max-content
