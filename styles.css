@@ -155,7 +155,7 @@ option{
         
     }
     .listaproyectos{
-        gap: 3vh;
+        gap:5vh;
         grid-area: SERV;
         display: flex;
         position: relative;
@@ -167,17 +167,18 @@ option{
         padding-top: 1vh;
     }
     .proyecto{
+        position: relative;
+        border: none;
         overflow: hidden;
         cursor: default;
         transition: background-size 0.3s ease;
         position: relative;
-        border-radius: 2vh;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         display: grid;
-        width: 50vh;
-        height: 60vh;
+        width: 100vw;
+        height: 90vh;
         grid-template: 
         "TIT2" max-content
         "TXT" auto
@@ -185,7 +186,16 @@ option{
         auto ;
     
     }
-  
+    .proyectoiframe{
+        pointer-events: none;
+
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        z-index: 0;
+    }
     
     .proyecto h1{
         grid-area: TIT2;
@@ -316,11 +326,11 @@ option{
         position: relative;
         display: grid;
         grid-template: 
-        ". . . ."15vh
-        ". TIT . ."max-content
-        "SERV SERV SERV SERV"max-content
-        ". . . ." auto/
-        2% max-content auto 2%;
+        ". .  ."15vh
+        ". TIT  ."max-content
+        "SERV  SERV SERV"max-content
+        ". .  ." auto/
+        2%  auto 2%;
     }
     .informacion{
         border-radius: 20vh 0vh 20vh  0vh;
