@@ -6,23 +6,23 @@
     "imagenes": [
     {
         "imagen": "web1.png",
-        "posicionimagen": "",
+        "texto": "Explorá tu futuro en un solo lugar. Esta plataforma reúne toda la oferta educativa de la Región 6 de Buenos Aires para que estudiantes que finalizan el secundario puedan conocer y comparar instituciones, carreras y oportunidades académicas. Encontrá la opción que mejor se adapte a tus planes y empezá a construir tu camino con información clara y accesible.",
         "titulo": "ESTUDIAR EN LA REGION 6",
         "url": "https://estudiarenlaregion6.abc.gob.ar/",
-        "texto": ""
+        "posicionimagen": ""
     },
     {
         "imagen": "web2.svg",
-        "posicionimagen": "",
+        "texto": "BTL Solutions es tu aliado en redes e infraestructura para negocios. Ofrecemos soluciones tecnológicas de vanguardia, incluyendo antenas Starlink, routers y otros equipos esenciales para garantizar una conectividad eficiente y confiable. Optimizá tu red con productos de calidad y llevá tu empresa al siguiente nivel.",
         "titulo": "BTL SOLUTIONS",
         "url": "https://btl-solutions.com.ar/",
-        "texto": ""
+        "posicionimagen": ""
     },
     {
         "imagen": "web3.svg",
-        "posicionimagen": "",
+        "texto": "",
         "titulo": "LOU COMIDAS",
         "url": "https://lugengar.github.io/lou_comidas/",
-        "texto": ""
+        "posicionimagen": ""
     }
 ]}
