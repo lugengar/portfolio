@@ -166,6 +166,9 @@ option{
         padding-bottom: 5vh;
         padding-top: 1vh;
     }
+    #video1{
+        grid-area: VID1;
+    }
     .proyecto{
         position: relative;
         border: none;
@@ -294,7 +297,9 @@ option{
         display: grid;
         grid-template:
         "CON"auto
+        "VID1" 56vw
         "INFO"max-content
+      
         "PRO"auto
         /
         
