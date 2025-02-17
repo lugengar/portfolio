@@ -11,7 +11,49 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #777;
   }
-  
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: white; }  
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: white; }
+input::-moz-placeholder, textarea::-moz-placeholder { color: white; } 
+input, textarea, option, select{
+    outline: none;
+    border-radius: 1vh;
+    padding: 0;
+    margin: 0;
+    resize: none;
+    border: none;
+    background-color: #15276d;
+    font-family: "Comfortaa", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 2.5vh;
+    grid-area: MIN;
+    display: flex;
+    justify-content: baseline;
+    color: white;
+}
+button, a{
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+.botonegro{
+    z-index: 3;
+    background-color: #15276d;
+    border: none;
+    grid-area: BOT;
+    width: max-content;
+    padding: 1vh;
+    height: max-content;
+    font-family: "Chillax";
+    font-weight: 400;
+    font-size: 2vh;
+    display: flex;
+    justify-content: baseline;
+    color: white;
+}
+input[type="search"]::-webkit-search-cancel-button {
+    filter: grayscale(100%) brightness(1000%);
+}
   * {
     scrollbar-color: #5a5a5a #1a1a1a;
   }
@@ -272,7 +314,7 @@ option{
 
         position: absolute;
         border-radius: 50%;
-        background-image: url(recursos/SVG/logo.svg);
+        background-image: url(recursos/SVG/logo.png);
         background-position: 20vh;
         background-repeat: no-repeat;
         background-size: 70vh; 
@@ -301,6 +343,8 @@ option{
         "INFO"max-content
       
         "PRO"auto
+        "CON2" max-content
+        "AGUA"5vh
         /
         
         100vw;
@@ -321,6 +365,88 @@ option{
         overflow: hidden;
         grid-area: CON;
         position: relative;
+    }
+    #contacto{
+        position: relative;
+        padding-top: 8vh;
+        min-height: 100vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+     
+        grid-area: CON2;
+        display: grid;
+        grid-template: 
+        ". .  ."auto
+        ". MIN  ." max-content
+        ". TIT  ." max-content
+        ". FORM  . " max-content
+        ". BOT  . " auto 
+        ". . .  " auto /
+        auto 80vh auto ;
+    }
+    .inputs{
+     grid-area: FORM;
+     position: relative;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: center;
+    }
+    .inputs input,.inputs  select,.inputs  option{
+        margin-bottom: 1vh;
+        width: 100%;
+        padding: 1vh;
+        height: auto;
+    }
+    
+    .inputs  textarea{
+        margin-bottom: 1vh;
+        padding: 1vh;
+        width: 100%;
+        height: 30vh;
+    }  
+    .grecaptcha-badge{
+        transform: scale(0%);
+        display: none;
+    }
+    #marcas{
+        overflow: hidden;
+        max-height: 25vh;
+        min-height: 25vh;
+        background-color: black;
+        position: relative;
+        grid-area: MAR;
+        min-height: 20vh;
+       
+        padding-left: 5vh;
+    }
+    #footer{
+        background-size: cover;
+        background-position: 50% 20vh;
+
+        grid-area: FOO;
+        display: grid;
+        padding: 2vh;
+        gap: 2vh;
+        grid-template: 
+        "LOGO ." auto
+        "INFO INFO" auto/
+        max-content auto;
+        
+    }
+    #marcadeagua{
+        font-size: 2vh;
+        min-height: 5vh;
+        grid-area: AGUA;
+        font-family: "Comfortaa", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        background-color: #15276d;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .proyectos{
         border-radius: 0vh 20vh  0vh 0vh ;
@@ -514,7 +640,7 @@ option{
     .capa3{
         position: absolute;
         border-radius: 0;
-        background-image: url(recursos/SVG/logo.svg);
+        background-image: url(recursos/SVG/logo.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 80vw; 
