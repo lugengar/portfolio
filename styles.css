@@ -554,6 +554,9 @@ option{
         transform:  translateY(0);
     }
 }
+.titulo{
+    text-align: center;
+}
 .titulo, .texto{
     opacity: 0;
 }
