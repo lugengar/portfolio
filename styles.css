@@ -131,7 +131,7 @@ option{
     }
     .logo{
         grid-area: LOGO;
-        background-image: url(recursos/SVG/minilogo.svg);
+        background-image: url(recursos/SVG/icono2.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -314,7 +314,7 @@ option{
 
         position: absolute;
         border-radius: 50%;
-        background-image: url(recursos/SVG/logo.png);
+        background-image: url(recursos/SVG/logo2_2.svg);
         background-position: 20vh;
         background-repeat: no-repeat;
         background-size: 70vh; 
