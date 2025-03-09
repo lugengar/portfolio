@@ -8,15 +8,15 @@ fetch('recursos/JSON/proyectos.json')
         
         data.forEach(servicio => {
             const divServicio = document.createElement('div');
-           // const iframe = document.createElement('div');
+            const iframe = document.createElement('iframe');
             divServicio.classList.add('proyecto');
-            divServicio.style.backgroundImage = `url(${ubicacioncarpeta+servicio.imagen})`;
-           // divServicio.style.backgroundPosition = servicio.posicionimagen;
+            //divServicio.style.backgroundImage = `url(${ubicacioncarpeta+servicio.imagen})`;
+            //divServicio.style.backgroundPosition = servicio.posicionimagen;
             
             const divBlur = document.createElement('div');
             divBlur.classList.add('blur');
-            //iframe.classList.add('proyectoiframe');
-            //iframe.src = servicio.url;
+            iframe.classList.add('proyectoiframe');
+            iframe.src = servicio.url;
             
             const h1Titulo = document.createElement('h1');
             h1Titulo.classList.add('subtitulo');
@@ -26,7 +26,7 @@ fetch('recursos/JSON/proyectos.json')
             pTexto.textContent = servicio.texto;
             
             divServicio.appendChild(divBlur);
-            //divServicio.appendChild(iframe);
+            divServicio.appendChild(iframe);
             divServicio.appendChild(h1Titulo);
             divServicio.appendChild(pTexto);
             
