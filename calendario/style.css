@@ -1,0 +1,300 @@
+*{
+    font-size: 5vh;
+    color: rgb(94, 140, 240);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.inicio{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: grid;
+    grid-template: 
+    ". . ."2vh
+    ". CAM ."8vh
+    ". VEN ."auto
+    ". . ."2vh/
+    auto minmax(70vh,100vh) auto;
+    gap: 2vh;
+    overflow: hidden;
+}
+
+.particulasfondo{
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    overflow: hidden;
+}
+.cambiaranio{
+    display: grid;
+    grid-template: 
+    "MES AÑO EST"auto/
+    33% auto 33%;
+    grid-area: CAM;
+    overflow: hidden;
+    background-color: #d7e4ff;
+    border-radius: 2vh;
+}
+#año{
+    border: none;
+    background-color: transparent;
+    grid-area: AÑO;
+    border-radius: 2vh;
+}
+#estaciones{
+    border: none;
+    background-color: transparent;
+    grid-area: EST;
+    border-radius: 2vh;
+}
+#mes{
+    border: none;
+    background-color: transparent;
+    grid-area: MES;
+    border-radius: 2vh;
+}
+.centro{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.ventana{
+    grid-area: VEN;
+    background-color: #f2f2f2;
+    display: grid;
+    overflow-x: auto;
+    grid-template: 
+    ". . ."2vh
+    ". SEM ."6vh
+    ". . ."1vh
+    ". CAL ."auto
+    ". . ."2vh/
+    2vh auto 2vh;
+    border-radius: 2vh;
+}
+.semana{
+    display: grid;
+    grid-template-columns: repeat(7,14.2857142857%);
+    grid-area: SEM;
+    border-radius: 1vh;
+}
+.diasem div{
+    width: 100%;
+    height: 100%;
+    font-size: 2vh;
+}
+.calendario{
+    grid-area: CAL;
+    background-color: transparent;
+    border-radius: 1vh;
+    display: grid;
+    grid-template-columns: repeat(7,14.2857142857%);
+    grid-template-rows: repeat(6,16.6666666667%);
+}
+.diasem{
+    background-color: #d7e4ff;
+    position: relative;
+    font-size: 2.5vh;
+    border: #f2f2f2 solid;
+    border-radius: 1vh;
+    overflow: hidden;
+}
+.Verano{
+    background-color: #edf9a2;
+    color: #a39c21;
+}
+.Otoño{
+    background-color: #ffe4b5;
+    color: rgb(219, 154, 34);
+    
+}
+.Invierno{
+    background-color: #d7e4ff;
+    color: rgb(94, 140, 240);
+    
+}
+.Primavera{
+    background-color: #ffc9f8;
+    color: #fb50e2;
+}
+.Verano2{
+    color: #a39c21;
+}
+.Otoño2{
+    color: rgb(219, 154, 34);
+    
+}
+.Invierno2{
+    color: rgb(94, 140, 240);
+    
+}
+.Primavera2{
+    color: #fb50e2;
+}
+.dias{
+    overflow: hidden;
+    background-color: white;
+    font-size: 6vh;
+    text-overflow: none;
+    border: #e7e8eb solid;
+    border-radius: 1vh;
+}
+.festividad{
+    overflow: hidden;
+    background-color: #ffd7d7;
+    font-size: 6vh;
+    text-overflow: none;
+    border: #e7e8eb solid;
+    border-radius: 1vh;
+}
+.hoy{
+    overflow: hidden;
+    background-color: #feffd7;
+    font-size: 6vh;
+    text-overflow: none;
+    border: #e7e8eb solid;
+    border-radius: 1vh;
+    text-decoration:underline;
+}
+
+.particulas{
+    pointer-events: none;
+    opacity: 60%;
+width: 5vh;
+height: 5vh;
+position: absolute;
+background-size: contain;
+background-repeat: no-repeat;
+
+}
+#Otoño1{
+    animation: hojaviento1 6s infinite both;
+    background-image: url(imagenes/hoja.png);
+}
+#Otoño2{
+    animation: hojaviento2 6s infinite both;
+    background-image: url(imagenes/hoja.png);
+}
+#Otoño3{
+    animation: hojaviento3 6s infinite both;
+    background-image: url(imagenes/hoja.png);
+}
+#Invierno1{
+    left: 70%;
+    animation: coponieve1 6s infinite both;
+    background-image: url(imagenes/copo.png);
+}
+#Invierno2{
+    left: 50%;
+    animation: coponieve2 6s infinite both;
+    background-image: url(imagenes/copo.png);
+}
+#Invierno3{
+    left: 10%;
+    animation: coponieve3 6s infinite both;
+    background-image: url(imagenes/copo.png);
+}
+#Verano1{
+    animation: solmov 6s infinite linear;
+    background-image: url(imagenes/sol.png);
+}
+#Verano2{
+    animation: hojaviento3 6s infinite linear reverse;
+    background-image: url(imagenes/hoja2.png);
+}
+#Verano3{
+    animation: hojaviento1 6s infinite linear reverse;
+    background-image: url(imagenes/hoja2.png);
+}
+#Primavera1{
+    animation: hojaviento2 6s infinite linear reverse;
+    background-image: url(imagenes/flor.png);
+}
+
+#Primavera2{
+    animation: hojaviento1 6s infinite linear;
+    background-image: url(imagenes/flor.png);
+}
+#Primavera3{
+    animation: solmov 6s infinite linear reverse;
+    background-image: url(imagenes/flor.png);
+}
+
+@keyframes hojaviento1 {
+    0%{
+        transform: scale(250%) translateY(0vh) translateX(150vh) rotate(0deg);
+    }
+    100%{
+        transform: scale(0%) translateY(100vh) translateX(0vh) rotate(0deg);
+    }
+}
+@keyframes hojaviento2 {
+    0%{
+        transform: scale(300%) translateY(100vh) translateX(0vh) rotate(0deg);
+    }
+    100%{
+        transform: scale(0%) translateY(0vh) translateX(100vh) rotate(360deg);
+    }
+}
+@keyframes hojaviento3 {
+    0%{
+        transform: scale(200%) translateY(100vh) translateX(0vh) rotate(0deg);
+    }
+    100%{
+        transform: scale(0%) translateY(0vh) translateX(100vh) rotate(-360deg);
+    }
+}
+@keyframes coponieve1 {
+    0%{
+        transform: scale(250%) rotate(0deg);
+        translate: 0vh -20vh;
+    }
+    100%{
+        transform: scale(0%) rotate(360deg);
+        translate: 15vh 100vh;
+    }
+}
+@keyframes coponieve2 {
+    0%{
+        transform: scale(150%) rotate(0deg);
+        translate: 0vh -20vh;
+    }
+    100%{
+        transform: scale(0%) rotate(360deg);
+        translate: -50vh 100vh;
+    }
+}
+@keyframes coponieve3 {
+    0%{
+        transform: scale(200%) rotate(0deg);
+        translate: 0vh -20vh;
+    }
+    100%{
+        transform: scale(0%) rotate(360deg);
+        translate: 70vh 100vh;
+    }
+}
+
+@keyframes coponieve3 {
+    0%{
+        transform: scale(200%) rotate(0deg);
+        translate: 0vh -20vh;
+    }
+    100%{
+        transform: scale(0%) rotate(360deg);
+        translate: 70vh 100vh;
+    }
+}
+@keyframes solmov {
+    0%{
+        transform: scale(200%) rotate(0deg) translateX(0vh) translateY(50vh) ;
+    }
+    100%{
+        transform: scale(400%) rotate(-40deg) translateX(100vh) translateY(0vh) ;
+    }
+}

@@ -1,0 +1,93 @@
+*{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.inicio{
+    background-image: url(img/fondo.png);
+    background-color: rgba(116, 190, 255, 0.549);
+    background-size: 20vh;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: grid;
+    grid-template: 
+    ". . ."auto
+    ". CAL ."45vh
+    ". . ."auto/
+    auto 70vh auto;
+    background-attachment: fixed;
+    animation: fondo 30s linear infinite ;
+    background-repeat:round;
+}
+.calculadora{
+    border-radius: 4vh;
+    grid-area: CAL;
+    background-color: rgb(116, 190, 255);
+    display: grid;
+    grid-template: 
+    ". . ."4vh
+    ". VIS ."15vh
+    ". . ."4vh
+    ". CON ."auto/
+    4vh auto 4vh;
+}
+@keyframes fondo {
+    0%{
+        background-position-x: 99%;
+        background-position-y: 99%;
+    }
+    100%{
+        background-position-x: 0%;
+        background-position-y: 0%;
+    }
+}
+.visor{
+    border: none;
+    border-radius: 2vh;
+    background-color: white;
+    color: gray;
+    grid-area: VIS;
+    font-size: 5vh;
+    text-align: center;
+}
+#c{
+    background-color: red;
+    color: white;
+}
+#ac{
+    background-color: red;
+    color: white;
+}
+#igual{
+    background-color: green;
+    color: white;
+}
+
+.boton{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 2vh;
+    text-align: center;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#igual{
+    grid-column: span 2;
+}
+#ac{
+    grid-column: span 2;
+
+}
+.controles{
+   
+    grid-area: CON;
+    display: grid;
+    gap: 1vh;
+    grid-template-columns: repeat(4,14.7svh);
+    grid-template-rows: repeat(4,auto);
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="pagina ">
+        <div class="fondo" id="fondo" ></div>
+        <div class="con" id="sombra">
+            <div class="musica gradiente ">
+                <img id="imagen" src="imagenes/shrek.jpg" alt="">
+            </div>
+            <div class="musica gradiente " style="animation: none;">
+                <img id="imagen" src="imagenes/pedro.gif" alt="">
+            </div>
+            <div class="musica gradiente ">
+                <img id="imagen" src="imagenes/killbill.jpg" alt="">
+            </div>
+            <div class="musica gradiente " style="animation: disco2 8s linear infinite paused;">
+                <img id="imagen" src="imagenes/billie.jpg" alt="">
+            </div>
+            <div class="musica gradiente " style="animation-direction: reverse;">
+                <img id="imagen" src="imagenes/manuelita.jpg" alt="">
+            </div>
+            <div class="musica gradiente " style="animation: disco2 8s linear infinite paused;">
+                <img id="imagen" src="imagenes/wini.gif" alt="">
+            </div>
+            <div class="musica gradiente " style="animation: disco3 9s linear infinite paused;">
+                <img id="imagen" src="imagenes/cone.gif" alt="">
+            </div>
+        </div>
+        <div class="opciones">
+            <audio controls id="myVideo" style="display: none;">
+                <source id="audio" src="" type="audio/mpeg" p>
+            </audio>
+            <select name="" id="titulo">
+                <option id="0" value="shrek">Smash Mouth - All Star</option>
+                <option id="1" value="pedro">Raffaella Carra "Pedro"</option>
+                <option id="2" value="killbill">SZA - Kill Bill</option>
+                <option id="3" value="billie">Billie Eilish - BITTERSUITE</option>
+                <option id="4" value="manuelita">LA TORTUGA MANUELITA</option>
+                <option id="5" value="wini">Winnie Pooh - Kulikitaka</option>
+                <option id="6" value="cone">Monsieur Periné - Nuestra Canción</option>
+
+            </select>
+            <button id="anterior"><<</button>
+            <button class="reproducir" id="playPauseButton">PLAY</button>
+            <input class="tiempo" type="range" id="seekBar" value="0">
+            <button id="siguiente">>></button>
+        </div>
+        
+    </div>
+</body>
+</html>
+<script src="https://unpkg.com/grade-js/docs/dist/grade.js"></script>
+<script src="script.js"></script>
+<script type="text/javascript">
+    let cont = 0;
+    let gradientes = []
+    window.addEventListener('load', function(){
+        Grade(document.querySelectorAll('.gradiente'))
+        let imagenes = document.querySelectorAll('.gradiente')
+        imagenes.forEach(elemento => {
+            gradientes.push(getGradientColors(elemento.style.backgroundImage))
+            console.log(gradientes[gradientes.length-1])
+        });
+        actualizaraudio()
+
+    })
+    function actualizaraudio() {
+    const video = document.getElementById("myVideo");
+    const titulo = document.getElementById("titulo");
+    const selectedValue = titulo.value;
+    const options = titulo.querySelectorAll("option");
+
+    // Cambia la fuente del video
+    video.src = "audios/" + selectedValue + ".mp4";
+    
+    // Define cont y gradientes
+    let cont = 0;
+    let imagenes = document.querySelectorAll('.gradiente')
+
+    // Actualiza la clase activo en los gradientes
+    options.forEach((element, index) => {
+        if (element.value == selectedValue) {
+            cont = parseInt(element.id, 10); // Convierte el id a entero
+            imagenes[index].classList.add('activo');
+        } else {
+            imagenes[index].classList.remove('activo');
+        }
+    });
+
+    // Llama a la función actualizargradiente
+    actualizargradiente(cont, gradientes);
+}
+    const video = document.getElementById('myVideo');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const seekBar = document.getElementById('seekBar');
+        function reinciar(){
+            video.pause();
+                playPauseButton.textContent = 'PLAY';
+                document.querySelector('.activo').style.animationPlayState = "paused"
+                document.getElementById('fondo').style.animationPlayState = "paused"
+                document.getElementById('sombra').style.animationPlayState = "paused"
+                video.play();
+                playPauseButton.textContent = 'PAUSE';
+                document.querySelector('.activo').style.animationPlayState = "running"
+                document.getElementById('fondo').style.animationPlayState = "running"
+                document.getElementById('sombra').style.animationPlayState = "running"
+            }
+            
+        playPauseButton.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseButton.textContent = 'PAUSE';
+                document.querySelector('.activo').style.animationPlayState = "running"
+                document.getElementById('fondo').style.animationPlayState = "running"
+                document.getElementById('sombra').style.animationPlayState = "running"
+            } else {
+                video.pause();
+                playPauseButton.textContent = 'PLAY';
+                document.querySelector('.activo').style.animationPlayState = "paused"
+                document.getElementById('fondo').style.animationPlayState = "paused"
+                document.getElementById('sombra').style.animationPlayState = "paused"
+            }
+        });
+
+        video.addEventListener('timeupdate', () => {
+            const value = (100 / video.duration) * video.currentTime;
+            seekBar.value = value;
+        });
+
+        seekBar.addEventListener('input', () => {
+            const time = (seekBar.value / 100) * video.duration;
+            video.currentTime = time;
+        });
+
+        video.addEventListener('ended', () => {
+            playPauseButton.textContent = 'PLAY';
+        });
+        document.getElementById("titulo").addEventListener("change", function(){
+            actualizaraudio()
+            reinciar()
+        })
+        document.getElementById("siguiente").addEventListener("click", function(){
+            if(cont == gradientes.length -1){
+                cont = 0
+            }else{
+                cont++
+            }
+            document.getElementById("titulo").value = document.getElementById(cont).value;
+            actualizaraudio()
+            reinciar()
+        })
+        document.getElementById("anterior").addEventListener("click", function(){
+            if(cont == 0){
+                cont = gradientes.length -1
+            }else{
+                cont--
+            }
+            document.getElementById("titulo").value = document.getElementById(cont).value;
+            actualizaraudio()
+            reinciar()
+        })
+</script>

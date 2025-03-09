@@ -24,5 +24,49 @@
         "titulo": "LOU COMIDAS",
         "url": "https://lugengar.github.io/lou_comidas/",
         "posicionimagen": ""
+    },
+    
+    {
+        "imagen": "web8.png",
+        "texto": "Web en desarrollo enfocada en minijuegos.",
+        "titulo": "Moonchy",
+        "url": "./moonchy/index.html",
+        "posicionimagen": ""
+    },
+    {
+        "imagen": "web4.png",
+        "texto": "Web en desarrollo.",
+        "titulo": "GRILLA HTML",
+        "url": "./htmlgrid/index.html",
+        "posicionimagen": ""
+    },
+    {
+        "imagen": "web5.png",
+        "texto": "Calendario con dias festivos y estaciones.",
+        "titulo": "CALENDARIO WEB",
+        "url": "./calendario/index.html",
+        "posicionimagen": ""
+    },
+    {
+        "imagen": "web6.png",
+        "texto": "Reproductor de musica con una playlist integrada.",
+        "titulo": "Reproductor de musica",
+        "url": "./musica/index.html",
+        "posicionimagen": ""
+    }
+    ,
+    {
+        "imagen": "web7.png",
+        "texto": "Divertida calculadora para los mas pequeños.",
+        "titulo": "Calculadora de manzanas",
+        "url": "./calculadora/index.html",
+        "posicionimagen": ""
+    },
+    {
+        "imagen": "web9.png",
+        "texto": "Lector de textos web.",
+        "titulo": "Texto a voz",
+        "url": "./textovoz/index.html",
+        "posicionimagen": ""
     }
 ]}

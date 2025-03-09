@@ -1,0 +1,802 @@
+/*
+<form class="OPCONFIG" method="post">
+    <h1 class="tituloconfig">Configuración</h1>
+    <input type="text" class="opcionesconfig" value="Nombre" name="nombre">
+    <input type="text" class="opcionesconfig" value="Contraseña" name="contra">
+    <input type="text" class="opcionesconfig" value="Contraseña">
+    <input type="submit" class="opcionesconfig" value="Enviar">
+</from>*/
+
+/* BODY */
+
+#fondo{
+    min-height: 99%;
+    color: white;
+    font-family: comfortaa;
+    overflow: hidden;
+    font-size: 2.5vh;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-image: url(IMG/fondo1.png);
+}
+@font-face {
+    font-family: comfortaa;
+    src: url(./FONT/Comfortaa-Bold.ttf);
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+html{
+    height: 100%;
+}
+#estrella1{
+    position: absolute;
+    width: 35vh;
+    height: 30vh;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:right;
+    left: 5%;
+    bottom: 32%;
+    background-image: url(IMG/estrella.png);
+    animation: estrella1 2s both infinite;
+
+}
+#estrella2{
+    position: absolute;
+    width: 0vh;
+    height: 0vh;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:right;
+    left: 0%;
+    bottom: 5%;
+    background-image: url(IMG/estrella2.png);
+    animation: estrella3 2s both infinite;
+
+}
+@media (min-width: 1000px) {
+    #estrella2{
+        position: absolute;
+        width: 35vh;
+        height: 22vh;
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:right;
+        right: 70%;
+        bottom: 5%;
+        background-image: url(IMG/estrella2.png);
+        animation: estrella3 2s both infinite;
+    
+    }
+}
+#estrella3{
+    position: absolute;
+    width: 25vh;
+    height: 30vh;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:right;
+    left: -60%;
+    bottom: 32%;
+    background-image: url(IMG/estrella3.png);
+    animation: estrella3 2s both infinite;
+
+}
+/*ENMAQUETADO*/
+#inicio{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    text-align:center ;
+    display: grid;
+ 
+    grid-template: 
+        "HEA HEA HEA"10vh
+        ". . . " 3vh
+        ". NAV . " 8vh
+        "CON CON CON" auto
+        "FOO FOO FOO" 5vh / 
+        auto 60vh auto
+}
+/*CONFIGURACION*/
+#DIFUSO{
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(13deg,rgb(255,255,255,0.1), rgb(255,255,255,0));
+    backdrop-filter: blur(10px);
+    grid-template: 
+        ". . . " 20vh
+        ". OPCONFIG . " 60vh
+        ". . ." auto/ 
+        auto 50vh auto
+    
+}
+.OPCONFIG{
+  
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-image: url(IMG/fondoazul2.png);
+    grid-area: OPCONFIG;
+    border-radius: 4vh;
+    display: grid;
+    gap: 4vh;
+    padding: 5vh;
+    grid-template-columns: repeat(auto-fit,minmax(20vh, 100%));
+   
+}
+.tituloconfig{
+    font-family: comfortaa;
+    font-size: 3vh;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-image: url(IMG/fondoazul.png);
+    border-radius: 4vh;
+    padding: 1vh;
+    border: none;
+}
+.opcionesconfig{
+    font-family: comfortaa;
+    font-size: 3vh;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(120,196,231); 
+    border-radius: 4vh;
+    padding: 3vh;
+    border: none;
+}
+/*HEADER*/
+#HEA{
+    grid-area: HEA;
+    background-image: url(IMG/barra1.png);
+    background-size:contain;
+    background-repeat:repeat-x;
+    background-position:bottom;
+    display: grid;
+    gap: 5;
+    grid-template: 
+        ". . . . . ." 1vh
+        "CONF IG STY . MONEY ."7vh/ 
+        10vh 10vh 10vh auto 28vh 2vh
+}
+#LOGO{
+    display: none;
+}
+@media (min-width: 600px) {
+    #HEA{
+        grid-area: HEA;
+        background-color:yellowgreen;
+        background-image: url(IMG/barra1.png);
+        background-size:contain;
+        background-repeat:repeat-x;
+        background-position:bottom;
+        display: grid;
+        grid-template: 
+            ". . . . . ." 1vh
+            "CONF IG STY LOGO MONEY ."7vh/ 
+            10vh 10vh 10vh auto 27vh 3vh
+    }
+    #LOGO{
+        background-image: url(IMG/logo.png);
+        grid-area: LOGO;
+        display: block;
+    }
+}
+#CONF{
+    background-image: url(IMG/config.png);
+    grid-area: CONF;
+}
+#MONEY{
+    position: relative;
+    grid-area: MONEY;
+    
+}
+#MINLOGO{
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:right;
+    right: 0%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(IMG/minilogo.png);
+}
+#NUM{
+    width: auto;
+    height: auto;
+    position: absolute;
+    border-radius: 50vh 0vh 0vh 50vh;
+    background-color:rgb(120,196,231); 
+    right: 20%;
+    top: -17.5%;
+    padding: 4%;
+    padding-inline-end: 8%;
+    padding-inline-start: 7%;
+    text-align:center;
+    
+}
+#TXT{
+    width: 70%;
+    height: 60%;
+    position: absolute;
+    font-size: 3vh;
+    text-align:end;
+    left: 0%;
+    top:29%;
+}
+#IG{
+    background-image: url(IMG/insta.png);
+    grid-area: IG;
+}
+#STY{
+    background-image: url(IMG/sticke.png);
+    grid-area: STY;
+}
+
+.barra{
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:bottom;
+} 
+
+/*NAVIGATION*/
+#NAV{
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-image: url(IMG/fondoazul.png);
+
+    grid-area: NAV;
+    border-radius: 50vh;
+    background-color:rgb(47, 147, 241);  
+    display: grid;
+    grid-template: 
+        "REG COLE PR"auto/ 
+        auto auto auto
+}
+.opciones{
+    border-radius: 50vh;
+}
+.opciones:hover{
+    background-color:rgb(120,196,231); 
+}
+#REG{
+    grid-area: REG;
+}
+#COLE{
+    grid-area: COLE;
+}
+#PRE{
+    grid-area: PR;
+}
+
+/*CONTAINER*/
+#CON{
+    position: relative;
+    overflow: hidden;
+    grid-area: CON;
+    display: grid;
+    grid-template: 
+        ". . ."auto
+        "CIN CIN CIN" 30vh/ 
+        auto auto auto
+}
+#cinta{
+    position: relative;
+    grid-area: CIN;
+    background-image: url(IMG/cinta.png);
+    background-size:contain;
+    background-repeat:repeat-x;
+    background-position:bottom;
+    animation: cintatrasportadora 6s linear infinite;
+
+}
+#cintacoleccion {
+    display: none;
+    grid-area: CIN;
+    position: relative;
+    bottom: 125%;
+    height: 160%;
+}
+#opcioncinta {
+    display: none;
+    position: absolute;
+    height: 32vh;
+    width: 100%;
+    bottom: 0%;
+    grid-template: 
+        ". . . . . . ."auto
+        ". PREM . JUG . LOG ." 20vh
+        ". . . . . . ."3vh/ 
+        auto 12vh 10vh 12vh 10vh 12vh auto;
+}
+.botcinta:hover{
+    animation: giraropcion 2s both infinite;
+}
+#PREM{
+    grid-area: PREM;
+    background-image: url(IMG/premios.png);
+    background-size:contain;
+    background-repeat:repeat-x;
+    background-position:bottom;
+    border-radius: 1vh;
+}
+#JUG{
+    grid-area: JUG;
+    background-image: url(IMG/juegos.png);
+    background-size:contain;
+    background-repeat:repeat-x;
+    background-position:bottom;
+    border-bottom: rgb(214, 86, 106) 1vh solid;
+    border-radius: 1vh;
+}
+#LOG{
+    grid-area: LOG;
+    background-image: url(IMG/logros.png);
+    background-size:contain;
+    background-repeat:repeat-x;
+    background-position:bottom;
+    border-radius: 1vh;
+}
+#CENTER{
+    transform: translate(-17.5vh, 5vh);
+    width: 35vh;
+    height: 40vh;
+}
+#LEFT{
+    transform: translate(-65vh, 10vh);
+}
+#RIGHT{
+    transform: translate(40vh, 10vh);
+}
+
+#EXTRA{
+    opacity: 0%;
+    position: absolute;
+    width: 35vh;
+    height: 40vh;
+    border-radius: 3vh;
+}
+
+#BOTONR{
+    transform: translate(23.5vh, 15vh);
+    position: absolute;
+    background-image: url(IMG/flechad.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center; 
+    width: 10vh;
+    height: 20vh;
+}
+#BOTONL{
+    transform: translate(-33.5vh, 15vh);
+    position: absolute;
+    background-image: url(IMG/flecha.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center; 
+    width: 10vh;
+    height: 20vh;
+}
+
+.muestra2{
+    position: absolute;
+    width: 25vh;
+    height: 30vh;
+    background-color: red;
+    border-radius: 3vh;
+}
+.muestra{
+    position: absolute;
+    width: 25vh;
+    height: 30vh;
+    background-color: azure;
+    border-radius: 3vh;
+}
+.muestra3{
+    position: absolute;
+    width: 25vh;
+    height: 30vh;
+    background-color: blue;
+    border-radius: 3vh;
+    font-size: 0%;
+
+}
+.muestra3:active{
+    font-size: 2vh;
+    background-color: rgb(214, 86, 106)
+}
+.cajas{
+    position: absolute;
+    bottom: 20vh;
+    width: 45vh;
+    height: 25vh;
+    background-image: url(IMG/caja.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:bottom; 
+    animation: cajamovimiento 6.4s linear infinite;
+} 
+.abrir{
+
+    position: absolute;
+    right: 35%;
+    top: -50%;
+    font-size: 4vh;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-image: url(IMG/fondoazul.png);
+    border-radius: 5vh;
+    padding-inline-end: 8%;
+    padding-inline-start: 7%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align:center;
+    display: none;
+}
+.cajas:hover .abrir{
+    display: block;
+}
+.cajas:hover{
+    animation-play-state: paused;
+    bottom: 22vh;
+    width: 50vh;
+    height: 30vh;
+    position: absolute;
+   
+}
+/*FOOTER*/
+#FOO{
+    position: relative;
+    grid-area: FOO;
+}
+.listas{
+    display: grid;
+    gap: 2vh;
+    grid-template-columns: repeat(auto-fit,minmax(20vh, auto));
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    right: 5%;
+    top: 7%;
+}
+.obj{
+    background-image: url(/IMG/cuadrado.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+.obj:hover{
+    animation: giraropcion 2s both infinite;
+}
+#cargando{
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    right: 20%;
+    top: 20%;
+}
+#txtcarga{
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    font-size: 5vh;
+}
+#imgcarga{
+    background-image: url(IMG/carga.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    animation: carga 4s linear infinite;
+}
+#imgbarrainf{
+    position: absolute;
+    bottom: -95%;
+    width: 100%;
+    height:100%;
+    background-image: url(IMG/barra2.png);
+    background-color: rgb(26,26,26);
+    background-size:auto 5vh ;
+    background-repeat:repeat-x;
+    background-position:top;
+}
+
+#coleccion{
+    width: 20vh;
+    height: 15vh;
+    position: absolute;
+    right: 20%;
+    top: -14vh;
+    background-image: url(IMG/barra3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:bottom;
+}
+/*EXTRA*/
+
+
+
+
+
+
+
+
+
+
+/*ANIMACIONES*/
+@keyframes difuminar{
+    0%{
+        backdrop-filter: blur(0px);
+    }
+
+    100%{
+        backdrop-filter: blur(10px);
+    }
+}
+@keyframes desdifuminar{
+    0%{
+        backdrop-filter: blur(10px);
+    }
+
+    100%{
+        backdrop-filter: blur(0px);
+    }
+}
+@keyframes leftnuevo{
+    0%{
+        opacity: 0%;
+        transform: translate(-85vh, 10vh);
+        width: 15vh;
+        height: 20vh;
+       
+    }
+
+    100%{
+        opacity: 100%;
+        transform: translate(-65vh, 10vh);
+        width: 25vh;
+        height: 30vh;
+    }
+}
+@keyframes rightnuevo{
+    0%{
+        opacity: 0%;
+        transform: translate(67.5vh, 10vh);
+        width: 15vh;
+        height: 20vh;
+    }
+
+    100%{
+        opacity: 100%;
+        transform: translate(40vh, 10vh);
+        width: 25vh;
+        height: 30vh;
+    }
+}
+@keyframes leftsalir{
+    0%{
+        opacity: 100%;
+    }
+
+    100%{
+        opacity: 0%;
+        transform: translate(-85vh, 10vh);
+        width: 15vh;
+        height: 20vh;
+        display: none;
+    }
+}
+@keyframes todosalir{
+    0%{
+        opacity: 100%;
+    }
+
+    100%{
+        opacity: 0%;
+    }
+}
+@keyframes todosaparecer{
+    0%{
+        opacity: 0%;
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+@keyframes rightsalir{
+    0%{
+        opacity: 100%;
+    }
+
+    100%{
+        opacity: 0%;
+        transform: translate(67.5vh, 10vh);
+        width: 15vh;
+        height: 20vh;
+        display: none;
+    }
+}
+@keyframes rightanim{
+    0%{
+        
+    }
+
+    100%{
+        transform: translate(40vh, 10vh);
+        width: 25vh;
+        height: 30vh;
+    }
+}
+@keyframes leftanim{
+    0%{
+    }
+
+    100%{
+        transform: translate(-65vh, 10vh);
+        width: 25vh;
+        height: 30vh;
+    }
+}
+@keyframes centeranim{
+    0%{
+    
+    }
+
+    100%{
+        transform: translate(-17.5vh, 5vh);
+        width: 35vh;
+        height: 40vh;
+    }
+}
+@keyframes cambio{
+    0%{
+        bottom: -95%;
+    }
+
+    100%{
+        bottom: -10%;
+    }
+}
+@keyframes config{
+    0%{
+        transform: translateY(200%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
+}
+@keyframes configsalir{
+    0%{
+        transform: translateY(0%);
+    }
+
+    100%{
+        transform: translateY(200%);
+    }
+}
+@keyframes cambio2{
+    0%{
+        bottom: -10%;
+    }
+
+    100%{
+        bottom: -95%;
+    }
+}
+@keyframes cajamovimiento{
+    0%{
+        right: -50%;
+    }
+
+    100%{
+        right: 100%;
+    }
+}
+@keyframes estrella1{
+    0%{
+        bottom: 32%;
+        transform: rotate(20deg);
+    }
+    50%{
+        bottom: 28%;
+        transform: rotate(-10deg);
+    }
+    100%{
+        right: 32%;
+        transform: rotate(20deg);
+    }
+}
+@keyframes estrella3{
+    0%{
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(-20deg);
+    }
+    100%{
+        transform: rotate(10deg);
+    }
+}
+@keyframes giraropcion{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-5deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes abrircaja{
+    0%{
+    
+      transform: rotate(0deg);
+    }
+    10%{
+        transform: rotate(-5deg);
+    }
+    20%{
+        transform: rotate(5deg);
+    }
+    28%{
+        transform: rotate(-5deg);
+    }
+    35%{
+        transform: rotate(5deg);
+    }
+    38%{
+        transform: rotate(-5deg);
+    }
+    40%{
+        transform: rotate(5deg);
+    }
+    100%{
+        
+        transform: rotate(0deg);
+    }
+}
+@keyframes carga{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes cintatrasportadora{
+    0%{
+        background-position:50%;
+    }
+
+    100%{
+        background-position:-100%;
+    }
+}

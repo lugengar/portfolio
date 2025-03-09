@@ -1,0 +1,302 @@
+#anterior{
+grid-area: ANT;
+background-color: rgba(0, 0, 0, 0.3);
+border-radius: 40vh;
+}
+.reproducir{
+grid-area: PLAY;
+background-color: rgba(0, 0, 0, 0.3);
+border-radius: 40vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  /* Oculta el borde del thumb en algunos navegadores */
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1vh;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3); /* Gris claro */
+    border: none;
+    border-radius: 5px;
+    position: relative;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3vh; /* Tamaño del thumb */
+    height: 3vh;
+    border-radius: 50%;
+    background: #ffffff; /* Blanco */
+    cursor: pointer;
+    margin-top: -1vh; /* Ajuste para centrar el pulgar en la pista */
+    position: relative;
+    z-index: 1;
+}
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 1vh;
+    cursor: pointer;
+    background: #d3d3d3; /* Gris claro */
+    border: none;
+    border-radius: 5px;
+}
+input[type="range"]::-moz-range-thumb {
+    width: 3vh; /* Tamaño del thumb */
+    height: 3vh;
+    border-radius: 50%;
+    background: #ffffff; /* Blanco */
+    cursor: pointer;
+}
+input[type="range"]::-ms-track {
+    width: 100%;
+    height: 1vh;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+    background: #d3d3d3; /* Gris claro */
+    border-radius: 5px;
+}
+input[type="range"]::-ms-fill-upper {
+    background: #d3d3d3; /* Gris claro */
+    border-radius: 5px;
+}
+input[type="range"]::-ms-thumb {
+    width: 3vh; /* Tamaño del thumb */
+    height: 3vh;
+    border-radius: 50%;
+    background: #ffffff; /* Blanco */
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track:before {
+    content: '';
+    height: 1vh;
+    background: #ffffff; /* Blanco */
+    position: absolute;
+    left: 0;
+    width: var(--seek-bar-percentage);
+}
+@import url('https://fonts.googleapis.com/css2?family=Days+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Days One", sans-serif;
+    font-weight: 200;
+    color: white;
+}
+body{
+    background-color: black;
+
+}
+button{
+    border: none;
+    font-size: 2vh;
+}
+.tiempo{
+    grid-area: TIME;
+    background-color: white;
+    max-width: 50vh;
+    border-radius: 40vh;
+    border: none;
+}
+#siguiente{
+grid-area: SIG;
+background-color: rgba(0, 0, 0, 0.3);
+border-radius: 40vh;
+}
+.pagina {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: grid;
+    grid-template: 
+        ". . ." auto
+        ". CON ." 50vh
+        ". . ."2vh
+        ". OP ." auto/
+        auto 50vh auto;
+}
+.fondo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    filter: blur(10vh);
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+    animation: fondo 8s linear infinite paused;
+    background-color: black;
+}
+option{
+    max-width: 20vh;
+}
+@keyframes fondo {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 80% 100%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 80% 80%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+.con{
+    grid-area: CON;
+    border-radius: 30vh;
+    box-shadow: 0 2vh 2vh 1vh rgba(0, 0, 0, 0.3);
+    animation: circulo 8s linear infinite paused;
+    overflow: hidden;
+    position: relative;
+}
+.musica{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: disco 8s linear infinite paused;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.musica img{
+    width: max-content;
+    height: 100%;
+}
+@keyframes disco {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes disco2 {
+    0%{
+        transform: rotate(0deg) scale(1);
+    }
+    50%{
+        transform: rotate(180deg) scale(1.4);
+    }
+    100%{
+        transform: rotate(360deg) scale(1);
+    }
+}
+@keyframes disco3 {
+    0%{
+        transform: rotate(0deg);
+        filter: blur(0vh);
+    }
+    50%{
+        transform: rotate(180deg);
+        filter: blur(0.4vh);
+    }
+    100%{
+        transform: rotate(360deg);
+        filter: blur(0vh);
+    }
+}
+@keyframes circulo {
+    0% {
+        box-shadow: -3vh -2vh 3vh 1vh rgba(0, 0, 0, 0.3);
+    }
+    26% {
+        box-shadow: 2vh 0vh 3vh 1vh rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 2vh 2vh 3vh 1vh rgba(0, 0, 0, 0.3);
+    }
+    75% {
+        box-shadow: 3vh 2vh 3vh 1vh rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: -3vh -2vh 3vh 1vh rgba(0, 0, 0, 0.3);
+    }
+}
+.navbar{
+    grid-area: NAV;
+    background-color: transparent;
+}
+.opciones{
+    gap: 2vh;
+    grid-area: OP;
+    display: grid;
+    grid-template: 
+    ". TIT TIT TIT TIT TIT ."4vh
+    "TIME TIME TIME TIME TIME TIME TIME"1vh
+    ". . . PLAY . . ."0.5vh
+    ". . ANT PLAY SIG . ." 4vh
+    ". . . PLAY . . ."0.5vh
+    ". . . . . . ."auto/
+    0.5vh auto 5vh 9vh 5vh auto 0.5vh;
+
+}
+#titulo{
+    grid-area: TIT;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 40vh;
+    border: none;
+    max-width: 45vh;
+}
+
+.gradiente{
+    background-size: 0vh;
+    display: none;
+}
+.activo{
+    display: flex;
+}
+@media (max-width: 768px) {
+    .pagina {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: grid;
+        grid-template: 
+            ". . ." auto
+            ". CON ." 40vh
+            ". . ."2vh
+            ". OP ." auto/
+            auto 40vh auto;
+    }
+    .opciones{
+        gap: 2vh;
+        grid-area: OP;
+        display: grid;
+        grid-template: 
+        ". TIT TIT TIT ."4vh
+        "TIME  TIME TIME TIME TIME"1vh
+        ".  . PLAY . . "0.5vh
+        ". ANT PLAY SIG . " 4vh
+        ". . PLAY . ."0.5vh
+        ". . . . . "auto/
+        auto 5vh 9vh 5vh auto;
+    
+    }
+}
