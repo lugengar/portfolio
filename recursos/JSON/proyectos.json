@@ -33,6 +33,14 @@
         "url": "./moonchy/index.html",
         "posicionimagen": ""
     },
+    
+    {
+        "imagen": "web11.png",
+        "texto": "Heladeria ficticia.",
+        "titulo": "Heladeria Peponcio Varela",
+        "url": "http://pruebabase.infinityfreeapp.com/index.php",
+        "posicionimagen": ""
+    },
     {
         "imagen": "web4.png",
         "texto": "Web en desarrollo.",
@@ -69,6 +77,7 @@
         "url": "./textovoz/index.html",
         "posicionimagen": ""
     }
+    
     ,
     {
         "imagen": "web10.png",

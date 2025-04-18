@@ -606,7 +606,7 @@ option{
     }
     .circulo{
         
-        background: radial-gradient(circle, #2443b8, #2443b8);
+        background: radial-gradient(circle, #2443b8, #2443b8); 
         position: absolute;
         border-radius:  25vh 25vh 0%  0% ;
         bottom: 0%;
