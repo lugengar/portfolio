@@ -1,17 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOPSECRET</title>
-</head>
-CARGANDO..
-<body>
-    <script>
-        setTimeout(() => {
-  window.location.href = "https://www.youtube.com/watch?v=cF1Na4AIecM&t=113s";
-}, 2000);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPSECRET</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-    </script>
+    .terminal {
+      text-align: center;
+      font-size: 1.5rem;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.5; }
+    }
+
+    .scanlines::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.05),
+        rgba(0, 255, 0, 0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .glow {
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+    }
+  </style>
+</head>
+<body class="scanlines">
+  <div class="terminal glow">CARGANDO...</div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://www.youtube.com/watch?v=cF1Na4AIecM&t=113s";
+    }, 2000);
+  </script>
 </body>
 </html>
