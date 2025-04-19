@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="recursos/SVG/icono2.svg" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animaciones.css">
     <head>
         <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdeiMEqAAAAANjv2g6YBfOvSahCEdtzIRyE7fu6"></script>
         <!-- Your code -->
@@ -15,10 +16,11 @@
     <div class="contendor">
         <div id="sidebar">
             <div class="links" >
-                <button onclick="redirigir('contenido')" class="link">INICIO</button>
+                <!-- <button onclick="redirigir('contenido')" class="link">INICIO</button>-->
                 <button onclick="redirigir('informacion')" class="link">NOSOTROS</button>
+                <button onclick="redirigir('servicios')" class="link">SERVICIOS</button>
                 <button onclick="redirigir('proyectos')" class="link">PROYECTOS</button>
-                              <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
+                <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
              <!--  <select class="link">
                     <option value="español">LANGUAJE</option>
                     <option value="english">ENGLISH</option>
@@ -32,10 +34,11 @@
             <div class="logo"></div>
             <div class="links" id="links">
                
-                <button onclick="redirigir('contenido')" id="nosotros" class="link">INICIO</button>
+              <!--   <button onclick="redirigir('contenido')" id="nosotros" class="link">INICIO</button>-->
                 <button onclick="redirigir('informacion')" class="link">NOSOTROS</button>
+                <button onclick="redirigir('servicios')" class="link">SERVICIOS</button>
                 <button onclick="redirigir('proyectos')" class="link">PROYECTOS</button>
-                              <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
+                <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
                           <!--   <select class="link">
                     <option value="">LANGUAJE</option>
                     <option value="">ENGLISH</option>
@@ -50,43 +53,51 @@
             <video preload autoplay loop muted>
                 <source src="recursos/MP4/video1.mp4" type="video/mp4">
               </video>    
-              <div class="capa1"></div>          
+              <div class="capa1"></div>  
+              <div class="capa5"></div>          
+
               <div class="capa2"></div>          
-              <div class="capa3"></div>          
+              <div class="capa3">
+                <div class="logoentero2">
+                    <iframe src="logo.html" frameborder="0"></iframe>
+                </div>
+              </div>          
         </div>
         <div class="informacion" id="informacion">
-            <video preload autoplay loop muted>
-                <source src="recursos/MP4/video2.mp4" type="video/mp4">
-              </video>   
-              <div class="capa1"></div>          
-              <h1 class="titulo">SOBRE NOSOTROS</h1>
-              <p class="texto">Somos Barbini Web Design, una empresa dedicada al diseño y desarrollo de interfaces intuitivas, así como a la creación de chatbots e inteligencia artificial. <br> <br>Como fundadores, nos especializamos en construir soluciones tecnológicas eficientes, optimizadas y orientadas a mejorar la experiencia del usuario.
+            
+              <div class="capa1"></div>  
+              <div class="capa5"></div>           
+              <div class="logo2"></div>           
+              <h1 class="titulovertical"></h1>
+              <p class="texto">Somos Barbini Web Design, una empresa dedicada al diseño y desarrollo de interfaces intuitivas, así como a la creación de chatbots. <br> <br>Como fundadores, nos especializamos en construir soluciones tecnológicas eficientes, optimizadas y orientadas a mejorar la experiencia del usuario.
 
                 Nuestro enfoque combina creatividad y funcionalidad, asegurando que cada proyecto no solo sea visualmente atractivo, sino también práctico y fácil de usar. <br> <br> Nos apasiona la automatización de procesos, el desarrollo de sistemas inteligentes y la implementación de tecnologías emergentes para mejorar la eficiencia y accesibilidad de las plataformas digitales.
                 
-              <div class="lenguajes" id="lenguajes">
+              
+        </div>
+       <!-- <iframe id="video1"  src="https://player.vimeo.com/video/1057383148?h=45ece063c2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="les contaré cómo trabajamos para convertir sus ideas en"></iframe><script src="https://player.vimeo.com/api/player.js"></script>-->
+     <div class="proyectos" id="proyectos">
+ 
+                      
+            <div class="logo3"></div>     
+            <div class="lenguajes" id="lenguajes">
                 <div class="lenguaje"></div>
               </div>
-            <div class="circulo">
-            </div>
-        </div>
-        <iframe id="video1"  src="https://player.vimeo.com/video/1057383148?h=45ece063c2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="les contaré cómo trabajamos para convertir sus ideas en"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
-     <div class="proyectos" id="proyectos" style="background-color: #15276d;">
-           
-                     
-              <div class="capa4"></div>          
-              <h1 class="titulo">PROYECTOS</h1>  
+         
+         
               <div class="listaproyectos">
-              </div>        
+              </div>  
+              <div class="capa6"></div>  
+            <div class="capa5"></div>       
         </div>
-        <form id="contacto"  action="https://btl-solutions.com.ar/recursos/correo.php" method="POST">
+        <form id="contacto" action="https://wa.me/541123946762" method="get" target="_blank" onsubmit="enviarWhatsApp()">
         
-
-            <h1 class="titulo">FORMULARIO DE CONTACTO</h1>
+            <div class="capa6"></div>  
+            <div class="capa5"></div> 
+            <h1 class="titulo2">CONTACTO</h1>
             <div class="inputs">
-                <input type="search" name="nombre" id="" required placeholder="NOMBRE">
-                <input type="search" name="empresa" id="" required placeholder="EMPRESA">
-                <input type="email" name="correo" id="" required placeholder="CORREO"> 
+                <input type="search" name="nombre" id="nombre" required placeholder="NOMBRE">
+                <input type="search" name="empresa" id="empresa" required placeholder="EMPRESA">
                 <select name="asunto" id="asunto" required >
                     <option value="">ASUNTO</option>
                     
@@ -94,13 +105,11 @@
                     <option value="OTROS">OTROS</option>
                 </select>
                 <textarea name="mensaje" id="mensaje" required placeholder="MENSAJE"></textarea>
+                <button class="botonegro">
+                    ENVIAR CONSULTA
+                </button>
             </div>
-            <button class="botonegro g-recaptcha"
-            data-sitekey="6LdeiMEqAAAAANjv2g6YBfOvSahCEdtzIRyE7fu6"
-                data-callback='onSubmit'
-                data-action='submit'>
-                ENVIAR CONSULTA
-            </button>
+            
         </form>
         <section id="marcadeagua" class="texto">© BARBINI WEB DESIGN. DESARROLLADO POR LUCIANO BARBINI</section>
     </div>
@@ -112,16 +121,27 @@
 <script src="recursos/JS/scroll.js"></script>
 <script src="recursos/JS/proyectos.js"></script>
 <script>
-    
-    function onSubmit(token) {
-        let form = document.getElementById("contacto");
-    
-        if (!form.checkValidity()) {
-            alert("Por favor, completa todos los campos obligatorios.");
-            return false;
-        }
-    
-        form.submit(); // Envía el formulario si es válido
+    function enviarWhatsApp() {
+    let form = document.getElementById("contacto");
+
+    if (!form.checkValidity()) {
+        alert("Por favor, completa todos los campos obligatorios.");
+        return false;
     }
+
+    let nombre = document.getElementById("nombre").value;
+    let empresa = document.getElementById("empresa").value;
+    let asunto = document.getElementById("asunto").value;
     
-    </script>
+    let mensaje = document.getElementById("mensaje").value;
+
+    let texto = `Nombre: ${nombre}%0A` +
+                `Empresa: ${empresa}%0A` +
+                `Asunto: ${asunto}%0A%0A` +
+                `Mensaje: ${mensaje}`;
+
+    let url = `https://wa.me/5491153839865?text=${texto}`;
+    
+    window.open(url, '_blank');
+}
+</script>

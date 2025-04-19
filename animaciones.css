@@ -1,0 +1,47 @@
+@keyframes aparecer {
+    0%{
+        transform: translateY(100vh) scale(50%);
+    }
+    100%{
+        transform: translateY(0vh) scale(100%); 
+    }
+}
+@keyframes aparecer3 {
+    0%{
+        transform: translateY(-50vh);
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0vh);
+
+    }
+}
+@keyframes video {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+
+    }
+}
+@keyframes aparecer2 {
+    0%{
+        transform: translateY(50vh) translateX(-100vh) scale(50%);
+    }
+    100%{
+        transform: translateY(0vh) translateX(0vh) scale(100%); 
+    }
+}
+
+@keyframes logoesquina {
+    0%{
+        opacity: 0%;
+        transform: t(10vh);
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0vh); 
+    }
+}

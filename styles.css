@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 ::-webkit-scrollbar-track {
     background: #1a1a1a;
   }
@@ -94,8 +95,8 @@ h1 {
     overflow-wrap: break-word;
     margin: 0;
     padding: 0;
-    font-family: "Bagel Fat One", serif;
-    font-weight: 400;
+    font-family: "Roboto", serif;
+    font-weight: 700;
     font-style: normal;
     color: white;
 
@@ -114,7 +115,7 @@ option{
         width: 100%;
     }
     .header{
-
+       
         z-index: 100;
         display: grid;
         position: fixed;
@@ -132,10 +133,11 @@ option{
     .logo{
         grid-area: LOGO;
         background-image: url(recursos/SVG/icono2.svg);
-        background-position: center;
+        background-position: left;
         background-repeat: no-repeat;
-        background-size: contain;
-       
+        background-size: 8vh;
+        animation: aparecer3 2s both;
+        animation-delay: 1s;
     }
     .link{
         background-color: transparent;
@@ -149,6 +151,19 @@ option{
         display: flex;
         justify-content: baseline;
         color: white;
+        animation: aparecer3 2s both;
+    }
+    .links :nth-child(1){
+        animation-delay: 1.2s;
+    }
+    .links :nth-child(2){
+        animation-delay: 1.4s;
+    }
+    .links :nth-child(3){
+        animation-delay: 1.6s;
+    }
+    .links :nth-child(4){
+        animation-delay: 1.8s;
     }
     .links{
 
@@ -164,24 +179,54 @@ option{
         z-index: -1;
         background-color: rgba(0, 0, 0, 0.603);
         position: absolute;
-        -webkit-backdrop-filter: blur(0.3vh);
-        backdrop-filter: blur(0.3vh);
+        -webkit-backdrop-filter: blur(0.8vh);
+        backdrop-filter: blur(0.8vh);
         top: 0vh;
         right: 0vh;
         width: 100%;
         height: 100%;
+        
     }
-    
-    .capa2{
-        background: radial-gradient(circle, #2443b8, #2443b8);
-        /* background-color: #2443b8;  */
+    .capa6{
+        z-index: -2;
+        background-color: rgba(0, 0, 0, 0.7);
         position: absolute;
-        border-radius: 50%;
-        top: -20vh;
-        right: -50vh;
-        width: 150vh;
-        height: 150vh;
-        mix-blend-mode: lighten; 
+        -webkit-backdrop-filter: blur(0.8vh);
+        backdrop-filter: blur(0.8vh);
+        top: 0vh;
+        right: 0vh;
+        width: 100%;
+        height: 100%;
+        
+    }
+    .capa5{
+        opacity: 80%;
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #001a6a; 
+        mix-blend-mode: lighten; ;
+       
+    }
+  
+    .capa2{
+        pointer-events: none;
+        opacity: 80%;
+        animation: aparecer2 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+    animation-delay: 0.5s;
+
+        position: absolute;
+        border-radius: 100% 100% 0%  0%;
+        bottom: -60%;
+        left: -50%;
+        width: 200%;
+        height: 120%;
+        background-color: #2443b8; 
+        mix-blend-mode: lighten; ;
         
     }
     .capa4{
@@ -197,6 +242,8 @@ option{
         
     }
     .listaproyectos{
+        z-index: 0;
+
         gap:5vh;
         grid-area: SERV;
         display: flex;
@@ -224,7 +271,7 @@ option{
         background-repeat: no-repeat;
         display: grid;
         width: 90vh;
-        height: 45vh;
+        min-height: 45vh;
         grid-template: 
         "TIT2" max-content
         "TXT" auto
@@ -295,33 +342,37 @@ option{
         transition: opacity 0.2s ease-in-out;
     
     }
-    .circulo{
-        -webkit-backdrop-filter: blur(0.5vh);
-        backdrop-filter: blur(0.5vh);
-        z-index: -1;
-        background: radial-gradient(circle, #2443b8, #2443b8);
-        position: absolute;
-        border-radius: 100% 100% 0%  0%;
-        bottom: 0%;
-        left: -10%;
-        width: 120%;
-        height: 85%;
-        mix-blend-mode: lighten; 
-    }
+  
+    
     .capa3{
-        animation: show 0.6s ease-out forwards;
-
-        position: absolute;
-        border-radius: 50%;
-        background-image: url(recursos/SVG/logo2_2.svg);
-        background-position: 20vh;
-        background-repeat: no-repeat;
-        background-size: 70vh; 
-        top: -20vh;
-        right: -50vh;
-        width: 150vh;
-        height: 150vh;
-    }
+       
+       display: grid;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    grid-template: 
+    ". . ."auto
+    ". LOGT2 ."40vh
+    ". . ."2vh
+    ".  BOT . " max-content 
+    ". . ."auto/
+    auto 90vh auto;
+}
+.logoentero2{
+    overflow: hidden;
+    position: relative;
+    grid-area: LOGT2;
+    animation: aparecer 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+}
+.logoentero2 iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
     
     body{
         background-color: #2443b8;
@@ -329,7 +380,7 @@ option{
     }
     .contendor{
         overflow: hidden;
-
+        z-index: -4;
         width: 100%;
         height: max-content;
         top: 0%;
@@ -338,7 +389,7 @@ option{
         display: grid;
         grid-template:
         "CON"auto
-        "VID1" 56vw
+      /*  "VID1" 56vw*/
         "INFO"max-content
       
         "PRO"auto
@@ -357,7 +408,6 @@ option{
         padding: 0;
     }
     .contenido{
-        border-radius: 0vh 0vh 0vh 20vh;
 
         height: 100vh;
         width: 100%;
@@ -365,7 +415,32 @@ option{
         grid-area: CON;
         position: relative;
     }
+    #contacto .botonegro{
+        z-index: 3;
+    
+        background-color: transparent;
+        border: 0.4vh solid white;
+        border-radius: 25vh;
+        grid-area: BOT;
+        width: max-content;
+        height: max-content;
+        font-weight: 400;
+        font-size: 1.5vh;
+        padding-left: 2vh;
+        padding-right: 2vh ;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+    
+        display: flex;
+        justify-content: baseline;
+        color: white;
+    }
     #contacto{
+        z-index: -3;
+        background-image: url(recursos/SVG/fondo3.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         position: relative;
         padding-top: 8vh;
         min-height: 100vh;
@@ -380,11 +455,24 @@ option{
         ". MIN  ." max-content
         ". TIT  ." max-content
         ". FORM  . " max-content
-        ". BOT  . " auto 
         ". . .  " auto /
         auto 80vh auto ;
     }
+    .titulo2{
+        text-align: initial;
+        background-color: #2443b8;
+        border-left:#2443b8 3vh solid ;
+        border-right:#2443b8 3vh solid ;
+        border-top:#2443b1 1vh solid ;
+        border-radius: 5vh 5vh 0vh 0vh;
+        mix-blend-mode: lighten; 
+    }
     .inputs{
+        background-color: #2443b8;
+        border-left:#2443b8 3vh solid ;
+        border-right:#2443b8 3vh solid ;
+        border-bottom:#2443b1 1vh solid ;
+        mix-blend-mode: lighten; 
      grid-area: FORM;
      position: relative;
      display: flex;
@@ -392,18 +480,27 @@ option{
      align-items: center;
      justify-content: center;
     }
-    .inputs input,.inputs  select,.inputs  option{
+    .inputs input,.inputs  select{
+        background-color: transparent;
+
         margin-bottom: 1vh;
         width: 100%;
-        padding: 1vh;
+        padding: 1.5vh;
         height: auto;
+        border: white 0.3vh solid;
+        border-radius: 25vh;
     }
-    
+    option{
+        color:white;
+    }
     .inputs  textarea{
+        background-color: transparent;
         margin-bottom: 1vh;
-        padding: 1vh;
+        padding: 1.5vh;
         width: 100%;
         height: 30vh;
+        border: white 0.3vh solid;
+        border-radius: 1vh;
     }  
     .grecaptcha-badge{
         transform: scale(0%);
@@ -448,7 +545,12 @@ option{
         justify-content: center;
     }
     .proyectos{
-        border-radius: 0vh 20vh  0vh 0vh ;
+        z-index: -3;
+        background-image: url(recursos/SVG/fondo2.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         min-height: 100vh;
         width: 100%;
         overflow: hidden;
@@ -456,32 +558,62 @@ option{
         position: relative;
         display: grid;
         grid-template: 
-        ". .  ."15vh
-        ". TIT  ."max-content
+        "LOG LOG LOG"35vh
+        "LEN LEN LEN"20vh
         "SERV  SERV SERV"max-content
         ". .  ." auto/
         2%  auto 2%;
     }
     .informacion{
-        border-radius: 20vh 0vh 20vh  0vh;
+        background-image: url(recursos/SVG/fondo.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        backdrop-filter: blur(10vh);
         min-height: 100vh;
         overflow: hidden;
         grid-area: INFO;
         position: relative;
         display: grid;
         grid-template: 
-        ". . ."25vh
-        ". TIT  ."max-content
-        ". TXT  ."max-content
-        ". . ."auto
-        "LEN LEN  LEN"max-content
-        ". . ."auto/
-        auto 60% auto;
+        "TIT . ."auto
+        "TIT . LOG"auto
+        "TIT . ."3vh
+
+        "TIT .  TXT"max-content
+        "TIT .  TXT"max-content
+        "TIT . ."auto/
+        25vh 1vh auto;
     }
+    .logo2{
+        grid-area: LOG;
+        background-image: url(recursos/SVG/logo2_2.svg);
+        background-repeat: no-repeat;
+        background-position: 2.5vh;
+        background-size: contain;
+    }
+    .logo3{
+        background-color: #2443b8;
+        mix-blend-mode: lighten; 
+
+        grid-area: LOG;
+        background-image: url(recursos/SVG/portfolio.svg);
+        background-repeat: no-repeat;
+        background-position: 2.5vh;
+        background-size: 55vh;
+    }
+    .titulovertical{
+        background-color: #2443b8;
+        border-right:#2443b8 2vh solid ;
+        mix-blend-mode: lighten; 
+             background-image: url(recursos/SVG/nosotros.svg);
+             background-repeat: no-repeat;
+             background-position: right;
+             background-size: 10vh;
+         }
     .informacion p{
-        border: white 0.05vh solid;
-        padding: 2vh;
-        border-radius: 2vh;
+        border-top: white 0.05vh solid;
+        padding: 3vh;
     }
     .subtitulo{
         grid-area: TIT2;
@@ -502,6 +634,7 @@ option{
         pointer-events: none;
     }
     video{
+        animation: 1s video both;
         z-index: -2;
         position: absolute;
         top: 0;
@@ -556,17 +689,22 @@ option{
 .titulo{
     text-align: center;
 }
+
 .titulo, .texto{
     opacity: 0;
 }
+
 .aparece {
     animation: show 0.6s ease-out forwards;
 }
 @media (max-width: 100vh) {
     .proyecto{
         width: 100vw;
+        min-height: 45;
         border-radius: 0;
         background-size: contain;
+        background-position: center;
+        background-color: black;
     }
     .blur{
         border-radius: 0;
@@ -574,11 +712,11 @@ option{
     .proyectos{
         border-radius: 0vh 0vh 0vh 0vh;
         grid-template: 
-        ". . . ."15vh
-        ". TIT TIT ."max-content
-        "SERV SERV SERV SERV"max-content
-        ". . . ." auto/
-        2% auto auto 2%;
+        "LOG LOG LOG"25vh
+        "LEN LEN LEN"20vh
+        "SERV  SERV SERV"max-content
+        ". .  ." auto/
+        2%  auto 2%;
     }
     .proyectos h1{
         align-items: center;
@@ -591,14 +729,22 @@ option{
         position: relative;
         display: grid;
         grid-template: 
-        ". . ."35vh
-        ". TIT  ."max-content
-        ". . ."3vh
-        ". TXT  ."max-content
-        ". . ."auto
-        "LEN LEN  LEN"max-content
-        ". . ."auto/
-        auto 95% auto;
+        "TIT . ."2vh
+        "TIT . LOG"8vh
+        "TIT . ."3vh
+        "TIT .  TXT"max-content
+        "TIT .  TXT"max-content
+        "TIT . ."auto/
+        5vh 1vh auto;
+    }
+    .titulovertical{
+        background-color: #2443b8;
+        border-right:#2443b8 1vh solid ;
+        mix-blend-mode: lighten; 
+        background-image: url(recursos/SVG/nosotros.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 3vh;
     }
     .contenido{
         border-radius: 0vh 0vh 0vh 0vh;
@@ -622,19 +768,7 @@ option{
         text-align: center;
         font-size: 6vh;
     }
-    .capa2{
-        -webkit-backdrop-filter: blur(0.5vh);
-        backdrop-filter: blur(0.5vh);
-        background-color: 2443b8;
-        border-radius: 100vh 0%  0% 100vh;
-        position: absolute;
-        top: 0%;
-        left: auto;
-        right: 0%;
-        width: 100%;
-        height: 100%;
-        mix-blend-mode: lighten; /* Mezcla para aclarar */
-    }
+   
     .capa4{
         -webkit-backdrop-filter: blur(0.5vh);
         backdrop-filter: blur(0.5vh);
@@ -647,19 +781,35 @@ option{
         height: 100vh;
         mix-blend-mode: lighten; /* Mezcla para aclarar */
     }
-    .capa3{
+    .capa2{
+        pointer-events: none;
+   
         position: absolute;
-        border-radius: 0;
-        background-image: url(recursos/SVG/logo.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 80vw; 
-        top: 20%;
-        left: auto;
-        right: 0%;
-        width: 100%;
-        height: 60%;
+        border-radius: 100% 100% 0%  0%;
+        bottom: -25%;
+        left: -50%;
+        width: 200vw;
+        height: 85%;
+        background-color: #2443b8; 
+        mix-blend-mode: lighten; ;
+        
     }
+    .capa3{
+       
+        display: grid;
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     left: 0;
+     top: 0;
+     grid-template: 
+     ". . ."auto
+     ". LOGT2 ."40vh
+     ". . ."2vh
+     ".  BOT . " max-content 
+     ". . ."auto/
+     auto 80vw auto;
+ }
     
     #links .link{
         display: none;
