@@ -698,11 +698,44 @@ option{
     animation: show 0.6s ease-out forwards;
 }
 @media (max-width: 100vh) {
+    #contacto{
+        z-index: -3;
+        background-image: url(recursos/SVG/fondo3.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding-top: 8vh;
+        min-height: 100vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+     
+        grid-area: CON2;
+        display: grid;
+        grid-template: 
+        ". .  ."auto
+        ". MIN  ." max-content
+        ". TIT  ." max-content
+        ". FORM  . " max-content
+        ". . .  " auto /
+        auto 90vw auto ;
+    }
+    .logo3{
+        background-color: #2443b8;
+        mix-blend-mode: lighten; 
+
+        grid-area: LOG;
+        background-image: url(recursos/SVG/portfolio.svg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: 45vh;
+    }
     .proyecto{
         width: 100vw;
         min-height: 45;
         border-radius: 0;
-        background-size: contain;
+        background-size: cover;
         background-position: center;
         background-color: black;
     }
