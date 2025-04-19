@@ -389,9 +389,9 @@ option{
         display: grid;
         grid-template:
         "CON"auto
-      /*  "VID1" 56vw*/
+    
         "INFO"max-content
-      
+         "VID1" 56vw
         "PRO"auto
         "CON2" max-content
         "AGUA"5vh
