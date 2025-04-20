@@ -582,7 +582,27 @@ details[open] {
         max-content auto;
         
     }
-
+    .whats{
+        transition: transform 0.1s ease-in-out;
+        animation: aparecer 2s both;
+        box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.397);
+        width: 8vh;
+        height: 8vh;
+        background-image: url(recursos/SVG/whats.svg);
+        background-color: #25D366;
+        border-radius: 50vh;
+        background-position: center;
+        background-size: 5vh;
+        background-repeat: no-repeat;
+        position: fixed;
+        right: 2vh;
+        bottom: 2vh;
+        z-index: 100;
+    }
+    .whats:hover{
+        transform: scale(1.1);
+        
+    }
     #marcadeagua{
         font-size: 2vh;
         min-height: 5vh;
