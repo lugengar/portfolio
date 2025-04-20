@@ -726,8 +726,7 @@ details[open] {
         backdrop-filter: blur(5vh);
     }
     .visible{
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.397), transparent); ;
-    
+background-color: transparent;    
     }
     .lenguaje{
         background-position: center;
