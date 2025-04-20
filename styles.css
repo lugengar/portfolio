@@ -449,6 +449,7 @@ details[open] {
         
         100%;
     }
+ 
     #links .link:hover{
         transform: scale(1.1);
     }
@@ -728,12 +729,12 @@ details[open] {
 @keyframes show {
     from {
         opacity: 0%;
-        transform: translateY(5vh);
+        transform:  translateX(-5vh);
     }
     to {
         opacity: 100%;
 
-        transform:  translateY(0);
+        transform:  translateX(0);
     }
 }
 .titulo{
