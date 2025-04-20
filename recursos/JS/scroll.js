@@ -11,7 +11,7 @@ function isElementInViewport(el, offset = 250) {
 function handleScroll() {
     const elements = document.querySelectorAll('.titulo, .texto, .proyecto2');
     elements.forEach((element) => {
-        if (isElementInViewport(element, 50)) { 
+        if (isElementInViewport(element, 150)) { 
             element.classList.add('aparece');
         }
     });
