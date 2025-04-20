@@ -827,8 +827,9 @@ background-color: transparent;
         border-radius: 0vh 0vh 0vh 0vh;
         grid-template: 
         "LOG LOG LOG"25vh
-        "LEN LEN LEN"20vh
         "SERV  SERV SERV"max-content
+        "LEN LEN LEN"20vh
+
         ". .  ." auto/
         2%  auto 2%;
     }
