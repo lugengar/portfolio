@@ -262,7 +262,7 @@ option{
     .proyecto2{
         opacity: 50%;
         text-decoration: none;
-        width: 100%;
+        width: 80vw;
         min-height: 45;
         font-size: 5vh;
         word-wrap: break-word;
@@ -273,8 +273,7 @@ option{
         font-style: normal;
         color: white;
         border-radius: 0;
-        padding-left: 10vw;
-        padding-right: 10vw;
+   
         transition: transform 0.1s linear, opacity 0.1s linear;
     }
     .proyecto2:hover {
@@ -789,6 +788,10 @@ details[open] {
         background-size: cover;
         background-position: center;
         background-color: black;
+    }
+    .proyecto2{
+        width: 80vw;
+     
     }
     .blur{
         border-radius: 0;
