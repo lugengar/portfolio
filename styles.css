@@ -252,8 +252,8 @@ option{
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        padding-bottom: 20vh;
-        padding-top: 1vh;
+        padding-bottom: 1vh;
+        padding-top: 5vh;
         min-height: 50vh;
     }
     #video1{
@@ -302,6 +302,9 @@ option{
         padding-left: 0;
         padding-right: 0;
         margin: 0;
+    }
+    details{
+        border: none;
     }
 details[open] {
     opacity: 100%;
@@ -631,8 +634,9 @@ details[open] {
         display: grid;
         grid-template: 
         "LOG LOG LOG"35vh
-        "LEN LEN LEN"20vh
         "SERV  SERV SERV"max-content
+        "LEN LEN LEN"20vh
+
         ". .  ." auto/
         2%  auto 2%;
     }
@@ -671,8 +675,9 @@ details[open] {
         grid-area: LOG;
         background-image: url(recursos/SVG/portfolio.svg);
         background-repeat: no-repeat;
-        background-position: 2.5vh;
+        background-position: center;
         background-size: 55vh;
+        border-radius: 0 0 80% 80%;
     }
     .titulovertical{
         background-color: #2443b8;
@@ -801,7 +806,7 @@ background-color: transparent;
         background-image: url(recursos/SVG/portfolio.svg);
         background-repeat: no-repeat;
         background-position:center;
-        background-size: 45vh;
+        background-size: 40vh;
     }
     .proyecto{
         width: 100vw;
