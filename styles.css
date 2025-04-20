@@ -285,6 +285,9 @@ option{
     .proyecto2 p {
         padding-top: 1vh;
         padding-bottom: 2vh;
+        width: 80vw;
+        height: max-content;
+        max-width: 80vh;
     }
     .proyecto2 img{
         width: 80vw;

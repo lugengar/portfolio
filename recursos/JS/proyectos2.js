@@ -22,12 +22,12 @@ fetch('recursos/JSON/proyectos.json')
            pTexto.textContent = servicio.texto;
            divServicio.appendChild(titulo);
 
-           divServicio.appendChild(imegen);
+ 
 
            divServicio.appendChild(pTexto);
-        
-           
+                  divServicio.appendChild(imegen);
            divServicio.innerHTML +=`<a class="botonegro" target="_blank" href="${servicio.url}">VISITAR LA WEB</a>`
+           
             
             listaServicios.appendChild(divServicio);
         });
