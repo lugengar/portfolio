@@ -254,10 +254,58 @@ option{
         justify-content: center;
         padding-bottom: 5vh;
         padding-top: 1vh;
+        min-height: 50vh;
     }
     #video1{
         grid-area: VID1;
     }
+    .proyecto2{
+        opacity: 50%;
+        text-decoration: none;
+        width: 100%;
+        min-height: 45;
+        font-size: 5vh;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 0;
+        font-family: "Roboto", serif;
+        font-weight: 700;
+        font-style: normal;
+        color: white;
+        border-radius: 0;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        transition: transform 0.1s linear, opacity 0.1s linear;
+    }
+    .proyecto2:hover {
+        opacity: 100%;
+
+        transform: scale(1.05);
+    }
+    .proyecto2 p {
+        padding-top: 1vh;
+        padding-bottom: 2vh;
+    }
+    .proyecto2 img{
+        width: 80vw;
+        height: max-content;
+        max-width: 80vh;
+    
+
+    }
+    .proyecto2 a{
+        width: 80vw;
+        max-width: 80vh;
+
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+    }
+details[open] {
+    opacity: 100%;
+
+    transform: scale(1.05);
+  }
     .proyecto{
         border-radius: 2vh;
         position: relative;
@@ -307,7 +355,7 @@ option{
     .botonegro{
         z-index: 3;
     
-        background-color: #1a1a1a;
+        background-color: #0b1644;
         grid-area: BOT;
         padding: 1vh;
         text-align: center;
@@ -380,7 +428,7 @@ option{
     }
     .contendor{
         overflow: hidden;
-        z-index: -4;
+        z-index: 0;
         width: 100%;
         height: max-content;
         top: 0%;
@@ -397,7 +445,7 @@ option{
         "AGUA"5vh
         /
         
-        100vw;
+        100%;
     }
     #links .link:hover{
         transform: scale(1.1);

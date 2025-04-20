@@ -1,89 +1,85 @@
 {
-    "configuracion": 
-    {
-        "ubicacioncarpeta": "recursos/SVG/"
+    "configuracion": {
+      "ubicacioncarpeta": "recursos/SVG/"
     },
     "imagenes": [
-    {
+      {
         "imagen": "web1.png",
-        "texto": "Explorá tu futuro en un solo lugar. Esta plataforma reúne toda la oferta educativa de la Región 6 de Buenos Aires para que estudiantes que finalizan el secundario puedan conocer y comparar instituciones, carreras y oportunidades académicas. Encontrá la opción que mejor se adapte a tus planes y empezá a construir tu camino con información clara y accesible.",
+        "texto": "Toda la oferta educativa de la Región 6 en un solo lugar. Explorá instituciones, carreras y oportunidades para planear tu futuro con claridad.",
         "titulo": "ESTUDIAR EN LA REGION 6",
         "url": "https://estudiarenlaregion6.abc.gob.ar/",
         "posicionimagen": ""
-    },
-    {
+      },
+      {
         "imagen": "web2.png",
-        "texto": "BTL Solutions es tu aliado en redes e infraestructura para negocios. Ofrecemos soluciones tecnológicas de vanguardia, incluyendo antenas Starlink, routers y otros equipos esenciales para garantizar una conectividad eficiente y confiable. Optimizá tu red con productos de calidad y llevá tu empresa al siguiente nivel.",
+        "texto": "Soluciones en redes e infraestructura para empresas. Conectividad confiable con antenas Starlink, routers y más.",
         "titulo": "BTL SOLUTIONS",
         "url": "https://btl-solutions.com.ar/",
         "posicionimagen": ""
-    },
-    {
+      },
+      {
         "imagen": "web3.png",
-        "texto": "Descubrí nuestro menú y disfrutá de los mejores sabores. En Lou comidas, ofrecemos una variedad de platos caseros y deliciosos, preparados con ingredientes de calidad. Explorá nuestras opciones y elegí tu próxima comida favorita, con la comodidad de un solo clic.",
+        "texto": "Platos caseros, sabrosos y con ingredientes de calidad. Conocé nuestro menú y pedí tu comida favorita fácil y rápido.",
         "titulo": "LOU COMIDAS",
         "url": "https://lugengar.github.io/lou_comidas/",
         "posicionimagen": ""
-    },
-    
-    {
+      },
+      {
         "imagen": "web8.png",
-        "texto": "Web en desarrollo enfocada en minijuegos.",
+        "texto": "Proyecto en desarrollo centrado en minijuegos divertidos y simples.",
         "titulo": "Moonchy",
         "url": "./moonchy/index.html",
         "posicionimagen": ""
-    },
-    
-    {
+      },
+      {
         "imagen": "web11.png",
-        "texto": "Heladeria ficticia.",
+        "texto": "Sitio ficticio de heladería. Diseño simple y funcional.",
         "titulo": "Heladeria Peponcio Varela",
         "url": "http://pruebabase.infinityfreeapp.com/index.php",
         "posicionimagen": ""
-    },
-    {
+      },
+      {
         "imagen": "web4.png",
-        "texto": "Web en desarrollo.",
+        "texto": "Ejemplo de maquetado web con HTML. Proyecto en proceso.",
         "titulo": "GRILLA HTML",
         "url": "./htmlgrid/index.html",
         "posicionimagen": ""
-    },
-    {
+      },
+      {
         "imagen": "web5.png",
-        "texto": "Calendario con dias festivos y estaciones.",
+        "texto": "Calendario digital con feriados y estaciones del año.",
         "titulo": "CALENDARIO WEB",
         "url": "./calendario/index.html",
         "posicionimagen": ""
-    },
-    {
+      },
+      {
         "imagen": "web6.png",
-        "texto": "Reproductor de musica con una playlist integrada.",
+        "texto": "Reproductor de música con una playlist lista para disfrutar.",
         "titulo": "Reproductor de musica",
         "url": "./musica/index.html",
         "posicionimagen": ""
-    }
-    ,
-    {
+      },
+      {
         "imagen": "web7.png",
-        "texto": "Divertida calculadora para los mas pequeños.",
+        "texto": "Calculadora lúdica pensada para niños pequeños.",
         "titulo": "Calculadora de manzanas",
         "url": "./calculadora/index.html",
         "posicionimagen": ""
-    },
-    {
+      },
+      {
         "imagen": "web9.png",
-        "texto": "Lector de textos web.",
+        "texto": "Convertí texto escrito en voz con este lector web.",
         "titulo": "Texto a voz",
         "url": "./textovoz/index.html",
         "posicionimagen": ""
-    }
-    
-    ,
-    {
+      },
+      {
         "imagen": "web10.png",
-        "texto": "Mascota virtual.",
+        "texto": "Mascota virtual interactiva. Cuidala y mirala crecer.",
         "titulo": "Nukibooky",
         "url": "./nukibooky/index.html",
         "posicionimagen": ""
-    }
-]}
+      }
+    ]
+  }
+  
