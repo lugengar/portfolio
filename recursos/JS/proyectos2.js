@@ -5,9 +5,9 @@ fetch('recursos/JSON/proyectos.json')
         ubicacioncarpeta = info.configuracion.ubicacioncarpeta
         data = info.imagenes
         const listaServicios = document.querySelector('.listaproyectos');
-        let cont = 0
+       // let cont = 0
         data.forEach(servicio => {
-            cont++
+            //cont++
             const divServicio = document.createElement('details');
             const titulo = document.createElement('summary');
             const imegen = document.createElement('img');
@@ -32,9 +32,9 @@ fetch('recursos/JSON/proyectos.json')
             
             listaServicios.appendChild(divServicio);
         });
-        if(cont % 2 != 0){
+        /*if(cont % 2 != 0){
             listaServicios.innerHTML += '<div class= "proyecto2"></div>'
-        }
+        }*/
     })
     .catch(error => console.error('Error cargando el JSON:', error));
 
