@@ -252,7 +252,7 @@ option{
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        padding-bottom: 5vh;
+        padding-bottom: 20vh;
         padding-top: 1vh;
         min-height: 50vh;
     }
