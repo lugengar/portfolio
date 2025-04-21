@@ -9,7 +9,7 @@ function isElementInViewport(el, offset = 250) {
 }
 
 function handleScroll() {
-    const elements = document.querySelectorAll('.titulo, .texto');
+    const elements = document.querySelectorAll('.titulo');
     elements.forEach((element) => {
         if (isElementInViewport(element, 250)) { 
             element.classList.add('aparece');
