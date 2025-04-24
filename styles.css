@@ -673,7 +673,7 @@ details[open] {
         mix-blend-mode: lighten; 
 
         grid-area: LOG;
-        background-image: url(recursos/SVG/portfolio.svg);
+        background-image: url(recursos/SVG/logo2_3.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 55vh;
@@ -803,7 +803,7 @@ background-color: transparent;
         mix-blend-mode: lighten; 
 
         grid-area: LOG;
-        background-image: url(recursos/SVG/portfolio.svg);
+        background-image: url(recursos/SVG/logo2_3.svg);
         background-repeat: no-repeat;
         background-position:center;
         background-size: 40vh;
