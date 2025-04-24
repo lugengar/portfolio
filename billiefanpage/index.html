@@ -3,67 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="SVG/icono.svg" type="image/x-icon">
+    <title>BILLIEFANPAGE </title>
 </head>
 <body>
     <div class="contenedor">
+        <div id="sidebar">
+            <div class="links" >
+                <button onclick="redirigir('contenido')" class="link">HOME</button>
+                <button onclick="redirigir('informacion')" class="link">EXPLORAR</button>
+        
+                <button onclick="redirigir('proyectos')" class="link">NOSOTROS</button>
+                <button onclick="redirigir('contacto')" class="link">SOPORTE</button>
+   
+            </div>
+        </div>
+        <div class="header" id="header">
+            <div class="logo"></div>
+            <div class="links" id="links">
+               
+               <button onclick="redirigir('contenido')" id="nosotros" class="link">HOME</button>
+                <button onclick="redirigir('informacion')" class="link">EXPLORAR</button>
+       
+                <button onclick="redirigir('proyectos')" class="link">NOSOTROS</button>
+                <button onclick="redirigir('contacto')" class="link">SOPORTE</button>
+      
+                
+                <button onclick="sidebar()" id="rayas">&#9776;</button>
+            </div>
+        </div>
         <div class="video">
+            <div class="filtro"></div>
         <iframe src="https://player.vimeo.com/video/1015805755?autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=0"
         width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     </div>
 </body>
 </html>
-
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-    }
-
-    .contenedor {
-        background-color: black;
-        overflow-y: auto;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template:
-        "vid" 100vh
-        "." 100vh/
-        auto;
-        
-    }
-    .filtro{
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: black;
-    }
-    .video{
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        grid-area: vid;
-        position: relative;
-        background-color: black;
-    }
-    iframe {
-        width: 215vh;
-        height: 120vh;
-     
-    }
-    .partner_watermark_image{
-        display: none;
-    }
-    @media (max-width: 100vh) {
-        iframe {
-        width: 178vh;
-        height: 100vh;
-    }
-    }
-</style>
+<script src="../recursos/JS/header.js"></script>
