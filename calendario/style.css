@@ -15,7 +15,7 @@
     ". CAM ."8vh
     ". VEN ."auto
     ". . ."2vh/
-    auto minmax(70vh,100vh) auto;
+    auto minmax(20vh,100vh) auto;
     gap: 2vh;
     overflow: hidden;
 }
@@ -97,6 +97,7 @@
     grid-template-rows: repeat(6,16.6666666667%);
 }
 .diasem{
+    text-overflow: ellipsis;
     background-color: #d7e4ff;
     position: relative;
     font-size: 2.5vh;
