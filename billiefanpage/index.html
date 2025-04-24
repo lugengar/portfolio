@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="video">
+        <iframe src="https://player.vimeo.com/video/1015805755?autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=0"
+        width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    </div>
+</body>
+</html>
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .contenedor {
+        background-color: black;
+        overflow-y: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template:
+        "vid" 100vh
+        "." 100vh/
+        auto;
+        
+    }
+    .filtro{
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: black;
+    }
+    .video{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        grid-area: vid;
+        position: relative;
+        background-color: black;
+    }
+    iframe {
+        width: 215vh;
+        height: 120vh;
+     
+    }
+    .partner_watermark_image{
+        display: none;
+    }
+    @media (max-width: 100vh) {
+        iframe {
+        width: 178vh;
+        height: 100vh;
+    }
+    }
+</style>
