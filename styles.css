@@ -762,11 +762,11 @@ background-color: transparent;
         transform:  translateX(0);
     }
 }
-.titulo{
+.titulo {
     text-align: center;
 }
 
-.titulo, .texto{
+.titulo .texto{
     opacity: 0;
 }
 
@@ -850,7 +850,7 @@ background-color: transparent;
         "TIT .  TXT"max-content
         "TIT .  TXT"max-content
         "TIT . ."auto/
-        5vh 1vh auto;
+        5vh auto auto;
     }
     .titulovertical{
         background-color: #2443b8;
@@ -860,6 +860,9 @@ background-color: transparent;
         background-repeat: no-repeat;
         background-position: right;
         background-size: 3vh;
+    }
+     .texto{
+        padding: 1vw;
     }
     .contenido{
         border-radius: 0vh 0vh 0vh 0vh;
