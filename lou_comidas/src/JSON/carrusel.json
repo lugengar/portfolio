@@ -1,0 +1,25 @@
+{
+    "configuracion": 
+    {
+        "segundosespera": 15,
+        "ubicacioncarpeta": "src/PNG/"
+
+    },
+    "imagenes": [
+        {
+            "imagen": "img1.png",
+            "posicionimagen": "top",
+            "titulo": "COMIDA CASERA CON ENVIO A DOMICIO"
+        },
+        {
+            "imagen": "img1.png",
+            "posicionimagen": "top",
+            "titulo": "COMIDA CASERA CON ENVIO A DOMICIO"
+        },
+        {
+            "imagen": "img1.png",
+            "posicionimagen": "top",
+            "titulo": "COMIDA CASERA CON ENVIO A DOMICIO"
+        }
+    ]
+}

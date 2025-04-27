@@ -1,0 +1,34 @@
+
+@media (max-width: 100vh) {
+
+    .pedido{
+        background-color: rgba(0, 0, 0, 0.308);
+            padding: 2vh;
+            border: none;
+            text-decoration: none;
+            margin: 0;
+            font-family: "Comfortaa", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-size: 2vh;
+            display: flex;
+            justify-content: baseline;
+            animation: aparecer3 2s both;
+            min-width: 5vh;
+            min-height: 4vh;
+           display: grid;
+           grid-template:
+           ". . . . ."auto
+        
+           ". FOTO . TIT  ."max-content
+           ". FOTO . TXT  ."5vh
+           ". FOTO . BOT ."max-content
+           ". . . . ."auto/
+           auto 15vh 2vh max-content auto;
+
+        }
+        
+        .pedido h1{
+            font-size: 3vh;
+        }
+}
