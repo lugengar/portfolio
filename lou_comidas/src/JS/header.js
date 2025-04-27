@@ -33,12 +33,16 @@ const pedidos = [];
 function carrito(nombre, precio, foto) {
     const container = document.getElementById('carrito-container');
     const circulorojo = document.getElementById('circulorojo');
+    const totaldiv = document.getElementById('total');
     const carrito = document.getElementById('rayas');
     circulorojo.style.animationPlayState = "running"
+    let total = 0;
+
+   
+
     // Crear elementos
     const pedidoDiv = document.createElement('div');
     pedidoDiv.className = 'pedido';
-
     const imagenDiv = document.createElement('div');
     imagenDiv.className = 'imagenp';
     imagenDiv.style.backgroundImage = `url('${foto}')`;
@@ -75,6 +79,10 @@ function carrito(nombre, precio, foto) {
     botonEliminar.onclick = function() {
         eliminar(pedido);
     };
+    pedidos.forEach(pedido => {
+        total += Number(pedido.precio);
+    });
+    totaldiv.textContent = "TOTAL: $"+total
 }
 function enviarPedido() {
     if (pedidos.length === 0) {
@@ -87,7 +95,7 @@ function enviarPedido() {
 
     pedidos.forEach(pedido => {
         mensaje += `- ${pedido.nombre} ($${pedido.precio})\n`;
-        total += pedido.precio;
+        total += Number(pedido.precio);
     });
 
     mensaje += `\nTotal: $${total}`;

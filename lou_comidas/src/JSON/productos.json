@@ -9,42 +9,7 @@
             "marca": "TARTAS",
             "posicionimagen": "top",
             "titulo": "Tarta de pollo",
-            "texto": "10.000"
-        },
-        {
-            "imagen": "prod1.png",
-            "marca": "TARTAS",
-            "posicionimagen": "top",
-            "titulo": "Tarta de pollo",
-            "texto": "10.000"
-        },
-        {
-            "imagen": "prod1.png",
-            "marca": "TARTAS",
-            "posicionimagen": "top",
-            "titulo": "Tarta de pollo",
-            "texto": "10.000"
-        },
-        {
-            "imagen": "prod1.png",
-            "marca": "TARTAS",
-            "posicionimagen": "top",
-            "titulo": "Tarta de pollo",
-            "texto": "10.000"
-        },
-        {
-            "imagen": "prod1.png",
-            "marca": "TARTAS",
-            "posicionimagen": "top",
-            "titulo": "Tarta de pollo",
-            "texto": "10.000"
-        },
-        {
-            "imagen": "prod1.png",
-            "marca": "TARTAS",
-            "posicionimagen": "top",
-            "titulo": "Tarta de pollo",
-            "texto": "10.000"
+            "texto": "10000"
         }
     ]
 }

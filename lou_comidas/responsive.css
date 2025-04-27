@@ -3,6 +3,18 @@
     .textos, .filtro2 {
         width: 100%;
     }
+    .textos{
+        
+        grid-template: 
+        ". . ."auto
+        ". TIT ."max-content
+        ". BOT ."max-content
+        ". . ."auto/
+        auto 90% auto;
+    }
+    .textos h1{
+        font-size: 4vh;
+    }
     .pedido{
         background-color: rgba(0, 0, 0, 0.308);
             padding: 2vh;
