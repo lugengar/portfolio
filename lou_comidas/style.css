@@ -282,6 +282,7 @@ animation-play-state: paused;
 
 .pedido p{
     font-size: 3vh;
+    font-weight: 700;
     }
 .pedido p, .pedido h1{
     text-align: center;
@@ -363,6 +364,10 @@ button, a{
     top: 0;
     background-color: #ed7375;
     mix-blend-mode: multiply;
+}
+.links2 .barra{
+width: 100vw;
+height: 1vh;
 }
 .textos {
 
