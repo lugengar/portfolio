@@ -117,6 +117,7 @@ input[type="search"] {
 }
 #sidebar{
 background-color: rgba(0, 0, 0, 0.308);
+overflow-y: auto;
 
     transition: transform 0.5s ease-in-out;
     z-index: 99;
