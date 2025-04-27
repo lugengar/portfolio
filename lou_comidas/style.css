@@ -126,19 +126,22 @@ background-color: rgba(0, 0, 0, 0.308);
     left: 0%;
     top: 0%;
     display: grid;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
     /* background-color: black; */
 -webkit-backdrop-filter: blur(5vh);
 backdrop-filter: blur(5vh);
     grid-template:
     ". . ." 15vh
+    ". TIT ."max-content
+    ". BOT ."max-content
+    ". . ." 1vh
     ". LINK ."max-content
-    ". . ."auto/
-     auto 100% auto  ;
+    ". . ." 10vh/
+     auto 80% auto  ;
     transform: translateX(110%);
+}
+#sidebar .botonegro{
+    width: auto;
+    height: auto;
 }
 .links{
     padding-right: 5vh;
@@ -150,7 +153,7 @@ backdrop-filter: blur(5vh);
     align-items: center;
 }
 .links2{
-    padding-right: 5vh;
+    overflow: hidden;
     grid-area: LINK;
     display: flex;
     flex-wrap: wrap;
@@ -234,6 +237,7 @@ font-size: 4vh;
 }
   
 #circulorojo{
+    box-shadow: RED 0vh 0vh 2vh;
     font-family: "Comfortaa", serif;
     font-size: 2vh;
 position: absolute;
@@ -248,7 +252,7 @@ text-align: center;
 display: flex;
 justify-content: center;
 align-items: center;
-animation: titilar 1s infinite both;
+opacity: 0%;
 animation-play-state: paused;
 }
 @keyframes carrito{

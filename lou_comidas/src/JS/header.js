@@ -18,7 +18,8 @@ window.addEventListener('scroll', function() {
 
 function sidebar(){
     const circulorojo = document.getElementById('circulorojo');
-    circulorojo.style.animationPlayState = "paused"
+    circulorojo.style.animation = "none"
+circulorojo.style.opacity = "0%"
     bar = !bar
     var sidebar = document.getElementById('sidebar');
 
@@ -29,12 +30,21 @@ function sidebar(){
     }
 }
 const pedidos = [];
-
+sino= true
 function carrito(nombre, precio, foto) {
+   
+if(sino){
+    sino = false;
+    setTimeout(() => {
+        sino = true;
+      }, 1000);
     const container = document.getElementById('carrito-container');
     const circulorojo = document.getElementById('circulorojo');
     const totaldiv = document.getElementById('total');
     const carrito = document.getElementById('rayas');
+    circulorojo.style.opacity = "100%"
+    circulorojo.style.animation = "titilar 1s infinite both"
+
     circulorojo.style.animationPlayState = "running"
     let total = 0;
 
@@ -83,6 +93,7 @@ function carrito(nombre, precio, foto) {
         total += Number(pedido.precio);
     });
     totaldiv.textContent = "TOTAL: $"+total
+     }
 }
 function enviarPedido() {
     if (pedidos.length === 0) {

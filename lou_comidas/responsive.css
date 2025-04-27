@@ -45,4 +45,40 @@
         .pedido h1{
             font-size: 3vh;
         }
+        #sidebar{
+            background-color: rgba(0, 0, 0, 0.308);
+            overflow-y: auto;
+                transition: transform 0.5s ease-in-out;
+                z-index: 99;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                left: 0%;
+                top: 0%;
+                display: grid;
+                /* background-color: black; */
+            -webkit-backdrop-filter: blur(5vh);
+            backdrop-filter: blur(5vh);
+                grid-template:
+                ". . ." 15vh
+                ". TIT ."max-content
+                ". BOT ."max-content
+
+                ". . ." 1vh
+
+                ". LINK ."max-content
+                ". . ." 1vh/
+                 auto 100% auto  ;
+                transform: translateX(110%);
+            }
+            #sidebar #total {
+                text-align: center;
+                font-size: 5vh;
+            }
+            #sidebar .botonegro {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 }
