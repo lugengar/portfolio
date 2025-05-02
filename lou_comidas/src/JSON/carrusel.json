@@ -7,14 +7,9 @@
     },
     "imagenes": [
         {
-            "imagen": "img1.png",
+            "imagen": "img2.png",
             "posicionimagen": "top",
-            "titulo": "COMIDA CASERA CON ENVIO A DOMICILIO"
-        },
-        {
-            "imagen": "img1.png",
-            "posicionimagen": "top",
-            "titulo": "COMIDA CASERA CON ENVIO A DOMICILIO"
+            "titulo": "ESTAMOS DE LUNES A VIERNES DESDE 9:30 A 14:00"
         },
         {
             "imagen": "img1.png",

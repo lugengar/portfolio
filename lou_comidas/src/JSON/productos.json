@@ -1,15 +1,167 @@
 {
-    "configuracion": 
-    {
-        "ubicacioncarpeta": "src/PRODUCTOS/"
+    "configuracion": {
+      "ubicacioncarpeta": "src/PRODUCTOS/"
     },
     "imagenes": [
-        {
-            "imagen": "prod1.png",
-            "marca": "TARTAS",
-            "posicionimagen": "top",
-            "titulo": "Tarta de pollo",
-            "texto": "10000"
-        }
+      {
+        "imagen": "prod1.png",
+        "marca": "PIZZAS",
+        "posicionimagen": "top",
+        "titulo": "Pizza Grande Casera",
+        "adicionales": ["Cebolla", "Tomate", "Jamón", "Huevo"],
+        "precio": "9000"
+      },
+      {
+        "imagen": "prod2.png",
+        "marca": "PIZZAS",
+        "posicionimagen": "top",
+        "titulo": "Pizza Chica Casera",
+        "adicionales": ["Cebolla", "Tomate", "Jamón", "Huevo"],
+        "precio": "6000"
+      },
+      {
+        "imagen": "prod3.png",
+        "marca": "EMPANADAS",
+        "posicionimagen": "top",
+        "titulo": "Empanada",
+        "opciones": ["Carne", "Jamón y Queso", "Choclo"],
+
+        "precio": "1800"
+      },
+      {
+        "imagen": "prod4.png",
+        "marca": "MILANESAS",
+        "posicionimagen": "top",
+        "titulo": "Milanesa",
+        "opciones": ["Carne", "Pollo", "Soja"],
+
+        "precio": "6000"
+      },
+      {
+        "imagen": "prod5.png",
+        "marca": "MILANESAS",
+        "posicionimagen": "top",
+        "titulo": "Milanesa A La Napolitana",
+        "opciones": ["Carne", "Pollo", "Soja"],
+        "precio": "7000"
+      },
+      {
+        "imagen": "prod7.png",
+        "marca": "MILANESAS",
+        "posicionimagen": "top",
+        "titulo": "Sándwich De Milanesa",
+        "opciones": ["Carne", "Pollo", "Soja"],
+        "adicionales": ["Lechuga", "Tomate", "Mayonesa", "Huevo frito"],
+        "precio": "7500"
+      },
+      {
+        "imagen": "prod9.png",
+        "marca": "GUARNICIONES",
+        "posicionimagen": "top",
+        "titulo": "Guarnición",
+        "opciones": ["Papas Fritas", "Ensaladas", "Purés"],
+        "precio": "3000"
+      },
+      {
+        "imagen": "prod10.png",
+        "marca": "ENSALADAS",
+        "posicionimagen": "top",
+        "titulo": "Ensalada Mixta",
+        "precio": "5500"
+      },
+      {
+        "imagen": "prod11.png",
+        "marca": "ENSALADAS",
+        "posicionimagen": "top",
+        "titulo": "Ensalada Completa",
+        "precio": "6000"
+      },
+      {
+        "imagen": "prod12.png",
+        "marca": "ENSALADAS",
+        "posicionimagen": "top",
+        "titulo": "Ensalada Papa y Huevo",
+        "precio": "5500"
+      },
+      {
+        "imagen": "prod13.png",
+        "marca": "ENSALADAS",
+        "posicionimagen": "top",
+        "titulo": "Ensalada con Pollo",
+        "precio": "6500"
+      },
+      {
+        "imagen": "prod14.png",
+        "marca": "PAPAS",
+        "posicionimagen": "top",
+        "titulo": "Pastel De Papa",
+        "precio": "6000"
+      },
+      {
+        "imagen": "prod15.png",
+        "marca": "PAPAS",
+        "posicionimagen": "top",
+        "titulo": "Tortilla Individual",
+        "precio": "5500"
+      },
+      {
+        "imagen": "prod16.png",
+        "marca": "TARTAS",
+        "posicionimagen": "top",
+        "titulo": "Tarta Individual",
+        "opciones": ["Verdura y Queso", "Jamón y Queso", "Zucchini","Calabaza"],
+
+        "precio": "5000"
+      },
+      {
+        "imagen": "prod17.png",
+        "marca": "TARTAS",
+        "posicionimagen": "top",
+        "titulo": "Tarta Individual De Pollo con verdeo",
+        "precio": "6000"
+      },
+      {
+        "imagen": "prod18.png",
+        "marca": "HAMBURGUESAS",
+        "posicionimagen": "top",
+        "titulo": "Hamburguesa Gigante",
+        "adicionales": ["Lechuga", "Tomate", "Queso"],
+
+        "precio": "7000"
+      },
+      {
+        "imagen": "prod19.png",
+        "marca": "HAMBURGUESAS",
+        "posicionimagen": "top",
+        "titulo": "Hamburguesa Vegana",
+        "adicionales": ["Lechuga", "Tomate", "Queso"],
+        "precio": "7000"
+      },
+      {
+        "imagen": "prod22.png",
+        "marca": "PASTAS",
+        "posicionimagen": "top",
+        "titulo": "Plato De Pasta",
+        "opciones": ["Espaguetis", "Tirabuzón", "Tallarín","Mostachol"],
+
+        "precio": "6500"
+      },
+      {
+        "imagen": "prod23.png",
+        "marca": "PASTAS",
+        "posicionimagen": "top",
+        "titulo": "Canelones",
+        "precio": "6500"
+      },
+      {
+        "imagen": "prod24.png",
+        "marca": "PASTAS",
+        "posicionimagen": "top",
+        "titulo": "Salsas",
+        "opciones": ["Fileto", "Boloñesa", "Con Crema"],
+
+        "precio": ""
+      }
     ]
-}
+  }
+  

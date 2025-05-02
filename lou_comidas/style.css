@@ -336,6 +336,7 @@ button, a{
     transform: scale(1.1);
 }
 .imagen{
+    filter: blur(0.2vh);
     pointer-events: none;
     position: absolute;
     background-image: url(src/PNG/img1.png);
@@ -629,7 +630,7 @@ background-image: url();
     display: grid;
     width: 50vh;
     height: 55vh;
-    background-color: #e7e7e7;
+   /* background-color: #e7e7e7;*/
     grid-template: 
     ". ." auto
     "BOT BOT"max-content

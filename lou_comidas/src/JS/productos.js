@@ -42,12 +42,12 @@ function renderProductos(info) {
         
         p.classList.add('texto');
         h3.textContent = producto.titulo;
-        p.textContent = "$"+producto.texto;
+        p.textContent = "$"+producto.precio;
         item.classList.add('producto');
         h3.classList.add('minititulo');
         item.setAttribute("data-marca", producto.marca);
-        item.innerHTML = `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.texto}','${ubicacioncarpeta+producto.imagen}')">AGREGAR AL CARRITO</button>`;
-        item.style.backgroundImage = `url(${ubicacioncarpeta+producto.imagen})`;
+        item.innerHTML = `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta+producto.imagen}')">AGREGAR AL CARRITO</button>`;
+       item.style.backgroundImage = `url(${ubicacioncarpeta+producto.imagen})`;
         item.style.backgroundPosition = producto.posicionimagen;
         item.appendChild(h3);
         item.appendChild(p);
