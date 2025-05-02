@@ -76,7 +76,6 @@ function renderProductos(info) {
                 text += ` <label><input type="checkbox" name="${producto.titulo}" value="${opcion}">${opcion}</label> `;
             })
             text += `</div></details>`;
-            console.log(text)
             item.innerHTML += text;
            
 
@@ -94,7 +93,6 @@ function renderProductos(info) {
                 text += `<option value="${opcion}">${opcion}</option>`;
             })
             text += `</select>`;
-            console.log(text)
             item.innerHTML += text;
              }
         item.innerHTML += `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta+producto.imagen}',${sino1},${sino2},${sino3})">AGREGAR AL CARRITO</button>`;
