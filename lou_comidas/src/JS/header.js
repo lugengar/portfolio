@@ -15,11 +15,27 @@ window.addEventListener('scroll', function() {
     }
 
 });
+const pedidos = [];
+
+function total(){
+    const totaldiv = document.getElementById('total');
+    let total = 0;
+    if(pedidos.length > 0)
+    { 
+        pedidos.forEach(pedido => {
+            total += Number(pedido.precio);
+        });
+    }
+    totaldiv.textContent = "TOTAL: $"+total
+}
 
 function sidebar(){
+    total()
     const circulorojo = document.getElementById('circulorojo');
+    const rayas = document.getElementById('rayas');
     circulorojo.style.animation = "none"
-circulorojo.style.opacity = "0%"
+    rayas.style.animation = "none"
+    circulorojo.style.opacity = "0%"
     bar = !bar
     var sidebar = document.getElementById('sidebar');
 
@@ -29,72 +45,103 @@ circulorojo.style.opacity = "0%"
         sidebar.style.transform = "translateX(110%)"
     }
 }
-const pedidos = [];
+
 sino= true
-function carrito(nombre, precio, foto) {
-   
-if(sino){
-    sino = false;
-    setTimeout(() => {
-        sino = true;
-      }, 1000);
-    const container = document.getElementById('carrito-container');
-    const circulorojo = document.getElementById('circulorojo');
-    const totaldiv = document.getElementById('total');
-    const carrito = document.getElementById('rayas');
-    circulorojo.style.opacity = "100%"
-    circulorojo.style.animation = "titilar 1s infinite both"
+function verSeleccionados(nombre) {
+    const seleccionados = Array.from(document.querySelectorAll('input[name="'+nombre+'"]:checked'))
+      .map(cb => cb.value);
+    
+    return seleccionados;
+    // Podés mostrarlos también en el HTML si querés
+  }
+function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
+    opcion = ""
+    adicional = ""
+    if(sino){
+        sino = false;
+        setTimeout(() => {
+            sino = true;
+        }, 500);
+        const container = document.getElementById('carrito-container');
+        const circulorojo = document.getElementById('circulorojo');
+        const carrito = document.getElementById('rayas');
+        circulorojo.style.opacity = "100%"
+        circulorojo.style.animation = "titilar 1s infinite both"
+        carrito.style.animation = "mover 1s infinite both "
 
-    circulorojo.style.animationPlayState = "running"
-    let total = 0;
+        circulorojo.style.animationPlayState = "running"
+       
 
-   
+        // Crear elementos
+        const pedidoDiv = document.createElement('div');
+        pedidoDiv.className = 'pedido';
 
-    // Crear elementos
-    const pedidoDiv = document.createElement('div');
-    pedidoDiv.className = 'pedido';
-    const imagenDiv = document.createElement('div');
-    imagenDiv.className = 'imagenp';
-    imagenDiv.style.backgroundImage = `url('${foto}')`;
+        
+        const imagenDiv = document.createElement('div');
+        imagenDiv.className = 'imagenp';
+        imagenDiv.style.backgroundImage = `url('${foto}')`;
 
-    const imagenDiv2 = document.createElement('div');
-    imagenDiv2.className = 'imagenp2';
-    imagenDiv2.style.backgroundImage = `url('${foto}')`;
+        const imagenDiv2 = document.createElement('div');
+        imagenDiv2.className = 'imagenp2';
+        imagenDiv2.style.backgroundImage = `url('${foto}')`;
+        setTimeout(() => {
+            imagenDiv2.remove()
+        }, 2000);
+        const botonEliminar = document.createElement('button');
+        botonEliminar.className = 'botonegro';
+        botonEliminar.textContent = 'Eliminar';
 
-    const botonEliminar = document.createElement('button');
-    botonEliminar.className = 'botonegro';
-    botonEliminar.textContent = 'Eliminar';
+        const titulo = document.createElement('h1');
+        titulo.textContent = nombre;
 
-    const titulo = document.createElement('h1');
-    titulo.textContent = nombre;
+        const precioP = document.createElement('p');
+        precioP.textContent = `$${precio}`;
+        if(sino2){ 
+            valor = document.getElementById('p_'+nombre).value
+            const opciond = document.createElement('p');
+            opciond.className = 'texto, opcionp';
+            opciond.textContent = "De "+valor;
+            pedidoDiv.appendChild(opciond);
+            opcion = "De "+valor
+        }
+        if(sino3){ 
+            valor = document.getElementById('p2_'+nombre).value
+            const opciond = document.createElement('p');
+            opciond.className = 'texto, opcionp2';
+            opciond.textContent = "Con "+valor
+            pedidoDiv.appendChild(opciond);
+            adicional = "Con "+valor
+        }
+        if(sino4){ 
+            adicional = "Con "+verSeleccionados(nombre)
+            console.log(adicional)
+            valor = document.getElementById('p2_'+nombre).value
+            const opciond = document.createElement('p');
+            opciond.className = 'texto, opcionp2';
+            opciond.textContent = adicional
+            pedidoDiv.appendChild(opciond);
+        }
+        // Agregar elementos al pedidoDiv
+        pedidoDiv.appendChild(imagenDiv);
+        carrito.appendChild(imagenDiv2);
+        pedidoDiv.appendChild(botonEliminar);
+        pedidoDiv.appendChild(titulo);
+        pedidoDiv.appendChild(precioP);
 
-    const precioP = document.createElement('p');
-    precioP.textContent = `$${precio}`;
+        // Agregar pedidoDiv al container
+        container.appendChild(pedidoDiv);
 
-    // Agregar elementos al pedidoDiv
-    pedidoDiv.appendChild(imagenDiv);
-    carrito.appendChild(imagenDiv2);
-    pedidoDiv.appendChild(botonEliminar);
-    pedidoDiv.appendChild(titulo);
-    pedidoDiv.appendChild(precioP);
+        // Guardar en la lista
+        const pedido = { nombre, precio, foto, opcion, adicional, elemento: pedidoDiv };
+        pedidos.push(pedido);
 
-    // Agregar pedidoDiv al container
-    container.appendChild(pedidoDiv);
-
-    // Guardar en la lista
-    const pedido = { nombre, precio, foto, elemento: pedidoDiv };
-    pedidos.push(pedido);
-
-    // Evento eliminar
-    botonEliminar.onclick = function() {
-        eliminar(pedido);
-    };
-    pedidos.forEach(pedido => {
-        total += Number(pedido.precio);
-    });
-    totaldiv.textContent = "TOTAL: $"+total
-     }
+        // Evento eliminar
+        botonEliminar.onclick = function() {
+            eliminar(pedido);
+        };
+    }
 }
+
 function enviarPedido() {
     if (pedidos.length === 0) {
         alert("No hay pedidos para enviar.");
@@ -105,7 +152,20 @@ function enviarPedido() {
     let total = 0;
 
     pedidos.forEach(pedido => {
-        mensaje += `- ${pedido.nombre} ($${pedido.precio})\n`;
+        mensaje += `- ${pedido.nombre}`;
+
+        if(pedido.opcion != ""){
+
+            mensaje += ` ${pedido.opcion}`;
+
+        }
+        if(pedido.adicional != ""){
+
+            mensaje += ` ${pedido.adicional}`;
+
+        }
+        mensaje += ` ($${pedido.precio})\n`;
+
         total += Number(pedido.precio);
     });
 
@@ -121,6 +181,7 @@ function enviarPedido() {
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`, "_blank");
 }
 function eliminar(pedido) {
+    total()
     // Eliminar del DOM
     pedido.elemento.remove();
     // Eliminar de la lista

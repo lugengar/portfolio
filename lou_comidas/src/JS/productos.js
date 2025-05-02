@@ -22,7 +22,7 @@ function renderConfiguracion(info) {
     producto.appendChild(h1);
     producto.appendChild(p);
 }
-
+limite = 20
 function renderProductos(info) {
     ubicacioncarpeta = info.configuracion.ubicacioncarpeta;
     productos = info.imagenes;
@@ -32,10 +32,12 @@ function renderProductos(info) {
     productos.forEach(producto => {
         indice++;
         const item = document.createElement('div');
+        const imagen = document.createElement('div');
         const h3 = document.createElement('h1');
         const p = document.createElement('p');
+        imagen.classList.add("imagenp3");
         
-        if (indice > 4) {
+        if (indice > limite) {
             item.style.display = "none";
             item.classList.add("oculto");
         }
@@ -46,9 +48,65 @@ function renderProductos(info) {
         item.classList.add('producto');
         h3.classList.add('minititulo');
         item.setAttribute("data-marca", producto.marca);
-        item.innerHTML = `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta+producto.imagen}')">AGREGAR AL CARRITO</button>`;
-       item.style.backgroundImage = `url(${ubicacioncarpeta+producto.imagen})`;
-        item.style.backgroundPosition = producto.posicionimagen;
+        sino1 = false
+        sino2= false
+        sino3= false
+        if(producto.adicionales != undefined && producto.solouno != undefined ){
+            sino2= true
+            text= `<select class="botonegro3" id="p2_${producto.titulo}">`;
+            cont = 0
+            producto.adicionales.forEach(opcion => { 
+                if(cont == 0){
+                    text+= `<option value="${opcion}">ADICIONALES</option>`;
+                }
+                cont++
+                text += `<option value="${opcion}">${opcion}</option>`;
+            })
+            text += `</select>`;
+            item.innerHTML += text;
+           
+
+        }else if(producto.adicionales != undefined){
+            sino3= true
+            text= `<details class="botonegro3"><summary>ADICIONALES</summary><div class=" checkboxes" id="p2_${producto.titulo}">`;
+         
+            producto.adicionales.forEach(opcion => { 
+          
+                
+                text += ` <label><input type="checkbox" name="${producto.titulo}" value="${opcion}">${opcion}</label> `;
+            })
+            text += `</div></details>`;
+            console.log(text)
+            item.innerHTML += text;
+           
+
+        }
+        if(producto.opciones != undefined){
+            sino1= true
+
+            text= `<select class="botonegro2" id="p_${producto.titulo}">`;
+            cont = 0
+            producto.opciones.forEach(opcion => { 
+                if(cont == 0){
+                    text+= `<option value="${opcion}">VER OPCIONES</option>`;
+                }
+                cont++
+                text += `<option value="${opcion}">${opcion}</option>`;
+            })
+            text += `</select>`;
+            console.log(text)
+            item.innerHTML += text;
+             }
+        item.innerHTML += `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta+producto.imagen}',${sino1},${sino2},${sino3})">AGREGAR AL CARRITO</button>`;
+
+        
+        if(producto.tamaño != undefined){
+        imagen.style.backgroundSize =producto.tamaño;
+            
+        }
+        imagen.style.backgroundImage = `url(${ubicacioncarpeta+producto.imagen})`;
+        imagen.style.backgroundPosition = producto.posicionimagen;
+        item.appendChild(imagen);
         item.appendChild(h3);
         item.appendChild(p);
         listaProductos.appendChild(item);
@@ -90,7 +148,7 @@ function actualizarVisibilidadProductos() {
         let marca = producto.getAttribute("data-marca").toLowerCase();
         if ((titulo.includes(filtro) || marca.includes(filtro)) && (marcaSeleccionada === "" || marca === marcaSeleccionada) ) {
             a++
-            if(a <= 4){
+            if(a <= limite){
                 producto.style.display = "grid";
                 producto.classList.remove("oculto");
             }else{
@@ -120,7 +178,7 @@ function actualizarBotonVerMas() {
     const productosOcultos = document.querySelectorAll(".listaproductos .producto.oculto");
     const productosVisibles = document.querySelectorAll(".listaproductos .producto[style*='display: grid']");
     
-    if (productosOcultos.length === 0 || productosVisibles.length === 0 || productosVisibles.length < 4) {
+    if (productosOcultos.length === 0 || productosVisibles.length === 0 || productosVisibles.length < limite) {
         botonVerMas.style.display = "none";
     } else {
         botonVerMas.style.display = "block";

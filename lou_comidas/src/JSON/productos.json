@@ -4,163 +4,160 @@
     },
     "imagenes": [
       {
-        "imagen": "prod1.png",
+        "imagen": "pizza.png",
         "marca": "PIZZAS",
-        "posicionimagen": "top",
-        "titulo": "Pizza Grande Casera",
+        "posicionimagen": "center",
+        "titulo": "Pizza Grande",
         "adicionales": ["Cebolla", "Tomate", "Jamón", "Huevo"],
         "precio": "9000"
       },
       {
-        "imagen": "prod2.png",
+        "imagen": "sinfoto.svg",
         "marca": "PIZZAS",
-        "posicionimagen": "top",
-        "titulo": "Pizza Chica Casera",
+        "posicionimagen": "center",
+        "titulo": "Pizza Chica",
         "adicionales": ["Cebolla", "Tomate", "Jamón", "Huevo"],
         "precio": "6000"
       },
       {
-        "imagen": "prod3.png",
+        "imagen": "empanada.png",
         "marca": "EMPANADAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Empanada",
-        "opciones": ["Carne", "Jamón y Queso", "Choclo"],
+        "opciones": ["Carne", "J y Q", "Choclo"],
 
         "precio": "1800"
       },
       {
-        "imagen": "prod4.png",
+        "imagen": "milanesa.webp",
         "marca": "MILANESAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Milanesa",
         "opciones": ["Carne", "Pollo", "Soja"],
 
         "precio": "6000"
       },
       {
-        "imagen": "prod5.png",
+        "imagen": "milanapo.png",
         "marca": "MILANESAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Milanesa A La Napolitana",
         "opciones": ["Carne", "Pollo", "Soja"],
         "precio": "7000"
       },
       {
-        "imagen": "prod7.png",
+        "imagen": "sandwich.png",
         "marca": "MILANESAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Sándwich De Milanesa",
         "opciones": ["Carne", "Pollo", "Soja"],
-        "adicionales": ["Lechuga", "Tomate", "Mayonesa", "Huevo frito"],
+        "adicionales": ["Lechuga y Tomate", "Mayonesa", "Huevo frito"],
         "precio": "7500"
       },
       {
-        "imagen": "prod9.png",
+        "imagen": "papasfritas.png",
         "marca": "GUARNICIONES",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Guarnición",
         "opciones": ["Papas Fritas", "Ensaladas", "Purés"],
         "precio": "3000"
       },
       {
-        "imagen": "prod10.png",
+        "imagen": "ensaladamixta.png",
         "marca": "ENSALADAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Ensalada Mixta",
         "precio": "5500"
       },
       {
-        "imagen": "prod11.png",
+        "imagen": "ensaladacompleta.png",
         "marca": "ENSALADAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Ensalada Completa",
         "precio": "6000"
       },
       {
-        "imagen": "prod12.png",
+        "imagen": "sinfoto.svg",
         "marca": "ENSALADAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Ensalada Papa y Huevo",
         "precio": "5500"
       },
       {
-        "imagen": "prod13.png",
+        "imagen": "ensaladapollo.png",
         "marca": "ENSALADAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Ensalada con Pollo",
         "precio": "6500"
       },
       {
-        "imagen": "prod14.png",
+        "imagen": "sinfoto.svg",
         "marca": "PAPAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Pastel De Papa",
         "precio": "6000"
       },
       {
-        "imagen": "prod15.png",
+        "imagen": "tortilla.png",
         "marca": "PAPAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Tortilla Individual",
         "precio": "5500"
       },
       {
-        "imagen": "prod16.png",
+        "imagen": "tarta.png",
         "marca": "TARTAS",
-        "posicionimagen": "top",
+        "tamaño":"80%",
+        "posicionimagen": "center",
         "titulo": "Tarta Individual",
         "opciones": ["Verdura y Queso", "Jamón y Queso", "Zucchini","Calabaza"],
 
         "precio": "5000"
       },
       {
-        "imagen": "prod17.png",
+        "imagen": "tarta.png",
         "marca": "TARTAS",
-        "posicionimagen": "top",
+        "tamaño":"80%",
+        "posicionimagen": "center",
         "titulo": "Tarta Individual De Pollo con verdeo",
         "precio": "6000"
       },
       {
-        "imagen": "prod18.png",
+        "imagen": "sinfoto.svg",
         "marca": "HAMBURGUESAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Hamburguesa Gigante",
         "adicionales": ["Lechuga", "Tomate", "Queso"],
 
         "precio": "7000"
       },
       {
-        "imagen": "prod19.png",
+        "imagen": "sinfoto.svg",
         "marca": "HAMBURGUESAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Hamburguesa Vegana",
         "adicionales": ["Lechuga", "Tomate", "Queso"],
         "precio": "7000"
       },
       {
-        "imagen": "prod22.png",
+        "imagen": "sinfoto.svg",
         "marca": "PASTAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Plato De Pasta",
         "opciones": ["Espaguetis", "Tirabuzón", "Tallarín","Mostachol"],
+        "adicionales": ["Salsa Fileto", "Salsa Boloñesa", "Crema"],
+        "solouno": true,
 
         "precio": "6500"
       },
       {
-        "imagen": "prod23.png",
+        "imagen": "sinfoto.svg",
         "marca": "PASTAS",
-        "posicionimagen": "top",
+        "posicionimagen": "center",
         "titulo": "Canelones",
+        "adicionales": ["Salsa Fileto", "Salsa Boloñesa", "Crema"],
+        "solouno": true,
         "precio": "6500"
-      },
-      {
-        "imagen": "prod24.png",
-        "marca": "PASTAS",
-        "posicionimagen": "top",
-        "titulo": "Salsas",
-        "opciones": ["Fileto", "Boloñesa", "Con Crema"],
-
-        "precio": ""
       }
     ]
   }

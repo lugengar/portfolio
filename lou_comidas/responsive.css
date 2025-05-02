@@ -16,8 +16,7 @@
         font-size: 4vh;
     }
     .pedido{
-        background-color: rgba(0, 0, 0, 0.308);
-            padding: 2vh;
+        background-color: white;
             border: none;
             text-decoration: none;
             margin: 0;
@@ -35,10 +34,13 @@
            ". . . . ."auto
         
            ". FOTO . TIT  ."max-content
+           ". FOTO . OP  ."max-content
+           ". FOTO . OP2  ."max-content
+
            ". FOTO . TXT  ."5vh
            ". FOTO . BOT ."max-content
            ". . . . ."auto/
-           auto 15vh 2vh max-content auto;
+           auto 20vw 1vh max-content auto;
 
         }
         
@@ -81,3 +83,22 @@
                 align-items: center;
             }
 }
+@media (max-width: 50vh) {
+    .pedido .imagenp{
+        display: none;
+    }
+    .pedido{
+
+           grid-template:
+           " . . ."auto
+        
+           " . TIT  ."max-content
+           " . OP  ."max-content
+           " . OP2  ."max-content
+           " . TXT  ."5vh
+           " . BOT ."max-content
+           ".  . ."auto/
+           auto  max-content auto;
+
+        }
+ }

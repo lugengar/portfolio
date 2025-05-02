@@ -37,8 +37,9 @@ p,a{
 }
 a {
     font-size: 2vh;
+    font-weight: 700;
    
-    color: rgb(123, 36, 223);
+    color: rgb(255, 255, 255);
 
 }
 h1 {
@@ -193,8 +194,10 @@ backdrop-filter: blur(5vh);
     min-height: 4vh;
 }
 .pedido{
-background-color: rgba(0, 0, 0, 0.308);
-    padding: 2vh;
+background-color: white;
+gap: 1vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
     border: none;
     text-decoration: none;
     margin: 0;
@@ -212,28 +215,53 @@ background-color: rgba(0, 0, 0, 0.308);
    ". . . . . ."auto
    ". FOTO . . . ."2vh
    ". FOTO . TIT TIT ."max-content
+   ". FOTO . OP OP2 ."max-content
    ". FOTO . TXT BOT ."5vh
    ". FOTO . . . ."2vh
    ". . . . . ."auto/
    auto 15vh 2vh 20vh max-content auto;
+}
+.pedido .opcionp{
+    font-size: 2.5vh;
+    grid-area: OP
+}
+.pedido .opcionp2{
+    font-size: 2.5vh;
+    grid-area: OP2
 }
 .pedido h1{
 font-size: 4vh;
 }
 #rayas{
     position: relative;
+    /*animation: mover 2s infinite cubic-bezier(1, 0, 0, 1) */
+
+   }
+
+   @keyframes mover {
+    
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform:scale(1.1);
+    } 
+    100%{
+        transform:scale(1);
+    } 
    }
 .imagenp2{
+    box-shadow: #1a1a1a 0vh 0vh 2vh;
+    background-color: white;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 4.5vh;
     position: absolute;
     right: 0%;
     top: 0%;
     border-radius: 25vh;
     width: 5vh;
     height:  5vh;
-    background-color: transparent;
     animation: carrito 2s both;
 }
   
@@ -256,6 +284,42 @@ align-items: center;
 opacity: 0%;
 animation-play-state: paused;
 }
+
+
+details {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  details[open] {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+ 
+  
+  .checkboxes {
+    background-color: #ed7375;
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    height: max-content;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    cursor: pointer;
+    font-size: 2vh;
+    padding: 1vh;
+
+  }
+  
 @keyframes carrito{
     0%{
         transform: translateY(20vh) translateX(-20vh) scale(5);
@@ -263,7 +327,7 @@ animation-play-state: paused;
     }
     80%{
         transform: translateY(0vh) translateX(0vh)  scale(1);
-        opacity: 100%;
+        opacity: 80%;
     }
     100%{
         transform: translateY(0vh) translateX(0vh) scale(0);
@@ -619,25 +683,59 @@ background-image: url();
     auto ;
 
 }
-
+.opciones{
+    display: grid;
+    grid-template:
+    ". . ."auto
+    ". CON ."80vh
+    ". . ."5vh/
+    auto 80% auto ;
+    backdrop-filter: blur(1vh);
+    width:  100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+.opciones .contenedor{
+    grid-area: CON;
+    background-color: white;
+    display: grid;
+    grid-template:
+    ". . ."auto
+    ". CON ."auto
+    ". . ."5vh/
+    auto 80% auto ;
+}
 .producto{
-
+    gap: 0.5vh;
+    padding: 2vh;
     cursor: default;
     position: relative;
-    background-position: top;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
     display: grid;
     width: 50vh;
     height: 55vh;
    /* background-color: #e7e7e7;*/
     grid-template: 
-    ". ." auto
-    "BOT BOT"max-content
-    "TIT TXT" max-content/
-    auto max-content;
-}
 
+    "IMG IMG" auto
+    "TIT TXT" max-content
+    "BOT2 BOT2"max-content
+    "BOT3 BOT3"max-content
+    "BOT BOT"max-content
+
+    /
+    auto max-content;
+
+}
+.imagenp3{
+    grid-area: IMG;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
 .producto h1{
     font-weight: 700;
     text-overflow: ellipsis;
@@ -705,6 +803,36 @@ background-image: url();
     justify-content: baseline;
     color: white;
 }
+.botonegro3{
+    z-index: 3;
+    background-color: #ed7375;
+    border: none;
+    grid-area: BOT3;
+    padding: 1vh;
+    font-family: "Comfortaa", serif;
+    font-weight: 400;
+    font-size: 2vh;
+    color: white;
+}
+.checkboxes input[type="checkbox"] {
+    width: 2vh;
+    height: 2vh;
+    border: none;
+    border-radius: 0vh;
+    accent-color: #007bff;
+    cursor: pointer;
+    outline: none;
+  }
+  .checkboxes input[type="checkbox"]:focus {
+    width: 2vh;
+    height: 2vh;
+    border: none;
+    border-radius: 0vh;
+    accent-color: #007bff;
+    cursor: pointer;
+    outline: none;
+  }
+  
 .servicio:hover {
     background-size: auto 110%;
 }
@@ -895,13 +1023,17 @@ backdrop-filter: blur(2vh);
     font-size: 2vh;
     min-height: 5vh;
     grid-area: AGUA;
-    background-color: black;
-   
+    background-color: #ed7375;
+    
     font-weight: 300;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#marcadeagua .texto{
+    color: white;
+    font-size: 2vh;
 }
 .informacion{
     grid-area: INFO;

@@ -2,6 +2,22 @@
   "imagenes":[
     {
         "nombre": "TARTAS"
+      },{
+        "nombre": "PIZZAS"
+      },{
+        "nombre": "EMPANADAS"
+      },{
+        "nombre": "MILANESAS"
+      },{
+        "nombre": "GUARNICIONES"
+      },{
+        "nombre": "ENSALADAS"
+      },{
+        "nombre": "PAPAS"
+      },{
+        "nombre": "HAMBURGUESAS"
+      },{
+        "nombre": "PASTAS"
       }
                 
   ]}
