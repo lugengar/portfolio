@@ -54,6 +54,15 @@ function verSeleccionados(nombre) {
     return seleccionados;
     // Podés mostrarlos también en el HTML si querés
   }
+  function carrito2(nombre, precio, foto, sino2=false, sino3=false, sino4=false){
+    const opciones = document.getElementById('opciones');
+    opciones.innerHTML = '<button class="botonegro2" >SALIR</button>'
+    opciones.style.display = "grid"
+    const item = document.getElementById('item_'+nombre);
+    const copia = item.cloneNode(true);
+    
+    opciones.appendChild(copia);
+  }
 function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
     opcion = ""
     adicional = ""
@@ -106,11 +115,13 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
         }
         if(sino3){ 
             valor = document.getElementById('p2_'+nombre).value
-            const opciond = document.createElement('p');
-            opciond.className = 'texto, opcionp2';
-            opciond.textContent = "Con "+valor
-            pedidoDiv.appendChild(opciond);
-            adicional = "Con "+valor
+            if(valor != ""){ 
+                const opciond = document.createElement('p');
+                opciond.className = 'texto, opcionp2';
+                opciond.textContent = "Con "+valor
+                pedidoDiv.appendChild(opciond);
+                adicional = "Con "+valor
+            }
         }
         if(sino4){ 
             adicional = "Con "+verSeleccionados(nombre)

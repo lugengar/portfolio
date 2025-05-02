@@ -684,12 +684,14 @@ background-image: url();
 
 }
 .opciones{
-    display: grid;
+    
+    display: none;
     grid-template:
     ". . ."auto
-    ". CON ."80vh
-    ". . ."5vh/
-    auto 80% auto ;
+    ". BOT2 ."max-content
+    ". CON ."max-content
+    ". . ."auto/
+    auto max-content auto ;
     backdrop-filter: blur(1vh);
     width:  100%;
     height: 100%;
@@ -705,11 +707,12 @@ background-image: url();
     display: grid;
     grid-template:
     ". . ."auto
-    ". CON ."auto
+    ". CON ."max-content
     ". . ."5vh/
-    auto 80% auto ;
+    auto max-content auto ;
 }
 .producto{
+    grid-area: CON;
     gap: 0.5vh;
     padding: 2vh;
     cursor: default;

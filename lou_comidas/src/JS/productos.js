@@ -46,6 +46,7 @@ function renderProductos(info) {
         h3.textContent = producto.titulo;
         p.textContent = "$"+producto.precio;
         item.classList.add('producto');
+        item.id = "item_"+producto.titulo;
         h3.classList.add('minititulo');
         item.setAttribute("data-marca", producto.marca);
         sino1 = false
