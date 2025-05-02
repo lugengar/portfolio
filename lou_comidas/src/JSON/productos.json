@@ -59,7 +59,7 @@
         "marca": "GUARNICIONES",
         "posicionimagen": "center",
         "titulo": "Guarnición",
-        "opciones": ["Papas Fritas", "Ensaladas", "Purés"],
+        "opciones": ["Papas Fritas", "Lechuga y Tomate", "Puré de papa", "Puré de calabaza","Zanahoria y Tomate"],
         "precio": "3000"
       },
       {
