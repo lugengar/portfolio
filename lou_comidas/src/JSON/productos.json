@@ -84,7 +84,7 @@
         "precio": "5500"
       },
       {
-        "imagen": "ensaladapollo.png",
+        "imagen": "ensaladapollo.jpg",
         "marca": "ENSALADAS",
         "posicionimagen": "center",
         "titulo": "Ensalada con Pollo",
@@ -140,7 +140,9 @@
         "precio": "7000"
       },
       {
-        "imagen": "sinfoto.svg",
+        "imagen": "pasta.png",
+        "tamaño":"70%",
+
         "marca": "PASTAS",
         "posicionimagen": "center",
         "titulo": "Plato De Pasta",
