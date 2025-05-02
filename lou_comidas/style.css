@@ -1150,8 +1150,7 @@ grid-area: REDE;
 .aparece {
     animation: show 0.6s ease-out forwards;
 }
-
-.producto,.cuadro, .servicio, .titulo, .inputs, #producto h1, #producto p, .minitexto, #servicios .titulo {
+.cuadro, .servicio, .titulo, .inputs, #producto h1, #producto p, .minitexto, #servicios .titulo {
     opacity: 0;
 }
 
