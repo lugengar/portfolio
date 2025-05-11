@@ -441,7 +441,6 @@ height: 1vh;
 }
 .textos {
     gap: 1vh;
-    pointer-events: none;
     background-color: transparent;
     width: 50%;
     height: 100%;
@@ -497,6 +496,7 @@ height: 1vh;
 
     
 .boton-control{
+
     mix-blend-mode: difference;
     width: 10vh;
     height: 5vh;
