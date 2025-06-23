@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>???</title>
+  <title>Regalo Interactivo</title>
   <style>
     * {
       margin: 0;
@@ -11,31 +11,74 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       height: 100%;
       width: 100%;
       background-color: #000;
+      font-family: Arial, sans-serif;
+      color: white;
     }
 
-    .fullscreen-gif {
+    .fullscreen-container {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       width: 100vw;
-      overflow: hidden;
+      position: relative;
     }
 
-    .fullscreen-gif img {
+    .gif {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      cursor: pointer;
+    }
+
+    #gif2 {
+      display: none;
+    }
+
+    .mensaje {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+      animation: parpadeo 1s infinite;
+    }
+
+    @keyframes parpadeo {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
   </style>
 </head>
 <body>
-  <div class="fullscreen-gif">
-    <img src="abrazo.gif" alt="GIF a pantalla completa" />
+  <div class="fullscreen-container">
+    <div class="mensaje" id="mensaje">Hacé click en el regalo 🎁</div>
+    <img id="gif1" class="gif" src="regalo.webp" alt="Regalo" />
+    
+    <!-- Segundo GIF: la sorpresa -->
+    <img id="gif2" class="gif" src="abrazo.gif" alt="Sorpresa" />
   </div>
+
+  <script>
+    const regalo = document.getElementById('gif1');
+    const sorpresa = document.getElementById('gif2');
+    const mensaje = document.getElementById('mensaje');
+
+    regalo.addEventListener('click', () => {
+      regalo.style.display = 'none';
+      mensaje.style.display = 'none';
+      sorpresa.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
+
+
+  
