@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ejercicio1",
+        "tipo": 1,
+        "musculos": [1,2]
+    },
+    {
+        "id": 2,
+        "nombre": "Ejercicio2",
+        "tipo": 1,
+        "musculos": [1,2]
+    }
+]

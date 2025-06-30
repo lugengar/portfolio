@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Rutina</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
@@ -13,208 +14,23 @@
     <button class="persona"></button>
   </header>
   <section>
-    <div class="lista">
+    <div class="lista" id="rutinas">
+      <h1 class="titulo">Rutinas</h1>
+      <div class="botones">
+        <a class="boton2" id="crear" href="crear.html">Crear rutina</a>
+        <button class="boton2" id="explorar">Explorar</button>
+      </div>
       <h1 class="titulo">Mis rutinas</h1>
-      <div class="rutina">
-        <h2 class="subtitulo">Rutina 1</h2>
-        <button class="configuracion"></button>
-        <p class="texto">EJERCICIO 1, 2, 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolor nostrum assumenda earum minima praesentium eos distinctio ex amet. Aspernatur provident adipisci debitis molestias enim facilis, mollitia corrupti expedita amet?</p>
-        <button class="boton">Empezar</button>
-      </div>
-      <div class="rutina">
-        <h2 class="subtitulo">Rutina 1</h2>
-        <button class="configuracion"></button>
-        <p class="texto">EJERCICIO 1, 2, 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolor nostrum assumenda earum minima praesentium eos distinctio ex amet. Aspernatur provident adipisci debitis molestias enim facilis, mollitia corrupti expedita amet?</p>
-        <button class="boton">Empezar</button>
-      </div>
-      <div class="rutina">
-        <h2 class="subtitulo">Rutina 1</h2>
-        <button class="configuracion"></button>
-        <p class="texto">EJERCICIO 1, 2, 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolor nostrum assumenda earum minima praesentium eos distinctio ex amet. Aspernatur provident adipisci debitis molestias enim facilis, mollitia corrupti expedita amet?</p>
-        <button class="boton">Empezar</button>
-      </div>
-      <div class="rutina">
-        <h2 class="subtitulo">Rutina 1</h2>
-        <button class="configuracion"></button>
-        <p class="texto">EJERCICIO 1, 2, 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolor nostrum assumenda earum minima praesentium eos distinctio ex amet. Aspernatur provident adipisci debitis molestias enim facilis, mollitia corrupti expedita amet?</p>
-        <button class="boton">Empezar</button>
-      </div>
-    </div>
+      
   </section>
-  <footer></footer>
+  <footer>
+    <button class="home"></button>
+    <button class="pesa"></button>
+    <button class="persona"></button>
+  </footer>
 </main>
 </body>
 </html>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-button{
-  background-color: rgb(30, 154, 255);
-  border: none;
-  border-radius: 25vh;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 2vh;
-}
-.configuracion{
-  background-image: url(src/svg/settings.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  grid-area: con;
-  height: 100%;
-  background-color: transparent;
-}
-.persona{
-  background-image: url(src/svg/person.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 5vh;
-  width: 5vh;
-  background-color: transparent;
-}
-.pesa{
-  background-image: url(src/svg/exercise.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 5vh;
-  width: 5vh;
-  background-color: transparent;
-}
-.home{
-  background-image: url(src/svg/home.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 5vh;
-  width: 5vh;
-  background-color: transparent;
-}
-.boton{
-  height: 100%;
-  grid-area: bot;
-
-}
-h1{
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 4vh;
-}
-h2{
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 3vh;
-}
-p{
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 2vh;
-  font-variation-settings:
-    "wdth" 100;
-}
-.texto{
-  height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;    
-  color: aliceblue;
-  grid-area: txt;
-}
-.titulo{
-  margin: 0;
-  height: max-content;
-  color: aliceblue;
-}
-.subtitulo{
-  margin: 0;
-  padding: 0;
-  color: aliceblue;
-  grid-area: sub;
-
-}
-
-.rutina{
-  gap: 1vh;
-  padding: 2vh;
-  position: relative;
-  width: 48vh;
-  height: 18vh;
-  background-color: rgb(29, 29, 29);
-  box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.39) ;
-  border-radius: 1vh;
-  display: grid;
-  align-items: center;
-  grid-template:
-  "sub sub con"4vh
-  "txt txt txt" 7vh
-  "bot bot bot" 5vh/
-  auto auto 4vh;
-  
-
-}
-.lista{
-  gap: 2vh;
-  position: relative;
-  width: 100%;
-  height: max-content;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-main{
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 100%;
-  background-color: red;
-}
-section{
-  padding-top: 12vh;
-  padding-bottom: 12vh;
-  background-color: rgb(12, 12, 12);
-  width: 100%;
-  height: max-content;
-  min-height: 100%;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  display: flex;
-  justify-content: center;
-}
-header{
-  background-color: rgb(29, 29, 29);
-  box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.39) ;
-  position: fixed;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  height: 8vh;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  padding-left: 1vh;
-  padding-right: 1vh;
-  gap: 1vh;
-}
-footer{
-  display: none;
-  background-color: rgb(29, 29, 29);
-  box-shadow: -1vh -1vh 2vh rgba(0, 0, 0, 0.39) ;
-  position: fixed;
-  width: 100%;
-  bottom: 0%;
-  left: 0%;
-  height: 5vh;
-  z-index: 10;
-
-}
-</style>
+<script src="src/js/rutinas.js"></script>
+<script src="src/js/cargadatos.js"></script>

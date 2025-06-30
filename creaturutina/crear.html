@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <button class="home" style="background-image: none;">Cancelar</button>
+    <button class="pesa"></button>
+    <button class="persona"></button>
+  </header>
+  <section>
+    <form class="lista" id="rutinas">
+      <input type="text" class="titulo2" name="nombre" placeholder="Nombre de la rutina">
+      <p class="texto">Agrega algun ejercicio</p>
+      <div class="ejercicio">
+        <input type="hidden" name="series" value="1">
+        <h2 class="subtitulo">nombre</h2>
+            <button class="configuracion"></button>
+            <div class="series">
+              <div class="serie">
+                <p>SERIE</p>
+                <p>KG</p>
+                <p>TIME</p>
+                <p>REPS</p>
+              </div>
+              <div class="serie">
+                <input type="hidden" name="repes_1" value="1">
+                <input type="hidden" name="kg_1" value="1">
+                <input type="hidden" name="time_1" value="1">
+                <p>1</p>
+                <p>5</p>
+                <p>-</p>
+                <p>5</p>
+              </div>
+            </div>
+            <button class="boton">Agregar serie</button>
+      </div>
+      <button class="botonsolo">Añadir ejercicio</button>
+  </form>
+  <footer>
+    <button class="botonsolo">Añadir ejercicio</button>
+  </footer>
+</main>
+</body>
+</html>
+
+<script src="src/js/ejercicios.js"></script>
