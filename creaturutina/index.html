@@ -7,7 +7,11 @@
 </head>
 <body>
 <main>
-  <header></header>
+  <header>
+    <button class="home"></button>
+    <button class="pesa"></button>
+    <button class="persona"></button>
+  </header>
   <section>
     <div class="lista">
       <h1 class="titulo">Mis rutinas</h1>
@@ -62,10 +66,33 @@ button{
   background-size: cover;
   grid-area: con;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3vh;
+  background-color: transparent;
+}
+.persona{
+  background-image: url(src/svg/person.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 5vh;
+  width: 5vh;
+  background-color: transparent;
+}
+.pesa{
+  background-image: url(src/svg/exercise.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 5vh;
+  width: 5vh;
+  background-color: transparent;
+}
+.home{
+  background-image: url(src/svg/home.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 5vh;
+  width: 5vh;
   background-color: transparent;
 }
 .boton{
@@ -164,22 +191,29 @@ section{
   justify-content: center;
 }
 header{
-  background-color: aqua;
+  background-color: rgb(29, 29, 29);
+  box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.39) ;
   position: fixed;
   width: 100%;
   top: 0%;
   left: 0%;
-  height: 10vh;
+  height: 8vh;
   z-index: 10;
-
+  display: flex;
+  align-items: center;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  gap: 1vh;
 }
 footer{
-  background-color: beige;
+  display: none;
+  background-color: rgb(29, 29, 29);
+  box-shadow: -1vh -1vh 2vh rgba(0, 0, 0, 0.39) ;
   position: fixed;
   width: 100%;
   bottom: 0%;
   left: 0%;
-  height: 10vh;
+  height: 5vh;
   z-index: 10;
 
 }
