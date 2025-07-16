@@ -719,18 +719,17 @@ background-image: url();
     position: relative;
     display: grid;
     width: 50vh;
-    height: 55vh;
+    height: 15vh;
    /* background-color: #e7e7e7;*/
     grid-template: 
 
-    "IMG IMG" auto
-    "TIT TXT" max-content
-    "BOT2 BOT2"max-content
-    "BOT3 BOT3"max-content
-    "BOT BOT"max-content
+    "IMG TIT TXT" max-content
+    "IMG BOT2 BOT2"max-content
+    "IMG BOT3 BOT3"max-content
+    "IMG BOT BOT"max-content
 
     /
-    auto max-content;
+    30% auto max-content;
 
 }
 .imagenp3{
@@ -807,6 +806,7 @@ background-image: url();
     color: white;
 }
 .botonegro3{
+    width: auto;
     z-index: 3;
     background-color: #ed7375;
     border: none;
