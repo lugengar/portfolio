@@ -17,11 +17,11 @@
 
   <script>
     const apiKey = "$2a$10$VRzsXsF1.KQu3lf2J8g0c.a1l0q8PM9ZD/GcBz375QqtzFo6Cs6XG";
-    const binId = "6877ff51c7f29633ab29e6a0"
+
     let jsonActual = {};
 
     // Cargar JSON
-    fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+    fetch(`https://api.jsonbin.io/v3/b/6877ff51c7f29633ab29e6a0`, {
       headers: { "X-Access-Key": apiKey }
     })
     .then(res => res.json())
@@ -79,7 +79,7 @@
     }
 
     function guardarCambios() {
-      fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+      fetch(`https://api.jsonbin.io/v3/b/6877ff51c7f29633ab29e6a0`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
