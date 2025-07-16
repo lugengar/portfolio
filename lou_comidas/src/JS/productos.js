@@ -99,15 +99,15 @@ function renderProductos(info) {
             text += `</select>`;
             item.innerHTML += text;
              }
-        item.innerHTML += `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta+producto.imagen}',${sino1},${sino2},${sino3})">AGREGAR AL CARRITO</button>`;
+        item.innerHTML += `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta+producto.imagen || ubicacioncarpeta+"sinfoto.svg"}',${sino1},${sino2},${sino3})">AGREGAR AL CARRITO</button>`;
 
         
         if(producto.tamaño != undefined){
         imagen.style.backgroundSize =producto.tamaño;
             
         }
-        imagen.style.backgroundImage = `url(${ubicacioncarpeta+producto.imagen})`;
-        imagen.style.backgroundPosition = producto.posicionimagen;
+        imagen.style.backgroundImage = `url(${ubicacioncarpeta+producto.imagen || ubicacioncarpeta+"sinfoto.svg"})`;
+        imagen.style.backgroundPosition = producto.posicionimagen || "center";
         item.appendChild(imagen);
         item.appendChild(h3);
         item.appendChild(p);
