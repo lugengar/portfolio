@@ -19,26 +19,37 @@
     const apiKey = "$2a$10$eOsaPW2ljAl3E823gVdkwepHIBVMslBpa4rQE.OVT4R/ZoXUesnKC";
 
     let jsonActual = {};
-
-    // Cargar JSON
-    fetch(`https://api.jsonbin.io/v3/b/6877ff51c7f29633ab29e6a0`, {
+    let jsonmarcas = {};
+    Promise.all([
+  fetch(`https://api.jsonbin.io/v3/b/6877ff51c7f29633ab29e6a0`, {
       headers: { "X-Access-Key": apiKey }
-    })
-    .then(res => res.json())
-    .then(data => {
-      jsonActual = data.record;
-      mostrarProductos();
-    });
+    }).then(res => res.json()),
+  fetch('src/JSON/marcas.json').then(res => res.json())
+])
+.then(([productos, marcas]) => {
+
+  jsonActual = productos.record;
+  jsonmarcas = marcas.imagenes;
+
+  mostrarProductos();
+});
+
 
     function mostrarProductos() {
       const contenedor = document.getElementById("productos");
       contenedor.innerHTML = "";
+     
       jsonActual.imagenes.forEach((item, i) => {
         contenedor.innerHTML += `
           <div class="item">
             <label>Marca:</label>
-            <input type="text" value="${item.marca || ''}" onchange="editar(${i}, 'marca', this.value)">
-            
+            <select onchange="editar(${i}, 'marca', this.value)">
+            ${jsonmarcas.map(marcaData => `
+                <option value="${marcaData.nombre}" ${marcaData.nombre === item.marca ? 'selected' : ''}>
+                ${marcaData.nombre}
+                </option>`).join('')}
+            </select>
+
             <label>Título:</label>
             <input type="text" value="${item.titulo || ''}" onchange="editar(${i}, 'titulo', this.value)">
             
@@ -51,11 +62,9 @@
             <label>Opciones (separados por coma):</label>
             <input type="text" value="${(item.opciones || []).join(', ')}" onchange="editarLista(${i}, 'opciones', this.value)">
             
-            <label>Tamaño (si tiene):</label>
-            <input type="text" value="${item.tamaño || ''}" onchange="editar(${i}, 'tamaño', this.value)">
             
             <label>¿Solo uno? (true/false):</label>
-            <input type="text" value="${item.solouno || ''}" onchange="editarValorBooleano(${i}, 'solouno', this.value)">
+          <input type="checkbox" ${item.solouno ? 'checked' : ''} onchange="editarValorBooleano(${i}, 'solouno', this.checked)">
           </div>
         `;
       });
@@ -69,7 +78,7 @@
       const lista = valor.split(',').map(v => v.trim()).filter(Boolean);
       jsonActual.imagenes[index][campo] = lista;
     }
-
+   
     function editarValorBooleano(index, campo, valor) {
       if (valor === "true" || valor === "false") {
         jsonActual.imagenes[index][campo] = (valor === "true");
