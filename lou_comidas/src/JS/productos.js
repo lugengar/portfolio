@@ -27,7 +27,7 @@ function renderConfiguracion(info) {
 }
 limite = 20
 function renderProductos(info) {
-    ubicacioncarpeta = info.configuracion.ubicacioncarpeta;
+    ubicacioncarpeta = "src/PRODUCTOS/";
     productos = info.imagenes;
     const listaProductos = document.querySelector('.listaproductos');
     let indice = 0;
