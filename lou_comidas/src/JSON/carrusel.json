@@ -7,8 +7,8 @@
     },
     "imagenes": [
         {
-            "imagen": "img2.jpg",
-            "posicionimagen": "top",
+            "imagen": "fondo.jpg",
+            "posicionimagen": "center",
             "titulo": "ESTAMOS DE LUNES A VIERNES DESDE 9:30 A 14:00"
         },
         {
