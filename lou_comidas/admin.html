@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor de Menú</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; max-width: 800px; }
+    .item { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; }
+    label { font-weight: bold; display: block; margin-top: 5px; }
+    input, textarea { width: 100%; margin-bottom: 10px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Editor de Menú (JSONBin.io)</h1>
+  <div id="productos"></div>
+  <button onclick="guardarCambios()">💾 Guardar cambios</button>
+
+  <script>
+    const apiKey = "$2a$10$VRzsXsF1.KQu3lf2J8g0c.a1l0q8PM9ZD/GcBz375QqtzFo6Cs6XG";
+    let jsonActual = {};
+
+    // Cargar JSON
+    fetch(`https://api.jsonbin.io/v3/b/6877ff51c7f29633ab29e6a0`, {
+      headers: { "X-Access-Key": apiKey }
+    })
+    .then(res => res.json())
+    .then(data => {
+      jsonActual = data.record;
+      mostrarProductos();
+    });
+
+    function mostrarProductos() {
+      const contenedor = document.getElementById("productos");
+      contenedor.innerHTML = "";
+      jsonActual.imagenes.forEach((item, i) => {
+        contenedor.innerHTML += `
+          <div class="item">
+            <label>Marca:</label>
+            <input type="text" value="${item.marca || ''}" onchange="editar(${i}, 'marca', this.value)">
+            
+            <label>Título:</label>
+            <input type="text" value="${item.titulo || ''}" onchange="editar(${i}, 'titulo', this.value)">
+            
+            <label>Precio:</label>
+            <input type="text" value="${item.precio || ''}" onchange="editar(${i}, 'precio', this.value)">
+            
+            <label>Adicionales (separados por coma):</label>
+            <input type="text" value="${(item.adicionales || []).join(', ')}" onchange="editarLista(${i}, 'adicionales', this.value)">
+            
+            <label>Opciones (separados por coma):</label>
+            <input type="text" value="${(item.opciones || []).join(', ')}" onchange="editarLista(${i}, 'opciones', this.value)">
+            
+            <label>Tamaño (si tiene):</label>
+            <input type="text" value="${item.tamaño || ''}" onchange="editar(${i}, 'tamaño', this.value)">
+            
+            <label>¿Solo uno? (true/false):</label>
+            <input type="text" value="${item.solouno || ''}" onchange="editarValorBooleano(${i}, 'solouno', this.value)">
+          </div>
+        `;
+      });
+    }
+
+    function editar(index, campo, valor) {
+      jsonActual.imagenes[index][campo] = valor;
+    }
+
+    function editarLista(index, campo, valor) {
+      const lista = valor.split(',').map(v => v.trim()).filter(Boolean);
+      jsonActual.imagenes[index][campo] = lista;
+    }
+
+    function editarValorBooleano(index, campo, valor) {
+      if (valor === "true" || valor === "false") {
+        jsonActual.imagenes[index][campo] = (valor === "true");
+      } else {
+        delete jsonActual.imagenes[index][campo];
+      }
+    }
+
+    function guardarCambios() {
+      fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": apiKey
+        },
+        body: JSON.stringify(jsonActual)
+      })
+      .then(res => res.json())
+      .then(data => alert("✅ Cambios guardados correctamente"))
+      .catch(err => alert("❌ Error al guardar: " + err));
+    }
+  </script>
+</body>
+</html>
