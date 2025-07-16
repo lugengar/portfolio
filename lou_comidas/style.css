@@ -719,8 +719,29 @@ background-image: url();
     position: relative;
     display: grid;
     width: 50vh;
-    height: 15vh;
+    height: 50vh;
    /* background-color: #e7e7e7;*/
+    grid-template: 
+    "IMG IMG"
+    "TIT TXT" max-content
+    "BOT2 BOT2"max-content
+    "BOT3 BOT3"max-content
+    "BOT BOT"max-content
+
+    /
+    auto max-content;
+
+}
+/*.producto{
+    grid-area: CON;
+    gap: 0.5vh;
+    padding: 2vh;
+    cursor: default;
+    position: relative;
+    display: grid;
+    width: 50vh;
+    height: 15vh;
+   
     grid-template: 
 
     "IMG TIT TXT" max-content
@@ -731,7 +752,7 @@ background-image: url();
     /
     30% auto max-content;
 
-}
+}*/
 .imagenp3{
     grid-area: IMG;
     background-position: center;
