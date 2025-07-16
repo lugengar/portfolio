@@ -719,7 +719,7 @@ background-image: url();
     position: relative;
     display: grid;
     width: 50vh;
-    height: 50vh;
+    height: 55vh;
    /* background-color: #e7e7e7;*/
     grid-template: 
     "IMG IMG"
