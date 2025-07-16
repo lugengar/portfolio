@@ -5,7 +5,7 @@ fetch(`https://api.jsonbin.io/v3/b/6877ff51c7f29633ab29e6a0`, {
     .then(response => response.json())
     .then(data => {
        // renderConfiguracion(data);
-        renderProductos(data);
+        renderProductos(data.record);
     })
     .catch(error => {
         console.error('Error al cargar el archivo JSON:', error);
