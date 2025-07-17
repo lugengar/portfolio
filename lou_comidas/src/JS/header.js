@@ -158,7 +158,10 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
             if(valor != ""){ 
                 const opciond = document.createElement('p');
                 opciond.className = 'texto, opcionp2';
-                opciond.textContent = "Con "+(seleccionados?.nombres || " ")
+                if (seleccionados.nombres != undefined) {
+                    opciond.textContent = "Con " + seleccionados.nombres;
+                  }
+                  
                 pedidoDiv.appendChild(opciond);
                 adicional = "Con "+(seleccionados?.nombres || " ")
             }
@@ -169,7 +172,11 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
             valor = document.getElementById('p2_'+nombre).value
             const opciond = document.createElement('p');
             opciond.className = 'texto, opcionp2';
-            opciond.textContent = adicional
+            console.log(seleccionados.nombres)
+            if (seleccionados.nombres != " y undefined") {
+                opciond.textContent = "Con " + seleccionados.nombres;
+              }
+              
             pedidoDiv.appendChild(opciond);
         }
         // Agregar elementos al pedidoDiv

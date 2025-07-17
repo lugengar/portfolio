@@ -61,7 +61,7 @@ function renderProductos(info) {
             cont = 0
             producto.adicionales.forEach(opcion => { 
                 if(cont == 0){
-                    text+= `<option value="${opcion}">ADICIONALES</option>`;
+                    text+= `<option value="${opcion},${producto.precioadicionales}">ADICIONALES</option>`;
                 }
                 cont++
                 text += `<option value="${opcion},${producto.precioadicionales}">${opcion} +$${producto.precioadicionales}</option>`;
