@@ -75,6 +75,16 @@ function verSeleccionados(nombre) {
       total
     };
   }
+ 
+  function verSeleccionado(value) {
+    const [nombre, precioStr] = value.split(',');
+    console.log(nombre.trim())
+    return {
+      nombres: nombre.trim(),
+      total: parseInt(precioStr)
+    };
+  }
+  
   
   function carrito2(nombre, precio, foto, sino2=false, sino3=false, sino4=false){
     const opciones = document.getElementById('opciones');
@@ -101,8 +111,16 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
         carrito.style.animation = "mover 1s infinite both "
 
         circulorojo.style.animationPlayState = "running"
-        seleccionados = verSeleccionados(nombre)
-        precio = parseInt(precio) + seleccionados.total;
+        seleccionados = {}
+        if(sino3){ 
+            seleccionados = verSeleccionado(document.getElementById('p2_'+nombre).value)
+            precio = parseInt(precio) + seleccionados.total;
+        }
+        if(sino4){ 
+            seleccionados = verSeleccionados(nombre)
+            precio = parseInt(precio) + seleccionados.total;
+        }
+        
         // Crear elementos
         const pedidoDiv = document.createElement('div');
         pedidoDiv.className = 'pedido';
@@ -140,13 +158,13 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
             if(valor != ""){ 
                 const opciond = document.createElement('p');
                 opciond.className = 'texto, opcionp2';
-                opciond.textContent = "Con "+valor
+                opciond.textContent = "Con "+(seleccionados?.nombres || " ")
                 pedidoDiv.appendChild(opciond);
-                adicional = "Con "+valor
+                adicional = "Con "+(seleccionados?.nombres || " ")
             }
         }
         if(sino4){ 
-            adicional = "Con "+seleccionados.nombres
+            adicional = "Con "+(seleccionados?.nombres || " ")
             console.log(adicional)
             valor = document.getElementById('p2_'+nombre).value
             const opciond = document.createElement('p');
