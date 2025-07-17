@@ -29,22 +29,50 @@ function total(){
     totaldiv.textContent = "TOTAL: $"+total
 }
 
-function sidebar(){
-    total()
-    const circulorojo = document.getElementById('circulorojo');
-    const rayas = document.getElementById('rayas');
-    circulorojo.style.animation = "none"
-    rayas.style.animation = "none"
-    circulorojo.style.opacity = "0%"
-    bar = !bar
-    var sidebar = document.getElementById('sidebar');
 
-    if(bar){
-        sidebar.style.transform = "translateX(0%)"
-    }else{
-        sidebar.style.transform = "translateX(110%)"
-    }
+function sidebar() {
+  total();
+  const circulorojo = document.getElementById('circulorojo');
+  const rayas = document.getElementById('rayas');
+  circulorojo.style.animation = "none";
+  rayas.style.animation = "none";
+  circulorojo.style.opacity = "0%";
+  bar = !bar;
+  var sidebar = document.getElementById('sidebar');
+
+  if (bar) {
+    sidebar.style.transform = "translateX(0%)";
+    // Cuando abro el sidebar, agrego un estado al historial para detectar "atrás"
+    history.pushState({ sidebarOpen: true }, "");
+  } else {
+    sidebar.style.transform = "translateX(110%)";
+  }
 }
+
+// Escucho el evento popstate para el botón atrás
+// Detectar botón atrás para cerrar el sidebar si está abierto
+window.addEventListener('popstate', function(event) {
+    if (bar) {
+      // Si sidebar está abierto, lo cierro y cancelo la navegación "atrás"
+      sidebar();
+      history.pushState({ sidebarOpen: false }, "");
+    } else {
+      // Sidebar cerrado → dejamos que el historial funcione normalmente
+    }
+  });
+  
+  // Inicializo con un estado para poder detectar popstate luego
+  history.replaceState({ sidebarOpen: false }, "");
+  
+  // Detectar si el usuario quiere salir o recargar la web
+  window.addEventListener('beforeunload', function (e) {
+    if (totalCarrito > 0) {
+      // Mostrar alerta estándar del navegador
+      e.preventDefault();
+      e.returnValue = ''; // Obligatorio para que funcione en la mayoría de navegadores
+    }
+  });
+  
 
 sino= true
 function verSeleccionados(nombre) {
