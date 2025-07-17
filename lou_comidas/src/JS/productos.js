@@ -64,7 +64,7 @@ function renderProductos(info) {
                     text+= `<option value="${opcion}">ADICIONALES</option>`;
                 }
                 cont++
-                text += `<option value="${opcion}">${opcion}</option>`;
+                text += `<option value="${opcion},${producto.precioadicionales}">${opcion} +$${producto.precioadicionales}</option>`;
             })
             text += `</select>`;
             item.innerHTML += text;
@@ -77,7 +77,7 @@ function renderProductos(info) {
             producto.adicionales.forEach(opcion => { 
           
                 
-                text += ` <label><input type="checkbox" name="${producto.titulo}" value="${opcion}">${opcion}</label> `;
+                text += ` <label><input type="checkbox" name="${producto.titulo}" value="${opcion},${producto.precioadicionales}">${opcion} +$${producto.precioadicionales}</label> `;
             })
             text += `</div></details>`;
             item.innerHTML += text;

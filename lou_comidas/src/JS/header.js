@@ -50,10 +50,32 @@ sino= true
 function verSeleccionados(nombre) {
     const seleccionados = Array.from(document.querySelectorAll('input[name="'+nombre+'"]:checked'))
       .map(cb => cb.value);
-    
-    return seleccionados;
-    // Podés mostrarlos también en el HTML si querés
+  
+    const nombres = [];
+    let total = 0;
+  
+    seleccionados.forEach(item => {
+      const [nombre, precioStr] = item.split(',');
+      nombres.push(nombre.trim());
+      total += parseInt(precioStr);
+    });
+  
+    // Armar la frase de nombres con "y"
+    let nombresStr = '';
+    if (nombres.length === 1) {
+      nombresStr = nombres[0];
+    } else if (nombres.length === 2) {
+      nombresStr = `${nombres[0]} y ${nombres[1]}`;
+    } else {
+      nombresStr = nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1];
+    }
+  
+    return {
+      nombres: nombresStr,
+      total
+    };
   }
+  
   function carrito2(nombre, precio, foto, sino2=false, sino3=false, sino4=false){
     const opciones = document.getElementById('opciones');
     opciones.innerHTML = '<button class="botonegro2" >SALIR</button>'
@@ -79,8 +101,8 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
         carrito.style.animation = "mover 1s infinite both "
 
         circulorojo.style.animationPlayState = "running"
-       
-
+        seleccionados = verSeleccionados(nombre)
+        precio = parseInt(precio) + seleccionados.total;
         // Crear elementos
         const pedidoDiv = document.createElement('div');
         pedidoDiv.className = 'pedido';
@@ -124,7 +146,7 @@ function carrito(nombre, precio, foto, sino2=false, sino3=false, sino4=false) {
             }
         }
         if(sino4){ 
-            adicional = "Con "+verSeleccionados(nombre)
+            adicional = "Con "+seleccionados.nombres
             console.log(adicional)
             valor = document.getElementById('p2_'+nombre).value
             const opciond = document.createElement('p');
