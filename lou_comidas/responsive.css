@@ -86,38 +86,41 @@
                 align-items: center;
             }
           
-            .producto details.botonegro3,.producto details.botonegro3 .checkboxes{
+        
+@media (max-width: 60vh) {
+    .producto details.botonegro3,.producto details.botonegro3 .checkboxes{
               
-                width: 18vh;
-                
-            }
-            .producto .botonegro2, .producto .botonegro3, .producto .minititulo,.producto .botonegro, .producto .botonegro2{
-               
-                width: 20vh;
-            }
-            .producto{
-                grid-area: CON;
-                gap: 0.5vh;
-                padding: 0vh;
-               
-                cursor: default;
-                position: relative;
-                display: grid;
-                width: 20vh;
-                max-height: 50vh;
-               /* background-color: #e7e7e7;*/
-                grid-template: 
-                "IMG " 20vh
-                "TIT " max-content
-                "TXT " max-content
-                "BOT2 "max-content
-                "BOT3 "max-content
-                "BOT "max-content
-            
-                /
-                20vh;
-            
-            }
+        width: 18vh;
+        
+    }
+    .producto .botonegro2, .producto .botonegro3, .producto .minititulo,.producto .botonegro, .producto .botonegro2{
+       
+        width: 20vh;
+    }
+    .producto{
+        grid-area: CON;
+        gap: 0.5vh;
+        padding: 0vh;
+       
+        cursor: default;
+        position: relative;
+        display: grid;
+        width: 20vh;
+        max-height: 50vh;
+       /* background-color: #e7e7e7;*/
+        grid-template: 
+        "IMG " 20vh
+        "TIT " max-content
+        "TXT " max-content
+        "BOT2 "max-content
+        "BOT3 "max-content
+        "BOT "max-content
+    
+        /
+        20vh;
+    
+    }
+}
 }
 @media (max-width: 50vh) {
     .pedido .imagenp{
