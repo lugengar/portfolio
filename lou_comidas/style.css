@@ -763,7 +763,6 @@ background-image: url();
     height: max-content;
     left: 0%;
     top: 1vh;
-    z-index: 100;
     padding: 0.8vh;
 }
 #etiqueta::after {
