@@ -70,7 +70,7 @@ function renderProductos(info) {
             item.innerHTML += text;
            
 
-        }else if(producto.adicionales != undefined){
+        }else if(producto.adicionales != undefined  && producto.adicionales.length != 0){
             sino3= true
             text= `<details class="botonegro3"><summary>ADICIONALES</summary><div class=" checkboxes" id="p2_${producto.titulo}">`;
          
@@ -84,7 +84,7 @@ function renderProductos(info) {
            
 
         }
-        if(producto.opciones != undefined){
+        if(producto.opciones != undefined && producto.opciones.length != 0){
             sino1= true
 
             text= `<select class="botonegro2" id="p_${producto.titulo}">`;
