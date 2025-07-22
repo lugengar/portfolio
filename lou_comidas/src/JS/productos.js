@@ -55,7 +55,8 @@ function renderProductos(info) {
         sino1 = false
         sino2= false
         sino3= false
-        if(producto.adicionales != undefined && producto.solouno != undefined ){
+      
+        if(producto.adicionales != undefined && producto.solouno != undefined && producto.adicionales != undefined && producto.adicionales.length > 0){
             sino2= true
             text= `<select class="botonegro3" id="p2_${producto.titulo}">`;
             cont = 0
@@ -70,7 +71,7 @@ function renderProductos(info) {
             item.innerHTML += text;
            
 
-        }else if(producto.adicionales != undefined  && producto.adicionales.length != 0){
+        }else if(producto.adicionales != undefined && producto.adicionales.length > 0){
             sino3= true
             text= `<details class="botonegro3"><summary>ADICIONALES</summary><div class=" checkboxes" id="p2_${producto.titulo}">`;
          
@@ -84,7 +85,7 @@ function renderProductos(info) {
            
 
         }
-        if(producto.opciones != undefined && producto.opciones.length != 0){
+        if(producto.opciones != undefined && producto.opciones.length > 0){
             sino1= true
 
             text= `<select class="botonegro2" id="p_${producto.titulo}">`;
@@ -99,7 +100,7 @@ function renderProductos(info) {
             text += `</select>`;
             item.innerHTML += text;
              }
-        item.innerHTML += `<button class="botonegro" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta + (producto?.imagen || "sinfoto.svg")}',${sino1},${sino2},${sino3})">AGREGAR AL CARRITO</button>`;
+        item.innerHTML += `<button class="botonegro" style="background-color: rgb(74, 178, 226);" onclick="carrito('${producto.titulo}','${producto.precio}','${ubicacioncarpeta + (producto?.imagen || "sinfoto.svg")}',${sino1},${sino2},${sino3})">AGREGAR AL CARRITO</button>`;
 
         
         if(producto.tamaño != undefined){
@@ -108,6 +109,10 @@ function renderProductos(info) {
         }
         imagen.style.backgroundImage = `url(${ubicacioncarpeta + (producto?.imagen || "sinfoto.svg")})`;
         imagen.style.backgroundPosition = producto?.posicionimagen || "center";
+        if(producto.marca == "VIANDAS FITNESS"){
+            imagen.innerHTML += `<h1 id="etiqueta">VIANDA FIT</h1>`;
+            imagen.style.border = "solid #40c06f 0.5vh"
+        }
         item.appendChild(imagen);
         item.appendChild(h3);
         item.appendChild(p);
@@ -137,7 +142,11 @@ function renderProductos(info) {
         actualizarBotonVerMas();
     });
 }
-
+function buscarcategoria(valor){
+    document.getElementById("marcasbuscar").value = valor
+    actualizarVisibilidadProductos()
+    redirigir('menu2')
+}
 function actualizarVisibilidadProductos() {
     let filtro = document.getElementById("buscar").value.toLowerCase();
     let marcaSeleccionada = document.getElementById("marcasbuscar").value.toLowerCase();
