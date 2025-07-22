@@ -15,7 +15,9 @@
     .textos h1{
         font-size: 4vh;
     }
-   
+   .servicio{
+    width: 100%;
+   }
     .pedido{
         background-color: white;
             border: none;
