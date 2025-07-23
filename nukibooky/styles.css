@@ -308,6 +308,20 @@ body{
         transform: scale(1) rotate(10deg);
     }
 }
+@keyframes golpear {
+    0%{
+        background-image: url(img/bambu.png);
+        transform: scale(1) rotate(-120deg);
+    }
+    50%{
+        background-image: url(img/bambu.png);
+        transform: scale(1.1) rotate(0deg);
+    }
+    100%{
+        background-image: url(img/bambu.png);
+        transform: scale(1) rotate(-120deg);
+    }
+}
 @keyframes mover {
     49.99%{
         transform: scaleX(1);
@@ -388,6 +402,52 @@ body{
     }
     100%{
         background-image: url(anim/caminar1.png);
+    }
+}
+@keyframes enojado {
+    0%{
+        background-image: url(anim/enojado.png);
+    }
+    
+    100%{
+        background-image: url(anim/enojado.png);
+    }
+}
+@keyframes estatua {
+    0%{
+        background-image: url(anim/estatua1.png);
+    }
+    33%{
+        background-image: url(anim/estatua2.png);
+    }
+    66%{
+        background-image: url(anim/estatua3.png);
+    }
+    100%{
+        background-image: url(anim/estatua1.png);
+    }
+}
+@keyframes comer {
+    0%{
+        background-image: url(anim/comer1.png);
+    }
+    33%{
+        background-image: url(anim/comer2.png);
+    }
+    66%{
+        background-image: url(anim/comer3.png);
+    }
+    100%{
+        background-image: url(anim/comer1.png);
+    }
+}
+@keyframes desaparece {
+    0%{
+        opacity: 0%;
+    }
+  
+    100%{
+        opacity: 0%;
     }
 }
 @keyframes acariciar{
