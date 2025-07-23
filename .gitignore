@@ -8,7 +8,7 @@ gradlew
 gradlew.bat
 manifest-checksum.txt
 settings.gradle
-twa-manifest.json
+
 store_icon.png
 app-release-signed.apk.idsig
 app-release-bundle.aab
