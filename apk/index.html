@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi App Local</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 2rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi App PWA</h1>
+  <p>Escribe algo y lo guardamos en almacenamiento interno.</p>
+  <input id="dato" type="text" placeholder="Escribe algo..." />
+  <button onclick="guardar()">Guardar</button>
+  <p id="salida"></p>
+  <p id="salida2"></p>
+
+  <script>
+    fetch("https://lugengar.github.io/aplicacion/data.json")
+    .then(response => response.json())
+    .then(data => {
+       document.getElementById("salida2").textContent = data.dato;
+    })
+    .catch(error => {
+        console.error('Error al cargar el archivo JSON:', error);
+        document.getElementById("salida2").textContent = 'Error al cargar el archivo JSON:', error;
+    });
+
+    function guardar() {
+      const valor = document.getElementById("dato").value;
+      localStorage.setItem("guardado", valor);
+      mostrar();
+    }
+
+    function mostrar() {
+      const valor = localStorage.getItem("guardado");
+      document.getElementById("salida").textContent = valor ? `Guardado: ${valor}` : "Nada guardado.";
+    }
+
+    mostrar();
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+
+
+}
+
+  </script>
+</body>
+</html>
