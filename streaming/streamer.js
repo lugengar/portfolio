@@ -17,7 +17,7 @@ async function iniciar() {
     return;
   }
 
-  const ws = new WebSocket('wss://mi-streamapp.onrender.com');
+  ws = new WebSocket(`wss://mi-streamapp.onrender.com/?id=${streamId}`);
 
 
   ws.onopen = () => {
