@@ -68,9 +68,9 @@
       },
       {
         "imagen": "web9.png",
-        "texto": "Convertí texto escrito en voz con este lector web.",
+        "texto": "Streaming en vivo",
         "titulo": "Texto a voz",
-        "url": "./textovoz/index.html",
+        "url": "./streaming/index.html",
         "posicionimagen": ""
       },
       {
