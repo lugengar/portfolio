@@ -69,8 +69,8 @@
       {
         "imagen": "web9.png",
         "texto": "Streaming en vivo",
-        "titulo": "Texto a voz",
-        "url": "./streaming/index.html",
+        "titulo": "Streaming",
+        "url": "https://streaming-0qb5.onrender.com/",
         "posicionimagen": ""
       },
       {
