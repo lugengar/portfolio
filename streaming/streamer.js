@@ -66,7 +66,7 @@ if(!inicio){
       }
     }
     if (msg.type === 'viewerCount') {
-      document.getElementById('viewerCount').textContent = `👀 Viewers: ${msg.count}`;
+      document.getElementById('viewerCount').textContent = msg.count;
     }
     
     if (msg.type === 'candidate') {

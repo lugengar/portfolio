@@ -28,6 +28,8 @@ function playVideo() {
   ws.onopen = () => {
     console.log('WebSocket conectado como viewer.');
     ws.send(JSON.stringify({ type: 'watcher', watcherId: viewerName }));
+    addChatMessage(`${viewerName} se unió`);
+
   };
 
   ws.onmessage = async (event) => {
@@ -60,7 +62,7 @@ function playVideo() {
       }
     }
     if (msg.type === 'viewerCount') {
-      document.getElementById('viewerCount').textContent = `👀 Viewers: ${msg.count}`;
+      document.getElementById('viewerCount').textContent = msg.count;
     }
     if (msg.type === 'chat') {
       addChatMessage(`${msg.from}: ${msg.message}`);
