@@ -93,4 +93,4 @@ function addChatMessage(msg) {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-setInterval(playVideo, 1000);
+//setInterval(playVideo, 1000);
