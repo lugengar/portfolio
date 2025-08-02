@@ -21,16 +21,16 @@
     <div class="container2">
       <div class="header2">
         <button onclick="sidebar()" id="rayas">&#9776;</button>
+        <div id="playButton" class="boton2" onclick="iniciar()">►</div> 
+        <div id="stopButton" class="boton2" onclick="stopStream()">❚❚</div> 
       </div>
       <div id="sidebar">
         <div id="links" >
          
-            <input id="tituloStream" class="link" placeholder="Título del stream">
-            <input id="streamId" class="link"  placeholder="ID único del stream">
-            <input type="text" class="link"  id="streamerName" placeholder="Nombre streamer" />
+            <input id="tituloStream" type="hidden" class="link" placeholder="Título del stream">
+            <input id="streamId" type="hidden" class="link"  placeholder="ID único del stream">
+            <input type="hidden" class="link"  id="streamerName" placeholder="Nombre streamer" />
       
-            <button onclick="iniciar()"class="link" style="top: 7.5vh; background-color: rgb(55, 216, 90);">Iniciar Stream</button>
-            <button id="stopButton" onclick="stopStream()" class="link" style=" background-color: rgb(216, 55, 55);">Terminar Stream</button>
             <button onclick="compartirLink()" class="link" style= " top: 15.5vh; left:2vh; right: auto; background-color:rgb(55, 138, 216);">🔗 Compartir</button>
             <a href="index.html" class="link" style="background-color: #ed1e79;">Salir</a>
             

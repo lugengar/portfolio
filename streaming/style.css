@@ -379,7 +379,7 @@ backdrop-filter: blur(1vh);
     width: 40vh;
 }
 
-#playButton{
+.boton2{
     width: 5vh;
     height: 5vh;
     background-color: #ed1e79;
