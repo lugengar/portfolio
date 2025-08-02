@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+ body{
+  background-color: rgb(3, 8, 22);
+
+ } 
+ .crear{
+  animation: boton 5s infinite both;
+
+  box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+  width: 15vh;
+  height: 5vh;
+background-color: #ed1e79;
+border-radius: 25vh;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0.5vh;
+padding-right: 4vh;
+
+background-image: url(src/SVG/stream20.svg);
+    background-position: 15vh center;
+    background-repeat: no-repeat;
+    background-size: 3vh;
+ }
+
+
+
+
+.container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: transparent;
+    display: grid;
+    grid-template:
+    ". . ." 2vh
+    ". HEA ."10vh
+    ". LIST ." auto
+    ". FOO ."10vh
+    ". . ." 2vh/
+    auto 50vh auto ;
+  
+    z-index: 3;
+  }
+  .container2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: transparent;
+    display: grid;
+    grid-template:
+    ". . ." 2vh
+    ". HEA ."10vh
+    ". . ." auto
+
+    ". LIST ." 5vh
+
+    ". FOO ."10vh
+    ". . ." 2vh/
+    auto 50vh auto ;
+  
+    z-index: 3;
+  }
+  .fondo{
+    opacity: 30%;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    
+    background-image: url(src/JPG/fondo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    
+  }
+
+
+
+#links{
+    grid-area: LINK;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+#sidebar{
+background-color: transparent;
+
+    transition: transform 0.5s ease-in-out;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    display: grid;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 10vh;
+    padding-bottom: 1vh;
+    /* background-color: black; */
+-webkit-backdrop-filter: blur(1vh);
+backdrop-filter: blur(1vh);
+    grid-template:
+    ". . ." 5vh
+    ". LINK ."auto
+    ". . . "auto/
+    auto 50vh auto  ;
+    transform: translateX(110%);
+}
+  .fondo2{
+  
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    display: grid;
+    grid-template:
+    ". . ." auto
+    ". VID ."auto
+    ". . ." auto/
+    auto 50vh auto ;
+  }
+  .videodiv{
+    grid-area: VID;
+    position: relative;
+  }
+  .videodiv{
+    overflow: hidden;
+  }
+  video{
+    transform: scaleX(-1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  header{
+   z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: HEA;
+  }
+  .header2{
+    z-index: 100;
+     display: grid;
+     grid-area: HEA;
+     grid-template:
+     ". . RAY"5vh/
+     auto auto 5vh ;
+   }
+  .header2 #rayas{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    grid-area: RAY;
+  }
+  .buscador{
+    width: max-content;
+    height: 5vh;
+    
+    border-radius: 25vh;
+    gap:1vh;
+    display: grid;
+    grid-template-columns: 30vh 5vh;
+    grid-template-rows: auto;
+    padding: 0.5vh;
+    
+  }
+  .buscador button{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    width: 5vh;
+    background-color: #6235ff;
+    background-image: url(src/SVG/enviar0.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.8vh;
+  }
+  .casita{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+
+    background-color: #6235ff;
+    background-image: url(src/SVG/home0.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.8vh;
+  }
+  .buscador input{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    padding: 1vh;
+  }
+  button, input,a{
+    background-color: rgb(46, 46, 46);
+    border: none;
+    border-radius: 25vh;
+
+  }
+  button:hover{
+    cursor: pointer;
+  }
+  h1{
+    color: white;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3vh;
+  }
+  p, a, button, input{
+    text-decoration: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2vh;
+  }
+  #lista{
+    grid-area: LIST;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    scrollbar-color: #6235ff rgb(46, 46, 46); 
+  }
+
+  #streamsList{ 
+    display: grid;
+    gap: 2vh;
+  }
+  .stream a{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+
+  }
+  .stream h1{
+    grid-area: TXT;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-right: 2vh;
+    color: white;
+    text-decoration: none;
+    font-size: 2vh;
+    
+  }
+  .stream p{
+    grid-area: TXT2;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-right: 2vh;
+    color: white;
+    text-decoration: none;
+    
+  }
+  .stream{
+    
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    position: relative;
+    min-width: 35vh;
+    height: 8vh;
+    background-color: rgb(46, 46, 46);
+    border-radius: 25vh;
+    display: grid;
+    grid-template:
+    "IMG . ."auto
+    "IMG . TXT"max-content
+    "IMG . ."0.3vh
+    "IMG . TXT2"max-content
+    "IMG . ."auto/
+    8vh 1vh auto; 
+  }
+  .imgstream{
+    grid-area: IMG;
+    background-image: url(src/SVG/user0.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 5vh;
+    border-radius: 25vh;
+    position: relative;
+    border: #ed1e79 solid 0.4vh;
+    background-color: rgb(31, 31, 31);
+  
+  }
+  .iconstream{
+    animation: vivo 2s infinite both;
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    background-image: url(src/SVG/stream0.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 25vh;
+    background-color: #ed1e79;
+    right: 0vh;
+  }
+  @keyframes vivo{
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.2);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+  @keyframes boton{
+    0%{
+      transform: scale(1) rotate(0deg);
+    }
+    5%{
+      transform: scale(1) rotate(-2deg);
+    }
+    10%{
+      transform: scale(1.05) rotate(2deg);
+    }
+    15%{
+      transform: scale(1) rotate(-2deg);
+    }
+    20%{
+      transform: scale(1) rotate(0deg);
+    }
+    100%{
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    grid-area: FOO;
+  }
+  #sidebar .link{
+    padding: 2vh;
+    width: 40vh;
+}

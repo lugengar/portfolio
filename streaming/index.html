@@ -1,104 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Streams Activos</title>
-  <style>
-    /* Estilos oscuros */
-    body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 20px;
-    }
-
-    h1 {
-      color: #86b5fc;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    a {
-      color: #86b5fc;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    ul#streamsList {
-      list-style: none;
-      padding: 0;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    ul#streamsList li {
-      background-color: #1e1e1e;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      padding: 15px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-      transition: background-color 0.3s ease;
-    }
-
-    ul#streamsList li:hover {
-      background-color: #333333;
-    }
-
-    ul#streamsList li a {
-      color: #bb86fc;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1em;
-      display: block;
-      word-break: break-word;
-    }
-
-    ul#streamsList li a:hover {
-      text-decoration: underline;
-    }
-
-    /* Mensaje cuando no hay streams */
-    ul#streamsList li.no-streams {
-      background-color: transparent;
-      box-shadow: none;
-      color: #888;
-      text-align: center;
-      font-style: italic;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stream</title>
+  <link rel="icon" href="src/stream0.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-  <h1>Streams Activos</h1>
-  <a href="streamer.html">Crear Stream</a>
-  <ul id="streamsList"></ul>
+ <div class="fondo"></div>
+  <div class="container">
 
+  <div id="lista">
+    <div id="noResults" style="display: none; text-align: center;">
+      <img src="src/informatico-05.gif" alt="Sin resultados" style="width: 200px; margin-top: 20px;">
+      <p style="color: white;">No se encontraron streams</p>
+    </div>
+    
+    <div id="streamsList">
+    </div>
+  </div>
+  <header>  
+    <a class="crear" href="streamer.html">Crear Stream</a>
+  </header>
+  
+  <footer>
+    <div class="buscador">
+      <input class="barra" id="texto" type="text" placeholder="Buscar streamer" maxlength="20">
+      <button class="enviar" id="buscar" onclick="buscar()" ></button>
+    </div>
+  </footer>
+</div>
   <script>
+   function buscar() {
+  const texto = document.getElementById('texto').value.toLowerCase().trim();
+  const streams = document.querySelectorAll('#streamsList .stream');
+  let encontrados = 0;
+
+  streams.forEach(stream => {
+    const titulo = stream.querySelector('h1').textContent.toLowerCase();
+    const descripcion = stream.querySelector('p').textContent.toLowerCase();
+    const coincide = titulo.includes(texto) || descripcion.includes(texto);
+
+    stream.style.display = coincide ? 'grid' : 'none';
+    if (coincide) encontrados++;
+  });
+
+  const gif = document.getElementById('noResults');
+  gif.style.display = (encontrados === 0 && texto) ? 'grid' : 'none';
+
+  // Si se borró el texto, mostrar todos los streams
+  if (texto === '') {
+    streams.forEach(stream => stream.style.display = 'grid');
+    gif.style.display = 'none';
+  }
+}
+
+
+
     // Pedimos al servidor la lista de streams activos con título, id y nombre de streamer
     async function fetchStreams() {
-      try {
-        const response = await fetch('https://streaming-0qb5.onrender.com/streams');
-        const streams = await response.json();
-        const ul = document.getElementById('streamsList');
-        ul.innerHTML = '';
+  const gif = document.getElementById('noResults');
+  try {
+    const response = await fetch('https://streaming-0qb5.onrender.com/streams');
+    //const response = await fetch('./stream.json');
+    const streams = await response.json();
+    const ul = document.getElementById('streamsList');
+    ul.innerHTML = '';
 
-        if (streams.length === 0) {
-          const li = document.createElement('li');
-          li.textContent = 'No hay streams activos';
-          li.classList.add('no-streams');
-          ul.appendChild(li);
-          return;
-        }
-
-        streams.forEach(({ id, title, streamerName }) => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = `/viewer.html?id=${id}`;
-          a.textContent = `${title || id} — Streamer: ${streamerName || 'Desconocido'}`;
-          li.appendChild(a);
-          ul.appendChild(li);
-        });
-      } catch (error) {
-        console.error('Error obteniendo streams:', error);
-      }
+    if (streams.length === 0) {
+      gif.style.display = 'block';
+      return;
     }
+
+    gif.style.display = 'none'; // Ocultar GIF si hay streams
+
+    streams.forEach(({ id, title, streamerName }) => {
+      const li = document.createElement('div');
+      const nom = document.createElement('h1');
+      const txt = document.createElement('p');
+      const img = document.createElement('div');
+      const icon = document.createElement('div');
+      li.classList.add('stream');
+      img.classList.add('imgstream');
+      icon.classList.add('iconstream');
+
+      const a = document.createElement('a');
+      a.href = `/viewer.html?id=${id}`;
+      nom.textContent = `${streamerName || 'Desconocido'}`;
+      txt.textContent = `${title || "Id: " + id}`;
+
+      li.appendChild(a);
+      li.appendChild(img);
+      li.appendChild(nom);
+      li.appendChild(txt);
+      img.appendChild(icon);
+      ul.appendChild(li);
+    });
+
+  } catch (error) {
+    console.error('Error obteniendo streams:', error);
+    gif.style.display = 'block'; // Mostrar GIF si hay error
+  }
+}
+
 
     fetchStreams();
     setInterval(fetchStreams, 10000); // refrescar cada 10 segundos

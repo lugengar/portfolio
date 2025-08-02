@@ -1,18 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream</title>
+    <link rel="icon" href="src/stream0.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style2.css">
+</head>
+
 <body>
-    <link rel="stylesheet" href="style.css">
-<div class="container">
-    <video id="remoteVideo" autoplay playsinline></video>
-    <div id="playButton" onclick="playVideo()">►</div>
-    <a href="index.html" class="boton">Salir</a>
-    <input type="text" id="viewerName" placeholder="Nombre" class="input" />
+  <div class="fondo"></div>
+    <div class="fondo2">
+        <div class="videodiv">
+            <video id="remoteVideo" autoplay playsinline></video>
+            <div id="playButton" onclick="playVideo()">►</div>
 
-</div>
+      </div>
+    </div>
+<div class="container2">
+    <div class="header2">
+        <a href="index.html" id="rayas" class="casita"></a>
+    </div>
+    <div class="lista" id="chatMessages" ></div>
 
-<div id="chat">
-    <div id="chatMessages" ></div>
-    <input id="chatInput" type="text" placeholder="Escribe un mensaje..." />
-    <button id="enviar" onclick="sendChat()">Enviar</button>
-</div>
+    <footer id="chat">
+        <div class="buscador">
+        <input id="chatInput" class="barra" type="text" placeholder="Escribe un mensaje..." />
+        <button id="enviar" class="enviar" onclick="sendChat()"></button>
+      </div>
 
 </body>
+</html>
+
 <script src="viewer.js"></script>
