@@ -8,7 +8,9 @@ let peerConnection;
 let viewerName = '';
 
 function playVideo() {
-  viewerName = document.getElementById('viewerName').value.trim();
+  viewerName = prompt('Escribí tu nombre:') || Math.random().toString(36).substring(2, 10);
+  //viewerName = document.getElementById('viewerName').value.trim();
+   document.getElementById('viewerName').value = viewerName;
   if (!viewerName) {
     alert('Por favor ingresa tu nombre para ver el stream.');
     return;
