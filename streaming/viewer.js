@@ -73,9 +73,8 @@ function playVideo() {
 }
 
 function sendChat() {
-  //const msg = chatInput.value.trim();
-  const msg = prompt('Escribí tu nombre:');
-  chatInput.value= msg
+  const msg = chatInput.value.trim();
+
   if (!msg) return;
   if (!viewerName) {
     input
