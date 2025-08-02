@@ -65,7 +65,10 @@ if(!inicio){
         console.log(`Streamer recibió answer de ${msg.watcherId}`);
       }
     }
-
+    if (msg.type === 'viewerCount') {
+      document.getElementById('viewerCount').textContent = `👀 Viewers: ${msg.count}`;
+    }
+    
     if (msg.type === 'candidate') {
       const pc = peerConnections[msg.watcherId];
       if (pc) {
