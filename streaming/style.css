@@ -380,6 +380,7 @@ backdrop-filter: blur(1vh);
 }
 
 .boton2{
+  font-size: 2.5vh;
     width: 5vh;
     height: 5vh;
     background-color: #ed1e79;
