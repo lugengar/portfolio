@@ -54,11 +54,11 @@ background-image: url(src/SVG/stream20.svg);
     background-color: transparent;
     display: grid;
     grid-template:
-    ". . ." 2vh
-    ". HEA ."10vh
+    ". .  ." 2vh
+    ". HEA  ."10vh
     ". . ." auto
 
-    ". LIST ." 5vh
+    ". LIST ." 50vh
 
     ". FOO ."10vh
     ". . ." 2vh/
@@ -234,7 +234,28 @@ backdrop-filter: blur(1vh);
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 
   }
-
+.lista{
+    grid-area: LIST;
+    display: grid;
+   
+    overflow: auto;
+    scrollbar-color: #6235ff rgb(46, 46, 46); 
+  }
+  .lista div{
+    opacity: 80%;
+    margin-bottom: 1vh;
+    max-width: 25vh;
+    height: max-content;
+    padding: 1vh;
+ color: white;
+ background-color: rgba(46, 46, 46, 0.5);
+    border-radius: 2vh;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2vh;
+  }
   #streamsList{ 
     display: grid;
     gap: 2vh;
