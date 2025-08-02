@@ -237,7 +237,7 @@ backdrop-filter: blur(1vh);
   }
 .lista{
     grid-area: LIST;
-    display: grid;
+    display: block;
    
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 

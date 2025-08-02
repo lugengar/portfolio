@@ -71,9 +71,12 @@ function playVideo() {
 }
 
 function sendChat() {
-  const msg = chatInput.value.trim();
+  //const msg = chatInput.value.trim();
+  const msg = prompt('Escribí tu nombre:');
+  chatInput.value= msg
   if (!msg) return;
   if (!viewerName) {
+    input
     alert('Debes ingresar un nombre para enviar mensajes.');
     return;
   }

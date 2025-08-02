@@ -8,9 +8,13 @@ let streamId;
 let streamerName;
 
 async function iniciar() {
-  streamId = document.getElementById('streamId').value.trim();
+  streamId = Math.random().toString(36).substring(2, 10);
+  streamerName = prompt('Escribí tu nombre:');
+  const titulo = prompt('Escribí un titulo para el stream:');
+
+  /*streamId = document.getElementById('streamId').value.trim();
   streamerName = document.getElementById('streamerName').value.trim() || 'Streamer desconocido';
-  const titulo = document.getElementById('tituloStream').value || 'Sin título';
+  const titulo = document.getElementById('tituloStream').value || 'Sin título';*/
 
   if (!streamId) {
     alert('Debes ingresar un ID de stream');
