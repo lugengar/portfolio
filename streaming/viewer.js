@@ -28,8 +28,7 @@ function playVideo() {
   ws.onopen = () => {
     console.log('WebSocket conectado como viewer.');
     ws.send(JSON.stringify({ type: 'watcher', watcherId: viewerName }));
-    addChatMessage(`${viewerName} se unió`);
-
+    presentacion()
   };
 
   ws.onmessage = async (event) => {
@@ -89,7 +88,18 @@ function sendChat() {
   addChatMessage(`Yo (${viewerName}): ${msg}`);
   chatInput.value = '';
 }
+function presentacion() {
+  msg = `${viewerName} se unió`
+  if (!viewerName) {
+    input
+    alert('Debes ingresar un nombre para enviar mensajes.');
+    return;
+  }
+  ws.send(JSON.stringify({ type: 'chat', message: msg, from: "Bot" }));
+  addChatMessage(msg);
 
+  chatInput.value = '';
+}
 function addChatMessage(msg) {
   const div = document.createElement('div');
   div.textContent = msg;
