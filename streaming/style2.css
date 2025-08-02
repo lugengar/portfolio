@@ -28,6 +28,7 @@ background-image: url(src/SVG/stream20.svg);
 
 
 .container{
+    overflow: hidden;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -247,3 +248,18 @@ background-image: url(src/SVG/stream20.svg);
     
     grid-area: FOO;
   }
+
+  @media (max-width: 200vh) {
+
+    .container{
+       
+        grid-template:
+        ". " 2vh
+        " HEA "10vh
+        " LIST " auto
+        "FOO "10vh
+        " . " 2vh/
+         auto  ;
+      
+      }
+   }
