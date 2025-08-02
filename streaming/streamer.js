@@ -6,7 +6,6 @@ let peerConnections = {};
 let stream;
 let streamId;
 let streamerName;
-
 async function iniciar() {
   streamId = Math.random().toString(36).substring(2, 10);
   streamerName = prompt('Escribí tu nombre:')|| 'Streamer desconocido';
@@ -122,3 +121,4 @@ function stopStream() {
   addChatMessage('📴 Transmisión finalizada.');
   console.log('Streamer detuvo la transmisión.');
 }
+
