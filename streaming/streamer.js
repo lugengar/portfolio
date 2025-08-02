@@ -10,7 +10,6 @@ let streamerName;
 async function iniciar() {
 if(!inicio){
  inicio = true
-
   streamId = Math.random().toString(36).substring(2, 10);
   streamerName = prompt('Escribí tu nombre:')|| 'Streamer desconocido';
   const titulo = prompt('Escribí un titulo para el stream:') || 'Sin título';
