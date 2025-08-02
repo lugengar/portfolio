@@ -377,3 +377,14 @@ backdrop-filter: blur(1vh);
     padding: 2vh;
     width: 40vh;
 }
+
+#playButton{
+    width: 5vh;
+    height: 5vh;
+    background-color: #ed1e79;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25vh;
+}

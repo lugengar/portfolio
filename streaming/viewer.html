@@ -19,12 +19,18 @@
     </div>
 <div class="container2">
     <div class="header2">
-        <a href="index.html" id="rayas" class="casita"></a>
+        <div id="playButton" onclick="playVideo()">►</div>
+        <button onclick="sidebar()" id="rayas">&#9776;</button>
     </div>
     <div class="lista" id="chatMessages" >
         
     </div>
-
+    <div id="sidebar">
+        <div id="links" >
+            <input type="text" id="viewerName" placeholder="Nombre" class="link" />
+            <a href="index.html" class="link" style="background-color: #ed1e79;">Salir</a>  
+        </div>
+    </div>
     <footer id="chat">
         <div class="buscador">
         <input id="chatInput" class="barra" type="text" placeholder="Escribe un mensaje..." />
@@ -33,5 +39,17 @@
 
 </body>
 </html>
+<script>
+     bar = false
+  function sidebar(){
+    bar = !bar
+    var sidebar = document.getElementById('sidebar');
 
+    if(bar){
+        sidebar.style.transform = "translateX(0%)"
+    }else{
+        sidebar.style.transform = "translateX(110%)"
+    }
+}
+</script>
 <script src="viewer.js"></script>
