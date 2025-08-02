@@ -70,7 +70,7 @@
         "imagen": "web9.png",
         "texto": "Streaming en vivo",
         "titulo": "Streaming",
-        "url": "https://streaming-0qb5.onrender.com/",
+        "url": "./streaming/index.html",
         "posicionimagen": ""
       },
       {
