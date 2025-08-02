@@ -89,17 +89,14 @@ function sendChat() {
   chatInput.value = '';
 }
 function presentacion() {
-  msg = `${viewerName} se unió`
   if (!viewerName) {
-    input
     alert('Debes ingresar un nombre para enviar mensajes.');
     return;
   }
-  ws.send(JSON.stringify({ type: 'chat', message: msg, from: "Bot" }));
-  addChatMessage(msg);
-
-  chatInput.value = '';
+  const msg = viewerName + " se unió";
+  ws.send(JSON.stringify({ type: 'chat', message: msg, from: "📢" }));
 }
+
 function addChatMessage(msg) {
   const div = document.createElement('div');
   div.textContent = msg;
