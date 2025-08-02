@@ -8,7 +8,7 @@ let peerConnection;
 let viewerName = '';
 
 function playVideo() {
-  viewerName = prompt('Escribí tu nombre:') || "Usuario";
+  viewerName = prompt('Escribí tu nombre:');
   //viewerName = document.getElementById('viewerName').value.trim();
    document.getElementById('viewerName').value = viewerName;
   if (!viewerName) {
