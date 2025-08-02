@@ -1,145 +1,379 @@
-#playButton, #mensajeCopiado {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 6vh;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 50vh;
-    cursor: pointer;
-    z-index: 3;
-    user-select: none;
-    transition: background-color 0.3s;
-}
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+ body{
+  background-color: rgb(3, 8, 22);
 
-#playButton:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
+ } 
+ .crear{
+  animation: boton 5s infinite both;
 
-   /* Fondo general */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    overflow: hidden;
-}
+  box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+  width: 15vh;
+  height: 5vh;
+background-color: #ed1e79;
+border-radius: 25vh;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0.5vh;
+padding-right: 4vh;
 
-/* Contenedor principal del video */
-.container {
-    position: absolute;
-    top: 0;
-    left: 0;
+background-image: url(src/SVG/stream20.svg);
+    background-position: 15vh center;
+    background-repeat: no-repeat;
+    background-size: 3vh;
+ }
+
+
+
+
+.container{
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    z-index: 1;
-}
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: transparent;
+    display: grid;
+    grid-template:
+    ". . ." 2vh
+    ". HEA ."10vh
+    ". LIST ." auto
+    ". FOO ."10vh
+    ". . ." 2vh/
+    auto 50vh auto ;
+  
+    z-index: 2;
+  }
+  .container2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: transparent;
+    display: grid;
+    grid-template:
+    ". .  ." 2vh
+    ". HEA  ."10vh
+    ". . ." auto
 
-/* Video ocupa toda la pantalla */
-#remoteVideo,
-#video {
+    ". LIST ." 50vh
+
+    ". FOO ."10vh
+    ". . ." 2vh/
+    auto 50vh auto ;
+  
+    z-index: 3;
+  }
+  .fondo{
+    opacity: 30%;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    
+    background-image: url(src/JPG/fondo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    
+  }
+
+
+
+#links{
+    grid-area: LINK;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+#sidebar{
+background-color: transparent;
+
+    transition: transform 0.5s ease-in-out;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    display: grid;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 10vh;
+    padding-bottom: 1vh;
+    /* background-color: black; */
+-webkit-backdrop-filter: blur(1vh);
+backdrop-filter: blur(1vh);
+    grid-template:
+    ". . ." 5vh
+    ". LINK ."auto
+    ". . . "auto/
+    auto 50vh auto  ;
+    transform: translateX(110%);
+}
+  .fondo2{
+  
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    display: grid;
+    grid-template:
+    ". . ." auto
+    ". VID ."auto
+    ". . ." auto/
+    auto 50vh auto ;
+  }
+  .videodiv{
+    grid-area: VID;
+    position: relative;
+  }
+  .videodiv{
+    overflow: hidden;
+  }
+  video{
     transform: scaleX(-1);
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    background-color: black;
-}
+  }
+  header{
+   z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: HEA;
+  }
+  .header2{
+    z-index: 100;
+     display: grid;
+     grid-area: HEA;
+     grid-template:
+     ". . RAY"5vh/
+     auto auto 5vh ;
+   }
+  .header2 #rayas{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    grid-area: RAY;
+  }
+  .buscador{
+    width: max-content;
+    height: 5vh;
+    
+    border-radius: 25vh;
+    gap:1vh;
+    display: grid;
+    grid-template-columns: 30vh 5vh;
+    grid-template-rows: auto;
+    padding: 0.5vh;
+    
+  }
+  .buscador button{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    width: 5vh;
+    background-color: #6235ff;
+    background-image: url(src/SVG/enviar0.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.8vh;
+  }
+  .casita{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
 
-/* Chat overlay encima del video */
-#chat {
+    background-color: #6235ff;
+    background-image: url(src/SVG/home0.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.8vh;
+  }
+  .buscador input{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    padding: 1vh;
+  }
+  button, input,a{
+    background-color: rgb(46, 46, 46);
+    border: none;
+    border-radius: 25vh;
+
+  }
+  button:hover{
+    cursor: pointer;
+  }
+  h1{
+    color: white;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3vh;
+  }
+  p, a, button, input{
+    text-decoration: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2vh;
+  }
+  #lista{
+    grid-area: LIST;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    scrollbar-color: #6235ff rgb(46, 46, 46); 
+  }
+.lista{
+    grid-area: LIST;
+    display: grid;
+   
+    overflow: auto;
+    scrollbar-color: #6235ff rgb(46, 46, 46); 
+  }
+  .lista div{
+    opacity: 80%;
+    margin-bottom: 1vh;
+    max-width: 25vh;
+    height: max-content;
+    padding: 1vh;
+ color: white;
+ background-color: rgba(46, 46, 46, 0.5);
+    border-radius: 2vh;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2vh;
+  }
+  #streamsList{ 
+    display: grid;
+    gap: 2vh;
+  }
+  .stream a{
     position: absolute;
-    top: 0;
-    left: 0;
+    left: 0%;
+    top: 0%;
     width: 100%;
     height: 100%;
-    z-index: 2;
+
+  }
+  .stream h1{
+    grid-area: TXT;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-right: 2vh;
+    color: white;
+    text-decoration: none;
+    font-size: 2vh;
+    
+  }
+  .stream p{
+    grid-area: TXT2;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-right: 2vh;
+    color: white;
+    text-decoration: none;
+    
+  }
+  .stream{
+    
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    position: relative;
+    min-width: 35vh;
+    height: 8vh;
+    background-color: rgb(46, 46, 46);
+    border-radius: 25vh;
     display: grid;
     grid-template:
-        ". . ." 1fr
-        "CHAT . ." 20vh
-        "ESC ESC ENV" 10vh/
-        1fr auto 8vh;
-    pointer-events: none; /* para que no bloquee el video */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-
-}
-
-/* Área de mensajes del chat */
-#chatMessages {
-    font-size: 3vh;
-    grid-area: CHAT;
-    background-color: transparent;
-    border: none;
-    pointer-events: auto;
-    color: white;
-    padding: 10px;
-    font-family: sans-serif;
-
-    overflow-y: auto;
-    max-height: 100%;
-}
-
-/* Input de texto */
-#chatInput {
-    font-size: 2vh;
-    grid-area: ESC;
-    pointer-events: auto;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid white;
-    color: white;
-    padding: 8px;
- 
-    outline: none;
-    width: 90%;
-    margin: auto;
-    border-radius: 5px;
-}
-
-/* Botón de enviar */
-#enviar {
-    grid-area: ENV;
-    pointer-events: auto;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-    color: white;
-    font-size: 2vh;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto;
-}
-
-#enviar:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-.boton{
-
+    "IMG . ."auto
+    "IMG . TXT"max-content
+    "IMG . ."0.3vh
+    "IMG . TXT2"max-content
+    "IMG . ."auto/
+    8vh 1vh auto; 
+  }
+  .imgstream{
+    grid-area: IMG;
+    background-image: url(src/SVG/user0.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 5vh;
+    border-radius: 25vh;
+    position: relative;
+    border: #ed1e79 solid 0.4vh;
+    background-color: rgb(31, 31, 31);
+  
+  }
+  .iconstream{
+    animation: vivo 2s infinite both;
     position: absolute;
-    right: 2vh;
-    top: 3vh;
-    background-color: rgb(25, 226, 92);
-    padding: 1vh;
-    border-radius: 2vh;
-    width: 10vh;
-    color: white;
-    border: none;
-    font-size: 1.5vh;
-    text-align: center;
-    margin: 0;
-}
-.input{
-
-    position: absolute;
-    left: 2vh;
-    top: 3vh;
-    padding: 1vh;
-    border-radius: 2vh;
-    width: 15vh;
-    color: black;
-    border: none;
-    font-size: 1.5vh;
-
+    width: 3vh;
+    height: 3vh;
+    background-image: url(src/SVG/stream0.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 25vh;
+    background-color: #ed1e79;
+    right: 0vh;
+  }
+  @keyframes vivo{
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.2);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+  @keyframes boton{
+    0%{
+      transform: scale(1) rotate(0deg);
+    }
+    5%{
+      transform: scale(1) rotate(-2deg);
+    }
+    10%{
+      transform: scale(1.05) rotate(2deg);
+    }
+    15%{
+      transform: scale(1) rotate(-2deg);
+    }
+    20%{
+      transform: scale(1) rotate(0deg);
+    }
+    100%{
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    grid-area: FOO;
+  }
+  #sidebar .link{
+    padding: 2vh;
+    width: 40vh;
 }

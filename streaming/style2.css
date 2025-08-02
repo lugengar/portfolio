@@ -43,29 +43,9 @@ background-image: url(src/SVG/stream20.svg);
     ". . ." 2vh/
     auto 50vh auto ;
   
-    z-index: 3;
+    z-index: 2;
   }
-  .container2{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    background-color: transparent;
-    display: grid;
-    grid-template:
-    ". .  ." 2vh
-    ". HEA  ."10vh
-    ". . ." auto
-
-    ". LIST ." 50vh
-
-    ". FOO ."10vh
-    ". . ." 2vh/
-    auto 50vh auto ;
   
-    z-index: 3;
-  }
   .fondo{
     opacity: 30%;
 
@@ -79,91 +59,15 @@ background-image: url(src/SVG/stream20.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 2;
+    z-index: 1;
     
   }
-
-
-
-#links{
-    grid-area: LINK;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-#sidebar{
-background-color: transparent;
-
-    transition: transform 0.5s ease-in-out;
-    z-index: 99;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0%;
-    top: 0%;
-    display: grid;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    padding-top: 10vh;
-    padding-bottom: 1vh;
-    /* background-color: black; */
--webkit-backdrop-filter: blur(1vh);
-backdrop-filter: blur(1vh);
-    grid-template:
-    ". . ." 5vh
-    ". LINK ."auto
-    ". . . "auto/
-    auto 50vh auto  ;
-    transform: translateX(110%);
-}
-  .fondo2{
-  
-
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    z-index: 1;
-    display: grid;
-    grid-template:
-    ". . ." auto
-    ". VID ."auto
-    ". . ." auto/
-    auto 50vh auto ;
-  }
-  .videodiv{
-    grid-area: VID;
-    position: relative;
-  }
-  .videodiv{
-    overflow: hidden;
-  }
-  video{
-    transform: scaleX(-1);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
   header{
-   z-index: 100;
+   
     display: flex;
     justify-content: center;
     align-items: center;
     grid-area: HEA;
-  }
-  .header2{
-    z-index: 100;
-     display: grid;
-     grid-area: HEA;
-     grid-template:
-     ". . RAY"5vh/
-     auto auto 5vh ;
-   }
-  .header2 #rayas{
-    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
-    grid-area: RAY;
   }
   .buscador{
     width: max-content;
@@ -186,20 +90,11 @@ backdrop-filter: blur(1vh);
     background-repeat: no-repeat;
     background-size: 2.8vh;
   }
-  .casita{
-    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
-
-    background-color: #6235ff;
-    background-image: url(src/SVG/home0.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 2.8vh;
-  }
   .buscador input{
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
     padding: 1vh;
   }
-  button, input,a{
+  button, input{
     background-color: rgb(46, 46, 46);
     border: none;
     border-radius: 25vh;
@@ -234,28 +129,7 @@ backdrop-filter: blur(1vh);
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 
   }
-.lista{
-    grid-area: LIST;
-    display: grid;
-   
-    overflow: auto;
-    scrollbar-color: #6235ff rgb(46, 46, 46); 
-  }
-  .lista div{
-    opacity: 80%;
-    margin-bottom: 1vh;
-    max-width: 25vh;
-    height: max-content;
-    padding: 1vh;
- color: white;
- background-color: rgba(46, 46, 46, 0.5);
-    border-radius: 2vh;
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-    font-size: 2vh;
-  }
+
   #streamsList{ 
     display: grid;
     gap: 2vh;
@@ -373,7 +247,3 @@ backdrop-filter: blur(1vh);
     
     grid-area: FOO;
   }
-  #sidebar .link{
-    padding: 2vh;
-    width: 40vh;
-}
