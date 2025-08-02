@@ -59,7 +59,9 @@ function playVideo() {
         await peerConnection.addIceCandidate(new RTCIceCandidate(msg.candidate));
       }
     }
-
+    if (msg.type === 'viewerCount') {
+      document.getElementById('viewerCount').textContent = `👀 Viewers: ${msg.count}`;
+    }
     if (msg.type === 'chat') {
       addChatMessage(`${msg.from}: ${msg.message}`);
     }
