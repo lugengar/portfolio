@@ -5,8 +5,11 @@ let ws;
 let peerConnections = {};
 let stream;
 let streamId;
+let inicio = false
 let streamerName;
 async function iniciar() {
+ inicio = true
+if(inicio){
   streamId = Math.random().toString(36).substring(2, 10);
   streamerName = prompt('Escribí tu nombre:')|| 'Streamer desconocido';
   const titulo = prompt('Escribí un titulo para el stream:') || 'Sin título';
@@ -84,6 +87,7 @@ async function iniciar() {
   ws.onclose = () => {
     console.log('Conexión WebSocket cerrada.');
   };
+ }
 }
 
 async function startStream() {
@@ -108,6 +112,7 @@ function addChatMessage(msg) {
 }
 
 function stopStream() {
+  inicio = false
   if (stream) {
     stream.getTracks().forEach(track => track.stop());
     video.srcObject = null;
