@@ -79,7 +79,7 @@ background-image: url(src/SVG/stream20.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 2;
+    z-index: 1;
     
   }
 
@@ -131,6 +131,7 @@ backdrop-filter: blur(1vh);
     ". VID ."auto
     ". . ." auto/
     auto 50vh auto ;
+    z-index: 2;
   }
   .videodiv{
     grid-area: VID;
