@@ -278,14 +278,27 @@ backdrop-filter: blur(1vh);
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 
   }
+  #chatMessages{
+    pointer-events: none;
+
+  }
+  #playButton{
+    animation: boton2 2s infinite both;
+    width: 6vh;
+    height: 6vh;
+    position: absolute;
+    left: 44%;
+    top: 45%;
+    z-index: 5;
+  }
 .lista{
-  pointer-events: none;
+  position: relative;
     grid-area: LIST;
     display: block;
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 
   }
-  .lista div{
+  .lista .mensaje{
     opacity: 85%;
     margin-bottom: 1vh;
     margin-left: 1vh;

@@ -149,6 +149,7 @@ function tirarCorazon() {
 
 function addChatMessage(msg) {
   const div = document.createElement('div');
+  div.add.classList("mensaje")
   div.textContent = msg;
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
