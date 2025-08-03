@@ -7,7 +7,9 @@ let ws;
 let peerConnection;
 let viewerName = '';
 let cooldown = false;
+let stream = false
 function playVideo() {
+  if(!stream){return}
   viewerName = prompt('Escribí tu nombre:');
   //viewerName = document.getElementById('viewerName').value.trim();
    document.getElementById('viewerName').value = viewerName;
@@ -26,6 +28,7 @@ function playVideo() {
   ws = new WebSocket(`https://streaming-0qb5.onrender.com/?id=${streamId}`);
 
   ws.onopen = () => {
+    stream= true
     console.log('WebSocket conectado como viewer.');
     ws.send(JSON.stringify({ type: 'watcher', watcherId: viewerName }));
     presentacion()
