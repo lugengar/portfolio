@@ -9,7 +9,7 @@ let viewerName = '';
 let cooldown = false;
 let stream = false
 function playVideo() {
-  if(!stream){return}
+  if(stream){return}
   viewerName = prompt('Escribí tu nombre:');
   //viewerName = document.getElementById('viewerName').value.trim();
    document.getElementById('viewerName').value = viewerName;
