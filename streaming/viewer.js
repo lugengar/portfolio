@@ -91,14 +91,14 @@ function playVideo() {
 }
 
 function sendChat() {
-  if (cooldown) return;
   const msg = chatInput.value.trim();
-  cooldown = true;
   if (!msg) return;
   if (!viewerName) {
     alert('Debes ingresar un nombre para enviar mensajes.');
     return;
   }
+  if (cooldown) return;
+  cooldown = true;
   ws.send(JSON.stringify({ type: 'chat', message: msg, from: viewerName }));
   addChatMessage(`Yo (${viewerName}): ${msg}`);
   chatInput.value = '';
@@ -107,12 +107,13 @@ function sendChat() {
   }, 500);
 }
 function sendHeart() {
-  if (cooldown) return;
-  cooldown = true;
+
   if (!viewerName) {
     alert('Debes ingresar un nombre para enviar corazones.');
     return;
   }
+  if (cooldown) return;
+  cooldown = true;
   ws.send(JSON.stringify({ type: 'heart', from: viewerName }));
   tirarCorazon();
   setTimeout(() => {
