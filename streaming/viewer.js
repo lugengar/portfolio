@@ -144,7 +144,6 @@ function addChatMessage(msg) {
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
-addChatMessage("msg")
 function actualizarespectadores(n){
 let viewerText = '';
 
