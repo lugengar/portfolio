@@ -36,15 +36,15 @@ function playVideo() {
 
     if (msg.type === 'offer') {
       peerConnection = new RTCPeerConnection();
+      titulostreamer = msg.name;
+      nombrestreamer = mmsg.title;
+      document.getElementById('nombrestreamer').textContent = nombrestreamer;
+      document.getElementById('titulostreamer').textContent = titulostreamer;
 
+      console.log(titulostreamer,nombrestreamer)
       peerConnection.ontrack = event => {
         video.srcObject = event.streams[0];
-        titulostreamer = event.streams[2];
-        nombrestreamer = event.streams[1];
-        document.getElementById('nombrestreamer').textContent = nombrestreamer;
-        document.getElementById('titulostreamer').textContent = titulostreamer;
-
-        console.log(titulostreamer,nombrestreamer)
+      
         video.play();
         document.getElementById('playButton').style.display = 'none';
       };
