@@ -35,6 +35,7 @@ if(!inicio){
   ws = new WebSocket(`https://streaming-0qb5.onrender.com/?id=${streamId}`);
 
   ws.onopen = () => {
+    document.getElementById('playButton').style.display = 'none';
     console.log('WebSocket conectado como streamer.');
     ws.send(JSON.stringify({ type: 'broadcaster', name: streamerName }));
     ws.send(JSON.stringify({ type: 'setTitle', title: titulo }));
@@ -168,6 +169,7 @@ function stopStream() {
     ws.close();
   }
   addChatMessage('📴 Transmisión finalizada.');
+  document.getElementById('playButton').style.display = 'grid';
   console.log('Streamer detuvo la transmisión.');
 }
 
