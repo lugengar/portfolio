@@ -363,7 +363,7 @@ backdrop-filter: blur(1vh);
     "IMG . . ."0.3vh
     "IMG . TXT2 ."max-content
     "IMG . . ."auto/
-    8vh 1vh auto auto; 
+    8vh 1vh max-content max-content; 
   }
   .cora{
     animation: corazon 2s both;
