@@ -41,7 +41,6 @@ function playVideo() {
       document.getElementById('nombrestreamer').textContent = nombrestreamer;
       document.getElementById('titulostreamer').textContent = titulostreamer;
 
-      console.log(titulostreamer,nombrestreamer)
       peerConnection.ontrack = event => {
         video.srcObject = event.streams[0];
       
