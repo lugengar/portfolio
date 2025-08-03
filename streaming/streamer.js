@@ -73,6 +73,9 @@ if(!inicio){
         console.log(`Streamer recibió answer de ${msg.watcherId}`);
       }
     }
+    if (msg.type === 'heart') {
+      tirarcorazon();
+    }
     if (msg.type === 'viewerCount') {
       actualizarespectadores(msg.count)
   }
