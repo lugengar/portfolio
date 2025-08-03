@@ -136,7 +136,7 @@ backdrop-filter: blur(1vh);
     z-index: 2;
   }
   .videodiv{
-    background-color: black;
+   
     grid-area: VID;
     position: relative;
     overflow: hidden;
