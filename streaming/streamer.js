@@ -105,9 +105,23 @@ if(!inicio){
 }
 
 async function startStream() {
-  stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-  video.srcObject = stream;
-  console.log('Streamer: cámara y micrófono activados.');
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    video.srcObject = stream;
+    console.log('Streamer: cámara y micrófono activados.');
+  } catch (error) {
+    console.error('Error al acceder a la cámara o micrófono:', error);
+    alert('No se pudo acceder a la cámara o micrófono. Verificá los permisos.');
+    
+    // Cerramos la conexión si ya se abrió
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({ type: 'endStream' }));
+      ws.close();
+    }
+
+    document.getElementById('playButton').style.display = 'grid';
+    inicio = false;
+  }
 }
 
 function sendChat() {
