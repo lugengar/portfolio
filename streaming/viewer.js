@@ -103,7 +103,7 @@ function sendHeart() {
   if (cooldown) return;
   cooldown = true;
   ws.send(JSON.stringify({ type: 'heart', from: viewerName }));
-  tirarcorazon();
+  tirarCorazon();
   setTimeout(() => {
     cooldown = false;
   }, 500);

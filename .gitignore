@@ -8,7 +8,9 @@ gradlew
 gradlew.bat
 manifest-checksum.txt
 settings.gradle
-
+node_modules
+server.js
+package.json
 store_icon.png
 app-release-signed.apk.idsig
 app-release-bundle.aab
