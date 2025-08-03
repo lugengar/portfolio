@@ -82,6 +82,7 @@ background-image: url(src/SVG/stream20.svg);
     z-index: 1;
     
   }
+  
 
 
 
@@ -196,6 +197,7 @@ backdrop-filter: blur(1vh);
     grid-area: CO;
   }
   .buscador #chatInput{
+    pointer-events: none;
     grid-area: ESC;
   }
  
