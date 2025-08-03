@@ -10,13 +10,16 @@ let cooldown = false;
 let stream = false
 function playVideo() {
   if(stream){return}
+ 
+
   viewerName = prompt('Escribí tu nombre:');
   //viewerName = document.getElementById('viewerName').value.trim();
    document.getElementById('viewerName').value = viewerName;
   if (!viewerName) {
     alert('Por favor ingresa tu nombre para ver el stream.');
     return;
-  }
+  } document.getElementById('playButton').style.display = 'none';
+  document.getElementById('stream').style.display = 'grid';
 
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get('id');
@@ -38,13 +41,13 @@ function playVideo() {
     const msg = JSON.parse(event.data);
 
     if (msg.type === 'offer') {
-      peerConnection = new RTCPeerConnection();
       titulostreamer = msg.name;
       nombrestreamer = msg.title;
       document.getElementById('nombrestreamer').textContent = nombrestreamer;
       document.getElementById('titulostreamer').textContent = titulostreamer;
-      document.getElementById('playButton').style.display = 'none';
-      document.getElementById('stream').style.display = 'grid';
+
+      peerConnection = new RTCPeerConnection();
+      
 
       peerConnection.ontrack = event => {
         video.srcObject = event.streams[0];
