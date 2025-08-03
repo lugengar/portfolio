@@ -109,6 +109,10 @@ function sendChat() {
 function sendHeart() {
   if (cooldown) return;
   cooldown = true;
+  if (!viewerName) {
+    alert('Debes ingresar un nombre para enviar corazones.');
+    return;
+  }
   ws.send(JSON.stringify({ type: 'heart', from: viewerName }));
   tirarCorazon();
   setTimeout(() => {
