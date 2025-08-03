@@ -145,6 +145,7 @@ function presentacion() {
     return;
   }
   const msg = viewerName + " se unió";
+  addChatMessage(msg);
   ws.send(JSON.stringify({ type: 'chat', message: msg, from: "📢" }));
 }
 
