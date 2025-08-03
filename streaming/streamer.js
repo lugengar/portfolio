@@ -74,7 +74,7 @@ if(!inicio){
       }
     }
     if (msg.type === 'heart') {
-      tirarcorazon();
+      tirarCorazon();
     }
     if (msg.type === 'viewerCount') {
       actualizarespectadores(msg.count)
