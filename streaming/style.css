@@ -278,10 +278,7 @@ backdrop-filter: blur(1vh);
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 
   }
-  #chatMessages{
-    pointer-events: none;
 
-  }
   #playButton{
     animation: boton2 2s infinite both;
     width: 6vh;
