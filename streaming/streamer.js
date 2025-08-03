@@ -7,12 +7,16 @@ let stream;
 let streamId;
 let inicio = false
 let streamerName;
+let titulo
+let cooldown = false;
+
+
 async function iniciar() {
 if(!inicio){
  inicio = true
   streamId = Math.random().toString(36).substring(2, 10);
-  streamerName = prompt('Escribí tu nombre:')|| 'Streamer desconocido';
-  const titulo = prompt('Escribí un titulo para el stream:') || 'Sin título';
+  streamerName = prompt('Escribí tu nombre:') || 'Streamer desconocido';
+  titulo = prompt('Escribí un titulo para el stream:') || 'Sin título';
 
   /*streamId = document.getElementById('streamId').value.trim();
   streamerName = document.getElementById('streamerName').value.trim() || 'Streamer desconocido';
@@ -20,6 +24,9 @@ if(!inicio){
   document.getElementById('streamId').value = streamId;
   document.getElementById('streamerName').value = streamerName;
   document.getElementById('tituloStream').value= titulo;
+  
+  document.getElementById('nombrestreamer').textContent = streamerName;
+  document.getElementById('titulostreamer').textContent = titulo;
   if (!streamId) {
     alert('Debes ingresar un ID de stream');
     return;
@@ -66,8 +73,8 @@ if(!inicio){
       }
     }
     if (msg.type === 'viewerCount') {
-      document.getElementById('viewerCount').textContent = msg.count;
-    }
+      actualizarespectadores(msg.count)
+  }
     
     if (msg.type === 'candidate') {
       const pc = peerConnections[msg.watcherId];
@@ -100,11 +107,44 @@ async function startStream() {
 }
 
 function sendChat() {
+  if (cooldown) return;
+  cooldown = true;
+
   const msg = chatInput.value.trim();
   if (!msg) return;
   ws.send(JSON.stringify({ type: 'chat', message: msg }));
   addChatMessage(`Yo: ${msg}`);
   chatInput.value = '';
+  setTimeout(() => {
+    cooldown = false;
+  }, 500);
+}
+function sendHeart() {
+  if (cooldown) return;
+  cooldown = true;
+  ws.send(JSON.stringify({ type: 'heart', from: viewerName }));
+  tirarcorazon();
+  setTimeout(() => {
+    cooldown = false;
+  }, 500);
+}
+function tirarCorazon() {
+  const contenedor = document.getElementById("corazon");
+
+  const cora = document.createElement("div");
+  cora.classList.add("cora");
+
+  const img = document.createElement("div");
+  img.classList.add("imgstream");
+  const num = Math.floor(Math.random() * 3) + 1; // 1, 2 o 3
+  cora.style.animation = "1.5s both corazon" + num
+  cora.appendChild(img);
+  contenedor.appendChild(cora);
+
+  // Quitarlo cuando termina la animación
+  cora.addEventListener("animationend", () => {
+    cora.remove();
+  });
 }
 
 function addChatMessage(msg) {
@@ -130,3 +170,20 @@ function stopStream() {
   console.log('Streamer detuvo la transmisión.');
 }
 
+function actualizarespectadores(n){
+  let viewerText = '';
+  
+  if (n >= 1000000) {
+      // Para millones
+      let value = n / 1000000;
+      viewerText = (value % 1 === 0) ? value.toFixed(0) + "M" : value.toFixed(1) + "M";
+  } else if (n >= 1000) {
+      // Para miles
+      let value = n / 1000;
+      viewerText = (value % 1 === 0) ? value.toFixed(0) + "k" : value.toFixed(1) + "k";
+  } else {
+      // Menos de 1000
+      viewerText = n.toString();
+  }
+  document.getElementById('viewerCount').textContent = viewerText;
+  }

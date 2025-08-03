@@ -6,7 +6,7 @@ const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
 let ws;
 let peerConnection;
 let viewerName = '';
-
+let cooldown = false;
 function playVideo() {
   viewerName = prompt('Escribí tu nombre:');
   //viewerName = document.getElementById('viewerName').value.trim();
@@ -39,6 +39,12 @@ function playVideo() {
 
       peerConnection.ontrack = event => {
         video.srcObject = event.streams[0];
+        titulostreamer = event.streams[1];
+        nombrestreamer = event.streams[2];
+        document.getElementById('nombrestreamer').textContent = nombrestreamer;
+        document.getElementById('titulostreamer').textContent = titulostreamer;
+
+        console.log(titulostreamer,nombrestreamer)
         video.play();
         document.getElementById('playButton').style.display = 'none';
       };
@@ -60,8 +66,11 @@ function playVideo() {
         await peerConnection.addIceCandidate(new RTCIceCandidate(msg.candidate));
       }
     }
+    if (msg.type === 'heart') {
+      tirarcorazon();
+    }
     if (msg.type === 'viewerCount') {
-      document.getElementById('viewerCount').textContent = msg.count;
+        actualizarespectadores(msg.count)
     }
     if (msg.type === 'chat') {
       addChatMessage(`${msg.from}: ${msg.message}`);
@@ -76,18 +85,49 @@ function playVideo() {
 }
 
 function sendChat() {
+  if (cooldown) return;
   const msg = chatInput.value.trim();
-
+  cooldown = true;
   if (!msg) return;
   if (!viewerName) {
-    input
     alert('Debes ingresar un nombre para enviar mensajes.');
     return;
   }
   ws.send(JSON.stringify({ type: 'chat', message: msg, from: viewerName }));
   addChatMessage(`Yo (${viewerName}): ${msg}`);
   chatInput.value = '';
+  setTimeout(() => {
+    cooldown = false;
+  }, 500);
 }
+function sendHeart() {
+  if (cooldown) return;
+  cooldown = true;
+  ws.send(JSON.stringify({ type: 'heart', from: viewerName }));
+  tirarcorazon();
+  setTimeout(() => {
+    cooldown = false;
+  }, 500);
+}
+function tirarCorazon() {
+  const contenedor = document.getElementById("corazon");
+
+  const cora = document.createElement("div");
+  cora.classList.add("cora");
+
+  const img = document.createElement("div");
+  img.classList.add("imgstream");
+  const num = Math.floor(Math.random() * 3) + 1; // 1, 2 o 3
+  cora.style.animation = "1.5s both corazon" + num
+  cora.appendChild(img);
+  contenedor.appendChild(cora);
+
+  // Quitarlo cuando termina la animación
+  cora.addEventListener("animationend", () => {
+    cora.remove();
+  });
+}
+
 function presentacion() {
   if (!viewerName) {
     alert('Debes ingresar un nombre para enviar mensajes.');
@@ -104,4 +144,21 @@ function addChatMessage(msg) {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+function actualizarespectadores(n){
+let viewerText = '';
+
+if (n >= 1000000) {
+    // Para millones
+    let value = n / 1000000;
+    viewerText = (value % 1 === 0) ? value.toFixed(0) + "M" : value.toFixed(1) + "M";
+} else if (n >= 1000) {
+    // Para miles
+    let value = n / 1000;
+    viewerText = (value % 1 === 0) ? value.toFixed(0) + "k" : value.toFixed(1) + "k";
+} else {
+    // Menos de 1000
+    viewerText = n.toString();
+}
+document.getElementById('viewerCount').textContent = viewerText;
+}
 //setInterval(playVideo, 1000);

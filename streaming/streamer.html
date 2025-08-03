@@ -14,15 +14,23 @@
   <div class="fondo"></div>
   <div class="fondo2">
     <div class="videodiv">
+      <div id="playButton" class="boton2" onclick="iniciar()" style="width: max-content; padding-left: 1vh; padding-right: 1vh; left: 37%;">Iniciar ►</div> 
     
       <video id="video" autoplay playsinline muted></video>
   </div>
 </div>
     <div class="container2">
       <div class="header2">
+        
         <button onclick="sidebar()" id="rayas">&#9776;</button>
-        <div id="playButton" class="boton2" onclick="iniciar()">►</div> 
-        <div id="stopButton" class="boton2" onclick="stopStream()">❚❚</div> 
+        <div class="stream v2">
+          <div class="imgstream">
+              <div class="iconstream"></div>
+          </div>
+          <h1 id="nombrestreamer" ></h1>
+          <div id="viewerCount" class="boton2">0</div>
+          <p id="titulostreamer"></p>
+      </div>
       </div>
       <div id="sidebar">
         <div id="links" >
@@ -30,6 +38,7 @@
             <input id="tituloStream" type="hidden" class="link" placeholder="Título del stream">
             <input id="streamId" type="hidden" class="link"  placeholder="ID único del stream">
             <input type="hidden" class="link"  id="streamerName" placeholder="Nombre streamer" />
+            <button id="stopButton" class="link" onclick="stopStream()">Parar stream ❚❚</button> 
       
             <button onclick="compartirLink()" class="link" style= " top: 15.5vh; left:2vh; right: auto; background-color:rgb(55, 138, 216);">🔗 Compartir</button>
             <a href="index.html" class="link" style="background-color: #ed1e79;">Salir</a>
@@ -51,14 +60,16 @@
 
   </div>
   <footer id="chat">
-    <div id="viewerCount" class="boton2">0</div>
 
     <div class="buscador">
+    <button id="corazon" class="boton2 corazon" onclick="sendHeart()"></button>
       
     <input id="chatInput" class="barra" type="text" placeholder="Escribe un mensaje..." />
     <button id="enviar" class="enviar" onclick="sendChat()"></button>
 
+
   </div>
+
   </footer>
 </div>
 </body>

@@ -12,14 +12,22 @@
   <div class="fondo"></div>
     <div class="fondo2">
         <div class="videodiv">
-            <video id="remoteVideo" autoplay playsinline></video>
+            <video id="remoteVideo" autoplay playsinline>
+            </video>
+            <div id="playButton" class="boton2" onclick="playVideo()">►</div>
            
-
       </div>
     </div>
 <div class="container2">
     <div class="header2">
-        <div id="playButton" class="boton2" onclick="playVideo()">►</div>
+        <div class="stream v2">
+            <div class="imgstream">
+                <div class="iconstream"></div>
+            </div>
+            <h1 id="nombrestreamer" ></h1>
+            <div id="viewerCount" class="boton2">0</div>
+            <p id="titulostreamer"></p>
+        </div>
         <a href="index.html" class="casita" id="rayas"></a>
       <!--  <button onclick="sidebar()" id="rayas">&#9776;</button>-->
     </div>
@@ -32,16 +40,19 @@
         </div>
     </div>
     <footer id="chat">
-    <div id="viewerCount" class="boton2">0</div>
 
         <div class="buscador">
+
         <input id="chatInput" class="barra" type="text" placeholder="Escribe un mensaje..." />
         <button id="enviar" class="enviar" onclick="sendChat()"></button>
+        <button id="corazon" class="boton2 corazon" onclick="sendHeart()"></button>
+
       </div>
 
 </body>
 </html>
 <script>
+
      bar = false
   function sidebar(){
     bar = !bar

@@ -54,15 +54,15 @@ background-image: url(src/SVG/stream20.svg);
     background-color: transparent;
     display: grid;
     grid-template:
-    ". .  ." 2vh
-    ". HEA  ."10vh
-    ". . ." auto
+    ". . ." 2vh
+    ". HEA ."10vh
+    ". . ." 1vh
 
-    ". LIST ." 50vh
+    ". LIST ." auto
 
-    ". FOO ."10vh
-    ". . ." 2vh/
-    auto 50vh auto ;
+    ". FOO ."15vh
+    ". . . " 2vh/
+    auto 50vh  auto ;
   
     z-index: 3;
   }
@@ -128,19 +128,29 @@ backdrop-filter: blur(1vh);
     z-index: 1;
     display: grid;
     grid-template:
-    ". . ." auto
-    ". VID ."auto
-    ". . ." auto/
-    auto 50vh auto ;
+    ". .  ." auto
+    ". VID ."100%
+    ". . . " auto/
+    auto 50vh  auto ;
     z-index: 2;
   }
   .videodiv{
-    position: relative;
+    background-color: black;
     grid-area: VID;
     position: relative;
     overflow: hidden;
   }
+  .videodiv .boton2{
+    animation: boton2 2s infinite both;
+    width: 6vh;
+    height: 6vh;
+    position: absolute;
+    left: 44%;
+    top: 45%;
+    z-index: 5;
+  }
   video{
+
     transform: scaleX(-1);
     width: 100%;
     height: 100%;
@@ -155,6 +165,8 @@ backdrop-filter: blur(1vh);
     grid-area: HEA;
   }
   .header2{
+    padding-left: 1vh;
+    padding-right: 1vh;
     z-index: 100;
      display: grid;
      grid-area: HEA;
@@ -168,17 +180,28 @@ backdrop-filter: blur(1vh);
   }
   .buscador{
     width: max-content;
-    height: 5vh;
+    height: 10vh;
     
     border-radius: 25vh;
     gap:1vh;
     display: grid;
-    grid-template-columns: 30vh 5vh;
-    grid-template-rows: auto;
+    grid-template:
+    ". CO"5vh
+    "ESC BUS" 5vh/
+    30VH 5vh;
     padding: 0.5vh;
     
   }
-  .buscador button{
+  .buscador .corazon{
+    grid-area: CO;
+  }
+  .buscador #chatInput{
+    grid-area: ESC;
+  }
+ 
+  .buscador #enviar{
+    grid-area: BUS;
+
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
     width: 5vh;
     background-color: #6235ff;
@@ -187,6 +210,7 @@ backdrop-filter: blur(1vh);
     background-repeat: no-repeat;
     background-size: 2.8vh;
   }
+
   .casita{
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
 
@@ -195,6 +219,24 @@ backdrop-filter: blur(1vh);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 2.8vh;
+  }
+  .corazon{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+
+    background-color: #6235ff;
+    background-image: url(src/SVG/corazon0.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.8vh;
+  }
+  .v2 #viewerCount{
+    height: 3vh;
+    margin-left: 1vh;
+    font-size: 2vh;
+    width: max-content;
+    padding-left: 1vh;
+    padding-right: 1vh;
+
   }
   .buscador input{
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
@@ -238,13 +280,13 @@ backdrop-filter: blur(1vh);
 .lista{
     grid-area: LIST;
     display: block;
-   
     overflow: auto;
     scrollbar-color: #6235ff rgb(46, 46, 46); 
   }
   .lista div{
-    opacity: 80%;
+    opacity: 85%;
     margin-bottom: 1vh;
+    margin-left: 1vh;
     max-width: 25vh;
     height: max-content;
     padding: 1vh;
@@ -298,18 +340,103 @@ backdrop-filter: blur(1vh);
     
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
     position: relative;
-    min-width: 35vh;
+    width: 30vh;
     height: 8vh;
     background-color: rgb(46, 46, 46);
     border-radius: 25vh;
     display: grid;
     grid-template:
-    "IMG . ."auto
-    "IMG . TXT"max-content
-    "IMG . ."0.3vh
-    "IMG . TXT2"max-content
+    "IMG . . ."auto
+    "IMG . TXT BOT"max-content
+    "IMG . . ."0.3vh
+    "IMG . TXT2 ."max-content
+    "IMG . . ."auto/
+    8vh 1vh auto auto; 
+  }
+  .cora{
+    animation: corazon 2s both;
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 7vh;
+    height: 4vh;
+    background-color: #ed1e79;
+    border-radius: 25vh;
+    display: grid;
+    background-image: url(src/SVG/corazon0.svg);
+    background-position: 4.1vh center;
+    background-repeat: no-repeat;
+    background-size: 2vh;
+    grid-template:
     "IMG . ."auto/
-    8vh 1vh auto; 
+    4vh 1vh auto; 
+  }
+.cora .imgstream{
+  border-color: #6235ff;
+  background-size: 2.5vh;
+}
+  @keyframes corazon1 {
+    0%{
+      transform: translateY(-5vh);
+      scale: 0.5;
+      opacity: 0%;
+    }
+    10%{
+      opacity: 100%;
+    }
+   
+    80%{
+      opacity: 100%;
+
+    }
+    100%{
+      transform: translateY(-10vh);
+      scale: 1;
+      opacity: 0%;
+    }
+  }
+  @keyframes corazon2 {
+    0%{
+      transform: translateY(-5vh) rotate(10deg);
+      scale: 0.5;
+      opacity: 0%;
+    }
+    10%{
+      opacity: 100%;
+    }
+   
+    80%{
+      opacity: 100%;
+
+    }
+    100%{
+      transform: translateY(-10vh) translateX(2vh);
+      scale: 1;
+      opacity: 0%;
+    }
+  }
+  @keyframes corazon3 {
+    0%{
+      transform: translateY(-5vh) rotate(-10deg);
+      scale: 0.5;
+      opacity: 0%;
+    }
+    10%{
+      opacity: 100%;
+    }
+   
+    80%{
+      opacity: 100%;
+
+    }
+    100%{
+      transform: translateY(-10vh) translateX(-2vh);;
+      scale: 1;
+      opacity: 0%;
+    }
+  }
+  .v2{
+background-color: transparent;
+box-shadow: none;
   }
   .imgstream{
     grid-area: IMG;
@@ -367,6 +494,26 @@ backdrop-filter: blur(1vh);
       transform: scale(1) rotate(0deg);
     }
   }
+  @keyframes boton2{
+    0%{
+      transform: scale(1) rotate(0deg);
+    }
+   20%{
+      transform: scale(1) rotate(-2deg);
+    }
+    30%{
+      transform: scale(1.1) rotate(2deg);
+    }
+    40%{
+      transform: scale(1) rotate(-2deg);
+    }
+    50%{
+      transform: scale(1) rotate(0deg);
+    }
+    100%{
+      transform: scale(1) rotate(0deg);
+    }
+  }
   footer{
     display: flex;
     justify-content: center;
@@ -380,6 +527,12 @@ backdrop-filter: blur(1vh);
 }
 
 .boton2{
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  grid-area: BOT;
   font-size: 2.5vh;
     width: 5vh;
     height: 5vh;
@@ -391,7 +544,7 @@ backdrop-filter: blur(1vh);
     border-radius: 25vh;
 }
 
-@media (max-width: 200vh) { 
+@media (max-width: 100vh) { 
     #sidebar .link{
         padding: 2vh;
         width: 25vh;
@@ -409,9 +562,9 @@ backdrop-filter: blur(1vh);
         "HEA"10vh
         "." auto
     
-        "LIST" 50vh
+        "LIST" 40vh
     
-        "FOO "10vh
+        "FOO "20vh
         ". " 2vh/
         auto   ;
       
@@ -424,4 +577,12 @@ backdrop-filter: blur(1vh);
             ". . . "auto/
             auto auto auto  ;
         }
+        .fondo2{
+
+          grid-template:
+          ". . ." auto
+          ". VID ."100%
+          ". . ." auto/
+          auto 50vh auto ;
+         }
 }
