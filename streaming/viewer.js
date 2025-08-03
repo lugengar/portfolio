@@ -43,12 +43,13 @@ function playVideo() {
       nombrestreamer = msg.title;
       document.getElementById('nombrestreamer').textContent = nombrestreamer;
       document.getElementById('titulostreamer').textContent = titulostreamer;
+      document.getElementById('playButton').style.display = 'none';
+      document.getElementById('stream').style.display = 'grid';
 
       peerConnection.ontrack = event => {
         video.srcObject = event.streams[0];
       
         video.play();
-        document.getElementById('playButton').style.display = 'none';
       };
 
       peerConnection.onicecandidate = event => {

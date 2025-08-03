@@ -36,6 +36,7 @@ if(!inicio){
 
   ws.onopen = () => {
     document.getElementById('playButton').style.display = 'none';
+    document.getElementById('stream').style.display = 'grid';
     console.log('WebSocket conectado como streamer.');
     ws.send(JSON.stringify({ type: 'broadcaster', name: streamerName }));
     ws.send(JSON.stringify({ type: 'setTitle', title: titulo }));
