@@ -195,7 +195,6 @@ backdrop-filter: blur(1vh);
   }
   .buscador .corazon{
     grid-area: CO;
-    animation: boton2 3s infinite both;
   }
   .buscador #chatInput{
     grid-area: ESC;
