@@ -37,7 +37,7 @@ function playVideo() {
     if (msg.type === 'offer') {
       peerConnection = new RTCPeerConnection();
       titulostreamer = msg.name;
-      nombrestreamer = mmsg.title;
+      nombrestreamer = msg.title;
       document.getElementById('nombrestreamer').textContent = nombrestreamer;
       document.getElementById('titulostreamer').textContent = titulostreamer;
 
