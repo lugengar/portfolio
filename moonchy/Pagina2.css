@@ -406,11 +406,12 @@ html{
     border-radius: 3vh;
 }
 .muestra{
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.349);
     position: absolute;
     width: 25vh;
     height: 30vh;
     background-color: azure;
-    border-radius: 3vh;
+    border-radius: 1vh;
     background-position: center;
     background-size: cover;
 }
