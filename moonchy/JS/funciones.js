@@ -314,7 +314,7 @@ cole.addEventListener('click',barrainf,true);
 regalos.addEventListener('click',regalosf,true);
 coleccion.addEventListener('click',coleccionf,true);
 premios.addEventListener('click',premiosf,true);
-config.addEventListener('click',configuracionf,true);
+//config.addEventListener('click',configuracionf,true);
 salirconfig.addEventListener('click',salirconfigf,true);
 botonl.addEventListener('click',leftF,true);
 botonr.addEventListener('click',rightF,true);

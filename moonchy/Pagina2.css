@@ -276,6 +276,7 @@ html{
 }
 #REG{
     grid-area: REG;
+    
 }
 #COLE{
     grid-area: COLE;
