@@ -411,7 +411,7 @@ html{
     width: 25vh;
     height: 30vh;
     background-color: azure;
-    border-radius: 1vh;
+    border-radius: 3vh;
     background-position: center;
     background-size: cover;
 }
