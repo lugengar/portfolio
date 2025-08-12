@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anotador de Ideas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #f8f4e3;
+    }
+    .book-selector {
+        grid-area: HEA;
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+    }
+    select, input[type="text"] {
+      padding: 5px;
+      margin-right: 5px;
+    }
+    .book {
+        overflow: hidden;
+        grid-area: CON;
+        position: relative;
+        background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 1vh;
+    }
+    .page {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+      width: 100%;
+      height: 100%;
+    }
+    #textArea {
+      width: 90vw;
+      height: 90vw;
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      z-index: 5;
+      background-color: transparent;
+      resize: none;
+      border: none;
+      font-size: 1rem;
+    }
+    #canvas {
+    position: absolute;
+      left: 0%;
+      top: 0%;
+      width: 90vw;
+      height: 90vw;
+      border: 1px solid #ccc;
+      cursor: crosshair;
+    }
+    .nav {
+        grid-area: FOO;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 1rem;
+    }
+    .contenedor{
+        position: absolute;
+        left: 0%;
+        top:0%;
+        width: 100%;
+        height: 100%;
+        gap: 1vh;
+        display: grid;
+        grid-template:
+        "HEA HEA HEA"8vh
+        ". CON ."90vw
+        "FOO FOO FOO"8vh/
+        auto 90vw auto ;
+    }
+  </style>
+</head>
+<body>
+<div class="contenedor">
+  <div class="book-selector">
+    <input type="text" id="newBookTitle" placeholder="Título nuevo libro">
+    <button onclick="createBook()">Crear Libro</button>
+    <select id="bookList" onchange="loadBook()"></select>
+  </div>
+
+  <div class="book">
+    <div class="page">
+      <textarea id="textArea" placeholder="Escribí tus ideas..."></textarea>
+      <canvas id="canvas"></canvas>
+     
+    </div>
+  </div>
+  <div class="nav">
+    <button onclick="prevPage()">Anterior</button>
+    <span id="pageNum">Página 1</span>
+    <button onclick="nextPage()">Siguiente</button>
+    <button onclick="dibujar()">lapiz</button>
+    <input type="color" id="colorPicker">
+
+    <button onclick="saveData()">Guardar Todo</button>
+  </div>
+</div>
+
+  <script>
+    let data = { libros: [] };
+    let currentBookIndex = 0;
+    let currentPage = 0;
+
+    const textArea = document.getElementById("textArea");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
+    // Dibujar
+    let drawing = false;
+    let drawing2 = false;
+    canvas.addEventListener("mousedown", () => drawing = true);
+    canvas.addEventListener("mouseup", () => {
+      drawing = false;
+      ctx.beginPath(); // Reinicia la ruta para que no conecte con el dibujo anterior
+    });
+
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("touchstart", e => {
+  drawing = true;
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+  ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+});
+
+canvas.addEventListener("touchend", () => {
+  drawing = false;
+  ctx.beginPath();
+});
+
+canvas.addEventListener("touchmove", e => {
+  if (!drawing) return;
+  e.preventDefault(); // evita que se desplace la página
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+  ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+});
+
+function dibujar(){
+    if (!drawing2) {
+        textArea.style.pointerEvents = "none"
+        drawing2 = true;
+
+    }else{
+        textArea.style.pointerEvents = "all"
+        drawing2 = false;
+    };
+}
+function draw(e) {
+  if (!drawing) return;
+  const color = document.getElementById("colorPicker").value;
+  ctx.lineWidth = 2;
+  ctx.lineCap = "round";
+  ctx.strokeStyle = color;
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function loadPage(num) {
+      const book = data.libros[currentBookIndex];
+      const page = book.paginas[num] || {};
+      textArea.value = page.text || "";
+      clearCanvas();
+      if (page.drawing) {
+        const img = new Image();
+        img.onload = () => ctx.drawImage(img, 0, 0);
+        img.src = page.drawing;
+      }
+      document.getElementById("pageNum").innerText = `Página ${num + 1}`;
+    }
+
+    function saveCurrentPage() {
+      const book = data.libros[currentBookIndex];
+      book.paginas[currentPage] = {
+        text: textArea.value,
+        drawing: canvas.toDataURL()
+      };
+    }
+
+    function saveData() {
+      saveCurrentPage();
+      fetch('https://api.jsonbin.io/v3/b/688fec12ae596e708fc0ea9f', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Access-Key': '$2a$10$EMYpWmcVYzHp9MwALDx1EeKBnPMO7jHVegHj8eirghnwcD3e/SVeu'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(() => {
+        console.log("Guardado:", data);
+        alert("Datos guardados");
+        })
+
+      .catch(() => alert("Error al guardar"));
+    }
+
+    function nextPage() {
+      saveCurrentPage();
+      currentPage++;
+      const book = data.libros[currentBookIndex];
+      if (!book.paginas[currentPage]) book.paginas[currentPage] = {};
+      loadPage(currentPage);
+    }
+
+    function prevPage() {
+      if (currentPage === 0) return;
+      saveCurrentPage();
+      currentPage--;
+      loadPage(currentPage);
+    }
+
+    function createBook() {
+      const title = document.getElementById("newBookTitle").value.trim();
+      if (!title) {
+        alert("Título inválido");
+        return;
+      }
+      const exists = data.libros.find(b => b.titulo === title);
+      if (exists) {
+        alert("El libro ya existe");
+        return;
+      }
+      data.libros.push({ titulo: title, paginas: [{}] });
+      updateBookList();
+      document.getElementById("bookList").value = title;
+      selectBook(title);
+    }
+
+    function updateBookList() {
+      const select = document.getElementById("bookList");
+      select.innerHTML = "";
+      data.libros.forEach(book => {
+        const option = document.createElement("option");
+        option.value = book.titulo;
+        option.textContent = book.titulo;
+        select.appendChild(option);
+      });
+    }
+
+    function selectBook(title) {
+      currentBookIndex = data.libros.findIndex(b => b.titulo === title);
+      currentPage = 0;
+      loadPage(currentPage);
+    }
+
+    function loadData() {
+      fetch('https://api.jsonbin.io/v3/b/688fec12ae596e708fc0ea9f/latest', {
+        headers: {
+          'X-Access-Key': '$2a$10$EMYpWmcVYzHp9MwALDx1EeKBnPMO7jHVegHj8eirghnwcD3e/SVeu'
+        }
+      })
+      .then(res => res.json())
+      .then(result => {
+        data = result.record;
+        updateBookList();
+        if (data.libros.length > 0) {
+          document.getElementById("bookList").value = data.libros[0].titulo;
+          selectBook(data.libros[0].titulo);
+        }
+      })
+      .catch(() => {
+        data = { libros: [] };
+      });
+    }
+
+    // Inicio
+    loadData();
+  </script>
+</body>
+</html>
+
+        
+    

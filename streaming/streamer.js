@@ -204,3 +204,11 @@ function actualizarespectadores(n){
   }
   document.getElementById('viewerCount').textContent = viewerText;
   }
+
+  chatInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Evita salto de línea
+      sendChat();
+    }
+  });
+  

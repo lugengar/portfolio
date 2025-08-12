@@ -1,3 +1,4 @@
+function iniciar(){
 cole = document.getElementById("coleccion");
 barrainferior = document.getElementById("imgbarrainf");
 listacoleccion =  document.getElementById("lista");
@@ -19,12 +20,12 @@ log = document.getElementById("LOG");
 cinta = document.getElementById("cinta");
 cinta2 = document.getElementById("cintacoleccion");
 fondo = document.getElementById("fondo");
-estrella1 = document.getElementById("estrella1");
-var pagina = 1;
-regalos.style.backgroundColor="rgb(120,196,231)";
+estrella1 = document.getElementById("estrella2");
+var pagina = 2;
+coleccion.style.backgroundColor="rgb(120,196,231)";
 botonr = document.getElementById("BOTONR");
 botonl = document.getElementById("BOTONL");
-extras = document.getElementsByClassName("muestra");
+extras = document.querySelectorAll(".muestra");
 opcionescinta = document.getElementById("opcioncinta");
 var left = extras.length-1;
 var right = 1;
@@ -32,6 +33,7 @@ var center = 0;
 var extra = 0;
 var cont =0;
 var tiempo = 1;
+console.log( document.getElementById("cintacoleccion").querySelectorAll(".muestra"))
 extras[left].id = "LEFT";
 extras[center].id = "CENTER";
 extras[right].id = "RIGHT";
@@ -113,6 +115,8 @@ function rightF(){
     }
     
 }
+
+
 function resetcoleccion(num){
     cont += num;
     if(cont < 0){
@@ -204,6 +208,12 @@ function cambiarpag(num){
         fondo.style.backgroundImage = "url(IMG/fondo2.png)";
         cole.style.display = "none";
         cinta2.style.display = "block";
+        opcionescinta.style.display = "grid";
+    }
+    else if(num == 3){
+        fondo.style.backgroundImage = "url(IMG/fondo2.png)";
+        cole.style.display = "none";
+        cinta2.style.display = "none";
         opcionescinta.style.display = "grid";
     }else{
         fondo.style.backgroundImage = "url(IMG/fondo3.png)";
@@ -308,6 +318,32 @@ config.addEventListener('click',configuracionf,true);
 salirconfig.addEventListener('click',salirconfigf,true);
 botonl.addEventListener('click',leftF,true);
 botonr.addEventListener('click',rightF,true);
-prem.addEventListener('click',premF,true);
+//prem.addEventListener('click',premF,true);
 jug.addEventListener('click',jugF,true);
-log.addEventListener('click',logF,true);
+//log.addEventListener('click',logF,true);
+ }
+
+ function cargarjuegos(){
+    fetch('JSON/minijuegos.json') 
+    .then(response => response.json())
+    .then(info => {
+        const ubicacioncarpeta = "JSON/";
+        const cintacoleccion = document.getElementById('cintacoleccion');
+        cont = 0;
+        info.forEach(minijuego => {
+            
+            const divminijuego = document.createElement('a');
+            divminijuego.classList.add('muestra');
+            divminijuego.id = "EXTRA";
+            divminijuego.href = "./jug.html?id="+minijuego.url;
+            divminijuego.style.backgroundImage = `url(${ubicacioncarpeta + minijuego.img})`;
+            cintacoleccion.appendChild(divminijuego);
+            cont++;
+        });
+    iniciar()
+
+
+    })
+    .catch(error => console.error('Error cargando el JSON:', error));
+}
+cargarjuegos();

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Pagina2.css">
+    <link rel="icon" type="image/x-icon" href="IMG/icono.ico">
+    <title>Moonchy</title>
+</head>
+<body>
+    
+    <div id="inicio">
+        <div id="HEA">
+            <a href="#inicio" class="barra" id="CONF"></a>
+            <a href="https://instagram.com/lucianoeltano_?igshid=ZDdkNTZiNTM=" class="barra" id="IG" target="_blank"></a>
+            <a href="https://sticker.ly/user/lugengar" class="barra" id="STY" target="_blank"></a>
+            <a class="barra" id="LOGO"></a>
+            <div id="MONEY"> 
+                <a href="index.html" id="MINLOGO"></a>
+            </div>
+        </div>
+        <iframe id="juego1" allowtransparency="true" frameborder="0" scrolling="no" src="" ></iframe>
+    </div>
+</body>
+</html>
+
+
+<script>
+    function getParamFromUrl(paramName) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(paramName);
+}
+
+const idParam = getParamFromUrl("id");
+document.getElementById("juego1").src = "https://scratch.mit.edu/projects/"+idParam+"/embed";
+
+</script>
+<style>
+    #HEA{
+        z-index: 10;
+    }
+  
+    #juego1{
+        position: absolute;
+        width: 100%;
+        height: 95%;
+        left: 0%;
+        top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>

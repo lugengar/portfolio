@@ -18,7 +18,7 @@
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center;
-    background-image: url(IMG/fondo1.png);
+    background-image: url(IMG/fondo2.png);
 }
 @font-face {
     font-family: comfortaa;
@@ -296,6 +296,7 @@ html{
         auto auto auto
 }
 #cinta{
+    display: none;
     position: relative;
     grid-area: CIN;
     background-image: url(IMG/cinta.png);
@@ -306,7 +307,7 @@ html{
 
 }
 #cintacoleccion {
-    display: none;
+    
     grid-area: CIN;
     position: relative;
     bottom: 125%;
@@ -370,9 +371,11 @@ html{
     width: 35vh;
     height: 40vh;
     border-radius: 3vh;
+    pointer-events: none;
 }
 
 #BOTONR{
+    z-index: 2;
     transform: translate(23.5vh, 15vh);
     position: absolute;
     background-image: url(IMG/flechad.png);
@@ -383,6 +386,7 @@ html{
     height: 20vh;
 }
 #BOTONL{
+    z-index: 2;
     transform: translate(-33.5vh, 15vh);
     position: absolute;
     background-image: url(IMG/flecha.png);
@@ -406,6 +410,8 @@ html{
     height: 30vh;
     background-color: azure;
     border-radius: 3vh;
+    background-position: center;
+    background-size: cover;
 }
 .muestra3{
     position: absolute;
@@ -512,6 +518,7 @@ html{
     animation: carga 4s linear infinite;
 }
 #imgbarrainf{
+    z-index: 5;
     position: absolute;
     bottom: -95%;
     width: 100%;

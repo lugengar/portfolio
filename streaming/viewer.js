@@ -174,3 +174,9 @@ if (n >= 1000000) {
 document.getElementById('viewerCount').textContent = viewerText;
 }
 //setInterval(playVideo, 1000);
+chatInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault(); // Evita salto de línea
+    sendChat();
+  }
+});
