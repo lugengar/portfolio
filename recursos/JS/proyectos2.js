@@ -3,6 +3,7 @@ fetch('recursos/JSON/proyectos.json')
     .then(response => response.json())
     .then(info => {
         ubicacioncarpeta = info.configuracion.ubicacioncarpeta
+        ubicacionlogocarpeta = info.configuracion.ubicacionlogocarpeta
         data = info.imagenes
         const listaServicios = document.querySelector('.listaproyectos');
        // let cont = 0
@@ -11,16 +12,21 @@ fetch('recursos/JSON/proyectos.json')
             const divServicio = document.createElement('details');
             const titulo = document.createElement('summary');
             const imegen = document.createElement('img');
+            const pTexto = document.createElement('p');
      
             divServicio.classList.add('proyecto2');
-          
-            
-       
+            if(servicio.logo){
+                divServicio.style.backgroundImage = `url(${ubicacionlogocarpeta+servicio.logo})`;
+                divServicio.style.backgroundSize = servicio.tam;
+                divServicio.style.backgroundPosition = servicio.pos
+                pTexto.innerHTML = servicio.titulo+"</br>"+servicio.texto;
 
-            titulo.textContent = servicio.titulo;
+            }else{
+                titulo.textContent = servicio.titulo;
+                pTexto.textContent = servicio.texto;
+            }
+            
             imegen.src = ubicacioncarpeta+servicio.imagen;
-           const pTexto = document.createElement('p');
-           pTexto.textContent = servicio.texto;
            divServicio.appendChild(titulo);
 
  

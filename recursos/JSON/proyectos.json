@@ -1,6 +1,7 @@
 {
     "configuracion": {
-      "ubicacioncarpeta": "recursos/SVG/"
+      "ubicacioncarpeta": "recursos/SVG/",
+      "ubicacionlogocarpeta": "recursos/logos/"
     },
     "imagenes": [
       {
@@ -12,6 +13,9 @@
       },
       {
         "imagen": "web2.png",
+        "logo": "btlsolution.svg",
+        "pos": "5vh top",
+        "tam": "14vh",
         "texto": "Soluciones en redes e infraestructura para empresas. Conectividad confiable con antenas Starlink, routers y más.",
         "titulo": "BTL SOLUTIONS",
         "url": "https://btl-solutions.com.ar/",
@@ -19,6 +23,9 @@
       },
       {
         "imagen": "web3.png",
+        "logo": "loucomidas.svg",
+        "pos": "5vh top",
+        "tam": "6vh",
         "texto": "Platos caseros, sabrosos y con ingredientes de calidad. Conocé nuestro menú y pedí tu comida favorita fácil y rápido.",
         "titulo": "LOU COMIDAS",
         "url": "https://loucomidas.com.ar/",
@@ -26,6 +33,9 @@
       },
       {
         "imagen": "web8.png",
+        "logo": "moonchy.png",
+        "pos": "5vh top",
+        "tam": "25vh",
         "texto": "Proyecto en desarrollo centrado en minijuegos divertidos y simples.",
         "titulo": "Moonchy",
         "url": "./moonchy/index.html",
@@ -68,16 +78,49 @@
       },
       {
         "imagen": "web9.png",
-        "texto": "Streaming en vivo",
-        "titulo": "Streaming",
+        "logo": "streamhub.svg",
+        "pos": "5vh 1vh",
+        "tam": "35vh",
+        "texto": "Pagina para transmitir en vivo desde celular",
+        "titulo": "StreamHub",
         "url": "./streaming/index.html",
         "posicionimagen": ""
       },
       {
         "imagen": "web10.png",
+        "logo": "nuki.svg",
+        "pos": "5vh top",
+        "tam": "27vh",
         "texto": "Mascota virtual interactiva. Cuidala y mirala crecer.",
         "titulo": "Nukibooky",
         "url": "./nukibooky/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web12.png",
+        "logo": "tealium.svg",
+        "pos": "5vh top",
+        "tam": "30vh",
+        "texto": "Proximamente",
+        "titulo": "TEALIUM",
+        "url": "",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web13.png",
+        "logo": "fanpage.svg",
+        "pos": "5vh top",
+        "tam": "14vh",
+        "texto": "Proximamente",
+        "titulo": "BILLIE EILISH FANPAGE",
+        "url": "",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web14.png",
+        "texto": "Proximamente",
+        "titulo": "CREADOR DE RUTINAS",
+        "url": "",
         "posicionimagen": ""
       }
     ]
