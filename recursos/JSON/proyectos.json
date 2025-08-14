@@ -123,6 +123,14 @@
         "url": "",
         "posicionimagen": ""
       }
+      ,
+      {
+        "imagen": "web15.png",
+        "texto": "Proximamente",
+        "titulo": "CHATBOT + IA",
+        "url": "https://chatbotia-0s9k.onrender.com/",
+        "posicionimagen": ""
+      }
     ]
   }
   
