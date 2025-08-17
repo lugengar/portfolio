@@ -68,6 +68,17 @@
         "titulo": "Reproductor de musica",
         "url": "./musica/index.html",
         "posicionimagen": ""
+      }
+      ,
+      {
+        "imagen": "web16.png",
+        "logo": "pdfreader.svg",
+        "pos": "5vh 1vh",
+        "tam": "30vh",
+        "texto": "Lector de pdf",
+        "titulo": "PDF READER",
+        "url": "./pdfreader/index.html",
+        "posicionimagen": ""
       },
       {
         "imagen": "web7.png",

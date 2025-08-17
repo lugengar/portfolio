@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF READER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="contenedor">
+
+        <header>
+
+            <input type="file" id="pdf" accept="application/pdf" placeholder="Subir pdf" >
+            <select id="voiceSelect" class="boton2"></select>
+
+        </header>
+        <div class="contenido" id="">
+            <div class="logo"></div>
+           
+            <pre id="dropZone">Arrastra tu PDF aquí o haz clic</pre>
+            <pre id="output">
+            </pre>
+        </div>
+        <footer>
+            <select name="paginas" style="display: none;" class="boton2" id="paginas"></select>
+            <button onclick="play()" style="display: none;" id="play" class="boton">►</button>
+            <button onclick="retrocederParrafo()" style="display: none;" id="prevPar" class="boton2">ANT</button>
+            
+            <button onclick="avanzarParrafo()" style="display: none;" id="nextPar" class="boton2">SIG</button>
+        </footer>
+        
+    </div>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="script.js"></script>

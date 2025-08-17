@@ -1,0 +1,151 @@
+body{
+    background-color: rgb(241, 241, 241);
+}
+.pagina{
+    margin-bottom: 0.5vh;
+}
+.pagina{
+    background-color: white;
+    margin-bottom: 2vh; 
+    padding: 2vh;
+    border-radius: 1vh;
+    box-shadow: 0vh 1vh 2vh rgba(0, 0, 0, 0.13);
+}
+.pagina h1, .pagina pre{
+    padding: 0;
+    margin: 0;
+}
+.logo{
+
+    grid-area: LOG;
+    background-image: url(logo.svg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90%;
+    height: 8vh;
+}
+.par, .titulo {
+    transition: all 1s both; /* transición suave */
+}
+.pagina h3{
+    font-size: 2.4vh;
+}
+.pagina pre{
+    font-size: 1.8vh;
+}
+h1{
+    font-size: 3vh;
+}
+header{
+    justify-content: center;
+
+    gap: 1vh;
+    grid-area: HEA;
+    display: flex;
+    align-items: center;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+#pdf {
+    cursor: pointer;
+    font-size: 0vh;
+}
+
+#dropZone {
+    font-size: 2vh;
+    cursor: pointer;
+z-index: 10;
+    color: #4CAF50;
+    border: dashed  #4CAF50 0.5vh;
+    padding: 10vh;
+    border-radius: 2vh;
+    cursor: pointer;
+}
+#pdf::file-selector-button {
+    background: #4CAF50;
+    font-size: 2vh;
+
+    color: white;
+    border: none;
+    padding: 1.5vh;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+.boton{
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1.5vh;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+.boton2{
+    background: #308cd8;
+    color: white;
+    border: none;
+    padding: 1.5vh;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+.boton:hover {
+    background: #61ca67;
+}
+.boton2:hover {
+    background: #3da2f5;
+}
+footer{
+    grid-area: FOO;
+    gap: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+.contenido{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+    grid-area: CON;
+    position: relative;
+}
+#output{
+    width: 90%;
+    height: max-content;
+    text-wrap: wrap;
+}
+pre{
+    text-wrap: wrap;
+}
+.contenedor{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    display: grid;
+    grid-template:
+    "HEA HEA HEA"8vh
+    ". CON ." auto
+    "FOO FOO FOO" 8vh/
+    auto 80% auto  ;
+}
+@media (max-width: 100vh) { 
+    .contenedor{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        left: 0%;
+        display: grid;
+        grid-template:
+        "HEA HEA HEA"8vh
+        ". CON ." auto
+        "FOO FOO FOO" 8vh/
+        auto 100% auto  ;
+    }
+}
