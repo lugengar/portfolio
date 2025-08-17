@@ -11,15 +11,16 @@
     <div class="contenedor">
 
         <header>
-
-            <input type="file" id="pdf" accept="application/pdf" placeholder="Subir pdf" >
+            <div class="logo"></div>
+            <input type="file" id="pdf" accept="application/pdf" style="display: none;" placeholder="Subir pdf" >
             <select id="voiceSelect" class="boton2"></select>
 
         </header>
         <div class="contenido" id="">
-            <div class="logo"></div>
-           
+           <div id="archivos">
             <pre id="dropZone">Arrastra tu PDF aquí o haz clic</pre>
+            <input type="text" id="link" placeholder="Pega aquí el link de un PDF">
+        </div>
             <pre id="output">
             </pre>
         </div>
@@ -34,5 +35,6 @@
     </div>
 </body>
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script src="script.js"></script>

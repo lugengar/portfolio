@@ -3,6 +3,7 @@ const output = document.getElementById("output");
 const paginas = document.getElementById("paginas");
 const nextPar = document.getElementById("nextPar");
 const prevPar = document.getElementById("prevPar");
+const link = document.getElementById("link");
 const boton = document.getElementById("play");
 const voiceSelect = document.getElementById('voiceSelect');
 
@@ -13,6 +14,88 @@ let indiceParrafo = 0;
 let indicePagina = 1;
 let voces = [];
 
+link.addEventListener("change", async (e) => {
+    const url = link.value.trim();
+    if (!url) {
+        alert("Pegá un link de PDF primero");
+        return;
+    }
+
+    paginas.innerHTML = "";
+    paginas.style.display = "block";
+    boton.style.display = "block";
+    prevPar.style.display = "block";
+    nextPar.style.display = "block";
+    output.innerHTML = `<h1>${url}</h1>`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("No se pudo descargar el PDF");
+        const arrayBuffer = await response.arrayBuffer();
+
+        const typedarray = new Uint8Array(arrayBuffer);
+        const pdf = await pdfjsLib.getDocument(typedarray).promise;
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+
+            let parrafos = [];
+
+            if (content.items.length > 0) {
+                // Texto digital
+                let currentY = null;
+                let buffer = "";
+                content.items.forEach(item => {
+                    const y = item.transform[5];
+                    if (currentY !== null && Math.abs(currentY - y) > 5) {
+                        if (buffer.trim().length > 0) parrafos.push(buffer.trim());
+                        buffer = "";
+                    }
+                    buffer += item.str + " ";
+                    currentY = y;
+                });
+                if (buffer.trim().length > 0) parrafos.push(buffer.trim());
+            } else {
+                // OCR si no hay texto
+                const viewport = page.getViewport({ scale: 1.5 });
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                const { data: { text } } = await Tesseract.recognize(canvas, 'spa');
+                parrafos = text.split("\n").filter(line => line.trim().length > 0);
+            }
+
+            // Crear HTML igual que antes
+            const pageDiv = document.createElement("div");
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = "Pag-" + i;
+            pageDiv.classList.add("pagina");
+            pageDiv.id = i;
+
+            const titulo = document.createElement("h3");
+            titulo.classList.add("titulo");
+            titulo.textContent = `Página ${i} / ${pdf.numPages}`;
+            pageDiv.appendChild(titulo);
+
+            parrafos.forEach(p => {
+                const pTag = document.createElement("pre");
+                pTag.textContent = p;
+                pTag.classList.add("par");
+                pageDiv.appendChild(pTag);
+            });
+
+            paginas.appendChild(option);
+            output.appendChild(pageDiv);
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Error cargando el PDF desde el link");
+    }
+});
 // ------------------------ VOICES ------------------------
 function populateVoiceList() {
     voces = window.speechSynthesis.getVoices();
@@ -39,9 +122,9 @@ function play() {
     }
     boton.textContent = "❚❚";
     leyendo = true;
-
-    indicePagina = parseInt(paginas.value, 10) || 1;
-    cargarPagina(indicePagina, true);
+    avanzarParrafo()
+    //indicePagina = parseInt(paginas.value, 10) || 1;
+    //cargarPagina(indicePagina, true);
 }
 
 function cargarPagina(pagina, autoLeer = false) {
@@ -164,7 +247,20 @@ function avanzarParrafo() {
         cargarPagina(indicePagina, true); // ya hace leerSiguiente internamente
     }
 }
+function Parrafo() {
+    if (indiceParrafo < contenidoActual.length - 1) {
+        window.speechSynthesis.cancel();
+        resaltarParrafo(true);
+        leerSiguiente();
+    } else if (indicePagina < paginas.options.length) {
+        // pasar a la siguiente página automáticamente
+        limpiarResaltado()
 
+        indicePagina++;
+        paginas.value = indicePagina;
+        cargarPagina(indicePagina, true); // ya hace leerSiguiente internamente
+    }
+}
 
 
 // ------------------------ CARGA PDF ------------------------
@@ -182,49 +278,65 @@ input.addEventListener("change", async (e) => {
         const typedarray = new Uint8Array(this.result);
         const pdf = await pdfjsLib.getDocument(typedarray).promise;
         output.innerHTML = `<h1>${file.name}</h1>`;
-
+    
         for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const content = await page.getTextContent();
-
+    
             let parrafos = [];
-            let currentY = null;
-            let buffer = "";
-
-            content.items.forEach(item => {
-                const y = item.transform[5];
-                if (currentY !== null && Math.abs(currentY - y) > 5) {
-                    if (buffer.trim().length > 0) parrafos.push(buffer.trim());
-                    buffer = "";
-                }
-                buffer += item.str + " ";
-                currentY = y;
-            });
-            if (buffer.trim().length > 0) parrafos.push(buffer.trim());
-
+    
+            if (content.items.length > 0) {
+                // ----------------- Texto digital -----------------
+                let currentY = null;
+                let buffer = "";
+                content.items.forEach(item => {
+                    const y = item.transform[5];
+                    if (currentY !== null && Math.abs(currentY - y) > 5) {
+                        if (buffer.trim().length > 0) parrafos.push(buffer.trim());
+                        buffer = "";
+                    }
+                    buffer += item.str + " ";
+                    currentY = y;
+                });
+                if (buffer.trim().length > 0) parrafos.push(buffer.trim());
+            } else {
+                // ----------------- OCR con Tesseract -----------------
+                const viewport = page.getViewport({ scale: 1.5 });
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+    
+                await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+    
+                const { data: { text } } = await Tesseract.recognize(canvas, 'spa'); // usa OCR en español
+                parrafos = text.split("\n").filter(line => line.trim().length > 0);
+            }
+    
+            // ----------------- Crear página en HTML -----------------
             const pageDiv = document.createElement("div");
             const option = document.createElement("option");
             option.value = i;
             option.textContent = "Pag-" + i;
             pageDiv.classList.add("pagina");
             pageDiv.id = i;
-
+    
             const titulo = document.createElement("h3");
             titulo.classList.add("titulo");
             titulo.textContent = `Página ${i} / ${pdf.numPages}`;
             pageDiv.appendChild(titulo);
-
+    
             parrafos.forEach(p => {
                 const pTag = document.createElement("pre");
                 pTag.textContent = p;
                 pTag.classList.add("par");
                 pageDiv.appendChild(pTag);
             });
-
+    
             paginas.appendChild(option);
             output.appendChild(pageDiv);
         }
-    };
+    };    
     fileReader.readAsArrayBuffer(file);
 });
 
