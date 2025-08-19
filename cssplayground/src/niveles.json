@@ -79,7 +79,7 @@
   },
   {
     "nivel": 14,
-    "inicio": "/* Nivel 14: Crea un círculo rojo y hacelo crecer al pasar el mouse */\n.circle {\n    width: 10vh;\n    height: 10vh;\n    background-color: red;\n    border-radius: 50%;\n    transition: all 0.3s ease;\n}\n.circle:hover {\n    transform: scale(1);\n}",
+    "inicio": "/* Nivel 14: Crea un círculo rojo y hacelo crecer al pasar el mouse */\n.circle {\n    width: 10vh;\n    height: 10vh;\n    background-color: darkgreen;\n    border-radius: 50%;\n    transition: all 0.3s ease;\n}\n.circle:hover {\n    transform: scale(1);\n}",
     "final": ".circle2 {\n    width: 15vh;\n    height: 15vh;\n    background-color: darkred;\n    border-radius: 50%;\n    transition: all 0.3s ease;\n}\n.circle2:hover {\n    transform: scale(1.5);\n}",
     "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 14</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n<div class=\"circle\"></div>\n<div class=\"circle2\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   },
