@@ -188,3 +188,35 @@ play.addEventListener("click", () => {
 });
 
 
+const ayuda = document.getElementById("ayuda"); // Botón de ayuda
+
+function mostrarSolucion(segundos = 3) {
+    if (!nivel) return;
+    const doc = preview.contentDocument || preview.contentWindow.document;
+
+    // Guardamos el CSS actual del usuario
+    const editableStyle = doc.getElementById("editable");
+    const cssUsuario = editableStyle ? editableStyle.textContent : "";
+    const codigoUsuario = editor.textContent;
+
+    // Mostramos la solución en el iframe
+    if (editableStyle) editableStyle.textContent = nivel.final;
+
+    // Mostramos la solución en el editor
+    editor.textContent = nivel.final;
+
+    // Opcional: efecto visual para indicar ayuda
+    doc.body.style.transition = "all 0.3s";
+    editor.style.transition = "all 0.3s";
+    editor.style.opacity = "0.5";
+
+    // Volvemos al CSS y código del usuario después de X segundos
+    setTimeout(() => {
+        if (editableStyle) editableStyle.textContent = cssUsuario;
+        editor.textContent = codigoUsuario;
+        doc.body.style.opacity = "1";
+        editor.style.opacity = "1";
+    }, segundos * 1000);
+}
+// Listener para el botón de ayuda
+ayuda.addEventListener("click", () => mostrarSolucion(3));
