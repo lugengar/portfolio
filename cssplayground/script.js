@@ -7,6 +7,7 @@ let nivel = [];
 const params = new URLSearchParams(window.location.search);
 
 const numnivel = parseInt(params.get("nivel"), 10) || 1;
+if (numnivel >= 16){numnivel = 1}
 editor.addEventListener("keydown", function(e) {
     if (e.key === "Tab") {
         e.preventDefault();
