@@ -7,7 +7,7 @@
   },
   {
       "nivel": 2,
-      "inicio": "/* Nivel 2: Hacé un círculo naranja, después aumentá su tamaño a 20vh y cambialo a verde, redondeando los bordes */\n.circle {\n    width: 10vh;\n    height: 10vh;\n    background-color: orange;\n    border-radius: 0%;\n    position: absolute;\n    top: 0%;\n    left: 0%;\n}",
+      "inicio": "/* Nivel 2: Hacé un círculo naranja, después aumentá su tamaño a 20vh y cambialo a verde, redondeando los bordes a 50%*/\n.circle {\n    width: 10vh;\n    height: 10vh;\n    background-color: orange;\n    border-radius: 0%;\n    position: absolute;\n    top: 0%;\n    left: 0%;\n}",
       "final": ".circle2 {\n    width: 20vh;\n    height: 20vh;\n    background-color: green;\n    border-radius: 50%;\n    position: absolute;\n    top: 20%;\n    left: 40%;\n}",
       "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 2</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n    <div class=\"circle\"></div>\n    <div class=\"circle2\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   },
