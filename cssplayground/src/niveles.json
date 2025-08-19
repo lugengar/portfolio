@@ -85,7 +85,7 @@
   },
   {
     "nivel": 15,
-    "inicio": "/* Nivel 15: Crea un rectángulo azul y hacelo girar en hover */\n.rectangle {\n    width: 20vw;\n    height: 8vh;\n    background-color: blue;\n    transition: transform 0.5s;\n   opacity: 100%;\n}\n.rectangle:hover {\n    transform: rotate(0deg);\n   opacity: 10%;\n}",
+    "inicio": "/* Nivel 15: Crea un rectángulo azul y hacelo girar en hover */\n.rectangle {\n    width: 20vw;\n    height: 8vh;\n    background-color: lightblue;\n    transition: transform 0.5s;\n   opacity: 100%;\n}\n.rectangle:hover {\n    transform: rotate(0deg);\n   opacity: 10%;\n}",
     "final": ".rectangle2 {\n    width: 25vw;\n    height: 10vh;\n    background-color: blue;opacity: 50%;\n    transition: transform 0.5s;\n}\n.rectangle2:hover {\n    transform: rotate(180deg);\n   opacity: 100%;\n}",
     "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 15</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n<div class=\"rectangle\"></div>\n<div class=\"rectangle2\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   }
