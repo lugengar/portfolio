@@ -47,7 +47,8 @@ let colorPrincipal = 'var(--color1)';
 let colorFondo = 'transparent';
 
 function animar() {
-    if (totalSegundos < 0 && !iniciado) return;
+    if (totalSegundos < 0) return;
+    if (!iniciado) return;
 
     let minutos = Math.floor(totalSegundos / 60);
     let segundos = totalSegundos % 60;
