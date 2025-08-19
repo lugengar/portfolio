@@ -1,0 +1,106 @@
+
+body{
+    background-color: #1e1e1e;
+
+}
+header{
+    grid-area: HEA;
+    display: flex;
+    align-items: center;
+}
+footer{
+    gap: 1vh;
+    grid-area: FOO;
+    display: flex;
+    align-items: center;
+
+}
+button, a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    background-color: #2c2c2c;
+    color: white;
+    padding: 2vh;
+    font-size: 3vh;
+}
+.boton2{
+    background-color: transparent;
+    width: 8vh;
+    height: 8vh;
+    border-radius: 20vh;
+    background-repeat: no-repeat;
+    background-size: 5vh;
+    background-position: center;
+}
+#logo{
+    width: 20vh;
+    height: 6vh;
+    background-image: url(src/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: 1vh;
+}
+#contenedor{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template:
+    "HEA HEA" max-content
+    "EDI CON"auto
+    "FOO FOO" max-content/
+    50% auto ;
+}
+
+#editor{
+    overflow: hidden;
+    text-wrap: wrap;
+    font-size: 2vh;
+    margin: 0;
+    padding: 1vh;
+    grid-area: EDI;
+    background-color: #1e1e1e;
+    color: white;
+}
+#preview{
+    background-color: #383838;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+
+}
+#contenido{
+    
+    grid-area: CON;
+    position: relative;
+}
+
+@keyframes denegado {
+    0%{
+        outline: 0vh solid transparent;
+    outline-offset: -0vh;
+    }
+    50%{
+        outline: 1vh solid red;
+    outline-offset: -1vh;
+    }
+    100%{
+        outline: 0vh solid transparent;
+    outline-offset: -0vh;
+    }
+}
+@media (max-width: 100vh) {
+    #contenedor{
+        grid-template:
+        "HEA " max-content
+        "CON "auto
+        "EDI "auto
+        "FOO " max-content/
+        auto ;
+    }
+}

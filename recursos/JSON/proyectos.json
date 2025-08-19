@@ -103,8 +103,18 @@
         "pos": "5vh top",
         "tam": "27vh",
         "texto": "Mascota virtual y pomodoro timer",
-        "titulo": "Nukibooky",
+        "titulo": "NUKI BOOKY",
         "url": "./nukibooky/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web17.png",
+        "logo": "cssplay.svg",
+        "pos": "5vh 1vh",
+        "tam": "36vh",
+        "texto": "Minijuego para aprender y practicar CSS",
+        "titulo": "CSS PLAYGROUND",
+        "url": "./cssplayground/index.html",
         "posicionimagen": ""
       },
       {

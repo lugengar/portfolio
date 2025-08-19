@@ -1,0 +1,68 @@
+[
+  {
+    "nivel": 1,
+    "inicio": "/* Nivel 1: Cambia el color del cubo rojo a azul y muévelo al centro */\n.cube {\n    width: 10vh;\n    height: 10vh;\n    background-color: red;\n    position: absolute;\n    top: 0%;\n    left: 0%;\n}",
+    "final": ".cube2 {\n    width: 10vh;\n    height: 10vh;\n    background-color: blue;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 1</title>\n</head>\n<body>\n<div class=\"cube\"></div>\n<div class=\"cube2\"></div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 2,
+    "inicio": "/* Nivel 2: Haz un círculo naranja, luego aumenta su tamaño a 20vh y cambia a verde, redondeando sus bordes */\n.circle {\n    width: 10vh;\n    height: 10vh;\n    background-color: orange;\n    border-radius: 0%;\n    position: absolute;\n    top: 0%;\n    left: 0%;\n}",
+    "final": ".circle2 {\n    width: 20vh;\n    height: 20vh;\n    background-color: green;\n    border-radius: 50%;\n    position: absolute;\n    top: 20%;\n    left: 40%;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 2</title>\n</head>\n<body>\n<div class=\"circle\"></div>\n<div class=\"circle2\"></div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 3,
+    "inicio": "/* Nivel 3: Cambia el header de color negro, cambia el color de la fuente a blanco, aumenta el ancho para cubrir toda la pantalla y por ultimo centra el texto*/\nheader {\n    width: 50%;\n    height: 10vh;\n    background-color: white;\n    color: black;\n    display: flex;\n    justify-content: center;\n    align-items: end;\n}",
+    "final": "header.final {\n    width: 100%;\n    height: 10vh;\n    background-color: black;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: white;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 3</title>\n</head>\n<body>\n<header>Mi Header</header>\n</body>\n</html>"
+  },
+  {
+    "nivel": 4,
+    "inicio": "/* Nivel 4: Cambia la caja violeta de color a rosa, centra el texto y aumentar tamaño de la letra */\n.box {\n    width: 30vw;\n    height: 30vh;\n    background-color: purple;\n    display: grid;\n    place-items: end;\n    color: blue;\n    font-size: 5rem;\n}",
+    "final": ".box2 {\n    width: 30vw;\n    height: 30vh;\n    background-color: pink;\n    display: grid;\n    place-items: center;\n    color: white;\n    font-size: 2rem;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 4</title>\n</head>\n<body>\n<div class=\"box\">Texto</div>\n<div class=\"box2\">Texto</div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 5,
+    "inicio": "/* Nivel 5: Forma la bandera de Francia utilizando display grid, cambiando el tamaño de las columnas y sus colores */\n.container {\n    width: 80vw;\n    height: 50vh;\n    display: block;\n    grid-template-columns: 1fr 10vh 1fr;\n    gap: 2vh;\n} \n.item1{\n    background-color: pink;\n}\n.item2{\n    background-color: green;\n}\n.item3{\n    background-color: blue;\n}",
+    "final": ".container2 {\n    width: 80vw;\n    height: 50vh;\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    gap: 0vh;\n} .item11{ background-color: blue} .item22{ background-color: white} .item33{ background-color: red}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 5</title>\n</head>\n<body>\n<div class=\"container\"><div class=\"item1\">item1</div>\n  <div class=\"item2\">item2</div>\n  <div class=\"item3\">item3</div>\n</div>\n<div class=\"container2\">\n  <div class=\"item11\">item1</div>\n  <div class=\"item22\">item2</div>\n  <div class=\"item33\">item3</div>\n</div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 6,
+    "inicio": "/* Nivel 6: Forma la bandera de Argentina utilizando display grid, cambiando el tamaño de las columnas, sus colores y centrando el sol de la bandera */\n.container {\n    width: 80vw;\n    height: 50vh;\n    display: flex;\n    grid-template-columns: 1fr 10vh 1fr;\n    gap: 0vh;\n} \n.item1{\n    background-color: pink;\n    align-items: start;\n    justify-content: center;\n}\n.item2{\n    background-color: cyan;\n}\n.item3{\n    background-color: yellow;\n    display: flex;\n}\n.sol{\n    background-color: red;\n    border-radius: 20%;\n    width: 2vh;\n    height: 20vh;\n}",
+    "final": ".container2 {\n    width: 80vw;\n    height: 50vh;\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    gap: 1vh;\n} .item11{ background-color: cyan;} .item22{ background-color: white; display: flex; align-items: center; justify-content: center;} .item33{ background-color: cyan;}.sol2{ background-color: yellow; border-radius: 50%; width: 10vh; height: 10vh;}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 5</title>\n</head>\n<body>\n<div class=\"container\"><div class=\"item1\">item1</div>\n  <div class=\"item2\"><div class=\"sol\"></div></div>\n  <div class=\"item3\">item3</div>\n</div>\n<div class=\"container2\">\n  <div class=\"item11\">item1</div>\n  <div class=\"item22\"><div class=\"sol2\"></div></div>\n  <div class=\"item33\">item3</div>\n</div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 7,
+    "inicio": "/* Nivel 7: Crea un footer gris y luego cambia a negro, con texto blanco alineado a los extremos */\n.footer {\n    width: 100vw;\n    height: 5vh;\n    background-color: gray;\n    display: block;\n} ",
+    "final": ".footer2 {\n    width: 100vw;\n    height: 5vh;\n    background-color: black;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    color: white;\n    padding: 0 20px;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 6</title>\n</head>\n<body>\n<div class=\"footer\"><span>Left</span><span>Right</span></div>\n<div class=\"footer2\"><span>Left</span><span>Right</span></div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 8,
+    "inicio": "/* Nivel 8: Crea una tarjeta beige con margen, luego cambia a lightcoral y organiza contenido arriba y abajo usando flex */\n.card {\n    width: 20vw;\n    height: 30vh;\n    background-color: beige;\n    margin: 10px;\n    display: block;\n}",
+    "final": ".card2 {\n    width: 20vw;\n    height: 30vh;\n    background-color: lightcoral;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 7</title>\n</head>\n<body>\n<div class=\"card\"><div>Top</div><div>Bottom</div></div>\n<div class=\"card2\"><div>Top</div><div>Bottom</div></div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 9,
+    "inicio": "/* Nivel 9: Círculo pequeño amarillo, luego cambia tamaño a grande y color naranja, posicionándolo con top y left */\n.circle-small {\n    width: 30px;\n    height: 30px;\n    border-radius: 50%;\n    background-color: yellow;\n    position: absolute;\n    top: 0;\n    left: 0;\n}",
+    "final": ".circle-large {\n    width: 100px;\n    height: 100px;\n    border-radius: 50%;\n    background-color: orange;\n    position: absolute;\n    top: 20%;\n    left: 30%;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 8</title>\n</head>\n<body>\n<div class=\"circle-small\"></div>\n<div class=\"circle-large\"></div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 10,
+    "inicio": "/* Nivel 10: Crea un grid container lavanda sin columnas ni filas, luego agrega 4 columnas y 3 filas con gap y color plum */\n.grid-container {\n    display: grid;\n    width: 80vw;\n    height: 60vh;\n    background-color: lavender;\n}",
+    "final": ".grid-container2 {\n    display: grid;\n    width: 80vw;\n    height: 60vh;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(3, 1fr);\n    gap: 10px;\n    background-color: plum;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 9</title>\n</head>\n<body>\n<div class=\"grid-container\"></div>\n<div class=\"grid-container2\">\n  <div></div><div></div><div></div><div></div>\n  <div></div><div></div><div></div><div></div>\n  <div></div><div></div><div></div><div></div>\n</div>\n</body>\n</html>"
+  },
+  {
+    "nivel": 11,
+    "inicio": "/* Nivel 11: Crea una hero section lightgreen, luego cambiar a seagreen, centrar texto y aumentar tamaño de letra */\n.hero {\n    width: 100vw;\n    height: 50vh;\n    background-color: lightgreen;\n    display: block;\n}",
+    "final": ".hero2 {\n    width: 100vw;\n    height: 50vh;\n    background-color: seagreen;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: white;\n    font-size: 2rem;\n}",
+    "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 10</title>\n</head>\n<body>\n<div class=\"hero\">Hero Inicial</div>\n<div class=\"hero2\">Hero Final</div>\n</body>\n</html>"
+  }
+]
