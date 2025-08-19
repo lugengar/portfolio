@@ -96,10 +96,12 @@ button, a{
 }
 @media (max-width: 100vh) {
     #contenedor{
+        min-height: 100%;
         grid-template:
         "HEA " max-content
-        "CON "auto
-        "EDI "auto
+        "CON "40vh
+        "EDI "max-content 
+        "." auto
         "FOO " max-content/
         auto ;
     }
