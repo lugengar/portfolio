@@ -41,7 +41,7 @@ function imprimir(nivel) {
     doc.write(nivel.html);
     doc.close();
     const styleFinal = doc.createElement('style');
-    styleFinal.textContent = nivel.final;
+    styleFinal.textContent = nivel.final+"*{transition: all 0.5s ease-in-out}";
     doc.head.appendChild(styleFinal);
     const styleEdit = doc.createElement('style');
     styleEdit.id = "editable";
