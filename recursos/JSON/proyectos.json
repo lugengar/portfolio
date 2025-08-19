@@ -102,7 +102,7 @@
         "logo": "nuki.svg",
         "pos": "5vh top",
         "tam": "27vh",
-        "texto": "Mascota virtual interactiva. Cuidala y mirala crecer.",
+        "texto": "Mascota virtual y pomodoro timer",
         "titulo": "Nukibooky",
         "url": "./nukibooky/index.html",
         "posicionimagen": ""

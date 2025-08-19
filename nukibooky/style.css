@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
+:root {
+    --color1: #7e532b; 
+    --color3: #2b487e; 
+    --color2: #7e2b4b; 
+    --color4: #397e2b; 
+  }
+body{
+    overflow: hidden;
+}
+#stickers{
+    grid-area: CIR;
+    position: relative;
+    z-index: 4;
+}
+.campana{
+    width: 8vh;
+    height: 16vh;
+    position: absolute;
+    left: 4vh;
+    top: -1vh;
+    filter: drop-shadow(0.5vh 0.5vh 0vh rgba(0,0,0,0.1));
+    background-image: url(src/campana.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: campana 2s infinite both;
+}
+.carita{
+    width: 16vh;
+    height: 16vh;
+    position: absolute;
+    right: 0vh;
+    bottom: 0vh;
+    filter: drop-shadow(0.5vh 0.5vh 0vh rgba(0,0,0,0.1));
+    background-image: url(src/sorprendido.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: carita 5s infinite both;
+}
+@keyframes logo {
+    0%{
+
+        transform: rotate(-2deg);
+    }
+    50%{
+        transform: rotate(2deg);
+    }
+    
+    100%{
+
+        transform: rotate(-2deg);
+    }
+}
+@keyframes carita {
+    0%{
+
+        transform: rotate(-10deg);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    
+    100%{
+
+        transform: rotate(-10deg);
+    }
+}
+@keyframes campana {
+    0%{
+    background-image: url(src/sonando.svg);
+
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(-15deg);
+    }
+    
+    100%{
+    background-image: url(src/sonando.svg);
+
+        transform: rotate(15deg);
+    }
+}
+#contador{
+    color: var(--color1);
+    grid-area: CIR;
+display: flex;
+
+align-items: center;
+justify-content: center;
+font-family: "Coming Soon", cursive;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 8vh;
+    padding-top: 1vh;
+}
+.circulo{
+    background-color: var(--color1);
+    grid-area: CIR;
+    border-radius: 50vh;
+    -webkit-mask-image: url(src/circulo.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-image: url(src/circulo.svg);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+}
+.contenido{
+    position: relative;
+    grid-area: CON;
+    display: grid;
+    grid-template:
+    ". X" 5vh
+    "CIR CIR" 40vh
+    "BOT BOT"auto/
+     auto  5vh ;
+}
+#botonequis{
+    background-color: var(--color1);
+    grid-area: X;
+    border: none;
+    -webkit-mask-image: url(src/equis.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-image: url(src/equis.svg);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+
+}
+#logo{
+    animation: logo 2s infinite both;
+    filter: drop-shadow(0.5vh 0.5vh 0vh rgba(0,0,0,0.1));
+    width: 35vh;
+    height: 15vh;
+    pointer-events: none;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    z-index: 10;
+    background-image: url(src/logo.svg);
+    background-size: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.botones{
+    grid-area: BOT;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+}
+#botonplay{
+    background-color: var(--color1);
+    border: none;
+    width: 6.3vh;
+    height: 8vh;
+    -webkit-mask-image: url(src/play.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    mask-image: url(src/play.svg);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+}
+#presionar{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: grid;
+    grid-template:
+    ". . ."auto
+    ". CON ." max-content
+    ". . ."auto/
+    auto 40vh auto ;
+}
+#fondoactual{
+    background-repeat: round;
+    pointer-events: none;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-attachment: fixed;
+    animation: fondo 30s linear infinite ;
+}
+#fondocopia{
+    pointer-events: none;
+    background-repeat: round;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    width: 0%;
+    height: 0%;
+    display: grid;
+    background-attachment: fixed;
+   
+}
+.fondo1{
+    background-image: url(src/fondo1.png);
+    background-color: rgb(254, 240, 204);
+    background-size: 10vh;
+}
+.fondo2{
+    background-image: url(src/fondo2.png);
+    background-color: rgb(246, 178, 176);
+    background-size: 10vh;
+}
+.fondo3{
+    background-image: url(src/fondo3.png);
+    background-color: rgb(174, 204, 215);
+    background-size: 12vh;
+}
+.fondo4{
+    background-image: url(src/fondo4.png);
+    background-color: rgb(175, 213, 170);
+    background-size: 14vh;
+}
+
+@keyframes fondo {
+    0%{
+        background-position-x: 100%;
+        background-position-y: 100%;
+    }
+    100%{
+        background-position-x: 0%;
+        background-position-y: 0%;
+    }
+}
+
+@keyframes aparecerfondo {
+    0%{
+    width: 0%;
+    height: 0%;
+      border-radius: 100%;
+    }
+    99%{
+        top: -40%;
+        left: -40%;
+        width: 200%;
+        height: 200%;
+        border-radius: 100%;
+      
+    }
+    100%{
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        border-radius: 0%;
+      
+    }
+}

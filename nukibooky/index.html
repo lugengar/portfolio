@@ -1,394 +1,139 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio/NukiBooky</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      font-family: sans-serif;
-    }
-    #estado {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 16px;
-      z-index: 999;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="estado">
-    ❤️ <span id="fel">50</span> | ⚡ <span id="ene">50</span>
-  </div>
-
-  <div id="fondos">
     <div id="fondoactual" class="fondo1"></div>
-  </div>
-  <div id="sombra" class="fondo6"></div>
+ 
+    <div id="presionar">
+        <div id="logo"></div>
+        <div class="contenido" id="contenido">
+            <button id="botonequis"></button>
 
-  <div id="inicio">
-    <div id="HEA"><div id="logo"></div></div>
-    <div id="CON"></div>
-    <div id="FOO">
-      <div class="tanuki2"><div class="opcion opcion1" style="background-image: url(img/ukelele.png);"></div></div>
-      <div class="tanuki2"><div class="opcion opcion2" style="background-image: url(img/galletitas.png);"></div></div>
-      <div class="tanuki2"><div class="opcion opcion3" style="background-image: url(img/cepillo.png);"></div></div>
-      <div class="tanuki2"><div class="opcion opcion4" style="background-image: url(img/bambu.png);"></div></div>
-      <div id="tanuki">
-        <div id="corazon"></div>
-        <div id="estrella"></div>
-        <div id="notas"></div>
-      </div>
+            <div class="circulo" id="circulo"></div>
+            <h1 id="contador">00:00</h1>
+            <div id="stickers">
+                <div class="campana"></div>
+                <div class="carita"></div>
+            </div>
+            <div class="botones">
+                <button id="botonplay"></button>
+            </div>
+
+        </div>
     </div>
-    <div id="obj"></div>
-  </div>
-
-  <style id="estilos"></style>
-  <script>
-    const fondos = document.getElementById("fondos");
-    let fondoactual = document.getElementById("fondoactual");
-    const tanuki = document.getElementById("tanuki");
-    const sombra = document.getElementById("sombra");
-    const opciones = document.querySelectorAll(".opcion");
-    const obj = document.getElementById("obj");
-    const corazon = document.getElementById("corazon");
-    const estrella = document.getElementById("estrella");
-    const notas = document.getElementById("notas");
-    const estilos = document.getElementById("estilos");
-
-    // Nuevas variables de estado
-    let felicidad = parseInt(localStorage.getItem("felicidad")) || 50;
-    let energia = parseInt(localStorage.getItem("energia")) || 50;
-
-    const felEl = document.getElementById("fel");
-    const eneEl = document.getElementById("ene");
-
-    // Variables
-    let cont = 1;
-    let click = 0;
-    let opcion = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-    let objeto = 0;
-    let pos = 0;
-    let estatua = false;
-
-    // Función para convertir en estatua
-    function convertirEnEstatua() {
-      if (!estatua) {
-        estatua = true;
-        tanuki.style.animation = "estatua 2s steps(1) infinite";
-        tanuki.style.cursor = "not-allowed";
-        corazon.style.display = "none";
-        estrella.style.display = "none";
-        notas.style.display = "none";
-        obj.style.display = "none";
-
-        // Pausar animación de objetos que se mueven (padre .tanuki2)
-        document.querySelectorAll(".tanuki2").forEach(el => {
-          el.style.animationPlayState = "paused";
-        });
-
-        console.log("¡Tanuki se convirtió en estatua!");
-        detener()
-      }
-    }
-
-    // Función para usar bambú
-    function golpearEstatua() {
-      if (estatua) {
-        estatua = false;
-        tanuki.style.animation = "none";
-        tanuki.style.backgroundImage = "url(anim/sorprendido.png)";
-        tanuki.style.cursor = "pointer";
-
-        // Reanudar animación de objetos
-        document.querySelectorAll(".tanuki2").forEach(el => {
-          el.style.animationPlayState = "running";
-        });
-
-        console.log("¡Tanuki desestatuado con bambú!");
-      } else {
-        // Si no está estatua, enojado y se pierde el bambú
-       /* tanuki.style.animation = "none";
-        tanuki.style.backgroundImage = "url(anim/enojado.png)";
-        tanuki.style.cursor = "pointer";
-
-        // Ocultar el bambú para que no se pueda usar más
-        opciones[3].style.display = "none";
-
-        objeto = 0;
-        obj.style.display = "none";
-
-        console.log("Usaste el bambú sin que Tanuki sea estatua. Se enojó y perdiste el bambú.");*/
-      }
-    }
-
-    // Actualiza estados visuales y guarda localStorage
-    function actualizarEstado() {
-      felEl.textContent = felicidad;
-      eneEl.textContent = energia;
-      localStorage.setItem("felicidad", felicidad);
-      localStorage.setItem("energia", energia);
-    }
-
-    function alimentar() {
-      energia = Math.min(100, energia + 15);
-      felicidad = Math.min(100, felicidad + 5);
-      actualizarEstado();
-    }
-
-    function acariciar() {
-      felicidad = Math.min(100, felicidad + 10);
-      actualizarEstado();
-    }
-
-    function jugar() {
-      if (energia >= 10) {
-        energia -= 10;
-        felicidad = Math.min(100, felicidad + 15);
-        actualizarEstado();
-      } else {
-        alert("¡Tu mascota está cansada! Dale de comer.");
-      }
-    }
-
-    function detener() {
-      if (click === 0 && opcion === 0) {
-        reinicarobjeto();
-        mostraropciones();
-        cambiar(6);
-        opcion = 1;
-        tanuki.style.backgroundImage = "url(anim/sorprendido.png)";
-        tanuki.style.animation = "click 1s both , mover 30s linear infinite paused";
-      } else if (click === 0 && opcion === 1) {
-        mostraropciones();
-        click = 1;
-        opcion = 0;
-        tanuki.style.animation = "mover 30s linear infinite paused";
-        sombra.style.animation = "fondo 30s linear infinite";
-        setTimeout(() => {
-          tanuki.style.animation = "click 1s both , mover 30s linear infinite paused";
-          sombra.style.left = ((mouseX * 100) / window.innerHeight) + "vh";
-          sombra.style.top = ((mouseY * 100) / window.innerHeight) + "vh";
-          sombra.style.animation = "fondo 30s linear infinite, cambio 2s reverse";
-          setTimeout(() => {
-            sombra.style.display = "none";
-            tanuki.style.animation = "caminar 2s both infinite, mover 30s linear infinite";
-            opciones.forEach(el => el.parentNode.style.animation = "mover2 30s linear infinite running");
-            click = 0;
-          }, 2000);
-        }, 100);
-      }
-    }
-
-    function mostraropciones() {
-      opciones.forEach(element => {
-        if (click === 0 && opcion === 0) {
-          element.parentNode.style.animation = "mover2 30s linear infinite paused";
-          element.style.display = "grid";
-          element.style.animation = "opcion 1s both";
-          setTimeout(() => element.style.animation = "none", 1000);
-        } else if (click === 0 && opcion === 1) {
-          element.style.display = "grid";
-          element.style.animation = "none";
-          setTimeout(() => {
-            element.style.animation = "opcion 1s both reverse";
-            setTimeout(() => {
-              element.style.display = "none";
-              element.style.animation = "none";
-              objetos();
-            }, 1000);
-          }, 50);
-        }
-      });
-    }
-
-    function objetos() {
-      if (objeto !== 0) {
-        obj.style.display = "grid";
-        obj.style.backgroundImage = opciones[objeto - 1].style.backgroundImage;
-
-        switch (parseInt(objeto)) {
-          case 1:
-            if (!estatua) jugar();
-            break;
-          case 2:
-            if (!estatua) alimentar();
-            break;
-          case 3:
-            if (!estatua) acariciar();
-            break;
-          case 4:
-            golpearEstatua(); // El bambú siempre funciona para golpear
-            break;
-        }
-      }
-    }
-
-    function cambiar(num) {
-      if (click === 0) {
-        click = 1;
-        const cambio = (num === 6) ? document.getElementById("sombra") : fondoactual.cloneNode(true);
-        cambio.style.animation = "none";
-        cambio.style.display = "none";
-        cambio.style.left = ((mouseX * 100) / window.innerHeight) + "vh";
-        cambio.style.top = ((mouseY * 100) / window.innerHeight) + "vh";
-        if (num !== 6) fondos.appendChild(cambio);
-        cambio.style.display = "grid";
-        cambio.className = "fondo" + num;
-        cambio.style.animation = "fondo 30s linear infinite, cambio 2s linear";
-        setTimeout(() => {
-          cambio.style.left = "0";
-          cambio.style.top = "0";
-          if (num !== 6) {
-            fondoactual.remove();
-            fondoactual = document.getElementById("fondoactual");
-          }
-          click = 0;
-        }, 2000);
-      }
-    }
-
-    function reinicarobjeto() {
-      obj.style.animation = "none";
-      corazon.style.display = "none";
-      notas.style.display = "none";
-      estrella.style.display = "none";
-      objeto = 0;
-      obj.style.backgroundImage = "none";
-      obj.style = "none";
-    }
-
-    document.addEventListener("mousemove", e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      if (obj.style.display === "grid") {
-        obj.style.left = ((mouseX * 100) / window.innerHeight) + "vh";
-        obj.style.top = ((mouseY * 100) / window.innerHeight) + "vh";
-      }
-    });
-
-    tanuki.addEventListener("click", detener, true);
-
-    tanuki.addEventListener("mouseover", () => {
-      if (click === 0 && opcion === 0 && !estatua) {
-        switch (parseInt(objeto)) {
-          case 3:
-            corazon.style.display = "grid";
-            estrella.style.display = "grid";
-            tanuki.style.backgroundImage = "url(anim/acariciar1.png)";
-            tanuki.style.animation = "acariciar 2s both infinite ,mover 30s linear infinite paused";
-            obj.style.animation = "peinar 2s infinite both";
-            break;
-          case 1:
-            estrella.style.display = "grid";
-            notas.style.display = "grid";
-            obj.style.display = "none";
-            tanuki.style.backgroundImage = "url(anim/cantar1.png)";
-            obj.style.animation = "desaparece 2s infinite both";
-            tanuki.style.animation = "cantar 2s both infinite ,mover 30s linear infinite paused";
-            break;
-
-        case 2:
-            corazon.style.display = "grid";
-            estrella.style.display = "grid";
-            tanuki.style.backgroundImage = "url(anim/comer1.png)";
-            tanuki.style.animation = "comer 2s both infinite ,mover 30s linear infinite paused";
-            obj.style.animation = "desaparece 2s infinite both";
-            break;
-        case 4:
-            tanuki.style.backgroundImage = "url(anim/enojado.png)";
-            tanuki.style.animation = "enojado 2s both infinite ,mover 30s linear infinite paused";
-            //obj.style.animation = "desaparece 2s infinite both";
-            obj.style.animation = "golpear 1s infinite both";
-            break;
-          default:
-            tanuki.style.backgroundImage = "url(anim/quieto.png)";
-            tanuki.style.animation = "mover 30s linear infinite paused";
-            break;
-        }
-        opciones.forEach(el => el.parentNode.style.animation = "mover2 30s linear infinite paused");
-      }
-    });
-
-    tanuki.addEventListener("mouseout", () => {
-      if (estatua) {
-        obj.style.display = "none";
-        return;
-      }
-
-      if (click === 0 && opcion === 0) {
-        tanuki.style.animation = "caminar 2s both infinite,mover 30s linear infinite running";
-        opciones.forEach(el => el.parentNode.style.animation = "mover2 30s linear infinite running");
-      }
-      obj.style.animation = "none";
-      corazon.style.display = "none";
-      obj.style.display = "grid";
-      notas.style.display = "none";
-      estrella.style.display = "none";
-    });
-
-    document.addEventListener("click", () => {
-      if (click === 0) {
-        setTimeout(() => {
-          cont++;
-          if (cont === 5) cont = 1;
-          cambiar(cont);
-        }, 100);
-      }
-      if (click === 0 && objeto === 2) {
-        pos = ((obj.offsetLeft * 100) / window.innerWidth);
-        estilos.textContent =
-          `@keyframes mover3 {
-              0% { left: ${(tanuki.offsetLeft * 100) / window.innerWidth}vw; }
-              100% { left: ${pos}vw; }
-          }`;
-        tanuki.style.animation = "none";
-        tanuki.style.left = `${(tanuki.offsetLeft * 100) / window.innerWidth}vw`;
-        setTimeout(() => {
-          tanuki.style.animation = "caminar 2s both infinite,mover3 5s linear";
-          setTimeout(() => {
-            tanuki.style.animation = "none";
-            tanuki.style.left = pos + "vw";
-          }, 2000);
-        }, 100);
-      }
-    });
-
-    opciones.forEach(el => {
-      el.addEventListener("mouseover", () => {
-        if (click === 0 && opcion === 1) {
-          el.style.animation = "opcionmueve 0.5s both";
-        }
-      });
-      el.addEventListener("mouseout", () => {
-        if (click === 0 && opcion === 1) {
-          el.style.animation = "none";
-        }
-      });
-      el.addEventListener("click", () => {
-        if (click === 0 && opcion === 1) {
-          detener();
-          objeto = el.className.match(/\d+/g)[0];
-        }
-      });
-    });
-
-    // Intervalo para volverse estatua aleatoriamente cada 20 segundos (10% probabilidad)
-    /*setInterval(() => {
-      if (!estatua && Math.random() < 0.1) {
-        convertirEnEstatua();
-      }
-    }, 200);*/
-
-    actualizarEstado();
-    //convertirEnEstatua();
-  </script>
+    
 </body>
 </html>
+
+<script>
+const contenido = document.getElementById('contenido');
+const circulo = document.getElementById('circulo');
+const contador = document.getElementById('contador');
+const botonplay = document.getElementById('botonplay');
+const botonequis = document.getElementById('botonequis');
+const presionar = document.getElementById("presionar")
+let nfondo = 1;
+let xPorcentaje;
+let yPorcentaje;
+let iniciado = false;
+let click=false;
+let totalSegundos = 30 * 60; 
+let colorPrincipal = 'var(--color1)';
+let colorFondo = 'transparent';
+
+function animar() {
+    if (totalSegundos < 0 && !iniciado) return;
+
+    let minutos = Math.floor(totalSegundos / 60);
+    let segundos = totalSegundos % 60;
+
+
+    contador.textContent = `${String(minutos).padStart(2,'0')}:${String(segundos).padStart(2,'0')}`;
+    contador.style.color = colorPrincipal
+    botonequis.style.backgroundColor = colorPrincipal
+    botonplay.style.backgroundColor = colorPrincipal
+
+    let porcentaje = (totalSegundos / (5*60)) * 100; // 100% al inicio
+    circulo.style.background = `conic-gradient(${colorPrincipal} ${porcentaje*3.6}deg, ${colorFondo} ${porcentaje*3.6}deg)`;
+
+    totalSegundos--;
+    if(iniciado){
+        setTimeout(animar, 1000);
+    }
+}
+
+
+
+   
+    function nuevofondo(){
+        if(click){
+            return 0
+        }
+        click = true
+        if(nfondo == 4){
+            nfondo = 1;
+        }else{
+            nfondo++;
+        }
+        
+        const fondoactual = document.getElementById("fondoactual")
+        const fondocopia = document.createElement('div');
+        fondocopia.id = "fondocopia"
+        fondocopia.classList.add("fondo"+nfondo)
+        fondocopia.style.left = xPorcentaje+"%"
+        fondocopia.style.top = yPorcentaje+"%"
+        fondocopia.addEventListener("animationend", function() {
+            fondoactual.remove(); 
+            fondocopia.id = "fondoactual"
+            fondocopia.style.left = "0%"
+            fondocopia.style.top = "0%"
+            fondocopia.style.animation = " fondo 30s linear infinite"
+
+            click = false
+        });
+
+        document.body.appendChild(fondocopia)
+        colorPrincipal = "var(--color"+nfondo+")"
+        if(!iniciado){
+            contador.style.color = colorPrincipal
+            botonequis.style.backgroundColor = colorPrincipal
+            botonplay.style.backgroundColor = colorPrincipal
+            circulo.style.backgroundColor = colorPrincipal
+        }
+        setTimeout(() => {
+            fondocopia.style.animation = " fondo 30s linear infinite, aparecerfondo both 3s "
+        }, 10);
+        
+
+    }
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      xPorcentaje = ((x / window.innerWidth) * 100).toFixed(2);
+        yPorcentaje = ((y / window.innerHeight) * 100).toFixed(2);
+    });
+    presionar.addEventListener("click", (e) => {
+        if (e.target === presionar ||e.target ===  contenido) {
+            nuevofondo();
+        }
+    });
+    botonplay.addEventListener("click", function(){
+        if(iniciado){
+            iniciado = false
+
+            botonplay.style.webkitMaskImage = "url(src/play.svg)";
+            botonplay.style.maskImage = "url(src/play.svg)";
+        }else{
+            botonplay.style.webkitMaskImage = "url(src/pausa.svg)";
+            botonplay.style.maskImage = "url(src/pausa.svg)";
+            iniciado = true
+            animar()
+        }
+    
+    });
+</script>
