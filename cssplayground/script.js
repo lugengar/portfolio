@@ -2,6 +2,7 @@ const editor = document.getElementById("editor");
 const play = document.getElementById("play");
 const reiniciar = document.getElementById("reiniciar");
 const siquiente = document.getElementById("siquiente");
+const ayuda = document.getElementById("ayuda"); // Botón de ayuda
 const preview = document.getElementById("preview");
 let nivel = [];
 const params = new URLSearchParams(window.location.search);
@@ -173,6 +174,7 @@ function ganar(){
     play.style.pointerEvents = "none"
     siquiente.style.display = "block"
     play.style.display = "none"
+    ayuda.style.display = "none"
     reiniciar.style.display = "none"
     siquiente.href = "./index.html?nivel="+ (numnivel+1)
 }
@@ -189,7 +191,6 @@ play.addEventListener("click", () => {
 });
 
 
-const ayuda = document.getElementById("ayuda"); // Botón de ayuda
 
 function mostrarSolucion(segundos = 3) {
     if (!nivel) return;
