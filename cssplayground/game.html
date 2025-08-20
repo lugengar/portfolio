@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS PLAYGROUND</title>
+    <link rel="icon" href="src/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <div id="contenedor">
+        <header>
+            <div id="logo"></div>
+            <br>
+            <a class="boton2" href="index.html" style="background-image: url(src/home.svg);"></a>
+        </header>
+<pre id="editor" contenteditable="true"></pre>
+<footer>
+    <button id="play" style="background-color: rgb(0, 119, 255);">Verificar</button>
+    <button id="reiniciar" >Reiniciar</button>
+    <button id="ayuda" >Ayuda</button>
+    <a id="siquiente" style="display: none;">Proximo nivel</a>
+
+</footer>
+
+        <div id="contenido">
+            
+            <iframe id="preview" frameborder="0"></iframe>
+        </div>
+
+    </div>
+    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
+</body>
+</html>
+<script src="script.js"></script>

@@ -43,27 +43,28 @@
   },
   {
     "nivel": 8,
-    "inicio": "/* Nivel 8: Hacé una tarjeta beige con margen, después cambiá a lightcoral y organizá el contenido arriba y abajo con flex */\n.card {\n    width: 25vw;\n    height: 35vh;\n    background-color: beige;\n    margin: 5px;\n    display: block;\n    flex-direction: row;\n    justify-content: start;\n    align-items: flex-start;\n    padding: 5px;\n}",
-    "final": ".card2 {\n    width: 20vw;\n    height: 30vh;\n    background-color: lightcoral;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px;\n}",
+    "inicio": "/* Nivel 8: Hacé una tarjeta beige con margen, después cambiá a lightcoral y organizá el contenido arriba y abajo con flex */\n.card {\n    width: 40vh;\n    height: 20vh;\n    background-color: beige;\n    display: block;\n    flex-direction: column;\n    justify-content: center;\n    align-items: space-between;\n    padding: 5vh;\n}",
+    "final": ".card2 {\n    width: 20vh;\n    height: 30vh;\n    background-color: lightcoral;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    padding: 2vh;\n}",
     "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 8</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n    <div class=\"card\"><div>Top</div><div>Bottom</div></div>\n    <div class=\"card2\"><div>Top</div><div>Bottom</div></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   },
   {
       "nivel": 9,
-      "inicio": "/* Nivel 9: Círculo chico amarillo, después aumentá su tamaño a grande y cambiá a naranja, posicionándolo con top y left */\n.circle-small {\n    width: 25px;\n    height: 25px;\n    border-radius: 25%;\n    background-color: yellow;\n    position: absolute;\n    top: 5%;\n    left: 5%;\n    transform: rotate(15deg);\n}",
-      "final": ".circle-large {\n    width: 100px;\n    height: 100px;\n    border-radius: 50%;\n    background-color: orange;\n    position: absolute;\n    top: 20%;\n    left: 30%;\n}",
+      "inicio": "/* Nivel 9: Círculo chico amarillo, después aumentá su tamaño a grande y cambiá a naranja, posicionándolo con top y left */\n.circle-small {\n    width: 10vh;\n    height: 10vh;\n    border-radius: 25%;\n    background-color: yellow;\n    position: absolute;\n    top: 5%;\n    left: 5%;\n    transform: rotate(15deg);\n}",
+      "final": ".circle-large {\n    width: 20vh;\n    height: 30vh;\n    border-radius: 50%;\n    background-color: orange;\n    position: absolute;\n    top: 20%;\n    left: 30%;\n}",
       "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 9</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n    <div class=\"circle-small\"></div>\n    <div class=\"circle-large\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   },
   {
       "nivel": 10,
-      "inicio": "/* Nivel 10: Hacé un grid container lavanda sin columnas ni filas, después agregá 4 columnas y 3 filas con gap y color plum */\n.grid-container {\n    display: block;\n    width: 85vw;\n    height: 65vh;\n    background-color: lavender;\n    gap: 0px;\n    grid-template-columns: 2fr 1fr;\n    grid-template-rows: auto;\n    padding: 5px;\n}",
-      "final": ".grid-container2 {\n    display: grid;\n    width: 80vw;\n    height: 60vh;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(3, 1fr);\n    gap: 10px;\n    background-color: plum;\n}",
-      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 10</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:10vh; height:96vh;\" >\n    <div class=\"grid-container\"></div>\n    <div class=\"grid-container2\">\n        <div></div><div></div><div></div><div></div>\n        <div></div><div></div><div></div><div></div>\n        <div></div><div></div><div></div><div></div>\n    </div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
+      "inicio": "/* Nivel 10: Hacé un grid container, agregá 2 columnas y 2 filas con gap 0vh formando el logo de microsoft */\n.grid-container {\n    display: grid;\n    width: 80vh;\n    height: 30vh;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(1, 1fr);\n    gap: 2vh;\n}\n.grid-container p{\n   margin: 2vh;\n}\n.grid-container :nth-child(1){\n    background-color: white;\n}\n.grid-container :nth-child(2){\n    \n}\n.grid-container :nth-child(3){\n    \n}\n.grid-container :nth-child(4){\n    \n}",
+      "final": ".grid-container2 {\n    display: grid;\n    width: 60vh;\n    height: 60vh;\n    grid-template-columns: repeat(2, 1fr);\n    grid-template-rows: repeat(2, 1fr);\n    gap: 0vh;\n}\n.grid-container2 p{\n   margin: 0vh;}\n.grid-container2 :nth-child(1){\n    background-color: red;\n}\n.grid-container2 :nth-child(2){\n    background-color: green;\n}\n.grid-container2 :nth-child(3){\n    background-color: blue;\n}\n.grid-container2 :nth-child(4){\n    background-color: orange;\n}",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 10</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:10vh; height:96vh;\" >\n    <div class=\"grid-container\"><p>item1</p><p>item2</p><p>item3</p><p>item4</p></div>\n    <div class=\"grid-container2\"> <p>item1</p><p>item2</p><p>item3</p><p>item4</p> </div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   },
+  
   {
       "nivel": 11,
-      "inicio": "/* Nivel 11: Hacé una hero section lightgreen, después cambiá a seagreen, centrando el texto y aumentando el tamaño de la letra */\n.hero {\n    width: 100vw;\n    height: 55vh;\n    background-color: lightgreen;\n    display: block;\n    justify-content: start;\n    align-items: flex-start;\n    font-size: 1rem;\n    color: gray;\n    padding: 5px;\n}",
-      "final": ".hero2 {\n    width: 100vw;\n    height: 50vh;\n    background-color: seagreen;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: white;\n    font-size: 2rem;\n}",
-      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 11</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:10vh; height:96vh;\" >\n    <div class=\"hero\">Hero Inicial</div>\n    <div class=\"hero2\">Hero Final</div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
+      "inicio": "/* Nivel 11: Crea todos los estilos del cuadrado azul para que encaje en el agujero */\n.cube {\n    width: 30vh;\n    height: 20vh;\n  background-color: blue;\n    position: absolute;\n}",
+      "final": ".cube2 {\n    width: 20vh;\n    height: 20vh;\n    background-color: blue;\n    position: absolute;\n    top: 30%;\n    left: 70%;\n}",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 1</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n    <div class=\"cube\"></div>\n    <div style=\"width: 20vh;\n    height: 20vh;\n    border: red solid 1vh;\n    position: absolute;\n    top: 30%;\n    left: 70%;\n\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   },
   {
     "nivel": 12,
@@ -88,8 +89,13 @@
     "inicio": "/* Nivel 15: Crea un rectángulo azul y hacelo girar en hover */\n.rectangle {\n    width: 20vw;\n    height: 8vh;\n    background-color: lightblue;\n    transition: transform 0.5s;\n    opacity: 100%;\n}\n.rectangle:hover {\n    transform: rotate(0deg);\n    opacity: 10%;\n    background-color: red;\n}",
     "final": ".rectangle2 {\n    width: 25vw;\n    height: 10vh;\n    background-color: blue;opacity: 50%;\n    transition: transform 0.5s;\n}\n.rectangle2:hover {\n    transform: rotate(180deg);\n    opacity: 100%;\n    background-color: lightblue;\n}",
     "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Nivel 15</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n<div class=\"rectangle\"></div>\n<div class=\"rectangle2\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
+  },
+
+  {
+      "nivel": 16,
+      "inicio": "/* Nivel 16: Crea todos los estilos del circulo verde para que encaje en el agujero */\n.cube {\n  background-color: green;\n    position: absolute;\n    border-radius: 50%;\n    transform: rotate(0deg);\n}",
+      "final": ".cube2 {\n    width: 30vh;\n    height: 20vh;\n    background-color: green;\n    position: absolute;\n    top: 40%;\n    left: 40%;\n    border-radius: 50%;\n    transform: rotate(50deg);\n}",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Nivel 1</title>\n</head>\n<body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n    <div class=\"cube\"></div>\n    <div style=\"width: 30vh; height: 20vh;border: red solid 1vh;position: absolute;top: 40%;left: 40%;border-radius: 50%;transform: rotate(50deg);\"></div>\n</body style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap:20vh; height:96vh;\" >\n</html>"
   }
-  
-  
   
 ]

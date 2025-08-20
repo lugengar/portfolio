@@ -8,7 +8,37 @@ let nivel = [];
 const params = new URLSearchParams(window.location.search);
 
 let numnivel = parseInt(params.get("nivel"), 10) || 1;
-if (numnivel >= 16){numnivel = 1}
+
+
+if (numnivel >= 17){numnivel = 1}
+
+const DB_KEY = "nivelesEstado";
+
+// Función para inicializar la base de datos interna
+function initDB(niveles) {
+  if (!localStorage.getItem(DB_KEY)) {
+    const db = {};
+    niveles.forEach(nivel => {
+      db[nivel.nivel] = { completado: false };
+    });
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+  }
+}
+
+// Función para obtener el estado de los niveles
+function obtenerEstados() {
+  return JSON.parse(localStorage.getItem(DB_KEY)) || {};
+}
+
+// Función para marcar un nivel como completado
+function marcarCompletado(nivelNumero) {
+  const db = obtenerEstados();
+  if (db[nivelNumero]) {
+    db[nivelNumero].completado = true;
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+  }
+}
+
 editor.addEventListener("keydown", function(e) {
     if (e.key === "Tab") {
         e.preventDefault();
@@ -170,13 +200,14 @@ function startConfetti() {
 
 init();
 function ganar(){
+    marcarCompletado(numnivel)
     startConfetti()
     play.style.pointerEvents = "none"
     siquiente.style.display = "block"
     play.style.display = "none"
     ayuda.style.display = "none"
     reiniciar.style.display = "none"
-    siquiente.href = "./index.html?nivel="+ (numnivel+1)
+    siquiente.href = "./game.html?nivel="+ (numnivel+1)
 }
 play.addEventListener("click", () => {
     if (cssEquivalente(editor.textContent, nivel.final)) {
@@ -195,7 +226,7 @@ play.addEventListener("click", () => {
 function mostrarSolucion(segundos = 3) {
     if (!nivel) return;
     const doc = preview.contentDocument || preview.contentWindow.document;
-
+    editor.contentEditable = false
     // Guardamos el CSS actual del usuario
     const editableStyle = doc.getElementById("editable");
     const cssUsuario = editableStyle ? editableStyle.textContent : "";
@@ -218,6 +249,7 @@ function mostrarSolucion(segundos = 3) {
         editor.textContent = codigoUsuario;
         doc.body.style.opacity = "1";
         editor.style.opacity = "1";
+        editor.contentEditable = true
     }, segundos * 1000);
 }
 // Listener para el botón de ayuda
