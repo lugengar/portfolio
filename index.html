@@ -7,149 +7,124 @@
     <meta property="og:url" content="https://barbiniwebdesign.com.ar">
     <meta property="og:type" content="website">
     
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Somos Barbini Web Design, una empresa especializada en el diseño y desarrollo de interfaces digitales atractivas, funcionales y centradas en el usuario. Creamos experiencias únicas a través de soluciones web modernas, desarrollo de chatbots personalizados e implementación de inteligencia artificial.">
 
-
-
-    <link rel="icon" href="recursos/SVG/icono2.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="animaciones.css">
+    <link rel="icon" href="src/ICO/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
    
     <title>Barbini web design</title>
 </head>
 <body>
-    <div class="contendor">
+    <main id="main">
         <a href="https://wa.me/5491153839865" target="_blank" class="whats"></a>
-        <div id="sidebar">
-            <div class="links" >
-                <button onclick="redirigir('contenido')" class="link">INICIO</button>
-                <button onclick="redirigir('informacion')" class="link">NOSOTROS</button>
-                <!-- <button onclick="redirigir('servicios')" class="link">SERVICIOS</button>-->
-                <button onclick="redirigir('proyectos')" class="link">PROYECTOS</button>
-                <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
-             <!--  <select class="link">
-                    <option value="español">LANGUAJE</option>
-                    <option value="english">ENGLISH</option>
-                    <option value="español">ESPAÑOL</option>
-                    <option value="italiano">ITALIANO</option>
-                </select> -->
-                
+        <header id="header">
+            <div class="logo">
+                <iframe src="logo.html" frameborder="0"></iframe>
             </div>
-        </div>
-        <div class="header" id="header">
-            <div class="logo"></div>
-            <div class="links" id="links">
-               
-               <button onclick="redirigir('contenido')" id="nosotros" class="link">INICIO</button>
-                <button onclick="redirigir('informacion')" class="link">NOSOTROS</button>
-                <!--<button onclick="redirigir('servicios')" class="link">SERVICIOS</button>-->
-                <button onclick="redirigir('proyectos')" class="link">PROYECTOS</button>
-                <button onclick="redirigir('contacto')" class="link">CONTACTO</button>
-                          <!--   <select class="link">
-                    <option value="">LANGUAJE</option>
-                    <option value="">ENGLISH</option>
-                    <option value="">ESPAÑOL</option>
-                    <option value="">ITALIANO</option>
-                </select>-->
-                
-                <button onclick="sidebar()" id="rayas">&#9776;</button>
+            <div id="navegacion">
+                <button onclick="redirigir('carrusel')" id="inicio">INICIO</button>
+                <button onclick="redirigir('sobremi')">NOSOTROS</button>
+                <button onclick="redirigir('servicios')">SERVICIOS</button>
+                <button onclick="redirigir('portfolio')">PORTFOLIO</button>
+                <button onclick="redirigir('contacto')">CONTACTO</button>
+                <button id="butsidebar">☰</button>
             </div>
-        </div>
-        <div class="contenido" id="contenido" >
-            <video preload autoplay loop muted>
-                <source src="recursos/MP4/video1.mp4" type="video/mp4">
-              </video>    
-              <div class="capa1"></div>  
-              <div class="capa5"></div>          
+        </header>
+        <section id="sidebar">
+            <a href="#carrusel">INICIO</a>
+            <a href="#sobremi">NOSOTROS</a>
+            <a href="#servicios">SERVICIOS</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#contacto">CONTACTO</a>
+        </section>
+        <section id="carrusel">
+            <div class="filtro"></div>
+            <div class="filtro2"></div>
+            <div id="videos">
+                <video id="video1" autoplay muted playsinline></video>
+                <video id="video2" autoplay muted playsinline style="opacity: 0;"></video>
+            </div>
+            <div id="textos">
 
-              <div class="capa2"></div>          
-              <div class="capa3">
-                <div class="logoentero2">
-                    <iframe src="logo.html" frameborder="0"></iframe>
+                <h1 id="titulo"></h1>
+                <h3 id="minitexto"></h3>
+                <form id="formulario" >
+                    <input placeholder="Correo electronico" id="correo2" type="email" required>
+                    <button type="submit">ENVIAR</button>
+                </form>
+                <div id="botones">
                 </div>
-              </div>          
-        </div>
-        <div class="informacion" id="informacion">
-            
-              <div class="capa1"></div>  
-              <div class="capa5"></div>           
-              <div class="logo2"></div>           
-              <h1 class="titulovertical"></h1>
-              <p class="texto">Somos Barbini Web Design, una empresa dedicada al diseño y desarrollo de interfaces intuitivas, así como a la creación de chatbots. <br> <br>Como fundadores, nos especializamos en construir soluciones tecnológicas eficientes, optimizadas y orientadas a mejorar la experiencia del usuario.
-
-                Nuestro enfoque combina creatividad y funcionalidad, asegurando que cada proyecto no solo sea visualmente atractivo, sino también práctico y fácil de usar. <br> <br> Nos apasiona la automatización de procesos, el desarrollo de sistemas inteligentes y la implementación de tecnologías emergentes para mejorar la eficiencia y accesibilidad de las plataformas digitales.
-                
-              
-        </div>
-        <iframe id="video1"  src="https://player.vimeo.com/video/1057383148?h=45ece063c2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="les contaré cómo trabajamos para convertir sus ideas en"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
-     <div class="proyectos" id="proyectos">
- 
-                      
-            <div class="logo3"></div>     
-            <div class="lenguajes" id="lenguajes">
-                <div class="lenguaje"></div>
-              </div>
-         
-         
-              <div class="listaproyectos">
-              </div>  
-              <div class="capa6"></div>  
-            <div class="capa5"></div>       
-        </div>
-        <form id="contacto" action="https://wa.me/541123946762" method="get" target="_blank" onsubmit="enviarWhatsApp()">
-        
-            <div class="capa6"></div>  
-            <div class="capa5"></div> 
-            <h1 class="titulo2">CONTACTO</h1>
-            <div class="inputs">
-                <input type="search" name="nombre" id="nombre" required placeholder="NOMBRE">
-                <input type="search" name="empresa" id="empresa" required placeholder="EMPRESA">
-                <select name="asunto" id="asunto" required >
-                    <option value="">ASUNTO</option>
-                    
-                    <option value="COTIZACIÓN SERVICIOS">COTIZACIÓN SERVICIOS</option>
-                    <option value="OTROS">OTROS</option>
-                </select>
-                <textarea name="mensaje" id="mensaje" required placeholder="MENSAJE"></textarea>
-                <button class="botonegro">
-                    ENVIAR CONSULTA
-                </button>
             </div>
+          
+        </section>
+        <section id="sobremi">
+            <h2 class="titulo B">SOBRE MÍ</h2>
+            <p>
+                Hola, soy Luciano Barbini, fundador de Barbini Web Design, técnico en programación y estudiante de Ingeniería Informática.
+                <br>
+                <br>
+                Creo sitios web elegantes, funcionales y adaptables, enfocados en una experiencia fácil y atractiva para tus clientes.
+                <br>
+                <br>
+                Mirá mis <a href="#portfolio">proyectos</a> o <a href="#contacto">contactactame</a> para empezar tu sitio ideal.
+
+            </p>
+        </section>
+        <section id="servicios">
+            <h2 class="titulo A" id="sertit">NUESTROS SERVICIOS</h2>
+            <div id="listaservicios">
+                
+            </div>
+        </section>
+        <section id="video">
+            <iframe id="video1"  src="https://player.vimeo.com/video/1057383148?h=45ece063c2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="les contaré cómo trabajamos para convertir sus ideas en"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+        </section>
+            <section id="portfolio">
             
-        </form>
-        <section id="marcadeagua" >© BARBINI WEB DESIGN. DESARROLLADO POR LUCIANO BARBINI</section>
-    </div>
+            <div class="filtro"></div>
+            <div class="filtro2"></div>
+            <div class="miniheader">
+                <h2 class="titulo B">PORTFOLIO</h2>
+            </div>
+            <div id="listaproyectos">
+                <details class="proyecto">
+                    <summary>TITULO</summary>
+                    <p>DESCRIPCION</p>
+                    <img src="src/JPG/fondo.jpg" alt="">
+                    <br>
+                    <a>VISITAR PAGINA</a>
+                </details>
+                
+            </div>
+        </section>
+        <section id="contacto">
+            <form action="" id="formulario2" class="formulario2" action="https://wa.me/541123946762" method="get" target="_blank" onsubmit="enviarWhatsApp()">
+                <h3>CONTACTANOS</h3>
+                <h2>¿ALGÚN PROYECTO EN MENTE?</h2>
+                <textarea name="" id="Mensaje" placeholder="Mensaje" required></textarea>
+                <input type="text" name="" id="Correo" placeholder="Correo electronico"  type="email" required>
+                <button>ENVIAR</button>
+            </form>
+            <div class="animation">
+                <iframe src="responsive.html" class="contenedor" frameborder="0"></iframe>
+            </div>
+        </section>
+        <footer id="lenguajes">
+                <div class="lenguaje"></div>
+        </footer>
+        
+        <section id="marcadeagua" ><p>© BARBINI WEB DESIGN. DESARROLLADO POR LUCIANO BARBINI</p></section>
+    </main>
+    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
+
 </body>
 </html>
-<script src="recursos/JS/header.js"></script>
-<script src="recursos/JS/lenguajes.js"></script>
-<script src="recursos/JS/scroll.js"></script>
-<script src="recursos/JS/proyectos2.js"></script>
-<script>
-    function enviarWhatsApp() {
-    let form = document.getElementById("contacto");
 
-    if (!form.checkValidity()) {
-        alert("Por favor, completa todos los campos obligatorios.");
-        return false;
-    }
-
-    let nombre = document.getElementById("nombre").value;
-    let empresa = document.getElementById("empresa").value;
-    let asunto = document.getElementById("asunto").value;
-    
-    let mensaje = document.getElementById("mensaje").value;
-
-    let texto = `Nombre: ${nombre}%0A` +
-                `Empresa: ${empresa}%0A` +
-                `Asunto: ${asunto}%0A%0A` +
-                `Mensaje: ${mensaje}`;
-
-    let url = `https://wa.me/5491153839865?text=${texto}`;
-    
-    window.open(url, '_blank');
-}
-</script>
+<script src="src/JS/carrusel.js"></script>
+<script src="src/JS/proyectos.js"></script>
+<script src="src/JS/header.js"></script>
+<script src="src/JS/lenguajes.js"></script>
+<script src="src/JS/whatsap.js"></script>
+<script src="src/JS/servicios.js"></script>

@@ -1,0 +1,35 @@
+{
+    "servicios": [
+      {
+        "titulo": "DISEÑO WEB",
+        "items": [
+          "Interfaces modernas e intuitivas",
+          "Diseño responsive",
+          "Experiencia de usuario optimizada",
+          "Hosting y dominio incluidos",
+          "Personalización según tu marca"
+        ]
+      },
+      {
+        "titulo": "CHATBOT + IA",
+        "items": [
+          "Respuestas automáticas rápidas",
+          "Personalización total",
+          "Disponibilidad 24/7",
+          "Multi plataforma",
+          "Automatización de procesos"
+        ]
+      },
+      {
+        "titulo": "DISEÑO DE APPS",
+        "items": [
+          "Interfaz atractiva y fácil de usar",
+          "Experiencia fluida y consistente",
+          "Compatibilidad total",
+          "Funcionalidades a medida",
+          "Optimización de rendimiento"
+        ]
+      }
+    ]
+  }
+  

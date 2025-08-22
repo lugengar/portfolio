@@ -1,0 +1,737 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+main{
+    position: absolute;
+    left: 0vh;
+    top: 0vh;
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-auto-rows: max-content;
+
+    background-color: white;
+}
+h1 {
+    font-size: 10vh;
+   
+    grid-area: TIT;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+
+}
+.whats{
+    transition: transform 0.1s ease-in-out;
+    animation: aparecer 2s both;
+    box-shadow: 1vh 0vh 1vh rgba(0, 0, 0, 0.2);
+    width: 8vh;
+    height: 8vh;
+    background-image: url(src/SVG/whats.svg);
+    background-color: #25D366;
+    border-radius: 50vh;
+    background-position: center;
+    background-size: 5vh;
+    background-repeat: no-repeat;
+    position: fixed;
+    right: 2vh;
+    bottom: 2vh;
+    z-index: 100;
+}
+.whats:hover{
+    transform: scale(1.1);
+    
+}
+h1, h2, h3, details {
+   
+    grid-area: TIT;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+
+}
+p, a, li{
+    grid-area: TXT;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;
+}
+a{
+    grid-area: auto;
+}
+button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;
+    border: none;
+}
+h1{
+    font-size: 10vh;
+
+}
+h2{
+    font-size: 6vh;
+
+}
+h3{
+    font-size: 3vh;
+
+}
+details{
+    font-size: 5vh;
+
+}
+header {
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+
+    position: fixed;
+    top: 5vh; /* empieza a 5vh del top */
+    width: 90vw;
+    height: 12vh;
+    background-color: #001b6a70;
+    -webkit-backdrop-filter: blur(1vh);
+    backdrop-filter: blur(1vh);
+    z-index: 10; 
+    transition: top 0.2s;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.logo{
+    position: relative;
+    width: 18vh;
+    height: 8vh;
+ 
+}
+.logo iframe{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#navegacion{
+    gap: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: 5vh;
+}
+#navegacion button{
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1.5vh;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+section{
+    margin-bottom: 10vh;
+    min-height: 100vh;
+    position: relative;
+}
+#video1{
+    margin-bottom: 10vh;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+#video{
+    min-height: auto;
+    height: 50vw;
+}
+footer{
+    height: 15vh;
+    position: relative;
+
+    background-color: #001a6a;
+    margin-bottom: 0;
+    padding-top: 5vh;
+    overflow: hidden;
+    
+    
+}
+.lenguaje{
+        background-position: center;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: -30vh;
+         min-width: 30vh;
+         height: 50%;
+     }
+     @keyframes animarca {
+        0%{
+            left: -30vh;
+        }
+        100%{
+            left: 250vh;
+        }
+    }
+#videos{
+    z-index: 1;
+    position: absolute;
+    left: 0vh;
+    top: 0vh;
+    width: 100%;
+    height: 100%;
+}
+
+#videos video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s ease;
+  }
+  
+  .fade-in-text {
+    animation: subir 0.5s forwards;
+  }
+  
+  .fade-out-text {
+    animation: bajar 0.5s forwards;
+  }
+  
+  @keyframes subir {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes bajar {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(20px); opacity: 0; }
+  }
+.filtro{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(0.3vh);
+    backdrop-filter: blur(0.3vh);
+}
+.filtro2{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #001a6a; 
+    mix-blend-mode: lighten;
+    opacity: 30%;
+}
+#textos{
+    z-index: 3;
+    position: absolute;
+    left: 0vh;
+    bottom: 0vh;
+    width: 100%;
+    height: 100%;  
+    
+    z-index: 2;
+    display: grid;
+    grid-template:
+    ". . . ."17vh
+    ". . . ."auto
+    ". TIT TIT ."max-content
+    ". . . ."auto
+    ". MIN . ."max-content
+    ". FOR . ."max-content
+    ". . . ."auto
+    "BOT BOT BOT BOT"max-content/
+    8% max-content max-content auto ;
+}
+#textos h1{
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+#titulo{
+    grid-area: TIT;
+    max-width: 80vw;
+}
+#minitexto{
+    grid-area: MIN;
+    padding-bottom: 1vh;
+}
+#formulario{
+    grid-area: FOR;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    height: 9vh;
+    max-width: 45vh;
+}
+form button{
+    background-color: #001a6a;
+    color: white;
+    border: none;
+    padding: 3vh;
+    font-size: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+form input{
+    color: black;
+    background-color: white;
+    font-size: 2vh;
+    border: none;
+    padding: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+form textarea{
+    resize: none;
+    color: black;
+    background-color: white;
+    font-size: 2vh;
+    border: none;
+    padding: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#botones{
+    display: flex;
+    justify-content: center;
+    grid-area: BOT;
+    height: 10vh;
+    align-items: center;
+}
+#botones button {
+margin: 1vh;
+background-color: white;
+border: none;
+border-radius: 25vh;
+cursor: pointer;
+transition: all 0.2s ;
+
+}
+.activo{
+    height: 1.8vh;
+    width: 1.8vh;
+    opacity: 100%;
+}
+.inactivo{
+    height: 1.5vh;
+    width: 1.5vh;
+    opacity: 50%;
+
+}
+#botones button:hover{
+    transform: scale(1.2);
+}
+#butsidebar{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 1vh;
+    font-size: 4vh;
+    display: none;
+}
+#sidebar{
+    padding-top: 20vh;
+    transition: transform 0.5s ease-in-out;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 19, 107, 0.5);
+    -webkit-backdrop-filter: blur(0.5vh);
+    backdrop-filter: blur(0.5vh);
+    display: none;
+    grid-auto-rows:5vh ;
+    gap: 4vh;
+    transform: translateX(100%);
+
+}
+#inicio{
+    display: none;
+}
+#sidebar a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: white 0.2;
+}
+.titulo{
+    padding-left: 6vh;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 5vh;
+}
+.B{
+    background-image: url(src/SVG/estrellaB0.svg);
+
+}
+.A{
+    background-image: url(src/SVG/estrellaA0.svg);
+
+}
+#sobremi{
+    background-color: #001a6a;
+    min-height: 40vh;
+    display: grid;
+    gap: 1vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    grid-template:
+    ". . ."auto
+    ". TIT ."max-content
+    ". TXT . "max-content
+    ". . ."auto/
+    auto minmax(0vh, 80vh) auto ;
+}
+#servicios{
+    position: relative;
+    min-height: 50vh;
+    display: grid;
+    gap: 1vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    grid-template:
+    ". . ."auto
+    ". TIT ."max-content
+    ". SER . "max-content
+    ". . ."auto/
+    auto 90% auto ;
+}
+.custom-ul {
+    grid-area: TXT;
+    color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 1vh
+}
+
+.custom-ul li {
+    padding: 0;
+    margin-bottom: 1vh;
+    background: url(src/SVG/check0.svg) no-repeat left center;
+    background-size: 1.4vh;
+    padding-left: 2vh; /* espacio para el icono */
+}
+.servicio{
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+
+    position: relative;
+    background-color: #001a6a;
+width: 45vh;
+height: max-content;
+display: grid;
+gap: 1vh;
+grid-template:
+". . ."2vh
+" . TIT ."auto
+" . TXT ."auto
+". BOT ."auto
+". . ."2vh/
+2vh auto 2vh ;
+}
+.servicio button{
+    grid-area: BOT;
+    background-color: white;
+    border: none;
+    padding: 2vh;
+    color: #001a6a;
+}
+.miniheader{
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+
+    grid-area: HEA;
+    background-color: #001b6a70;
+    -webkit-backdrop-filter: blur(1vh);
+    backdrop-filter: blur(1vh);
+    z-index: 3; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+#listaproyectos{
+    z-index: 3;
+    grid-area: SER;
+    display: flex;
+    gap: 5vh;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+details{
+    background-position:  5vh top;
+    background-size: 25vh;
+    background-repeat: no-repeat;
+    border: none;
+}
+details[open] {
+opacity: 100%;
+
+transform: scale(1.05);
+}
+#listaservicios{
+    max-width: 100%;
+    margin-top: 5vh;
+    grid-area: SER;
+    display: flex;
+    gap: 5vh;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#servicios h2{
+    color: #001a6a;
+}
+#portfolio{
+    position: relative;
+    overflow: hidden;
+    max-height: max-content;
+    min-height: 80vh;
+    background-image: url(src/JPG/fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: grid;
+    grid-template:
+    ". . ."5vh
+    "HEA HEA HEA" 12vh
+    ". . ."5vh
+    ". SER ."max-content
+    ". . ."10vh/
+    10% auto auto ;
+}
+.proyecto{
+    
+    opacity: 50%;
+    text-decoration: none;
+    width: 100%;
+    min-height: 45;
+    font-size: 5vh;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0;
+    font-family: "Roboto", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+    border-radius: 0;
+
+    transition: transform 0.1s linear, opacity 0.1s linear;
+}
+.proyecto:hover {
+    opacity: 100%;
+
+    transform: scale(1.05);
+}
+.proyecto p {
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+    width: 80vw;
+    height: max-content;
+    max-width: 80vh;
+}
+.proyecto img{
+    width: 80vw;
+    height: max-content;
+    max-width: 80vh;
+
+
+}
+.proyecto a{
+    text-decoration: none;
+    width: 100%;
+    max-width: 80vh;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    padding: 2vh;
+    background-color: #001a6a;
+
+}   
+/*.proyecto:hover{
+    background-color: #001b6a70;
+    -webkit-backdrop-filter: blur(1vh);
+    backdrop-filter: blur(1vh);
+}*/
+.formulario2{
+    grid-area: FOR;
+    background-color: #001a6a;
+    display: grid;
+    gap: 1vh;
+    grid-template:
+    ". . . ."auto
+    ". TIT TIT ."max-content
+    ". MIN MIN ."max-content
+    " . TXA TXA ."10vh
+    ". INP BOT ."max-content
+    ". . . ."auto/
+    auto 20vw 20vw auto
+     ;
+}
+.formulario2 h3{
+    grid-area: MIN;
+}
+.formulario2 h2{
+    grid-area: TIT;
+}
+.formulario2 textarea{
+    grid-area: TXA;
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+
+}
+.formulario2 input{
+    grid-area: INP;
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+
+}
+#marcadeagua{
+    min-height: 5vh;
+    margin-bottom: 0;
+    background-color: #001a6a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.formulario2 button{
+    grid-area: BOT;
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+}
+#contacto{
+
+    min-height: 70vh;
+    display: grid;
+    grid-template:
+    "FOR ANI"auto/
+    50% 50%;
+}
+.contenedor{
+  
+    width: 40vw;
+    height: 20vw;
+    transform: scale(2);
+}
+.animation{
+    overflow: hidden;
+    pointer-events: none;
+    background-color: rgb(226, 226, 226);
+    grid-area: ANI; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animación */
+@keyframes fondod {
+    0%   { background-position-x: 70vh; }
+    100% { background-position-x: -70vh; }
+}
+
+@media (max-width:100vh) {
+    .contenedor{
+        height: 40vw;
+        transform: scale(2);
+    }
+    .formulario2{
+        grid-area: FOR;
+        background-color: #001a6a;
+        display: grid;
+        gap: 1vh;
+        grid-template:
+        ". . . ."auto
+        ". TIT TIT ."max-content
+        ". MIN MIN ."max-content
+        " . TXA TXA ."10vh
+        ". INP BOT ."max-content
+        ". . . ."auto/
+        2% auto auto 2%
+         ;
+    }
+    
+    #contacto{
+    
+        min-height: 70vh;
+        display: grid;
+        grid-template:
+        "ANI"50vh
+        "FOR"60vh
+        /
+        auto;
+    }
+    .servicio{
+        width: 100%;
+    }
+    #navegacion a{
+        display: none;
+        font-size: 0vh;
+padding: 0;
+    }
+   
+    #butsidebar {
+        display: block;
+    }
+    #sidebar{
+        display: grid;
+
+    }
+    h1{
+        font-size: 11.2vw;
+    }
+    #formulario{
+        grid-area: FOR;
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        height: 9vh;
+        max-width: 40vh;
+    }
+    form button{
+        background-color: #001a6a;
+        color: white;
+        border: none;
+        padding: 1vh;
+        font-size: 2vh;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #textos{
+        position: absolute;
+        left: 0vh;
+        bottom: 0vh;
+        width: 100%;
+        height: 100%;  
+        
+        z-index: 2;
+        display: grid;
+        grid-template:
+        ". . ."auto
+        ". TIT ."max-content
+        ". . ."15vh
+        ". MIN ."max-content
+        ". FOR ."max-content
+        ". . ."8vh
+        "BOT BOT BOT"max-content/
+        auto min-content auto ;
+    }
+}

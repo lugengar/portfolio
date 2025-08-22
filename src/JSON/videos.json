@@ -1,0 +1,20 @@
+{
+  "direccion": "src/MP4",
+  "videos": [
+    {
+      "video": "video3.mp4",
+      "texto": "DISEÑO WEB PROFESIONAL",
+      "minitexto": "SOLICITAR COTIZACIÓN"
+    },
+    {
+      "video": "video2.mp4",
+      "texto": "ASISTENTES VIRTUALES",
+      "minitexto": "SOLICITAR COTIZACIÓN"
+    },
+    {
+      "video": "video1.mp4",
+      "texto": "DISEÑO DE APLICACIONES",
+      "minitexto": "SOLICITAR COTIZACIÓN"
+    }
+  ]
+}

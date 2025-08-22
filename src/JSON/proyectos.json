@@ -1,0 +1,157 @@
+{
+    "configuracion": {
+      "ubicacioncarpeta": "src/PROYECTOS/",
+      "ubicacionlogocarpeta": "src/PROYECTOS/"
+    },
+    "imagenes": [
+      {
+        "imagen": "web1.png",
+        "texto": "Toda la oferta educativa de la Región 6 en un solo lugar. Explorá instituciones, carreras y oportunidades para planear tu futuro con claridad.",
+        "titulo": "ESTUDIAR EN LA REGION 6",
+        "url": "https://estudiarenlaregion6.abc.gob.ar/",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web2.png",
+        "logo": "btlsolution.svg",
+        "pos": "5vh top",
+        "tam": "14vh",
+        "texto": "Soluciones en redes e infraestructura para empresas. Conectividad confiable con antenas Starlink, routers y más.",
+        "titulo": "BTL SOLUTIONS",
+        "url": "https://btl-solutions.com.ar/",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web3.png",
+        "logo": "loucomidas.svg",
+        "pos": "5vh top",
+        "tam": "6vh",
+        "texto": "Platos caseros, sabrosos y con ingredientes de calidad. Conocé nuestro menú y pedí tu comida favorita fácil y rápido.",
+        "titulo": "LOU COMIDAS",
+        "url": "https://loucomidas.com.ar/",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web8.png",
+        "logo": "moonchy.png",
+        "pos": "5vh top",
+        "tam": "25vh",
+        "texto": "Proyecto en desarrollo centrado en minijuegos divertidos y simples.",
+        "titulo": "Moonchy",
+        "url": "./moonchy/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web11.png",
+        "texto": "Sitio ficticio de heladería. Diseño simple y funcional.",
+        "titulo": "Heladeria Peponcio Varela",
+        "url": "http://pruebabase.infinityfreeapp.com/index.php",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web4.png",
+        "texto": "Ejemplo de maquetado web con HTML. Proyecto en proceso.",
+        "titulo": "GRILLA HTML",
+        "url": "./htmlgrid/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web5.png",
+        "texto": "Calendario digital con feriados y estaciones del año.",
+        "titulo": "CALENDARIO WEB",
+        "url": "./calendario/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web6.png",
+        "texto": "Reproductor de música con una playlist lista para disfrutar.",
+        "titulo": "Reproductor de musica",
+        "url": "./musica/index.html",
+        "posicionimagen": ""
+      }
+      ,
+      {
+        "imagen": "web16.png",
+        "logo": "pdfreader.svg",
+        "pos": "5vh 1vh",
+        "tam": "30vh",
+        "texto": "Lector de pdf",
+        "titulo": "PDF READER",
+        "url": "./pdfreader/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web7.png",
+        "texto": "Calculadora lúdica pensada para niños pequeños.",
+        "titulo": "Calculadora de manzanas",
+        "url": "./calculadora/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web9.png",
+        "logo": "streamhub.svg",
+        "pos": "5vh 1vh",
+        "tam": "35vh",
+        "texto": "Pagina para transmitir en vivo desde celular",
+        "titulo": "StreamHub",
+        "url": "./streaming/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web10.png",
+        "logo": "nuki.svg",
+        "pos": "5vh top",
+        "tam": "27vh",
+        "texto": "Mascota virtual y pomodoro timer",
+        "titulo": "NUKI BOOKY",
+        "url": "./nukibooky/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web17.png",
+        "logo": "cssplay.svg",
+        "pos": "5vh 1vh",
+        "tam": "36vh",
+        "texto": "Minijuego para aprender y practicar CSS",
+        "titulo": "CSS PLAYGROUND",
+        "url": "./cssplayground/index.html",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web12.png",
+        "logo": "tealium.svg",
+        "pos": "5vh top",
+        "tam": "30vh",
+        "texto": "Proximamente",
+        "titulo": "TEALIUM",
+        "url": "",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web13.png",
+        "logo": "fanpage.svg",
+        "pos": "5vh top",
+        "tam": "14vh",
+        "texto": "Proximamente",
+        "titulo": "BILLIE EILISH FANPAGE",
+        "url": "",
+        "posicionimagen": ""
+      },
+      {
+        "imagen": "web14.png",
+        "texto": "Proximamente",
+        "titulo": "CREADOR DE RUTINAS",
+        "url": "",
+        "posicionimagen": ""
+      }
+      ,
+      {
+        "imagen": "web15.png",
+        "texto": "Proximamente",
+        "titulo": "CHATBOT + IA",
+        "url": "https://chatbotia-0s9k.onrender.com/",
+        "posicionimagen": ""
+      }
+    ]
+  }
+  
