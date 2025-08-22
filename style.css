@@ -211,7 +211,9 @@ footer{
     width: 100%;
     height: 100%;
 }
-
+#carrusel{
+    min-height: 100dvh;
+}
 #videos video {
     position: absolute;
     top: 0;
