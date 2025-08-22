@@ -111,6 +111,7 @@ header {
 }
 
 .logo{
+    animation: aparecer3 1s both;
     position: relative;
     width: 18vh;
     height: 8vh;
@@ -131,14 +132,31 @@ header {
     width: max-content;
     height: 5vh;
 }
-#navegacion button{
+#navegacion .opcion{
+    animation: aparecer3 1s both;
     cursor: pointer;
     background-color: transparent;
-    font-size: 1.5vh;
+    font-size: 2vh;
     color: white;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
 }
+#navegacion :nth-child(1){
+    animation-delay: 0.2s;
+}
+#navegacion :nth-child(2){
+    animation-delay: 0.4s;
+}
+#navegacion :nth-child(3){
+    animation-delay: 0.6s;
+}
+#navegacion :nth-child(4){
+    animation-delay: 0.8s;
+}
+#navegacion :nth-child(5){
+    animation-delay: 1s;
+}
+
 section{
     margin-bottom: 10vh;
     min-height: 100vh;
@@ -385,11 +403,25 @@ transition: all 0.2s ;
 }
 .B{
     background-image: url(src/SVG/estrellaB0.svg);
+    animation: estrella 3s both infinite;
 
 }
 .A{
     background-image: url(src/SVG/estrellaA0.svg);
+    animation: estrella 3s both infinite;
+}
 
+@keyframes estrella {
+    0%{
+        background-size: 5vh;
+    }
+    50%{
+        background-size: 4.4vh;
+    }
+    100%{
+        background-size: 5vh;
+
+    }
 }
 #sobremi{
     background-color: #001a6a;
@@ -437,7 +469,7 @@ transition: all 0.2s ;
 }
 .servicio{
     box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
-
+    
     position: relative;
     background-color: #001a6a;
 width: 45vh;
@@ -452,6 +484,15 @@ grid-template:
 ". . ."2vh/
 2vh auto 2vh ;
 }
+.escondido{
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+  }
 .servicio button{
     grid-area: BOT;
     background-color: white;
@@ -643,11 +684,25 @@ transform: scale(1.05);
     justify-content: center;
     align-items: center;
 }
-
+button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
 /* Animación */
 @keyframes fondod {
     0%   { background-position-x: 70vh; }
     100% { background-position-x: -70vh; }
+}
+@keyframes aparecer3 {
+    0%{
+        transform: translateY(-50vh);
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0vh);
+
+    }
 }
 
 @media (max-width:100vh) {
@@ -684,7 +739,7 @@ transform: scale(1.05);
     .servicio{
         width: 100%;
     }
-    #navegacion a{
+    #navegacion .opcion{
         display: none;
         font-size: 0vh;
 padding: 0;

@@ -9,6 +9,7 @@ async function cargarServicios() {
     data.servicios.forEach(servicio => {
       const div = document.createElement("div");
       div.classList.add("servicio");
+      div.classList.add("escondido");
   
       // Título
       const h3 = document.createElement("h3");
@@ -34,6 +35,17 @@ async function cargarServicios() {
   
       contenedor.appendChild(div);
     });
+    const cajas = document.querySelectorAll('.escondido');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('mostrar'); // aparece al scrollear
+      }
+    });
+  });
+
+  cajas.forEach(caja => observer.observe(caja));
   }
   
   // Ejecutar al cargar
