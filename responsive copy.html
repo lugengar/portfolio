@@ -6,7 +6,7 @@
          <div style="grid-area: FOT; position: relative;">
         <div class="contenido laptop" style=" z-index: 3; left: 0; bottom: -2vh;">
             <div class="dispositivo laptop"></div>
-            <div class="fondod laptop " ></div>
+            <div class="fondod laptop"></div>
         </div>
         <!-- Tele -->
         <div class="contenido tele" style="right: 10vh; bottom: 0;">
@@ -28,16 +28,8 @@
     </div> 
 </body>
 </html>
-<script src="src/JS/lenguajes copy.js"></script>
+
 <style>
-     @keyframes animarca {
-        0%{
-            left: -30vh;
-        }
-        100%{
-            left: 250vh;
-        }
-    }
     body{
     overflow: hidden;
     }
@@ -58,7 +50,6 @@
 }
 
 .contenido {
-    animation: movimientos 4s infinite both;
     
     position: absolute;
 }
@@ -76,40 +67,35 @@
 
 /* Fondos base */
 .fondod {
-    
     position: absolute;
     background-color: #001a6a;
-    background-image: url(src/SVG/lenguajes.svg);
+    background-image: url(src/SVG/responsive.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-position-x: 200%;
-    animation: fondod 15s infinite linear;
+    animation: fondod 5s infinite linear;
     z-index: 1;
 }
 
 /* Laptop */
-.contenido.laptop { width: 30vh; height: 20vh;
-    animation-delay: 5s;
- }
+.contenido.laptop { width: 30vh; height: 20vh; }
 .dispositivo.laptop { 
     width: 30vh; height: 20vh;
     background-image: url(src/SVG/laptop.svg);
 }
 .fondod.laptop {
-    top: 1.8vh;
+    top: 1.9vh;
     left: 2.6vh;
     width: 25vh;
     height: 15.2vh;
-    background-size: 180vh;
+    background-size: 50vh;
     animation-delay: 3s;
 }
 /* Tele */
-.contenido.tele { width: 35vh; height: 22vh; 
-    animation-delay: 8s;}
+.contenido.tele { width: 35vh; height: 22vh; }
 .dispositivo.tele { 
     width: 35vh; height: 22vh;
     background-image: url(src/SVG/tele.svg);
-    
 }
 .fondod.tele {
     top: 0.3vh;
@@ -117,12 +103,11 @@
     width: 34.7vh;
     height: 18.6vh;
     border-radius: 0vh;
-    background-size: 200vh;
+    background-size: 70vh;
     animation-delay: 2s;
 }
 /* Tablet */
-.contenido.tablet { width: 10vh; height: 15vh;
-    animation-delay: 3s; }
+.contenido.tablet { width: 10vh; height: 15vh; }
 .dispositivo.tablet { 
     width: 10vh; height: 15vh;
     background-image: url(src/SVG/tablet.svg);
@@ -133,36 +118,29 @@
     width: 9vh;
     height: 100%;
     border-radius: 1.5vh;
-    background-size: 120vh;
+    background-size: 40vh;
     animation-delay: 1s;
 }
 
 /* Celular */
-.contenido.celular { width: 6vh; height: 11vh;
-    animation-delay: 2s; }
+.contenido.celular { width: 6vh; height: 11vh; }
 .dispositivo.celular { 
     width: 6vh; height: 11vh;
     background-image: url(src/SVG/celular.svg);
 }
 .fondod.celular {
     top: 0;
-    left: 0.35vh;
+    left: 0.3vh;
     width: 5.1vh;
     height: 100%;
     border-radius: 1.2vh;
-    background-size: 80vh;
+    background-size: 30vh;
 }
 
 /* Animación */
 @keyframes fondod {
-    0%   { background-position-x: 20vh; }
-    100% { background-position-x: -220vh; }
-}
-@keyframes movimientos {
-    0%   { transform: rotate(0deg); }
-    25%   { transform: rotate(-2deg); }
-    50%   { transform: rotate(2deg); }
-    100% { transform: rotate(0deg); }
+    0%   { background-position-x: 60vh; }
+    100% { background-position-x: -60vh; }
 }
 
 
