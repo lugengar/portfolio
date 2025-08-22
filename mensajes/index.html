@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensajes Recibidos</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  #mensajes {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mensaje {
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+
+  .mensaje:hover {
+    transform: translateY(-3px);
+  }
+
+  .mensaje p {
+    margin: 5px 0;
+    color: #555;
+  }
+
+  .mensaje .fecha {
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  .mensaje .correo {
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mensajes Recibidos</h1>
+<ul id="mensajes">
+  <!-- Los mensajes aparecerán aquí -->
+</ul>
+
+<script>
+  const API_KEY = "$2a$10$LpIp5IysBLixWKyYXtxpSOQGk1TJqRtMoR./UMxtuAlwXk0NTDQoe";
+  
+  const BIN_ID = "68a7e214ae596e708fd0b9d9";
+  async function cargarMensajes() {
+    try {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        headers: { "X-Access-Key": API_KEY }
+      });
+
+      if (!res.ok) throw new Error("Error al leer el bin");
+
+      const data = await res.json();
+      const mensajes = Array.isArray(data.record) ? data.record : [];
+      const lista = document.getElementById("mensajes");
+      lista.innerHTML = "";
+
+      mensajes.forEach(m => {
+        const li = document.createElement("li");
+        li.classList.add("mensaje");
+        li.innerHTML = `
+          <p class="correo">${m.correo}</p>
+          <p>${m.mensaje}</p>
+          <p class="fecha">${m.fecha}</p>
+        `;
+        lista.appendChild(li);
+      });
+
+    } catch (error) {
+      console.error(error);
+      alert("No se pudieron cargar los mensajes");
+    }
+  }
+
+  // Cargar mensajes al iniciar
+  cargarMensajes();
+</script>
+
+</body>
+</html>
