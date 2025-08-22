@@ -384,7 +384,8 @@ transition: all 0.2s ;
 #inicio{
     display: none;
 }
-#sidebar a{
+#sidebar button{
+    background-color: transparent;
     width: 100%;
     display: flex;
     justify-content: center;
