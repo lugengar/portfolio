@@ -203,6 +203,7 @@ footer{
         }
     }
 #videos{
+    background-color: #001a6a;
     z-index: 1;
     position: absolute;
     left: 0vh;

@@ -5,6 +5,7 @@ let segundos = 10;
 const video1 = document.getElementById("video1");
 const video2 = document.getElementById("video2");
 const textoEl = document.getElementById("titulo");
+const textos = document.getElementById("textos");
 const botonesEl = document.getElementById("botones");
 const minitextoEl = document.getElementById("minitexto");
 let videoActual = video1;
@@ -34,7 +35,7 @@ function initCarrusel() {
   });
 
   // Agregar control táctil/mouse
-  addSwipeSupport(video1.parentElement); 
+  addSwipeSupport(textos); 
 }
 
 function siguienteVideo() {
