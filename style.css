@@ -790,4 +790,9 @@ padding: 0;
         "BOT BOT BOT"max-content/
         auto min-content auto ;
     }
+    #sobremi{
+
+        min-height: 50vh;
+    
+    }
 }
