@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <header></header>
+        <section id="inicio">
+            <div id="carrusel">
+                
+            </div>
+            <div id="ia">
+
+            </div>
+        </section>
+        <section></section>
+    </main>
+</body>
+</html>
+
+<style>
+   
+main{
+    position: absolute;
+    left: 0vh;
+    top: 0vh;
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: 100%;
+    background-color: white;
+}
+section{
+    min-height: 100vh;
+}
+header{
+    background-color: white;
+    position: sticky;
+    top: 0;
+    height: 18vh;
+}
+#inicio{
+    position: relative;
+    background-color: #534741;
+    min-height: 70vh;
+    display: grid;
+    grid-template:
+    "IA CAR"1fr/
+    1fr ;
+}
+#carrusel{
+    grid-area: CAR;
+    background-image: red;
+}
+#ia{
+    grid-area: IA;
+    background-image: blue;
+
+}
+</style>

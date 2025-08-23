@@ -736,8 +736,8 @@ button:hover{
         min-height: 70vh;
         display: grid;
         grid-template:
-        "ANI"50vh
-        "FOR"60vh
+        "FOR"50vh
+        "ANI"60vh
         /
         auto;
     }
