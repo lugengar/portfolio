@@ -118,6 +118,13 @@
         "posicionimagen": ""
       },
       {
+        "imagen": "",
+        "texto": "Proximamente",
+        "titulo": "Tarot",
+        "url": "./tarot/index.html",
+        "posicionimagen": ""
+      },
+      {
         "imagen": "web12.png",
         "logo": "tealium.svg",
         "pos": "5vh top",
