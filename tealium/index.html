@@ -12,11 +12,11 @@
         <header>
             <div id="logo"></div>
             <div id="buscador">
-                <button></button>
-                <input type="text">
+                <button ></button>
+                <input  type="text">
             </div>
             <nav>
-                <button class="link">HOME</button>
+                <button class="link" style="text-decoration: underline;">HOME</button>
                 <button class="link">CATEGORIA1</button>
                 <button class="link">CATEGORIA2</button>
                 <button id="butsidebar">☰</button>
@@ -39,12 +39,33 @@
             <div id="ia">
                 <h1>TODAS LAS INFUSIONES EN UN SOLO LUGAR!!</h1>
                 <p>Contamos con nuestra IA la cual te recomendará infusiones según tus necesidades.</p>
-                <textarea name="" id=""></textarea>
-                <button class="botonmarron">Buscar infusión</button>
+                <textarea name="" id="texto"></textarea>
+                <button class="botonmarron"  id="enviar">Buscar infusión</button>
             </div>
         </section>
         <section></section>
     </main>
 </body>
 </html>
+
+<script>
+    const enviar = document.getElementById("enviar")
+    const texto = document.getElementById("texto")
+    function enviartexto(){
+        if(texto.value == ""){
+            return 0;
+        }
+        fetch("https://chatbotia-0s9k.onrender.com/preguntar-ia", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ pregunta: texto.value })
+})
+.then(res => res.json())
+.then(data => console.log("Respuesta IA:", data.respuesta))
+.catch(err => console.error(err));
+
+    }
+    enviar.addEventListener("click", enviartexto)
+
+</script>
 

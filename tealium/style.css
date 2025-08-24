@@ -118,6 +118,8 @@ button, input, textarea{
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+  cursor: pointer;
+
 }
 textarea{
     grid-area: TXA;
@@ -213,6 +215,7 @@ nav button{
     position: relative;
     grid-area: CAR;
     background-image: red;
+    min-height: 80dvh;
 }
 #ia{
     position: relative;

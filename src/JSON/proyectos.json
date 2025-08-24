@@ -134,7 +134,7 @@
         "tam": "14vh",
         "texto": "Proximamente",
         "titulo": "BILLIE EILISH FANPAGE",
-        "url": "",
+        "url": "./billiefanpage/index.html",
         "posicionimagen": ""
       },
       {
@@ -149,7 +149,7 @@
         "imagen": "web15.png",
         "texto": "Proximamente",
         "titulo": "CHATBOT + IA",
-        "url": "https://chatbotia-0s9k.onrender.com/",
+        "url": "./chatbotia/index.html",
         "posicionimagen": ""
       }
     ]
