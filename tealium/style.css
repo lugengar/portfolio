@@ -118,6 +118,9 @@ button, input, textarea{
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+
+}
+button{
   cursor: pointer;
 
 }
