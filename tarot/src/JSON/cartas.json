@@ -1,0 +1,27 @@
+{
+    "cartas": [
+      { "nombre": "El Loco", "imagen": "src/cartas/loco.png" },
+      { "nombre": "El Mago", "imagen": "src/cartas/mago.png" },
+      { "nombre": "La Sacerdotisa", "imagen": "src/cartas/sacerdotisa.png" },
+      { "nombre": "La Emperatriz", "imagen": "src/cartas/emperatriz.png" },
+      { "nombre": "El Emperador", "imagen": "src/cartas/emperador.png" },
+      { "nombre": "El Hierofante", "imagen": "src/cartas/hierofante.png" },
+      { "nombre": "El Enamorado", "imagen": "src/cartas/enamorados.png" },
+      { "nombre": "El Carro", "imagen": "src/cartas/carro.png" },
+      { "nombre": "La Fuerza", "imagen": "src/cartas/fuerza.png" },
+      { "nombre": "El Ermitaño", "imagen": "src/cartas/ermitaño.png" },
+      { "nombre": "La Rueda de la Fortuna", "imagen": "src/cartas/rueda.png" },
+      { "nombre": "La Justicia", "imagen": "src/cartas/justicia.png" },
+      { "nombre": "El Colgado", "imagen": "src/cartas/colgado.png" },
+      { "nombre": "La Muerte", "imagen": "src/cartas/muerte.png" },
+      { "nombre": "La Templanza", "imagen": "src/cartas/templanza.png" },
+      { "nombre": "El Diablo", "imagen": "src/cartas/diablo.png" },
+      { "nombre": "La Torre", "imagen": "src/cartas/torre.png" },
+      { "nombre": "La Estrella", "imagen": "src/cartas/estrella.png" },
+      { "nombre": "La Luna", "imagen": "src/cartas/luna.png" },
+      { "nombre": "El Sol", "imagen": "src/cartas/sol.png" },
+      { "nombre": "El Juicio", "imagen": "src/cartas/juicio.png" },
+      { "nombre": "El Mundo", "imagen": "src/cartas/mundo.png" }
+    ]
+  }
+  

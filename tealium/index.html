@@ -55,7 +55,7 @@
         if(texto.value == ""){
             return 0;
         }
-        fetch("http://localhost:3000/preguntar-ia", {
+        fetch("https://chatbotia-0s9k.onrender.com/preguntar-ia", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ pregunta: texto.value, contexto: "eres un experto en te y debes encontrar una infusion que pueda ayudar a este usuario. sin pregunta algo fuera de tema no le respondas. por ultimo no des respuestas largas" })

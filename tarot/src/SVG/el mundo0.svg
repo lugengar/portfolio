@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 197 348">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" width="197" height="348" rx="9.54" ry="9.54"/>
+    </clipPath>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g class="cls-1">
+      <image width="2481" height="3509" transform="translate(-20 -23.67) scale(.24)" xlink:href="../../../../tarot/tarot_de_los_juegos_de_la_corte_arcanos_mayores_page-0006.jpg"/>
+    </g>
+  </g>
+</svg>

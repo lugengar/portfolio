@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('src/JPG/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.filtro {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+}
+
+#contenedor {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#pregunta {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+#enviar {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background: #9900ff;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#resultado {
+    margin-top: 30px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carta-container {
+    width: 200px;
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.carta {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    transform: rotateY(180deg); /* Boca abajo inicial */
+}
+
+.carta.flipped {
+    transform: rotateY(0deg); /* Se voltea mostrando el frente */
+}
+
+.carta .front, .carta .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+}
+
+.carta .front {
+    transform: rotateY(0deg);
+}
+
+.carta .back {
+    transform: rotateY(180deg);
+    background: #222 url('src/JPG/reverso.jpg') center center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+
+.descripcion {
+    max-width: 60%;
+    text-align: center;
+    font-size: 18px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}

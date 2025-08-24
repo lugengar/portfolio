@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarot Arcanos Mayores</title>
+<link rel="icon" href="src/icono.ico" type="image/x-icon">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="filtro"></div>
+<div id="contenedor">
+    <h1>Tarot de Arcanos Mayores</h1>
+    <input type="text" id="pregunta" placeholder="Escribe tu pregunta aquí...">
+    <button id="enviar">Consultar</button>
+</div>
+<div id="resultado"></div>
+
+<script>
+const enviar = document.getElementById("enviar")
+const texto = document.getElementById("pregunta")
+let tarotJSON = null
+
+// Cargar JSON de cartas
+fetch("src/JSON/cartas.json")
+  .then(res => res.json())
+  .then(data => { tarotJSON = data; console.log("JSON cargado:", tarotJSON) })
+  .catch(err => console.error("Error cargando JSON:", err))
+
+// Limpiar y parsear la respuesta IA
+function parseIAJson(respuestaIA) {
+  let jsonStr = respuestaIA.replace(/```json/g, '').replace(/```/g, '').trim()
+  try {
+    return JSON.parse(jsonStr)
+  } catch(e) {
+    console.error("Error parseando JSON IA:", e, jsonStr)
+    return null
+  }
+}
+
+function enviartexto(){
+  if(texto.value.trim() === "") return
+
+  // lista de nombres de cartas para guiar a la IA
+  const nombresCartas = tarotJSON.cartas.map(c => c.nombre).join(", ");
+
+  fetch("https://chatbotia-0s9k.onrender.com/preguntar-ia", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ 
+      pregunta: texto.value, 
+      contexto: `
+Eres un experto en Tarot, especializado en Arcanos Mayores.
+Tu tarea es responder a la pregunta del usuario eligiendo **una sola carta de la lista EXACTA que sigue**:
+${nombresCartas}
+
+Instrucciones para variar la elección:
+- No siempre uses la misma carta para preguntas similares.
+- Considera la emoción, situación y matiz de la pregunta.
+
+Devuelve **solo un JSON** con estas propiedades:
+- nombre: el nombre exacto de la carta elegida (de la lista)
+- interpretacion: la interpretación clara y concisa relacionada con la pregunta
+No agregues texto extra.
+`
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("Respuesta IA RAW:", data.respuesta)
+    const iaJSON = parseIAJson(data.respuesta)
+    console.log("Respuesta IA parseada:", iaJSON)
+
+    if(!iaJSON || !iaJSON.nombre || !iaJSON.interpretacion){
+      document.getElementById("resultado").innerHTML = `<p style="color:red;">Respuesta inválida de la IA</p>`
+      return
+    }
+
+    const carta = tarotJSON.cartas.find(c => c.nombre === iaJSON.nombre)
+    if(carta){
+      const resultadoDiv = document.getElementById("resultado")
+      resultadoDiv.innerHTML = `
+        <div class="carta-container" id="carta-container">
+          <div class="carta" id="carta">
+              <div class="front"><img src="${carta.imagen}" alt="${iaJSON.nombre}"></div>
+              <div class="back"></div>
+          </div>
+        </div>
+        <div class="descripcion">
+            <h2>${iaJSON.nombre}</h2>
+            <p>${iaJSON.interpretacion}</p>
+        </div>
+      `
+
+      const cartaDiv = document.getElementById("carta")
+      // Volteo automático después de 1 segundo
+      setTimeout(() => { cartaDiv.classList.add("flipped") }, 1000)
+    } else {
+      document.getElementById("resultado").innerHTML = `<p style="color:red;">Carta no encontrada en el JSON</p>`
+    }
+  })
+  .catch(err => console.error(err))
+}
+
+enviar.addEventListener("click", enviartexto)
+</script>
+</body>
+</html>
