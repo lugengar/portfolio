@@ -1,0 +1,285 @@
+#imagenes{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+.filtro{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(0.3vh);
+}
+.imagen{
+    background-image: url(src/JPG/img2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+main{
+    position: absolute;
+    left: 0vh;
+    top: 0vh;
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: 100%;
+    background-color: white;
+}
+h1{
+    font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white ;
+  font-size: 5vh;
+  grid-area: TIT;
+  padding: 0;
+  margin: 0;
+}
+p{
+    font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2vh;
+  color: white;
+  grid-area: TXT;
+  text-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+#botones{
+    z-index: 3;
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    gap: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#botones button{
+    width: 1.5vh;
+    height: 1.5vh;
+    border: none;
+    border-radius: 25vh;
+    background-color: white;
+    transition: all 0.5 both;
+}
+.activo{
+    opacity: 100%;
+    transform: scale(1.4);
+}
+.inactivo{
+    opacity: 40%;
+    transform: scale(1);
+}
+section{
+    min-height: 100vh;
+}
+#butsidebar{
+    display: none;
+    
+ }
+header{
+    overflow: hidden;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    height: 18vh;
+    z-index: 10;
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template:
+    ". . . . . . ." auto
+    ". LOG . BUS . NAV ." max-content
+    ". . . . . . ." auto/
+    auto max-content auto max-content auto max-content auto
+     ;
+}
+button, input, textarea{
+    font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+textarea{
+    grid-area: TXA;
+    background-color: white;
+    color: #534741;
+    border: #534741 0.01vh solid;
+    font-size: 2vh;
+    border-radius: 1vh;
+    resize: none;
+    padding: 2vh;
+}
+.botonmarron{
+    color: white;
+    border: white 0.01vh solid;
+    padding: 1vh;
+    font-size: 2vh;
+    grid-area: BOT;
+    background-color: transparent;
+    border-radius: 1vh;
+    width: 30vh;
+    background-image: url(src/SVG/lupab.svg);
+    background-repeat: no-repeat;
+    background-position: 1vh center;
+    padding-left: 2vh;
+    background-size: 3vh;
+}
+nav{
+    grid-area: NAV;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    width: max-content;
+    z-index: 2;
+
+}
+nav button{
+    font-size: 2vh;
+
+    background-color: transparent;
+    border: none;
+    color: #534741;
+}
+#logo{
+    grid-area: LOG;
+    background-image: url(src/SVG/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25vh;
+    height: 5vh;
+    z-index: 2;
+}
+
+#buscador{
+    grid-area: BUS;
+    display: grid;
+    grid-template-columns: max-content auto ;
+    gap: 1vh;
+}
+#buscador input{
+    border: #534741 0.01vh solid;
+    font-size: 2vh;
+    color: #534741;
+    border-radius: 50vh;
+    height: 3vh;
+    z-index: 2;
+    padding: 1vh;
+}
+#buscador button{
+    background-image: url(src/SVG/lupa.svg);
+    background-repeat: no-repeat;
+    background-size: 3vh;
+    background-position: center;
+    background-color: white;
+    border: #534741 0.01vh solid;
+    border-radius: 50vh;
+    width: 5vh;
+    height: 5vh;
+    z-index: 2;
+
+}
+#inicio{
+    position: relative;
+    background-color: #534741;
+    min-height: 70vh;
+    display: grid;
+    grid-template:
+    "IA CAR"1fr/
+    1fr 1fr ;
+}
+#carrusel{
+    position: relative;
+    grid-area: CAR;
+    background-image: red;
+}
+#ia{
+    position: relative;
+    grid-area: IA;
+    background-image: blue;
+    display: grid;
+    gap: 1vh;
+    grid-template:
+    ". . . ."auto
+    ". TIT . ."max-content
+    ". TXT TXT ."max-content
+    ". TXA TXA ."20vh
+    ". BOT . ."max-content
+    ". . . ."auto/
+    5% auto auto 5%
+     ;
+}
+.flor{
+    background-image: url(src/WEBP/flor.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 18vh;
+    height: 18vh;
+    position: absolute;
+    z-index: 1;
+    filter: drop-shadow(0.5vh 0.5vh 0.5vh rgba(0,0,0,0.3));
+}
+@media (max-width: 100vh) {
+    #inicio{
+    position: relative;
+    background-color: #534741;
+    min-height: 140vh;
+    display: grid;
+    grid-template:
+    "CAR"1fr
+    "IA" 1fr/
+    1fr ;
+}
+header{
+    
+    background-color: white;
+    position: sticky;
+    top: 0;
+    height: 18vh;
+    z-index: 10;
+    box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template:
+    ". . . . ." auto
+    ". LOG . NAV ." max-content
+    ". . . . ." 2vh
+    ". BUS BUS BUS ." auto/
+    auto auto 1vh max-content auto
+     ;
+}
+.link{
+        display: none;
+    }
+ #butsidebar{
+    font-size: 3vh;
+    background-color: white;
+    border: #534741 0.01vh solid;
+    border-radius: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vh;
+    height: 5vh;
+ }
+}
