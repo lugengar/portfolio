@@ -87,7 +87,7 @@ body {
 
 .carta .back {
     transform: rotateY(180deg);
-    background: #222 url('src/JPG/reverso.jpg') center center no-repeat;
+    background: #222 url('src/PNG/reverso.png') center center no-repeat;
     background-size: cover;
     border-radius: 10px;
 }
