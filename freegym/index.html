@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gym App</title>
+<style>
+  body { font-family: Arial; background:#f0f0f0; display:flex; justify-content:center; align-items:center; height:100vh; }
+  .container { background:white; padding:20px; border-radius:10px; width:300px; box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+  h2{text-align:center;}
+  input,button{width:100%;padding:10px;margin:5px 0;border-radius:5px;}
+  button{border:none;background:#007bff;color:white;cursor:pointer;}
+  button:hover{background:#0056b3;}
+  .toggle, .guest{ text-align:center; cursor:pointer; color:#007bff; }
+</style>
+</head>
+<body>
+
+<div class="container" id="authContainer">
+  <h2 id="formTitle">Iniciar Sesión</h2>
+  <input type="text" id="nombre" placeholder="Nombre de usuario">
+  <input type="password" id="contraseña" placeholder="Contraseña">
+  <button id="submitBtn">Iniciar Sesión</button>
+  <div class="toggle" id="toggleForm">Crear cuenta</div>
+  <div class="guest" id="guestBtn">Entrar como invitado</div>
+</div>
+
+<script>
+const BIN_ID = "68b26e1e43b1c97be92ffba5"; // Tu JSONBin ID
+const API_KEY = "$2a$10$N9BfvBkwc28noC55lGE5a.Yu7Ks9oGdImysR52pg8xPk4m/wsjQMe"; // Tu JSONBin API Key
+let usuarios = [];
+
+// Elementos
+let esLogin = true;
+const formTitle = document.getElementById("formTitle");
+const submitBtn = document.getElementById("submitBtn");
+const toggleForm = document.getElementById("toggleForm");
+const guestBtn = document.getElementById("guestBtn");
+const nombreInput = document.getElementById("nombre");
+const contraseñaInput = document.getElementById("contraseña");
+
+// Cargar usuarios desde JSONBin si no hay localStorage
+async function cargarUsuarios() {
+  if (!localStorage.getItem("usuarios")) {
+    try {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+        headers: { "X-Access-Key": API_KEY }
+      });
+      const data = await res.json();
+      usuarios = data.record;
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    } catch (err) {
+      console.error("Error cargando JSONBin:", err);
+    }
+  } else {
+    usuarios = JSON.parse(localStorage.getItem("usuarios"));
+  }
+}
+
+// Cambiar entre login y registro
+toggleForm.addEventListener("click", () => {
+  esLogin = !esLogin;
+  formTitle.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
+  submitBtn.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
+  toggleForm.textContent = esLogin ? "Crear cuenta" : "Iniciar sesión";
+});
+
+// Login / Registro
+submitBtn.addEventListener("click", async () => {
+  await cargarUsuarios();
+  const nombre = nombreInput.value.trim();
+  const contraseña = contraseñaInput.value.trim();
+  if (!nombre || !contraseña) return alert("Completa todos los campos");
+
+  if (esLogin) {
+    const usuario = usuarios.find(u => u.nombre === nombre && u.contraseña === contraseña);
+    if (usuario) {
+      localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+      window.location.href = "rutinas.html";
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+  } else {
+    const existe = usuarios.find(u => u.nombre === nombre);
+    if (existe) return alert("El usuario ya existe");
+    const nuevoUsuario = { nombre, contraseña, rol: "usuario", rutinas: [] };
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    localStorage.setItem("usuarioActivo", JSON.stringify(nuevoUsuario));
+    // Guardar en JSONBin
+    try {
+      await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Access-Key": API_KEY
+        },
+        body: JSON.stringify(usuarios)
+      });
+    } catch (err) {
+      console.error("Error guardando en JSONBin:", err);
+    }
+    window.location.href = "rutinas.html";
+  }
+  nombreInput.value = "";
+  contraseñaInput.value = "";
+});
+
+// Opción invitado
+guestBtn.addEventListener("click", () => {
+  const invitado = { nombre: "Invitado", rol: "invitado", rutinas: [] };
+  localStorage.setItem("usuarioActivo", JSON.stringify(invitado));
+  window.location.href = "rutinas.html";
+});
+</script>
+
+</body>
+</html>

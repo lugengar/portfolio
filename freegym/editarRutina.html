@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editar / Crear Rutina</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    #sugerenciasEjercicios li {
+        list-style: none;
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+    }
+    #sugerenciasEjercicios li:hover {
+        background: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>FREEGYM</h1>
+        <nav>
+        <button class="opcion" onclick="home()">Home</button>
+
+            <button class="opcion" onclick="compartir()">Compartir rutina</button>
+            <button class="opcion" onclick="progreso()">Ver progreso</button>
+            <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+            <button id="butsidebar">☰</button>
+        </nav>
+    </header>
+    <section>
+        <h2 id="tituloRutina">Crear / Editar Rutina</h2>
+        <input type="text" id="nombreRutinaInput" placeholder="Nombre de la rutina">
+        <button id="agregarEjercicioBtn" class="boton">Agregar ejercicio</button>
+
+        <div id="exerciseList">
+        </div>
+        <button id="guardarBtn" class="boton">Guardar Rutina</button>
+        <button id="cancelarBtn" class="boton">Cancelar</button>
+    </section>
+</div>
+<div id="sidebar">
+    <button class="opcion" onclick="home()">Home</button>
+
+    <button class="opcion" onclick="compartir()">Compartir rutina</button>
+    <button class="opcion" onclick="progreso()">Ver progreso</button>
+    <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+</div>
+<!-- Modal de ejercicios -->
+<div id="modalEjercicios" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:flex-start; padding-top:50px; z-index:1000;">
+    <div style="background:white; padding:20px; border-radius:10px; width:90%; max-width:500px; max-height:80%; overflow-y:auto;">
+        <h3>Seleccionar Ejercicio</h3>
+        <input type="text" id="buscadorModal" placeholder="Buscar ejercicio..." style="width:100%; padding:5px; margin-bottom:10px;">
+        
+        <div style="margin-bottom:10px;" id="filtrosMusculo">
+            <button class="filtroMusculo" data-musculo="">Todos</button>
+          
+        </div>
+
+        <ul id="listaModalEjercicios" style="list-style:none; padding-left:0;"></ul>
+        <button onclick="cerrarModal()" style="margin-top:10px;">Cerrar</button>
+    </div>
+</div>
+
+<script>
+let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
+if(!usuario) window.location.href="index.html";
+
+let ejerciciosJSON = [];
+let rutinaEditar = null; // null = crear, si viene será editar
+
+const exerciseList = document.getElementById("exerciseList");
+const nombreRutinaInput = document.getElementById("nombreRutinaInput");
+const tituloRutina = document.getElementById("tituloRutina");
+const agregarEjercicioBtn = document.getElementById("agregarEjercicioBtn");
+const guardarBtn = document.getElementById("guardarBtn");
+const cancelarBtn = document.getElementById("cancelarBtn");
+
+// Modal
+const modalEjercicios = document.getElementById("modalEjercicios");
+const listaModalEjercicios = document.getElementById("listaModalEjercicios");
+const buscadorModal = document.getElementById("buscadorModal");
+const filtrosMusculo = document.getElementById("filtrosMusculo");
+
+// Cargar ejercicios
+fetch('src/JSON/ejercicios.json')
+  .then(res => res.json())
+  .then(data => {
+    ejerciciosJSON = data;
+    inicializarFiltros();
+    cargarRutinaSiEdit();
+  });
+
+// Cargar rutina si viene a editar
+function cargarRutinaSiEdit(){
+    const index = localStorage.getItem("editarRutinaIndex");
+    if(index!==null){
+        rutinaEditar = usuario.rutinas[index];
+        nombreRutinaInput.value = rutinaEditar.nombre;
+        tituloRutina.textContent = "Editar Rutina";
+        rutinaEditar.ejercicios.forEach(ex=>{
+            agregarEjercicioLista(ex.ejercicio, ex.series, ex.descripcion, ex.tipo, ex.descanso);
+        });
+    }
+}
+
+// Inicializar filtros por músculo
+function inicializarFiltros() {
+    const musculos = [...new Set(ejerciciosJSON.map(e=>e.musculo).filter(Boolean))];
+    filtrosMusculo.innerHTML = `<button class="filtroMusculo" data-musculo="">Todos</button>`;
+    musculos.forEach(m=>{
+        const btn = document.createElement("button");
+        btn.classList.add("filtroMusculo");
+        btn.dataset.musculo = m;
+        btn.textContent = m;
+        filtrosMusculo.appendChild(btn);
+    });
+
+    document.querySelectorAll(".filtroMusculo").forEach(btn=>{
+        btn.addEventListener("click", ()=>{ mostrarListaModal(btn.dataset.musculo); });
+    });
+}
+
+// Modal ejercicios
+function abrirModalEjercicios(){ 
+    modalEjercicios.style.display = "flex"; 
+    mostrarListaModal(); 
+}
+function cerrarModal(){ 
+    modalEjercicios.style.display="none"; 
+    buscadorModal.value=""; 
+}
+
+// Mostrar lista en modal
+function mostrarListaModal(filtroMusculo=""){
+    listaModalEjercicios.innerHTML = "";
+    let lista = ejerciciosJSON;
+
+    const busq = buscadorModal.value.toLowerCase();
+    if(busq) lista = lista.filter(e => e.nombre.toLowerCase().includes(busq));
+    if(filtroMusculo) lista = lista.filter(e => e.musculo === filtroMusculo);
+
+    lista.forEach(e => {
+        const li = document.createElement("li");
+        li.textContent = `${e.nombre} (${e.musculo})`;
+        li.addEventListener("click", () => {
+            agregarEjercicioLista(e.nombre, [], "", e.tipo, 60);
+            cerrarModal();
+        });
+        listaModalEjercicios.appendChild(li);
+    });
+}
+
+buscadorModal.addEventListener("input", ()=>{ mostrarListaModal(); });
+agregarEjercicioBtn.addEventListener("click", ()=>{ abrirModalEjercicios(); });
+
+// Agregar ejercicio a lista visual
+function agregarEjercicioLista(nombre, series=[], descripcion="", tipo="reps", descanso=60){
+    const divEj = document.createElement("div");
+    divEj.classList.add("ejercicio");
+
+    const h3 = document.createElement("h3");
+    h3.textContent = nombre;
+    divEj.appendChild(h3);
+
+    // input descanso por ejercicio
+    const inputDescanso = document.createElement("input");
+    inputDescanso.type = "number";
+    inputDescanso.placeholder = "Tiempo de descanso (seg)";
+    inputDescanso.value = descanso;
+    divEj.appendChild(inputDescanso);
+
+    const ulSeries = document.createElement("div");
+    ulSeries.classList.add("series-list");
+
+    // Agregar series existentes
+    series.forEach(s=>{
+        crearSerie(ulSeries, tipo, s.cantidad, s.peso);
+    });
+
+    // **Agregar automáticamente una serie si no hay series existentes**
+    if(series.length === 0){
+        crearSerie(ulSeries, tipo);
+    }
+
+    const btnAgregarSerie = document.createElement("button");
+    btnAgregarSerie.type = "button";
+    btnAgregarSerie.classList.add("boton");
+    btnAgregarSerie.textContent = "Agregar Serie";
+    btnAgregarSerie.addEventListener("click", ()=>{ crearSerie(ulSeries, tipo); });
+
+    divEj.appendChild(ulSeries);
+    divEj.appendChild(btnAgregarSerie);
+
+    exerciseList.appendChild(divEj);
+    actualizarNumerosSeries(ulSeries);
+}
+
+
+// Crear serie dependiendo del tipo de ejercicio
+function crearSerie(ul, tipo="reps", cantidad="", peso=""){
+    const liSerie = document.createElement("div");
+    liSerie.classList.add("serie");
+
+    const numeroSerie = document.createElement("div");
+    numeroSerie.classList.add("boton","numeroSerie");
+
+    const inputCantidad = document.createElement("input");
+    inputCantidad.type = "number";
+    inputCantidad.value = cantidad;
+
+    let inputPeso;
+    switch(tipo){
+        case "reps":
+            inputCantidad.placeholder = "Repeticiones";
+            break;
+        case "kg":
+            inputCantidad.placeholder = "Repeticiones";
+            inputPeso = document.createElement("input");
+            inputPeso.type="number";
+            inputPeso.placeholder="Peso";
+            inputPeso.value=peso;
+            break;
+        case "tiempo":
+            inputCantidad.placeholder = "Minutos";
+            break;
+        case "distancia":
+            inputCantidad.placeholder = "Km";
+            break;
+        default:
+            inputCantidad.placeholder = "Cantidad";
+    }
+
+    const btnEliminar = document.createElement("button");
+    btnEliminar.type="button";
+    btnEliminar.classList.add("boton");
+    btnEliminar.textContent = "✖";
+    btnEliminar.style.backgroundColor = "#ff271f"
+    btnEliminar.addEventListener("click", () => {
+        liSerie.remove();
+        if(ul.children.length === 0){
+            ul.parentElement.remove();
+        } else {
+            Array.from(ul.children).forEach((s, i)=>{
+                s.querySelector(".boton").textContent = i + 1;
+            });
+        }
+    });
+
+    liSerie.appendChild(numeroSerie);
+    liSerie.appendChild(inputCantidad);
+    if(inputPeso) liSerie.appendChild(inputPeso);
+    liSerie.appendChild(btnEliminar);
+    ul.appendChild(liSerie);
+
+    actualizarNumerosSeries(ul);
+}
+
+
+// Actualizar numeración de series
+function actualizarNumerosSeries(ul){
+    ul.querySelectorAll(".serie").forEach((s,i)=>{ 
+        s.querySelector(".numeroSerie").textContent = i+1; 
+    });
+}
+
+// Guardar rutina
+guardarBtn.addEventListener("click", ()=>{
+    const nombreRutina = nombreRutinaInput.value.trim();
+    if(!nombreRutina) return alert("Ingresa un nombre de rutina");
+
+    const ejercicios = [];
+
+    // Recorrer todos los ejercicios en la lista
+    exerciseList.querySelectorAll(".ejercicio").forEach(divEj=>{
+        const nombreEx = divEj.querySelector("h3").textContent;
+        const descanso = divEj.querySelector("input[type=number]").value || 60;
+        const series = [];
+
+        divEj.querySelectorAll(".series-list .serie").forEach(sLi=>{
+            const cantidad = sLi.querySelector("input[type=number]").value;
+            const peso = sLi.querySelectorAll("input[type=number]")[1]?.value || "";
+            if(cantidad) series.push({cantidad, peso});
+        });
+
+        if(series.length > 0){
+            ejercicios.push({ejercicio:nombreEx, series, descanso});
+        } else {
+            // Si no hay series, eliminar ejercicio del DOM
+            divEj.remove();
+        }
+    });
+
+    if(ejercicios.length === 0) return alert("Agrega al menos un ejercicio con series");
+
+    if(rutinaEditar){
+        rutinaEditar.nombre = nombreRutina;
+        rutinaEditar.ejercicios = ejercicios;
+        localStorage.removeItem("editarRutinaIndex");
+    } else {
+        usuario.rutinas = usuario.rutinas || [];
+        usuario.rutinas.push({nombre:nombreRutina, ejercicios});
+    }
+
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+    window.location.href="rutinas.html";
+});
+
+
+cancelarBtn.addEventListener("click", ()=>{
+    localStorage.removeItem("editarRutinaIndex");
+    window.location.href="rutinas.html";
+});
+
+
+</script>
+<script src="src/JS/sidebar.js"></script>
+</body>
+</html>

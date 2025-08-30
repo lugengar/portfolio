@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis Rutinas Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+<h1>FREEGYM</h1>
+<nav>
+    <button class="opcion" onclick="home()">Home</button>
+    <button class="opcion" onclick="compartir()">Compartir rutina</button>
+    <button class="opcion" onclick="progreso()">Ver progreso</button>
+    <button class="opcion"  onclick="cerrarsesion()">Cerrar sesión</button>
+    <button id="butsidebar">☰</button>
+</nav>
+    </header>
+    <section>
+    <!--<h2 id="welcome"></h2>--> 
+    <h2>Tus rutinas</h2>
+    <button class="boton" id="agregarRutinaBtn">CREAR NUEVA RUTINA</button>
+        <div id="rutinasList">
+          div.rutina
+        </div>
+    </section>
+
+</div>
+<div id="sidebar">
+    <button class="opcion" onclick="home()">Home</button>
+    <button class="opcion" onclick="compartir()">Compartir rutina</button>
+    <button class="opcion" onclick="progreso()">Ver progreso</button>
+    <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+</div>
+<script src="src/JS/rutinas.js"></script>
+<script src="src/JS/sidebar.js"></script>
+</body>
+</html>

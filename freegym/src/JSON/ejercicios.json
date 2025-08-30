@@ -1,0 +1,9 @@
+[
+  {"nombre":"Press de banca", "tipo":"kg", "musculo":"Pecho"},
+  {"nombre":"Flexiones", "tipo":"reps", "musculo":"Pecho"},
+  {"nombre":"Sentadillas", "tipo":"kg", "musculo":"Piernas"},
+  {"nombre":"Curl de bíceps", "tipo":"kg", "musculo":"Brazos"},
+  {"nombre":"Remo con mancuerna", "tipo":"kg", "musculo":"Espalda"},
+  {"nombre":"Plancha", "tipo":"seg", "musculo":"Abdomen"},
+  {"nombre":"Elevaciones laterales", "tipo":"kg", "musculo":"Hombros"}
+]

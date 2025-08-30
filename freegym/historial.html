@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historial y Progreso</title>
+<style>
+body{font-family:Arial;background:#f0f0f0;display:flex;justify-content:center;padding-top:20px;}
+.container{background:white;padding:20px;border-radius:10px;width:650px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+h2,h3,h4{margin-top:0;}
+ul{list-style:none;padding:0;}
+li{margin-bottom:10px;}
+</style>
+</head>
+<body>
+  
+<div class="container">
+<h2>Historial de Entrenamientos</h2>
+<p id="rachaDias">Racha de días: 0</p>
+<ul id="historialList"></ul>
+</div>
+
+<script>
+let usuario=JSON.parse(localStorage.getItem("usuarioActivo"));
+if(!usuario) window.location.href="index.html";
+
+document.getElementById("rachaDias").textContent="Racha de días: "+(usuario.streakDays||0);
+
+let historialList=document.getElementById("historialList");
+
+(usuario.historial||[]).forEach(h=>{
+  const li=document.createElement("li");
+  const fecha=new Date(h.fecha).toLocaleString();
+  li.innerHTML=`<b>${h.rutina}</b> - ${fecha}<ul></ul>`;
+  const ul=li.querySelector("ul");
+
+  h.ejercicios.forEach((ex,i)=>{
+    const liEx=document.createElement("li");
+    let seriesText=ex.map((s,j)=>`Serie ${j+1}: ${s.cantidad} ${s.tipo}`).join(", ");
+    liEx.textContent=`Ejercicio ${i+1}: ${seriesText}`;
+    ul.appendChild(liEx);
+  });
+
+  historialList.appendChild(li);
+});
+</script>
+</body>
+</html>

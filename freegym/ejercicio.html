@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrenamiento</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>FREEGYM</h1>
+    <nav>
+        <button class="opcion" onclick="home()">Home</button>
+        <button class="opcion" onclick="compartir()">Compartir rutina</button>
+        <button class="opcion" onclick="progreso()">Ver progreso</button>
+        <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+        <button id="butsidebar">☰</button>
+    </nav>
+</header>
+  <section>
+    <div class="miniheader">
+    <h2 id="rutinaNombre"></h2>
+    <div class="progress-container"><div id="progressBar" class="progress-bar"></div> <p id="descansoTexto">0s</p></div>
+  </div>
+    <div id="ejerciciosList">
+      
+    </div>
+    
+    <button id="finalizarBtn" class="boton">Finalizar Entreno</button>
+  </section>
+</div>
+<div id="modalEjercicios" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:flex-start; padding-top:50px; z-index:1000;">
+  <div style="background:white; padding:20px; border-radius:10px; width:90%; max-width:500px; max-height:80%; overflow-y:auto;">
+      <h3>Seleccionar Ejercicio</h3>
+      <input type="text" id="buscadorModal" placeholder="Buscar ejercicio..." style="width:100%; padding:5px; margin-bottom:10px;">
+      
+      <div style="margin-bottom:10px;" id="filtrosMusculo">
+          <button class="filtroMusculo" data-musculo="">Todos</button>
+        
+      </div>
+
+      <ul id="listaModalEjercicios" style="list-style:none; padding-left:0;"></ul>
+      <button onclick="cerrarModal()" style="margin-top:10px;">Cerrar</button>
+  </div>
+</div>
+<div id="sidebar">
+  <button class="opcion" onclick="home()">Home</button>
+  <button class="opcion" onclick="compartir()">Compartir rutina</button>
+  <button class="opcion" onclick="progreso()">Ver progreso</button>
+  <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+</div>
+<script>
+let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
+if(!usuario) window.location.href="index.html";
+
+let rutinaIndex = parseInt(localStorage.getItem("rutinaIndex"));
+let rutina = usuario.rutinas[rutinaIndex];
+document.getElementById("rutinaNombre").textContent = rutina.nombre;
+
+let progreso = JSON.parse(localStorage.getItem("progresoRutina")) || {
+    ejercicios: rutina.ejercicios.map(ex=>ex.series.map(s=>false))
+};
+
+const ejerciciosList = document.getElementById("ejerciciosList");
+const descansoTexto = document.getElementById("descansoTexto");
+const progressBar = document.getElementById("progressBar");
+
+let descansoInterval = null;
+
+// Render de ejercicios
+function renderEjercicios(){
+    ejerciciosList.innerHTML = "";
+    rutina.ejercicios.forEach((ex,i)=>{
+        const divEj = document.createElement("div");
+        divEj.classList.add("ejercicio");
+
+        const h3 = document.createElement("h3");
+        h3.textContent = ex.ejercicio;
+        divEj.appendChild(h3);
+
+        const seriesList = document.createElement("div");
+        seriesList.classList.add("series-list");
+
+        ex.series.forEach((s,j)=>{
+            crearSerie(seriesList, ex.tipo, s.cantidad, s.peso, i, j, s.descanso || 60);
+        });
+
+        // Botón para agregar serie
+        const btnAgregar = document.createElement("button");
+        btnAgregar.type = "button";
+        btnAgregar.classList.add("boton");
+        btnAgregar.textContent = "Agregar Serie";
+        btnAgregar.addEventListener("click", ()=>{
+            crearSerie(seriesList, ex.tipo, "", "", i, seriesList.children.length, ex.descanso || 60);
+        });
+
+        divEj.appendChild(seriesList);
+        divEj.appendChild(btnAgregar);
+        ejerciciosList.appendChild(divEj);
+    });
+}
+
+// Crear serie individual
+function crearSerie(ul, tipo="reps", cantidad="", peso="", exIndex=0, serieIndex=0, descanso=60){
+    const divSerie = document.createElement("div");
+    divSerie.classList.add("serie");
+
+    const numero = document.createElement("div");
+    numero.classList.add("boton","numeroSerie");
+    numero.textContent = serieIndex+1;
+
+    const inputCantidad = document.createElement("input");
+    inputCantidad.type="number";
+    inputCantidad.placeholder = (tipo==="tiempo")?"Minutos":(tipo==="distancia")?"Km":"Cantidad";
+    inputCantidad.value = cantidad;
+
+    let inputPeso;
+    if(tipo==="kg"){
+        inputPeso = document.createElement("input");
+        inputPeso.type="number";
+        inputPeso.placeholder="Peso";
+        inputPeso.value = peso;
+    }
+
+    const btnCheck = document.createElement("button");
+    btnCheck.type = "button";
+    btnCheck.classList.add("check");
+    btnCheck.textContent = "✔";
+
+    btnCheck.addEventListener("click", ()=>{
+        const completado = divSerie.classList.toggle("completed");
+        btnCheck.classList.toggle("completed", completado);
+        progreso.ejercicios[exIndex][serieIndex] = completado;
+        localStorage.setItem("progresoRutina", JSON.stringify(progreso));
+
+        if(completado) iniciarDescanso(descanso);
+    });
+
+    divSerie.appendChild(numero);
+    divSerie.appendChild(inputCantidad);
+    if(inputPeso) divSerie.appendChild(inputPeso);
+    divSerie.appendChild(btnCheck);
+
+    ul.appendChild(divSerie);
+}
+
+// Descanso con barra
+let descansoSegundos=0, descansoMax=0;
+function iniciarDescanso(segundos){
+    if(descansoInterval) clearInterval(descansoInterval);
+    descansoMax = segundos;
+    descansoSegundos = segundos;
+    actualizarDescanso();
+    descansoInterval = setInterval(()=>{
+        descansoSegundos--;
+        actualizarDescanso();
+        if(descansoSegundos<=0) clearInterval(descansoInterval);
+    },1000);
+}
+function actualizarDescanso(){
+    const porcentaje = (descansoSegundos/descansoMax)*100;
+    progressBar.style.width = porcentaje + "%";
+    descansoTexto.textContent = descansoSegundos>0?`${descansoSegundos}s`:"Listo para la siguiente serie";
+}
+
+renderEjercicios();
+
+// Finalizar entreno
+// Guardar copia de rutina original
+let rutinaOriginal = JSON.stringify(rutina);
+
+// Finalizar entreno
+document.getElementById("finalizarBtn").addEventListener("click", ()=>{
+    const fecha = new Date().toISOString();
+    
+    // Verificar si la rutina cambió
+    const rutinaActual = JSON.stringify(rutina);
+    if(rutinaOriginal !== rutinaActual){
+        const aplicarCambios = confirm("La rutina fue modificada. ¿Deseas aplicar estos cambios?");
+        if(aplicarCambios){
+            usuario.rutinas[rutinaIndex] = JSON.parse(rutinaActual);
+            alert("Cambios aplicados a la rutina.");
+        }
+    }
+
+    // Guardar historial
+    usuario.historial = usuario.historial||[];
+    usuario.historial.push({
+        rutina: rutina.nombre,
+        fecha,
+        ejercicios: rutina.ejercicios.map(ex=>ex.series)
+    });
+
+    // Actualizar racha
+    let hoy = new Date(); hoy.setHours(0,0,0,0);
+    let lastWorkout = new Date(usuario.lastWorkout || 0);
+    const diff = (hoy - lastWorkout)/(1000*60*60*24);
+    usuario.streakDays = (diff === 1)?((usuario.streakDays||0)+1):1;
+    usuario.lastWorkout = new Date().toISOString();
+
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+    localStorage.removeItem("progresoRutina");
+    alert("Entrenamiento finalizado y guardado!");
+    window.location.href="historial.html";
+});
+
+</script>
+<script src="src/JS/sidebar.js"></script>
+</body>
+</html>
