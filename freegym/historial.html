@@ -4,22 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Historial y Progreso</title>
-<style>
-body{font-family:Arial;background:#f0f0f0;display:flex;justify-content:center;padding-top:20px;}
-.container{background:white;padding:20px;border-radius:10px;width:650px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
-h2,h3,h4{margin-top:0;}
-ul{list-style:none;padding:0;}
-li{margin-bottom:10px;}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-<div class="container">
+  <div class="container">
+  <header>
+    <h1>FREEGYM</h1>
+    <nav>
+        <button class="opcion" onclick="home()">Home</button>
+        <button class="opcion" onclick="compartir()">Compartir rutina</button>
+        <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+        <button id="butsidebar">☰</button>
+    </nav>
+</header>
+  <section>
 <h2>Historial de Entrenamientos</h2>
-<p id="rachaDias">Racha de días: 0</p>
-<ul id="historialList"></ul>
+<h3 id="rachaDias">Racha de días: 0</h3>
+<p id="historialList"></p>
+</section>
+</div>
+<div id="sidebar">
+  <button class="opcion" onclick="home()">Home</button>
+  <button class="opcion" onclick="compartir()">Compartir rutina</button>
+  <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
 </div>
 
+<script src="src/JS/sidebar.js"></script>
 <script>
 let usuario=JSON.parse(localStorage.getItem("usuarioActivo"));
 if(!usuario) window.location.href="index.html";

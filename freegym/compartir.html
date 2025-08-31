@@ -4,38 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compartir Rutinas</title>
-<style>
-body{font-family:Arial;background:#f0f0f0;display:flex;justify-content:center;padding-top:20px;}
-.container{background:white;padding:20px;border-radius:10px;width:650px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
-input,select,button{width:100%;padding:8px;margin:5px 0;border-radius:5px;}
-button{border:none;background:#007bff;color:white;cursor:pointer;}
-button:hover{background:#0056b3;}
-ul{padding-left:20px;}
-li{margin-bottom:10px;}
-#sugerencias div{cursor:pointer;padding:3px;}
-#sugerencias div:hover{background:#ddd;}
-</style>
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 <div class="container">
+  <header>
+    <h1>FREEGYM</h1>
+    <nav>
+        <button class="opcion" onclick="home()">Home</button>
+        <button class="opcion" onclick="progreso()">Ver progreso</button>
+        <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
+        <button id="butsidebar">☰</button>
+    </nav>
+</header>
+  <section>
 <h2>Compartir Rutina</h2>
 
-<div>
-<h4>Enviar rutina</h4>
+<h3 style="color: white;">Enviar rutina</h3>
 <select id="misRutinasSelect"></select>
 <input type="text" id="destinatario" placeholder="Buscar usuario...">
 <div id="sugerencias"></div>
-<button id="enviarBtn">Enviar Rutina</button>
-</div>
-
-<hr>
-
+<button id="enviarBtn" class="boton">Enviar Rutina</button>
 <div>
-<h4>Rutinas recibidas</h4>
-<ul id="buzonList"></ul>
+<h3 style="color: white;">Rutinas recibidas</h3>
+<p style="color: white;" id="buzonList"></p>
 </div>
+</section>
+</div>
+<div id="sidebar">
+  <button class="opcion" onclick="home()">Home</button>
+  <button class="opcion" onclick="progreso()">Ver progreso</button>
+  <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
 </div>
 
+<script src="src/JS/sidebar.js"></script>
 <script>
   const JSONBIN_ID = "68b26e1e43b1c97be92ffba5"; // Tu JSONBin ID
   const JSONBIN_KEY = "$2a$10$N9BfvBkwc28noC55lGE5a.Yu7Ks9oGdImysR52pg8xPk4m/wsjQMe"; // Tu JSONBin API Key
@@ -63,7 +66,7 @@ let usuarios=JSON.parse(localStorage.getItem("usuarios")||"[]");
 destinatarioInput.addEventListener("input", ()=>{
   const texto=destinatarioInput.value.toLowerCase();
   const coincidencias=usuarios.filter(u=>u.nombre.toLowerCase().includes(texto)&&u.nombre.toLowerCase()!=usuario.nombre.toLowerCase());
-  sugerenciasDiv.innerHTML=coincidencias.map(u=>`<div onclick="destinatarioInput.value='${u.nombre}'">${u.nombre}</div>`).join("");
+  sugerenciasDiv.innerHTML=coincidencias.map(u=>`<button class="boton2" onclick="destinatarioInput.value='${u.nombre}'">${u.nombre}</button>`).join("");
 });
 
 // Funciones JSONBin
@@ -117,7 +120,10 @@ async function renderBuzon(){
   recibidas.forEach((b,i)=>{
     const li=document.createElement("li");
     li.textContent=`${b.rutina.nombre} de ${b.remitente} (${new Date(b.fecha).toLocaleString()}) `;
-    const btnAceptar=document.createElement("button"); btnAceptar.textContent="Aceptar";
+    const btnAceptar=document.createElement("button"); 
+    btnAceptar.textContent="Aceptar";
+    btnAceptar.classList.add("boton")
+    btnAceptar.style.marginLeft = "2vh"
     btnAceptar.addEventListener("click", async ()=>{
       usuario.rutinas=usuario.rutinas||[];
       usuario.rutinas.push(b.rutina);
