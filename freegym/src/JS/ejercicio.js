@@ -11,6 +11,7 @@ let progreso = JSON.parse(localStorage.getItem("progresoRutina")) || {
 
 const ejerciciosList = document.getElementById("ejerciciosList");
 const descansoTexto = document.getElementById("descansoTexto");
+const descansoBar = document.getElementById("descansoBar");
 const progressBar = document.getElementById("progressBar");
 
 let descansoInterval = null;
@@ -136,7 +137,7 @@ function iniciarDescanso(segundos){
 }
 function actualizarDescanso(){
     const porcentaje = (descansoSegundos/descansoMax)*100;
-    progressBar.style.width = porcentaje + "%";
+    descansoBar.style.width = porcentaje + "%";
     descansoTexto.textContent = descansoSegundos>0?`${descansoSegundos}s`:"Listo para la siguiente serie";
 }
 
