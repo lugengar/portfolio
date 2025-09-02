@@ -11,25 +11,49 @@
   <header>
     <h1>FREEGYM</h1>
     <nav>
-        <button class="opcion" onclick="home()">Home</button>
+        <button class="opcion" onclick="home()">Inicio</button>
         <button class="opcion" onclick="compartir()">Compartir rutina</button>
         <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
         <button id="butsidebar">☰</button>
     </nav>
 </header>
   <section>
-<h2>Historial de Entrenamientos</h2>
-<h3 id="rachaDias">Racha de días: 0</h3>
-<p id="historialList"></p>
+    <div class="divisor">
+      <h1 class="grande">Racha semanal</h1>
+      <h2 id="rachaDias">0</h2>
+    </div>
+    <div class="ventana">
+      <div class="calendarioHeader">
+        <button id="prevMes" class="boton">&lt;</button>
+        <span id="mesAnio"></span>
+        <button id="nextMes" class="boton">&gt;</button>
+      </div>
+      <div class="semana" id="semana">
+        <div class="diasem centro">Dom</div>
+        <div class="diasem centro">Lun</div>
+        <div class="diasem centro">Mar</div>
+        <div class="diasem centro">Mie</div>
+        <div class="diasem centro">Jue</div>
+        <div class="diasem centro">Vie</div>
+        <div class="diasem centro">Sab</div>
+      </div>
+     
+      <div class="calendario" id="calendario"></div>
+    </div>
+    <h2>Historial</h2>
+    <div id="historialList"></div>
+
+
 </section>
 </div>
 <div id="sidebar">
-  <button class="opcion" onclick="home()">Home</button>
+  <button class="opcion" onclick="home()">Inicio</button>
   <button class="opcion" onclick="compartir()">Compartir rutina</button>
   <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
 </div>
 
 <script type="module" src="src/JS/historial.js"></script>
+
 <script type="module" src="src/JS/sidebar.js"></script>
 
 </body>

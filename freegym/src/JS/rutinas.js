@@ -53,7 +53,7 @@ function renderRutinas(){
       divEjercicios.appendChild(p);
     });
 
-    const btnIniciar = crearBoton("INICIAR RUTINA", ()=>{
+    const btnIniciar = crearBoton("Iniciar rutina", ()=>{
       localStorage.setItem("rutinaIndex", i);
       localStorage.setItem("progresoRutina", JSON.stringify({ejercicios:(r.ejercicios||[]).map(ex=>(ex.series||[]).map(()=>false))}));
       window.location.href="ejercicio.html";
