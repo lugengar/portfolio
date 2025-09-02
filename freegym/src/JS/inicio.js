@@ -1,6 +1,13 @@
 import { JSONBIN_ID, JSONBIN_KEY } from "./config.js"; 
 import { setUsuario } from "./store.js";
 
+// 🔹 Auto login si ya hay usuario activo
+const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
+if (usuarioActivo) {
+  window.location.href = "rutinas.html";
+}
+
+// Variables
 let usuarios = [];
 let esLogin = true;
 
@@ -15,6 +22,7 @@ const contraseñaInput = document.getElementById("contraseña");
 const confirmarContraseñaInput = document.getElementById("confirmarContraseña");
 const rolSelect = document.getElementById("rolSelect");
 
+// Animación de campos
 function animarCampos() {
   document.querySelectorAll(".fade-slide").forEach(campo => {
     campo.classList.remove("show");
@@ -22,6 +30,7 @@ function animarCampos() {
   });
 }
 
+// Cargar usuarios desde localStorage o JSONBin
 async function cargarUsuarios() {
   if (!localStorage.getItem("usuarios")) {
     try {
@@ -39,6 +48,7 @@ async function cargarUsuarios() {
   }
 }
 
+// Toggle login/registro
 toggleForm.addEventListener("click", () => {
   esLogin = !esLogin;
   formTitle.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
@@ -49,7 +59,7 @@ toggleForm.addEventListener("click", () => {
   animarCampos();
 });
 
-// 🚀 Manejo de envío del formulario
+// Envío del formulario
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   await cargarUsuarios();
@@ -97,7 +107,7 @@ form.addEventListener("submit", async (event) => {
   nombreInput.value = contraseñaInput.value = confirmarContraseñaInput.value = "";
 });
 
-// 🚀 Botón Invitado
+// Botón Invitado
 guestBtn.addEventListener("click", (event) => {
   event.preventDefault();
   setUsuario({ nombre: "Invitado", rol: "invitado", rutinas: [] });
