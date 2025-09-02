@@ -21,7 +21,7 @@
     grid-template:
     "HEA HEA HEA"30vh
     ". CON ."auto/
-    5% auto 5% ;
+    2% auto 2% ;
 }
 .fondovideo{
     position: absolute;
@@ -43,13 +43,34 @@
     position: relative;
 }
 body{
-    background-color: #1a1a1a;
+    background-color: black;
 }
 .miniheader{
-    position: sticky; top: 8vh; z-index: 8; background-color: #1a1a1a;
+    position: sticky; top: 8vh; z-index: 8; background-color: black;
     height: 10vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
+}
+.miniheader2{
+    position: sticky; 
+    top: 8vh; 
+    z-index: 8; 
+    background-color: black;
+    height: max-content;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    display: grid;
+    gap: 1vh;
+}
+.divisor{
+    display: grid;
+    gap: 3%;
+    grid-template-columns: 48.5% 48.5%;
+}
+.divisor2{
+    display: grid;
+    gap: 3%;
+    grid-template-columns: 48.5% 48.5%;
 }
 input{
     font-family: "Outfit", sans-serif;
@@ -61,11 +82,12 @@ input{
     padding-right: 2vh;
     border: none;
     border-radius: 1vh;
-    background-color: white;
-    color: #1a1a1a;
     cursor: pointer;
     font-size: 2vh;
     text-decoration: none;
+    border: rgb(95, 95, 95) solid 0.2vh;
+    background-color: #2e2e2e;
+    color: white;
 }
 h1{
 font-family: "Outfit", sans-serif;
@@ -83,9 +105,21 @@ font-family: "Outfit", sans-serif;
   font-weight: 400;
   font-size: 2vh;
   font-style: normal;
-  color: #1a1a1a;
+  color: white;
   padding: 0;
   margin: 0;
+}
+label{
+font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 2vh;
+    font-style: normal;
+    color: white;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 li, ul{
     font-family: "Outfit", sans-serif;
@@ -93,7 +127,7 @@ li, ul{
   font-weight: 400;
   font-size: 2vh;
   font-style: normal;
-  color: #1a1a1a;
+  color: black;
   padding: 0;
   margin: 0;
 
@@ -102,24 +136,45 @@ li, ul{
   color: white;
 }
 
-#modalEjercicios li{
+.ejericios2{
     margin-bottom: 1vh;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    padding: 1vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
+    padding: 2vh;
     border: none;
-    border-radius: 1vh;
-    background-color: #1f6bff;
-    color: white;
+    background-color: black;
+    border-bottom: #2e2e2e 0.4vh solid;
     cursor: pointer;
+    display: grid;
+    gap: 2vh;
+    grid-template-columns: max-content auto max-content;
+}
+
+
+.ejericios2 p{
+    text-wrap: wrap;
+    color: white;
     font-size: 2vh;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;      
+    overflow: hidden;     
+    text-overflow: ellipsis;
 }
-h2{
+
+.imagenejercicio{
+    background-color: white;
+    width: 7vh;
+    height: 7vh;
+    border-radius: 20vh;
+    background-image: url(src/SVG/abdomen0.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h2, summary{
 font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -135,12 +190,12 @@ font-family: "Outfit", sans-serif;
   font-weight: 500;
   font-size: 3vh;
   font-style: normal;
-  color: #1a1a1a;
+  color: white;
   padding: 0;
   margin: 0;
 }
 
-section{
+section, .section{
     grid-area: CON;
     display: grid;
     grid-auto-rows: max-content;
@@ -150,7 +205,7 @@ section{
 header{
     position: sticky;
     top: 0;
-    background-color: #333333;
+    background-color: #1a1a1a;
     z-index: 20;
 
     grid-area: HEA;
@@ -168,7 +223,7 @@ nav{
     width: max-content;
     height: 5vh;
 }
-.opcion, #butsidebar{
+.opcion, #butsidebar, .opcion2{
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -178,7 +233,7 @@ nav{
     padding-right: 2vh;
     border: none;
     border-radius: 1vh;
-    color: #1a1a1a;
+    color: black;
     cursor: pointer;
     font-size: 2vh;
     text-decoration: none;
@@ -199,12 +254,12 @@ nav{
     font-size: 2vh;
     text-decoration: none;
 }
-#filtrosMusculo{
-    display: flex;
+#filtrosMusculocon{
+    display: grid;
     overflow-x: auto;
     gap: 1vh;
     max-width: 96vw;
-    margin-bottom: 2vh;
+    grid-template-rows: max-content max-content;
 }
 #filtrosMusculocon{
     display: flex;
@@ -237,7 +292,9 @@ nav{
     font-size: 2vh;
     text-decoration: none;
 }
+
 .filtroMusculo{
+    margin-bottom: 2vh;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -256,10 +313,15 @@ nav{
     width: 15vh;
     min-height: 15vh;
 }
+.seleccionado{
+    background-color: #1f6bff;
+}
 .filtroMusculo p{
 
     color: white;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .filtroMusculo div{
     background-position: center -3vh;
@@ -298,7 +360,7 @@ width: 100%;
     width: 90%;
     height: 20vh;
     padding: 5%;
-    background-color: white;
+    background-color: #1a1a1a;
 }
 
 .ejercicio{
@@ -312,10 +374,11 @@ width: 100%;
     width: 90%;
     height: max-content;
     padding: 5%;
-    background-color: white;
+    background-color: #1a1a1a;
 }
 .ejercicio input{
-    border: #1f6bff solid 0.2vh;
+    background-color: #2e2e2e;
+    color: white;
 }
 .series-list {
     display: grid;
@@ -324,6 +387,28 @@ width: 100%;
     overflow-x: auto; /* scroll horizontal si se desborda */
     padding: 0;
     margin: 1vh 0;
+}
+
+.serie2 {
+    margin-top: 1vh;
+    display: grid;
+    gap: 2%;
+    grid-template-columns: auto  40% 40% auto;  /* ajusté para que entren bien */
+    align-items: center;
+    border-bottom: white solid 0.2vh;
+    height: 4vh;
+
+}
+/* Chrome, Safari, Edge */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .serie {
@@ -343,9 +428,15 @@ width: 100%;
     overflow-x: hidden;
 }
 
-
+#modalEjercicios{
+    padding-top: 2vh;
+    grid-area: CON; 
+    z-index: 8; 
+    background-color: black;
+    grid-auto-rows: max-content;
+}
 .ejericios p{
-color: #333333;
+color: #1a1a1a;
 }
 .titulo{
     display: flex;
@@ -363,7 +454,7 @@ position: relative;
     padding: 2vh;
     right: 0vh;
     top: 5vh;
-    background-color: #1a1a1a;
+    background-color: black;
     border-radius: 1vh;
     gap: 2vh;
 }
@@ -378,7 +469,7 @@ position: relative;
     left: 100%;
     width: 100%;
     height: 100%;
-    background-color: #1a1a1ad2;
+    background-color: blackd2;
     -webkit-backdrop-filter: blur(0.5vh);
     backdrop-filter: blur(0.5vh);
     display: none;

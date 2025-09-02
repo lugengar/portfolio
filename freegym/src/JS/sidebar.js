@@ -1,4 +1,6 @@
+import { getUsuario } from "./store.js";
 
+const usuario = getUsuario();
 const button = document.getElementById("butsidebar");
 const sidebar = document.getElementById("sidebar");
 let abierto = false;
@@ -31,3 +33,8 @@ function home(){
 function progreso(){
     window.location.href="historial.html";
 }
+
+window.compartir = compartir;
+window.home = home;
+window.progreso = progreso;
+window.cerrarsesion = cerrarsesion;

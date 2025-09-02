@@ -1,53 +1,53 @@
 [
-  {"nombre":"Press de banca", "tipo":"kg", "musculo":"Pecho"},
-  {"nombre":"Flexiones", "tipo":"reps", "musculo":"Pecho"},
-  {"nombre":"Press inclinado con mancuernas", "tipo":"kg", "musculo":"Pecho"},
-  {"nombre":"Aperturas con mancuernas", "tipo":"kg", "musculo":"Pecho"},
-  
-  {"nombre":"Curl de bíceps con barra", "tipo":"kg", "musculo":"Bíceps"},
-  {"nombre":"Curl de bíceps alterno con mancuernas", "tipo":"kg", "musculo":"Bíceps"},
-  {"nombre":"Curl martillo", "tipo":"kg", "musculo":"Bíceps"},
-  
-  {"nombre":"Fondos en paralelas", "tipo":"reps", "musculo":"Tríceps"},
-  {"nombre":"Extensión de tríceps con mancuerna", "tipo":"kg", "musculo":"Tríceps"},
-  {"nombre":"Press francés", "tipo":"kg", "musculo":"Tríceps"},
-  
-  {"nombre":"Elevaciones laterales", "tipo":"kg", "musculo":"Hombros"},
-  {"nombre":"Press militar con barra", "tipo":"kg", "musculo":"Hombros"},
-  {"nombre":"Pájaros con mancuernas", "tipo":"kg", "musculo":"Hombros"},
-  
-  {"nombre":"Sentadillas", "tipo":"kg", "musculo":"Cuádriceps"},
-  {"nombre":"Prensa de piernas", "tipo":"kg", "musculo":"Cuádriceps"},
-  {"nombre":"Zancadas", "tipo":"kg", "musculo":"Cuádriceps"},
-  
-  {"nombre":"Curl femoral", "tipo":"kg", "musculo":"Isquiotibiales"},
-  {"nombre":"Peso muerto rumano", "tipo":"kg", "musculo":"Isquiotibiales"},
-  
-  {"nombre":"Elevación de talones de pie", "tipo":"kg", "musculo":"Gemelos"},
-  {"nombre":"Elevación de talones sentado", "tipo":"kg", "musculo":"Gemelos"},
-  
-  {"nombre":"Hip thrust", "tipo":"kg", "musculo":"Glúteos"},
-  {"nombre":"Puente de glúteos", "tipo":"kg", "musculo":"Glúteos"},
-  
-  {"nombre":"Plancha", "tipo":"seg", "musculo":"Abdomen"},
-  {"nombre":"Crunch abdominal", "tipo":"reps", "musculo":"Abdomen"},
-  {"nombre":"Elevaciones de piernas", "tipo":"reps", "musculo":"Abdomen"},
-  
-  {"nombre":"Twist ruso", "tipo":"kg", "musculo":"Oblicuos"},
-  {"nombre":"Oblique crunch", "tipo":"reps", "musculo":"Oblicuos"},
-  
-  {"nombre":"Remo con barra", "tipo":"kg", "musculo":"Espalda Alta"},
-  {"nombre":"Dominadas", "tipo":"reps", "musculo":"Espalda Alta"},
-  
-  {"nombre":"Peso muerto", "tipo":"kg", "musculo":"Espalda Baja"},
-  {"nombre":"Buenos días", "tipo":"kg", "musculo":"Espalda Baja"},
-  
-  {"nombre":"Encogimiento de trapecio con mancuernas", "tipo":"kg", "musculo":"Trapecio"},
-  {"nombre":"Remo al cuello", "tipo":"kg", "musculo":"Trapecio"},
-  
-  {"nombre":"Curl de antebrazo con barra", "tipo":"kg", "musculo":"Antebrazo"},
-  {"nombre":"Extensión de muñeca", "tipo":"kg", "musculo":"Antebrazo"},
-  
-  {"nombre":"Jalón al pecho", "tipo":"kg", "musculo":"Dorsales"},
-  {"nombre":"Remo con mancuerna", "tipo":"kg", "musculo":"Dorsales"}
+  {"nombre":"Press de banca", "tipo":"kg", "musculo":"Pecho", "equipamiento":"Barra"},
+  {"nombre":"Flexiones", "tipo":"reps", "musculo":"Pecho", "equipamiento":"Peso corporal"},
+  {"nombre":"Press inclinado con mancuernas", "tipo":"kg", "musculo":"Pecho", "equipamiento":"Mancuernas"},
+  {"nombre":"Aperturas con mancuernas", "tipo":"kg", "musculo":"Pecho", "equipamiento":"Mancuernas"},
+
+  {"nombre":"Curl de bíceps con barra", "tipo":"kg", "musculo":"Bíceps", "equipamiento":"Barra"},
+  {"nombre":"Curl de bíceps alterno con mancuernas", "tipo":"kg", "musculo":"Bíceps", "equipamiento":"Mancuernas"},
+  {"nombre":"Curl martillo", "tipo":"kg", "musculo":"Bíceps", "equipamiento":"Mancuernas"},
+
+  {"nombre":"Fondos en paralelas", "tipo":"reps", "musculo":"Tríceps", "equipamiento":"Peso corporal"},
+  {"nombre":"Extensión de tríceps con mancuerna", "tipo":"kg", "musculo":"Tríceps", "equipamiento":"Mancuernas"},
+  {"nombre":"Press francés", "tipo":"kg", "musculo":"Tríceps", "equipamiento":"Barra"},
+
+  {"nombre":"Elevaciones laterales", "tipo":"kg", "musculo":"Hombros", "equipamiento":"Mancuernas"},
+  {"nombre":"Press militar con barra", "tipo":"kg", "musculo":"Hombros", "equipamiento":"Barra"},
+  {"nombre":"Pájaros con mancuernas", "tipo":"kg", "musculo":"Hombros", "equipamiento":"Mancuernas"},
+
+  {"nombre":"Sentadillas", "tipo":"kg", "musculo":"Cuádriceps", "equipamiento":"Peso corporal"},
+  {"nombre":"Prensa de piernas", "tipo":"kg", "musculo":"Cuádriceps", "equipamiento":"Máquina"},
+  {"nombre":"Zancadas", "tipo":"kg", "musculo":"Cuádriceps", "equipamiento":"Mancuernas"},
+
+  {"nombre":"Curl femoral", "tipo":"kg", "musculo":"Isquiotibiales", "equipamiento":"Máquina"},
+  {"nombre":"Peso muerto rumano", "tipo":"kg", "musculo":"Isquiotibiales", "equipamiento":"Barra"},
+
+  {"nombre":"Elevación de talones de pie", "tipo":"kg", "musculo":"Gemelos", "equipamiento":"Barra"},
+  {"nombre":"Elevación de talones sentado", "tipo":"kg", "musculo":"Gemelos", "equipamiento":"Máquina"},
+
+  {"nombre":"Hip thrust", "tipo":"kg", "musculo":"Glúteos", "equipamiento":"Barra"},
+  {"nombre":"Puente de glúteos", "tipo":"kg", "musculo":"Glúteos", "equipamiento":"Peso corporal"},
+
+  {"nombre":"Plancha", "tipo":"seg", "musculo":"Abdomen", "equipamiento":"Peso corporal"},
+  {"nombre":"Crunch abdominal", "tipo":"reps", "musculo":"Abdomen", "equipamiento":"Peso corporal"},
+  {"nombre":"Elevaciones de piernas", "tipo":"reps", "musculo":"Abdomen", "equipamiento":"Peso corporal"},
+
+  {"nombre":"Twist ruso", "tipo":"kg", "musculo":"Oblicuos", "equipamiento":"Mancuernas"},
+  {"nombre":"Oblique crunch", "tipo":"reps", "musculo":"Oblicuos", "equipamiento":"Peso corporal"},
+
+  {"nombre":"Remo con barra", "tipo":"kg", "musculo":"Espalda Alta", "equipamiento":"Barra"},
+  {"nombre":"Dominadas", "tipo":"reps", "musculo":"Espalda Alta", "equipamiento":"Peso corporal"},
+
+  {"nombre":"Peso muerto", "tipo":"kg", "musculo":"Espalda Baja", "equipamiento":"Barra"},
+  {"nombre":"Buenos días", "tipo":"kg", "musculo":"Espalda Baja", "equipamiento":"Barra"},
+
+  {"nombre":"Encogimiento de trapecio con mancuernas", "tipo":"kg", "musculo":"Trapecio", "equipamiento":"Mancuernas"},
+  {"nombre":"Remo al cuello", "tipo":"kg", "musculo":"Trapecio", "equipamiento":"Barra"},
+
+  {"nombre":"Curl de antebrazo con barra", "tipo":"kg", "musculo":"Antebrazo", "equipamiento":"Barra"},
+  {"nombre":"Extensión de muñeca", "tipo":"kg", "musculo":"Antebrazo", "equipamiento":"Mancuernas"},
+
+  {"nombre":"Jalón al pecho", "tipo":"kg", "musculo":"Dorsales", "equipamiento":"Máquina"},
+  {"nombre":"Remo con mancuerna", "tipo":"kg", "musculo":"Dorsales", "equipamiento":"Mancuernas"}
 ]

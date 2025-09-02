@@ -1,94 +1,67 @@
-let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
-if(!usuario) window.location.href="index.html";
+import { getUsuario } from "./store.js";
+import { deleteRutina } from "./rutinasStore.js";
+import { crearElemento, crearBoton } from "./uiHelpers.js";
+
+const usuario = getUsuario();
+if (!usuario) window.location.href = "index.html";
 
 const rutinasList = document.getElementById("rutinasList");
 const agregarRutinaBtn = document.getElementById("agregarRutinaBtn");
-const cerrarSesionBtn = document.getElementById("cerrarSesionBtn");
-const compartirBtn = document.querySelector("button.opcion");
 
-// CREAR NUEVA RUTINA
 agregarRutinaBtn.addEventListener("click", ()=>{
-    localStorage.removeItem("editarRutinaIndex"); // crear nueva
-    window.location.href="editarRutina.html";
+  localStorage.removeItem("editarRutinaIndex");
+  window.location.href="editarRutina.html";
 });
 
-// CERRAR SESIÓN
-
-
-// RENDERIZAR RUTINAS
 function renderRutinas(){
-    rutinasList.innerHTML = "";
-    (usuario.rutinas || []).forEach((r, i) => {
+  rutinasList.innerHTML = "";
+  (usuario.rutinas || []).forEach((r, i) => {
+    const divRutina = crearElemento("div","rutina");
 
-        const divRutina = document.createElement("div");
-        divRutina.classList.add("rutina");
+    const divTitulo = crearElemento("div","titulo");
+    const h3 = crearElemento("h3","",r.nombre);
+    const btnOpciones = crearBoton("⋮", ()=>{ menuOpciones.style.display = menuOpciones.style.display==="none"?"grid":"none"; });
+    btnOpciones.classList.add("config");
 
-        // Título + botón opciones
-        const divTitulo = document.createElement("div");
-        divTitulo.classList.add("titulo");
+    const menuOpciones = crearElemento("div","opciones");
+    menuOpciones.style.display="none";
+    menuOpciones.innerHTML = `<button class="editar boton">Editar</button> <button class="eliminar boton">Eliminar</button>`;
 
-        const h3 = document.createElement("h3");
-        h3.textContent = r.nombre;
-
-        const btnOpciones = document.createElement("button");
-        btnOpciones.classList.add("boton");
-        btnOpciones.classList.add("config");
-        btnOpciones.textContent = "⋮";
-
-        // Menu opciones
-        const menuOpciones = document.createElement("div");
-        menuOpciones.classList.add("opciones");
-
-        menuOpciones.innerHTML = `<button class="editar boton">Editar</button> <button class="eliminar boton">Eliminar</button>`;
-        menuOpciones.style.display = "none"
-        btnOpciones.addEventListener("click", ()=>{
-            menuOpciones.style.display = menuOpciones.style.display==="none"?"grid":"none";
-        });
-
-        menuOpciones.querySelector(".editar").addEventListener("click", ()=>{
-            localStorage.setItem("editarRutinaIndex", i);
-            window.location.href="editarRutina.html";
-        });
-
-        menuOpciones.querySelector(".eliminar").addEventListener("click", ()=>{
-            if(confirm("¿Eliminar rutina "+r.nombre+"?")){
-                usuario.rutinas.splice(i,1);
-                localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
-                renderRutinas();
-            }
-        });
-
-        divTitulo.appendChild(h3);
-        divTitulo.appendChild(btnOpciones);
-        btnOpciones.appendChild(menuOpciones);
-
-        // Ejercicios
-        const divEjercicios = document.createElement("div");
-        divEjercicios.id = "ejercicios";
-        (r.ejercicios || []).forEach(ex=>{
-            const p = document.createElement("p");
-            const numSeries = ex.series ? ex.series.length : 0;
-            p.textContent = `${ex.ejercicio} (${numSeries} ${numSeries===1?"serie":"series"})`;
-            divEjercicios.appendChild(p);
-        });
-
-        // Botón iniciar rutina
-        const btnIniciar = document.createElement("button");
-        btnIniciar.type="button";
-        btnIniciar.classList.add("boton");
-        btnIniciar.textContent = "INICIAR RUTINA";
-        btnIniciar.addEventListener("click", ()=>{
-            localStorage.setItem("rutinaIndex", i);
-            localStorage.setItem("progresoRutina", JSON.stringify({ejercicios:(r.ejercicios||[]).map(ex=>(ex.series||[]).map(s=>false))}));
-            window.location.href="ejercicio.html";
-        });
-
-        divRutina.appendChild(divTitulo);
-        divRutina.appendChild(divEjercicios);
-        divRutina.appendChild(btnIniciar);
-
-        rutinasList.appendChild(divRutina);
+    menuOpciones.querySelector(".editar").addEventListener("click", ()=>{
+      localStorage.setItem("editarRutinaIndex", i);
+      window.location.href="editarRutina.html";
     });
+
+    menuOpciones.querySelector(".eliminar").addEventListener("click", (ev) => {
+      ev.stopPropagation(); // evita que se dispare algún click padre
+      if(confirm("¿Eliminar rutina " + r.nombre + "?")){
+          deleteRutina(i); // borra de los datos
+          const parent = ev.target.closest(".rutina"); // o parentElement varias veces hasta el div que quieras eliminar
+          if(parent){
+              parent.remove(); // elimina del DOM
+          }
+      }
+  });
+  
+
+    divTitulo.append(h3, btnOpciones);
+    btnOpciones.appendChild(menuOpciones);
+
+    const divEjercicios = crearElemento("div","ejercicios");
+    (r.ejercicios||[]).forEach(ex=>{
+      const p = crearElemento("p","",""+ex.ejercicio+" ("+(ex.series?.length||0)+" series)");
+      divEjercicios.appendChild(p);
+    });
+
+    const btnIniciar = crearBoton("INICIAR RUTINA", ()=>{
+      localStorage.setItem("rutinaIndex", i);
+      localStorage.setItem("progresoRutina", JSON.stringify({ejercicios:(r.ejercicios||[]).map(ex=>(ex.series||[]).map(()=>false))}));
+      window.location.href="ejercicio.html";
+    });
+
+    divRutina.append(divTitulo,divEjercicios,btnIniciar);
+    rutinasList.appendChild(divRutina);
+  });
 }
 
 renderRutinas();

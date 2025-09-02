@@ -22,7 +22,7 @@
 <video class="fondovideo" src="src/MP4/fondo.mp4" autoplay loop muted></video>
 <div class="container2" id="authContainer">
   <header class="header2"></header>
-  <section>
+  <form class="section" id="formulario">
     <h2 id="formTitle" class="fade-slide show">Iniciar Sesión</h2>
     <input type="text" id="nombre" placeholder="Nombre de usuario" class="fade-slide show">
     <input type="password" id="contraseña" placeholder="Contraseña" class="fade-slide show">
@@ -36,124 +36,10 @@
     <button id="submitBtn" class="boton fade-slide show">Iniciar Sesión</button>
     <button class="toggle boton2 fade-slide show" id="toggleForm">Crear cuenta</button>
     <button class="guest boton2 fade-slide show" id="guestBtn">Entrar como invitado</button>
-  </section>
+  </form>
 </div>
 
-<script>
-const BIN_ID = "68b26e1e43b1c97be92ffba5";
-const API_KEY = "$2a$10$N9BfvBkwc28noC55lGE5a.Yu7Ks9oGdImysR52pg8xPk4m/wsjQMe";
-let usuarios = [];
+<script type="module" src="src/JS/inicio.js"></script>
 
-// Elementos
-let esLogin = true;
-const formTitle = document.getElementById("formTitle");
-const submitBtn = document.getElementById("submitBtn");
-const toggleForm = document.getElementById("toggleForm");
-const guestBtn = document.getElementById("guestBtn");
-const nombreInput = document.getElementById("nombre");
-const contraseñaInput = document.getElementById("contraseña");
-const confirmarContraseñaInput = document.getElementById("confirmarContraseña");
-const rolSelect = document.getElementById("rolSelect");
-
-// Función para animar campos
-function animarCampos() {
-  const campos = document.querySelectorAll(".fade-slide");
-  campos.forEach(campo => {
-    campo.classList.remove("show");
-    setTimeout(() => campo.classList.add("show"), 50);
-  });
-}
-
-// Cargar usuarios desde JSONBin
-async function cargarUsuarios() {
-  if (!localStorage.getItem("usuarios")) {
-    try {
-      const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-        headers: { "X-Access-Key": API_KEY }
-      });
-      const data = await res.json();
-      usuarios = data.record;
-      localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    } catch (err) {
-      console.error("Error cargando JSONBin:", err);
-    }
-  } else {
-    usuarios = JSON.parse(localStorage.getItem("usuarios"));
-  }
-}
-
-// Cambiar entre login y registro
-toggleForm.addEventListener("click", () => {
-  esLogin = !esLogin;
-  formTitle.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
-  submitBtn.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
-  toggleForm.textContent = esLogin ? "Crear cuenta" : "Iniciar sesión";
-
-  // Mostrar / ocultar confirmación y rol
-  confirmarContraseñaInput.style.display = esLogin ? "none" : "block";
-  rolSelect.style.display = esLogin ? "none" : "block";
-
-  // Lanzar animación
-  animarCampos();
-});
-
-// Login / Registro
-submitBtn.addEventListener("click", async () => {
-  await cargarUsuarios();
-  const nombre = nombreInput.value.trim();
-  const contraseña = contraseñaInput.value.trim();
-  const confirmarContraseña = confirmarContraseñaInput.value.trim();
-  const rol = rolSelect.value;
-
-  if (!nombre || !contraseña) return alert("Completa todos los campos");
-
-  if (esLogin) {
-    const usuario = usuarios.find(u => u.nombre === nombre && u.contraseña === contraseña);
-    if (usuario) {
-      localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
-      window.location.href = "rutinas.html";
-    } else {
-      alert("Usuario o contraseña incorrectos");
-    }
-  } else {
-    if (contraseña !== confirmarContraseña) {
-      return alert("Las contraseñas no coinciden");
-    }
-    const existe = usuarios.find(u => u.nombre === nombre);
-    if (existe) return alert("El usuario ya existe");
-
-    const nuevoUsuario = { nombre, contraseña, rol, rutinas: [] };
-    usuarios.push(nuevoUsuario);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    localStorage.setItem("usuarioActivo", JSON.stringify(nuevoUsuario));
-
-    // Guardar en JSONBin
-    try {
-      await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Access-Key": API_KEY
-        },
-        body: JSON.stringify(usuarios)
-      });
-    } catch (err) {
-      console.error("Error guardando en JSONBin:", err);
-    }
-    window.location.href = "rutinas.html";
-  }
-
-  nombreInput.value = "";
-  contraseñaInput.value = "";
-  confirmarContraseñaInput.value = "";
-});
- 
-// Opción invitado
-guestBtn.addEventListener("click", () => {
-  const invitado = { nombre: "Invitado", rol: "invitado", rutinas: [] };
-  localStorage.setItem("usuarioActivo", JSON.stringify(invitado));
-  window.location.href = "rutinas.html";
-});
-</script>
 </body>
 </html>

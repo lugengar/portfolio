@@ -1,74 +1,99 @@
 {
-    "musculos": [
-      {
-        "nombre": "Abdomen",
-        "archivo": "src/SVG/abdomen0.svg"
-      },
-      {
-        "nombre": "Antebrazo",
-        "archivo": "src/SVG/antebrazo0.svg"
-      },
-      {
-        "nombre": "Bíceps",
-        "archivo": "src/SVG/biceps0.svg"
-      },
-      {
-        "nombre": "Cuádriceps",
-        "archivo": "src/SVG/cuadriceps0.svg",
-        "position": "center -7vh"
-      },
-      {
-        "nombre": "Dorsales",
-        "archivo": "src/SVG/dorsales0.svg",
-        "position": "center 1vh"
-      },
-      {
-        "nombre": "Espalda Alta",
-        "archivo": "src/SVG/espalda_alta0.svg",
-        "position": "center 1vh"
-      },
-      {
-        "nombre": "Espalda Baja",
-        "archivo": "src/SVG/espalda_baja0.svg"
-      },
-      {
-        "nombre": "Gemelos",
-        "archivo": "src/SVG/gemelos0.svg",
-        "position": "center bottom"
-      },
-      {
-        "nombre": "Glúteos",
-        "archivo": "src/SVG/gluteos0.svg",
-        "position": "center -5vh"
-      },
-      {
-        "nombre": "Hombros",
-        "archivo": "src/SVG/hombros0.svg",
-        "position": "center 1vh"
-      },
-      {
-        "nombre": "Isquiotibiales",
-        "archivo": "src/SVG/isquiotibiales0.svg",
-        "position": "center -7vh"
-      },
-      {
-        "nombre": "Oblicuos",
-        "archivo": "src/SVG/oblicuos0.svg"
-      },
-      {
-        "nombre": "Pecho",
-        "archivo": "src/SVG/pecho0.svg",
-        "position": "center 1vh"
-      },
-      {
-        "nombre": "Trapecio",
-        "archivo": "src/SVG/trapecio0.svg",
-        "position": "center 1vh"
-      },
-      {
-        "nombre": "Tríceps",
-        "archivo": "src/SVG/triceps0.svg"
-      }
-    ]
-  }
-  
+  "musculos": [
+    {
+      "nombre": "Abdomen",
+      "archivo": "src/SVG/abdomen0.svg"
+    },
+    {
+      "nombre": "Antebrazo",
+      "archivo": "src/SVG/antebrazo0.svg"
+    },
+    {
+      "nombre": "Bíceps",
+      "archivo": "src/SVG/biceps0.svg"
+    },
+    {
+      "nombre": "Cuádriceps",
+      "archivo": "src/SVG/cuadriceps0.svg",
+      "position": "center -7vh"
+    },
+    {
+      "nombre": "Dorsales",
+      "archivo": "src/SVG/dorsales0.svg",
+      "position": "center 1vh"
+    },
+    {
+      "nombre": "Espalda Alta",
+      "archivo": "src/SVG/espalda_alta0.svg",
+      "position": "center 1vh"
+    },
+    {
+      "nombre": "Espalda Baja",
+      "archivo": "src/SVG/espalda_baja0.svg"
+    },
+    {
+      "nombre": "Gemelos",
+      "archivo": "src/SVG/gemelos0.svg",
+      "position": "center bottom"
+    },
+    {
+      "nombre": "Glúteos",
+      "archivo": "src/SVG/gluteos0.svg",
+      "position": "center -5vh"
+    },
+    {
+      "nombre": "Hombros",
+      "archivo": "src/SVG/hombros0.svg",
+      "position": "center 1vh"
+    },
+    {
+      "nombre": "Isquiotibiales",
+      "archivo": "src/SVG/isquiotibiales0.svg",
+      "position": "center -7vh"
+    },
+    {
+      "nombre": "Oblicuos",
+      "archivo": "src/SVG/oblicuos0.svg"
+    },
+    {
+      "nombre": "Pecho",
+      "archivo": "src/SVG/pecho0.svg",
+      "position": "center 1vh"
+    },
+    {
+      "nombre": "Trapecio",
+      "archivo": "src/SVG/trapecio0.svg",
+      "position": "center 1vh"
+    },
+    {
+      "nombre": "Tríceps",
+      "archivo": "src/SVG/triceps0.svg"
+    }
+  ],
+  "equipamiento": [
+    {
+      "nombre": "Peso corporal",
+      "archivo": "src/SVG/equip_peso_corporal.svg"
+    },
+    {
+      "nombre": "Mancuernas",
+      "archivo": "src/SVG/equip_mancuernas.svg"
+    },
+    {
+      "nombre": "Barra",
+      "archivo": "src/SVG/equip_barra.svg"
+    },
+    {
+      "nombre": "Máquina",
+      "archivo": "src/SVG/equip_maquina.svg"
+    },
+    {
+      "nombre": "Banda elástica",
+      "archivo": "src/SVG/equip_banda.svg"
+    },
+    {
+      "nombre": "Banco",
+      "archivo": "src/SVG/equip_banco.svg"
+    }
+  ]
+}
