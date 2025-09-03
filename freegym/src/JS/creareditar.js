@@ -1,5 +1,5 @@
 import { getUsuario, setUsuario } from "./store.js";
-
+import { guardarRutinasEnLaNube } from "./cloud.js";
 let usuario = getUsuario();
 if(!usuario) window.location.href="index.html";
 

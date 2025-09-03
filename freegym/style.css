@@ -7,9 +7,10 @@
     top: 0%;
     display: grid;
     grid-template:
-    "HEA HEA HEA"8vh
-    ". CON ."auto/
-    2% auto 2% ;
+    "HEA HEA HEA"8dvh
+    ". CON ."92dvh
+    ". . ."auto/
+    auto 60vh auto ;
 }
 .container2{
     position: absolute;
@@ -19,9 +20,10 @@
     top: 0%;
     display: grid;
     grid-template:
-    "HEA HEA HEA"30vh
-    ". CON ."auto/
-    2% auto 2% ;
+    "HEA HEA HEA"30dvh
+    ". CON ."70dvh
+    ". . ."auto/
+    auto 60vh auto  ;
 }
 .fondovideo{
     position: absolute;
@@ -645,5 +647,31 @@ background-color: #1f6bff;
     #sidebar{
         display: grid;
 
+    }
+    .container{
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        left: 0%;
+        top: 0%;
+        display: grid;
+        grid-template:
+        "HEA HEA HEA"8dvh
+        ". CON ."92dvh
+        ". . ."auto/
+        2% auto 2% ;
+    }
+    .container2{
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        left: 0%;
+        top: 0%;
+        display: grid;
+        grid-template:
+        "HEA HEA HEA"30dvh
+        ". CON ."70dvh
+        ". . ."auto/
+        2% auto 2%  ;
     }
 }
