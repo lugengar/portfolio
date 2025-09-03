@@ -1,115 +1,135 @@
-import { JSONBIN_ID, JSONBIN_KEY } from "./config.js"; 
-import { setUsuario } from "./store.js";
+// src/JS/inicio.js
+import { USUARIOS_ID, JSONBIN_KEY } from "./config.js";
 
-// 🔹 Auto login si ya hay usuario activo
-const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
-if (usuarioActivo) {
-  window.location.href = "rutinas.html";
-}
-
-// Variables
-let usuarios = [];
-let esLogin = true;
-
-// Elementos
-const formTitle = document.getElementById("formTitle");
-const form = document.getElementById("formulario");
-const submitBtn = document.getElementById("submitBtn");
-const toggleForm = document.getElementById("toggleForm");
-const guestBtn = document.getElementById("guestBtn");
+// Elementos del DOM
+const formulario = document.getElementById("formulario");
 const nombreInput = document.getElementById("nombre");
 const contraseñaInput = document.getElementById("contraseña");
 const confirmarContraseñaInput = document.getElementById("confirmarContraseña");
 const rolSelect = document.getElementById("rolSelect");
+const formTitle = document.getElementById("formTitle");
+const submitBtn = document.getElementById("submitBtn");
+const toggleForm = document.getElementById("toggleForm");
+const guestBtn = document.getElementById("guestBtn");
 
-// Animación de campos
-function animarCampos() {
-  document.querySelectorAll(".fade-slide").forEach(campo => {
-    campo.classList.remove("show");
-    setTimeout(() => campo.classList.add("show"), 50);
-  });
-}
+let esLogin = true;
+let cuentas = [];
 
-// Cargar usuarios desde localStorage o JSONBin
-async function cargarUsuarios() {
-  if (!localStorage.getItem("usuarios")) {
-    try {
-      const res = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_ID}/latest`, {
-        headers: { "X-Access-Key": JSONBIN_KEY }
-      });
-      const data = await res.json();
-      usuarios = data.record;
-      localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    } catch (err) {
-      console.error("Error cargando JSONBin:", err);
-    }
-  } else {
-    usuarios = JSON.parse(localStorage.getItem("usuarios"));
+// --- Funciones auxiliares ---
+async function obtenerCuentas() {
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${USUARIOS_ID}/latest`, {
+      headers: { "X-Access-Key": JSONBIN_KEY }
+    });
+    const data = await res.json();
+    cuentas = data.record || [];
+  } catch (e) {
+    console.error("Error al cargar las cuentas:", e);
+    cuentas = [];
   }
 }
 
-// Toggle login/registro
-toggleForm.addEventListener("click", () => {
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function guardarSesion(usuario) {
+  localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+}
+
+// --- Lógica de formulario ---
+toggleForm.addEventListener("click", (e) => {
+  e.preventDefault();
   esLogin = !esLogin;
-  formTitle.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
-  submitBtn.textContent = esLogin ? "Iniciar Sesión" : "Crear Cuenta";
-  toggleForm.textContent = esLogin ? "Crear cuenta" : "Iniciar sesión";
-  confirmarContraseñaInput.style.display = esLogin ? "none" : "block";
-  rolSelect.style.display = esLogin ? "none" : "block";
-  animarCampos();
-});
-
-// Envío del formulario
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  await cargarUsuarios();
-
-  const nombre = nombreInput.value.trim();
-  const contraseña = contraseñaInput.value.trim();
-  const confirmar = confirmarContraseñaInput.value.trim();
-  const rol = rolSelect.value;
-
-  if (!nombre || !contraseña) return alert("Completa todos los campos");
 
   if (esLogin) {
-    // Iniciar sesión
-    const usuario = usuarios.find(u => u.nombre === nombre && u.contraseña === contraseña);
+    formTitle.textContent = "Iniciar Sesión";
+    submitBtn.textContent = "Iniciar Sesión";
+    confirmarContraseñaInput.style.display = "none";
+    rolSelect.style.display = "none";
+    toggleForm.textContent = "Crear cuenta";
+  } else {
+    formTitle.textContent = "Crear Cuenta";
+    submitBtn.textContent = "Crear Cuenta";
+    confirmarContraseñaInput.style.display = "block";
+    rolSelect.style.display = "block";
+    toggleForm.textContent = "Ya tengo cuenta";
+  }
+});
+
+guestBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const invitado = { nombre: "Invitado", ID: "guest", rol: "casual" };
+  guardarSesion(invitado);
+  alert("Sesión iniciada como invitado");
+  window.location.href = "home.html";
+});
+
+formulario.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const nombre = nombreInput.value.trim();
+  const contraseña = contraseñaInput.value;
+
+  if (!nombre || !contraseña) {
+    alert("Por favor completa todos los campos");
+    return;
+  }
+
+  if (esLogin) {
+    await obtenerCuentas();
+    const hashed = await hashPassword(contraseña);
+    const usuario = cuentas.find(u => u.nombre === nombre && u.contraseña === hashed);
     if (usuario) {
-      setUsuario(usuario);
-      window.location.href = "rutinas.html";
+      guardarSesion(usuario);
+      alert("Sesión iniciada con éxito");
+      window.location.href = "home.html";
     } else {
       alert("Usuario o contraseña incorrectos");
     }
   } else {
-    // Crear cuenta
-    if (contraseña !== confirmar) return alert("Las contraseñas no coinciden");
-    if (usuarios.find(u => u.nombre === nombre)) return alert("El usuario ya existe");
-
-    const nuevoUsuario = { nombre, contraseña, rol, rutinas: [] };
-    usuarios.push(nuevoUsuario);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    setUsuario(nuevoUsuario);
-
-    try {
-      await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_ID}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", "X-Access-Key": JSONBIN_KEY },
-        body: JSON.stringify(usuarios)
-      });
-    } catch (err) { 
-      console.error("Error guardando en JSONBin:", err); 
+    const confirmar = confirmarContraseñaInput.value;
+    const rol = rolSelect.value;
+    if (contraseña !== confirmar) {
+      alert("Las contraseñas no coinciden");
+      return;
     }
 
-    window.location.href = "rutinas.html";
+    await obtenerCuentas();
+    if (cuentas.some(u => u.nombre === nombre)) {
+      alert("El nombre de usuario ya existe");
+      return;
+    }
+
+    const hashed = await hashPassword(contraseña);
+    const nuevoUsuario = {
+      nombre,
+      contraseña: hashed,
+      ID: crypto.randomUUID(),
+      rol
+    };
+
+    cuentas.push(nuevoUsuario);
+
+    try {
+      await fetch(`https://api.jsonbin.io/v3/b/${USUARIOS_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Access-Key": JSONBIN_KEY,
+          "X-Bin-Versioning": "false"
+        },
+        body: JSON.stringify(cuentas)
+      });
+      guardarSesion(nuevoUsuario);
+      alert("Cuenta creada con éxito");
+      window.location.href = "home.html";
+    } catch (e) {
+      console.error("Error al guardar la cuenta:", e);
+      alert("No se pudo crear la cuenta");
+    }
   }
-
-  // Limpiar inputs
-  nombreInput.value = contraseñaInput.value = confirmarContraseñaInput.value = "";
-});
-
-// Botón Invitado
-guestBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  setUsuario({ nombre: "Invitado", rol: "invitado", rutinas: [] });
-  window.location.href = "rutinas.html";
 });

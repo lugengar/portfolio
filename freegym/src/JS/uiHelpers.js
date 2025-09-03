@@ -1,7 +1,8 @@
-export function crearElemento(tag, className="", text="") {
+// src/JS/uiHelpers.js
+export function crearElemento(tag, className = "", text = "") {
   const el = document.createElement(tag);
-  if(className) el.className = className;
-  if(text) el.textContent = text;
+  if (className) el.className = className;
+  if (text) el.textContent = text;
   return el;
 }
 

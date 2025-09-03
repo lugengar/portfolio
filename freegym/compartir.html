@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FREEGYM</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 <div class="container">
@@ -17,21 +16,22 @@
         <button class="opcion" onclick="cerrarsesion()">Cerrar sesión</button>
         <button id="butsidebar">☰</button>
     </nav>
-</header>
-  <section>
-<h2>Compartir Rutina</h2>
+  </header>
 
-<h3 style="color: white;">Enviar rutina</h3>
-<select id="misRutinasSelect"></select>
-<input type="text" id="destinatario" placeholder="Buscar usuario...">
-<div id="sugerencias"></div>
-<button id="enviarBtn" class="boton">Enviar Rutina</button>
-<div>
-<h3 style="color: white;">Rutinas recibidas</h3>
-<p style="color: white;" id="buzonList"></p>
+  <section>
+    <h2>Compartir Rutina</h2>
+
+    <h3 style="color:white;">Enviar rutina</h3>
+    <select id="misRutinasSelect"></select>
+    <input type="text" id="destinatario" placeholder="Buscar usuario...">
+    <div id="sugerencias"></div>
+    <button id="enviarBtn" class="boton">Enviar Rutina</button>
+
+    <h3 style="color:white;">Rutinas recibidas</h3>
+    <ul id="buzonList"></ul>
+  </section>
 </div>
-</section>
-</div>
+
 <div id="sidebar">
   <button class="opcion" onclick="home()">Inicio</button>
   <button class="opcion" onclick="progreso()">Ver progreso</button>
@@ -40,6 +40,5 @@
 
 <script type="module" src="src/JS/compartir.js"></script>
 <script type="module" src="src/JS/sidebar.js"></script>
-
 </body>
 </html>

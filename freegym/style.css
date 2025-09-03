@@ -522,6 +522,7 @@ input[type=number] {
 }
 
 #modalEjercicios{
+    display: none;
     padding-top: 2vh;
     grid-area: CON; 
     z-index: 8; 
@@ -572,11 +573,28 @@ position: relative;
 }
 #butsidebar {
     display: none;
+    font-size: 3vh;
 }
 #sidebar .opcion{
     width: 80%;
 }
 
+.historialEjercicio {
+    margin-bottom: 1vh;
+    background-color: #1a1a1a;
+    padding: 2vh;
+    border-radius: 1vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+
+/* Medalla dentro de la serie */
+.historialEjercicio p span.medalla {
+    font-size: 2vh;
+    margin-left: 1vh;
+}
 
 #descansoTexto{color:white;;
     position: absolute;

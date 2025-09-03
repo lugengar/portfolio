@@ -6,16 +6,7 @@
 <title>FREEGYM</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Animaciones */
-  .fade-slide {
-    opacity: 0;
-    transform: translateY(-15px);
-    transition: all 0.4s ease;
-  }
-  .fade-slide.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+ 
 </style>
 </head>
 <body>
@@ -35,7 +26,7 @@
     </select>
     <button id="submitBtn" class="boton fade-slide show">Iniciar Sesión</button>
     <button class="toggle boton2 fade-slide show" id="toggleForm">Crear cuenta</button>
-    <button class="guest boton2 fade-slide show" id="guestBtn">Entrar como invitado</button>
+    <button class="guest boton2 fade-slide show" style="display: none;" id="guestBtn">Entrar como invitado</button>
   </form>
 </div>
 
